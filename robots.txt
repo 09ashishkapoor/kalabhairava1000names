@@ -1,0 +1,8 @@
+User-agent: *
+Disallow:
+
+# Point crawlers to the sitemap
+Sitemap: https://bhairavakaalikenamosthute.com/sitemap.xml
+
+# Crawl-delay is optional; leave unset to allow normal crawling
+# Crawl-delay: 10
