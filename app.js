@@ -70,6 +70,8 @@
     elements.errorState = document.getElementById('error-state');
     elements.errorMessage = document.getElementById('error-message');
     elements.statsDisplay = document.getElementById('stats-display');
+    elements.ebookBanner = document.querySelector('.ebook-banner');
+    elements.ebookBannerClose = document.querySelector('.ebook-banner-close');
   }
   
   function setupEventListeners() {
@@ -90,6 +92,14 @@
     
     // Load more
     elements.loadMoreBtn.addEventListener('click', loadMoreNames);
+    
+    // Ebook banner close
+    if (elements.ebookBannerClose) {
+      elements.ebookBannerClose.addEventListener('click', closeEbookBanner);
+    }
+    
+    // Restore ebook banner visibility if needed
+    restoreEbookBannerVisibility();
   }
   
   // Load Data
@@ -385,6 +395,26 @@
     elements.errorState.classList.remove('hidden');
     elements.errorMessage.textContent = message;
     elements.namesGrid.innerHTML = '';
+  }
+  
+  // Ebook banner management
+  function closeEbookBanner() {
+    if (elements.ebookBanner) {
+      elements.ebookBanner.classList.add('hidden');
+      // Save preference for 30 days
+      const expiryDate = new Date();
+      expiryDate.setDate(expiryDate.getDate() + 30);
+      document.cookie = `ebookBannerClosed=true; path=/; expires=${expiryDate.toUTCString()}`;
+    }
+  }
+  
+  function restoreEbookBannerVisibility() {
+    const cookies = document.cookie.split(';').map(c => c.trim());
+    const isClosed = cookies.some(c => c.startsWith('ebookBannerClosed=true'));
+    
+    if (isClosed && elements.ebookBanner) {
+      elements.ebookBanner.classList.add('hidden');
+    }
   }
   
   // Utility: Debounce
