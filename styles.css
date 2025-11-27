@@ -30,7 +30,7 @@
   --color-crimson: #dc143c;
   --color-blood-red: #8b0000;
   --color-divine-gold: #ffd700;
-  --color-smoke: rgba(255, 255, 255, 0.1);
+  --color-smoke: rgba(0, 0, 0, 0.55);
   
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -67,7 +67,7 @@ body[data-theme="light"] {
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #4a4a4a;
   --color-text-muted: #808080;
-  --color-smoke: rgba(0, 0, 0, 0.1);
+  --color-smoke: rgba(255, 255, 255, 0.95);
 }
 
 /* ============================================
