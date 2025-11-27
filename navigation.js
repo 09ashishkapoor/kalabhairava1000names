@@ -146,21 +146,6 @@
     init();
   }
 })();
-
-<script>
-  (function(){
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(function(){
-        var s = document.createElement('script');
-        s.src = '/navigation.js?v=2';
-        s.defer = true;
-        document.body.appendChild(s);
-      }, {timeout:2000});
-    } else {
-      var s = document.createElement('script');
-      s.src = '/navigation.js?v=2';
-      s.defer = true;
-      document.body.appendChild(s);
-    }
-  })();
-</script>
+// Note: any script-injection snippets were removed — navigation.js should contain
+// only JavaScript. If you want deferred loading of this file, include a small
+// loader snippet in `index.html` instead (or rely on `defer` on the script tag).
