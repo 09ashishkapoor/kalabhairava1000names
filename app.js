@@ -443,4 +443,7 @@ function createChunk() {
     namesGrid.appendChild(frag);
   }
 }
-createChunk();
+// Removed stray chunked creation helper — renderNames() handles rendering
+// and incremental animations. If you need chunked rendering for very large
+// datasets, we can implement a proper chunked renderer that uses the
+// `state` variables and encapsulated fragments defined above.
