@@ -595,16 +595,17 @@ body[data-theme="light"] .names-overlay {
 }
 
 .section-subtitle {
-  font-size: 1rem;
-  color: var(--color-text-secondary);
+  font-size: 1.125rem;
+  color: var(--color-text-primary);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.7;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 768px) {
   .section-subtitle {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -1059,9 +1060,40 @@ body[data-theme="light"] .elaboration-content {
 /* ============================================
    MOBILE OPTIMIZATIONS
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   body { font-size: 14px; }
   /* Adjust layouts for mobile */
+  
+  /* About section mobile optimizations */
+  .about-section {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+  
+  .about-section .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .about-section .section-subtitle {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .about-card h3 {
+    font-size: 1.5rem;
+  }
+  
+  .about-card p {
+    font-size: 1rem;
+  }
+  
+  .about-card li {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .about-card h4 {
+    font-size: 1.125rem;
+  }
 }
 
 /* ============================================
@@ -1116,14 +1148,29 @@ body[data-theme="light"] .about-section {
 
 .about-card h3 {
   color: var(--color-crimson);
-  font-size: 1.5rem;
+  font-size: 1.625rem;
   margin-bottom: var(--spacing-sm);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .about-card h3 {
+    font-size: 1.75rem;
+  }
 }
 
 .about-card p {
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+  font-size: 1.0625rem;
   margin-bottom: var(--spacing-sm);
   line-height: 1.8;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 768px) {
+  .about-card p {
+    font-size: 1.125rem;
+  }
 }
 
 .about-card ul {
@@ -1135,7 +1182,15 @@ body[data-theme="light"] .about-section {
   position: relative;
   padding-left: 1.5rem;
   margin-bottom: 0.5rem;
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+  font-size: 1.0625rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 768px) {
+  .about-card li {
+    font-size: 1.125rem;
+  }
 }
 
 .about-card li::before {
@@ -1144,4 +1199,19 @@ body[data-theme="light"] .about-section {
   position: absolute;
   left: 0;
   font-weight: bold;
+}
+
+.about-card h4 {
+  color: var(--color-divine-gold);
+  font-size: 1.25rem;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .about-card h4 {
+    font-size: 1.375rem;
+  }
 }
