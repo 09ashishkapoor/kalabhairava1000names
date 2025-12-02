@@ -16,3 +16,6 @@ body{background:var(--color-bg);color:var(--color-text-primary);font-family:-app
 .seo-intro{margin-top:8px;line-height:1.4;max-width:720px;margin-left:auto;margin-right:auto}
 .names-header{margin-bottom:var(--spacing-lg)}
 .section-title{font-size:2.5rem}
+
+/* Site version (subtle) */
+.site-version{display:block;margin-top:0.5rem;color:#9a9a9a;font-size:0.85rem}
