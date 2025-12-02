@@ -95,6 +95,45 @@ php -S localhost:8080
 
 Visit: http://localhost:8080
 
+## 🔢 Version Management
+
+The website automatically increments its version number on each git commit. The version is stored in `version.txt` and displayed in the footer.
+
+### Setup Auto-Increment Hook
+
+**Windows (PowerShell):**
+```powershell
+.\setup_version_hook.ps1
+```
+
+**Linux/Mac/Git Bash:**
+```bash
+chmod +x setup_version_hook.sh
+./setup_version_hook.sh
+```
+
+### Manual Version Increment
+
+If you need to increment the version manually:
+
+**Windows (PowerShell):**
+```powershell
+.\increment_version.ps1
+```
+
+**Linux/Mac/Git Bash:**
+```bash
+chmod +x increment_version.sh
+./increment_version.sh
+```
+
+### How It Works
+
+- The git pre-commit hook automatically increments the version before each commit
+- Version format: `vX.Y` (e.g., v1.11 → v1.12) or `vX.Y.Z` (e.g., v1.11.0 → v1.11.1)
+- The version is injected into `index.html` using `inject_version.py` during build
+- The footer displays the current version dynamically
+
 ## 📁 File Structure
 
 ```
