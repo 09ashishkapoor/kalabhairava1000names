@@ -1087,7 +1087,9 @@ body[data-theme="light"] .elaboration-content {
    ============================================ */
 .about-section {
   padding: var(--spacing-xl) var(--spacing-md);
-  background: rgba(10, 10, 10, 0.8);
+  background: var(--color-smoke);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   position: relative;
   z-index: 10;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
