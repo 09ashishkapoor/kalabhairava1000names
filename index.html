@@ -409,7 +409,16 @@
             <br>
             <small>Disclaimer: The information provided on this website is compiled from multiple online sources and is intended for spiritual and educational purposes only. If you identify any inaccuracies or have concerns, please email kaliputraashish@gmail.com.</small>
                 <br>
-                <small class="site-version">v1.11</small>
+                <small class="site-version"><!-- VERSION --></small>
+                <script>
+                    (function(){
+                        var el = document.querySelector('.site-version');
+                        if (!el) return;
+                        if (el.textContent.trim() === '') {
+                            fetch('/version.txt').then(function(r){ if(r.ok) return r.text(); throw new Error('no'); }).then(function(t){ el.textContent = t.trim(); }).catch(function(){ /* ignore */ });
+                        }
+                    })();
+                </script>
         </div>
     </footer>
     
