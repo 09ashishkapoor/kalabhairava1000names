@@ -12,6 +12,9 @@ body{background:var(--color-bg);color:var(--color-text-primary);font-family:-app
 .explore-button{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2rem;font-size:1.125rem;font-weight:600;color:#fff;background:linear-gradient(135deg,var(--color-crimson) 0%,#8b0000 100%);border-radius:9999px;border:0;cursor:pointer}
 .theme-toggle{position:fixed;top:1.5rem;right:1.5rem;width:3rem;height:3rem;border-radius:9999px;background:rgba(255,255,255,0.06);border:0;display:flex;align-items:center;justify-content:center;z-index:200}
 
+/* Names section overlay: ensure readable text when styles load later */
+.names-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.28);z-index:1;pointer-events:none}
+
 /* Moved from inline styles to satisfy CSP (no 'unsafe-inline') */
 .seo-intro{margin-top:8px;line-height:1.4;max-width:720px;margin-left:auto;margin-right:auto}
 .names-header{margin-bottom:var(--spacing-lg)}
