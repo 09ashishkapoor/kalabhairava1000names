@@ -30,6 +30,7 @@
     promotePreloadedStyles();
     scheduleBgLoad();
     loadData();
+    initScrollAnimations();
     console.log('✅ App initialized');
   }
 
@@ -450,6 +451,27 @@
       window.addEventListener('load', loadBg, { once: true });
       setTimeout(loadBg, 3000);
     }
+  }
+  
+  // Scroll-triggered animations
+  function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('[data-scroll-animate]');
+    
+    if (!animatedElements.length) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    animatedElements.forEach(el => observer.observe(el));
   }
   
   // Start the app
