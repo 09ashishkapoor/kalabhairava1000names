@@ -1136,6 +1136,26 @@ body[data-theme="light"] .elaboration-content {
   color: #bfbfbf;
 }
 
+.last-updated {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+}
+
+.last-updated #last-updated-date {
+  color: var(--color-divine-gold);
+  font-weight: 600;
+}
+
+body[data-theme="light"] .last-updated {
+  color: var(--color-text-muted);
+}
+
+body[data-theme="light"] .last-updated #last-updated-date {
+  color: var(--color-crimson);
+}
+
 /* ============================================
    UTILITIES
    ============================================ */

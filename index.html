@@ -412,12 +412,24 @@
             <small>Disclaimer: The information provided on this website is compiled from multiple online sources and is intended for spiritual and educational purposes only. If you identify any inaccuracies or have concerns, please email kaliputraashish@gmail.com.</small>
                 <br>
                 <small class="site-version"><!-- VERSION --></small>
+                <br>
+                <small class="last-updated">Last Updated: <span id="last-updated-date"></span></small>
                 <script>
                     (function(){
                         var el = document.querySelector('.site-version');
                         if (!el) return;
                         if (el.textContent.trim() === '') {
                             fetch('/version.txt').then(function(r){ if(r.ok) return r.text(); throw new Error('no'); }).then(function(t){ el.textContent = t.trim(); }).catch(function(){ /* ignore */ });
+                        }
+                    })();
+                    // Set last updated date
+                    (function(){
+                        var dateEl = document.getElementById('last-updated-date');
+                        if (dateEl) {
+                            // Format: January 15, 2025
+                            var lastUpdated = new Date('2025-01-15');
+                            var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                            dateEl.textContent = lastUpdated.toLocaleDateString('en-US', options);
                         }
                     })();
                 </script>
