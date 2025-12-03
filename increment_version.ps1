@@ -7,6 +7,7 @@ param(
 )
 
 $VERSION_FILE = "version.txt"
+$LAST_UPDATED_FILE = "last-updated.txt"
 
 # Check if version.txt exists
 if (-not (Test-Path $VERSION_FILE)) {
@@ -46,12 +47,28 @@ if ($null -eq $PATCH) {
 # Write new version to file
 Set-Content -Path $VERSION_FILE -Value $NEW_VERSION -NoNewline
 
-# If running as git hook, stage the file
+# Update last updated date to today
+$TODAY_DATE = Get-Date -Format "yyyy-MM-dd"
+Set-Content -Path $LAST_UPDATED_FILE -Value $TODAY_DATE -NoNewline
+
+# Update sitemap.xml lastmod date
+$SITEMAP_FILE = "sitemap.xml"
+if (Test-Path $SITEMAP_FILE) {
+    $sitemapContent = Get-Content $SITEMAP_FILE -Raw
+    $sitemapContent = $sitemapContent -replace '<lastmod>\d{4}-\d{2}-\d{2}</lastmod>', "<lastmod>$TODAY_DATE</lastmod>"
+    Set-Content -Path $SITEMAP_FILE -Value $sitemapContent -NoNewline
+}
+
+# If running as git hook, stage the files
 if (-not $SkipGitAdd) {
     try {
         $gitDir = git rev-parse --git-dir 2>$null
         if ($gitDir) {
             git add $VERSION_FILE 2>$null
+            git add $LAST_UPDATED_FILE 2>$null
+            if (Test-Path $SITEMAP_FILE) {
+                git add $SITEMAP_FILE 2>$null
+            }
         }
     } catch {
         # Ignore errors if not in a git repo
@@ -59,6 +76,10 @@ if (-not $SkipGitAdd) {
 }
 
 Write-Host "Version incremented: $CURRENT_VERSION -> $NEW_VERSION" -ForegroundColor Green
+Write-Host "Last updated date set to: $TODAY_DATE" -ForegroundColor Green
+if (Test-Path $SITEMAP_FILE) {
+    Write-Host "Sitemap.xml updated with new lastmod date" -ForegroundColor Green
+}
 
 exit 0
 

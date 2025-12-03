@@ -422,15 +422,32 @@
                             fetch('/version.txt').then(function(r){ if(r.ok) return r.text(); throw new Error('no'); }).then(function(t){ el.textContent = t.trim(); }).catch(function(){ /* ignore */ });
                         }
                     })();
-                    // Set last updated date
+                    // Set last updated date from file
                     (function(){
                         var dateEl = document.getElementById('last-updated-date');
-                        if (dateEl) {
-                            // Format: January 15, 2025
-                            var lastUpdated = new Date('2025-01-15');
+                        if (!dateEl) return;
+                        fetch('/last-updated.txt').then(function(r){ 
+                            if(r.ok) return r.text(); 
+                            throw new Error('no'); 
+                        }).then(function(dateStr){
+                            var dateStrTrimmed = dateStr.trim();
+                            if (dateStrTrimmed) {
+                                // Parse YYYY-MM-DD format and format nicely
+                                var parts = dateStrTrimmed.split('-');
+                                if (parts.length === 3) {
+                                    var date = new Date(parts[0], parts[1] - 1, parts[2]);
+                                    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                                    dateEl.textContent = date.toLocaleDateString('en-US', options);
+                                } else {
+                                    dateEl.textContent = dateStrTrimmed;
+                                }
+                            }
+                        }).catch(function(){ 
+                            // Fallback: use today's date if file not found
+                            var lastUpdated = new Date();
                             var options = { year: 'numeric', month: 'long', day: 'numeric' };
                             dateEl.textContent = lastUpdated.toLocaleDateString('en-US', options);
-                        }
+                        });
                     })();
                 </script>
         </div>

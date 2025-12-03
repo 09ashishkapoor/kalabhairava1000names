@@ -3,6 +3,7 @@
 # Can be used as a git hook or run manually
 
 VERSION_FILE="version.txt"
+LAST_UPDATED_FILE="last-updated.txt"
 
 # Check if version.txt exists
 if [ ! -f "$VERSION_FILE" ]; then
@@ -41,12 +42,31 @@ fi
 # Write new version to file
 echo "$NEW_VERSION" > "$VERSION_FILE"
 
-# If running as git hook, stage the file
+# Update last updated date to today (YYYY-MM-DD format)
+TODAY_DATE=$(date +%Y-%m-%d)
+echo "$TODAY_DATE" > "$LAST_UPDATED_FILE"
+
+# Update sitemap.xml lastmod date
+SITEMAP_FILE="sitemap.xml"
+if [ -f "$SITEMAP_FILE" ]; then
+    sed -i.bak "s/<lastmod>[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}<\/lastmod>/<lastmod>$TODAY_DATE<\/lastmod>/g" "$SITEMAP_FILE"
+    rm -f "${SITEMAP_FILE}.bak" 2>/dev/null || true
+fi
+
+# If running as git hook, stage the files
 if [ -n "$GIT_DIR" ] || git rev-parse --git-dir > /dev/null 2>&1; then
     git add "$VERSION_FILE" 2>/dev/null || true
+    git add "$LAST_UPDATED_FILE" 2>/dev/null || true
+    if [ -f "$SITEMAP_FILE" ]; then
+        git add "$SITEMAP_FILE" 2>/dev/null || true
+    fi
 fi
 
 echo "Version incremented: $CURRENT_VERSION -> $NEW_VERSION"
+echo "Last updated date set to: $TODAY_DATE"
+if [ -f "$SITEMAP_FILE" ]; then
+    echo "Sitemap.xml updated with new lastmod date"
+fi
 
 exit 0
 
