@@ -1,0 +1,47 @@
+name: Auto Version Bump
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'version.txt'
+      - 'last-updated.txt'
+      - '.github/**'
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+      
+      - name: Increment version
+        run: |
+          chmod +x increment_version.sh
+          ./increment_version.sh
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet version.txt last-updated.txt; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git add version.txt last-updated.txt sitemap.xml
+          git commit -m "chore: bump version [skip ci]"
+          git push
