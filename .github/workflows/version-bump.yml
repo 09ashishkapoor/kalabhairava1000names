@@ -1,5 +1,12 @@
 name: Auto Version Bump
 
+permissions:
+  contents: write
+
+concurrency:
+  group: version-bump-${{ github.ref }}
+  cancel-in-progress: false
+
 on:
   push:
     branches:
@@ -44,6 +51,32 @@ jobs:
       - name: Commit and push changes
         if: steps.check_changes.outputs.changed == 'true'
         run: |
-          git add version.txt last-updated.txt sitemap.xml
-          git commit -m "chore: bump version [skip ci]"
-          git push
+          git add version.txt last-updated.txt sitemap.xml || true
+          # commit only if there are staged changes
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: bump version [skip ci]" || true
+
+          # Ensure we don't fail on transient errors; pull --rebase then push with retries
+          attempt=0
+          until [ $attempt -ge 4 ]
+          do
+            if git pull --rebase origin main; then
+              if git push origin main; then
+                echo "Push succeeded"
+                break
+              else
+                echo "Push failed, will retry"
+              fi
+            else
+              echo "Pull --rebase failed, will retry"
+            fi
+            attempt=$((attempt+1))
+            sleep $((attempt * 2))
+          done
+          if [ $attempt -ge 4 ]; then
+            echo "Failed to push changes after retries" >&2
+            exit 1
+          fi
