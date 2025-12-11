@@ -418,9 +418,44 @@
                     (function(){
                         var el = document.querySelector('.site-version');
                         if (!el) return;
-                        if (el.textContent.trim() === '') {
+                        if (el.textContent.trim() !== '') return;
+
+                        // Try to compute a simple version from GitHub commit count on main: v1.<commit-count>
+                        var owner = '09ashishkapoor';
+                        var repo = 'kalabhairava1000names';
+                        var commitsApi = 'https://api.github.com/repos/' + owner + '/' + repo + '/commits?sha=main&per_page=1';
+
+                        function setFallback() {
+                            // Fallback to reading version.txt if GitHub API fails or rate-limited
                             fetch('/version.txt').then(function(r){ if(r.ok) return r.text(); throw new Error('no'); }).then(function(t){ el.textContent = t.trim(); }).catch(function(){ /* ignore */ });
                         }
+
+                        fetch(commitsApi, { cache: 'no-store' }).then(function(r){
+                            if (!r.ok) throw new Error('no-github');
+                            var link = r.headers.get('Link');
+                            if (link) {
+                                // Parse last page number from Link header which indicates total commits when per_page=1
+                                var m = link.match(/[?&]page=(\d+)>; rel="last"/);
+                                if (m && m[1]) {
+                                    var count = parseInt(m[1], 10);
+                                    if (!isNaN(count)) {
+                                        el.textContent = 'v1.' + count;
+                                        return;
+                                    }
+                                }
+                            }
+                            // If no Link header, try reading response body length
+                            return r.json().then(function(js){
+                                if (js && js.length) {
+                                    // Only one commit returned; treat as v1.1
+                                    el.textContent = 'v1.1';
+                                } else {
+                                    throw new Error('no-commits');
+                                }
+                            });
+                        }).catch(function(){
+                            setFallback();
+                        });
                     })();
                     // Set last updated date using GitHub commit date (fallback to /last-updated.txt)
                     (function(){
