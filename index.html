@@ -422,31 +422,59 @@
                             fetch('/version.txt').then(function(r){ if(r.ok) return r.text(); throw new Error('no'); }).then(function(t){ el.textContent = t.trim(); }).catch(function(){ /* ignore */ });
                         }
                     })();
-                    // Set last updated date from file
+                    // Set last updated date using GitHub commit date (fallback to /last-updated.txt)
                     (function(){
                         var dateEl = document.getElementById('last-updated-date');
                         if (!dateEl) return;
-                        fetch('/last-updated.txt').then(function(r){ 
-                            if(r.ok) return r.text(); 
-                            throw new Error('no'); 
-                        }).then(function(dateStr){
-                            var dateStrTrimmed = dateStr.trim();
-                            if (dateStrTrimmed) {
-                                // Parse YYYY-MM-DD format and format nicely
-                                var parts = dateStrTrimmed.split('-');
-                                if (parts.length === 3) {
-                                    var date = new Date(parts[0], parts[1] - 1, parts[2]);
-                                    var options = { year: 'numeric', month: 'long', day: 'numeric' };
-                                    dateEl.textContent = date.toLocaleDateString('en-US', options);
-                                } else {
-                                    dateEl.textContent = dateStrTrimmed;
-                                }
+
+                        // Try GitHub API first to get the latest commit on main
+                        var owner = '09ashishkapoor';
+                        var repo = 'kalabhairava1000names';
+                        var commitsApi = 'https://api.github.com/repos/' + owner + '/' + repo + '/commits?sha=main&per_page=1';
+
+                        function formatDateISO(isoStr) {
+                            try {
+                                var d = new Date(isoStr);
+                                var opts = { year: 'numeric', month: 'long', day: 'numeric' };
+                                return d.toLocaleDateString('en-US', opts);
+                            } catch (e) {
+                                return isoStr;
                             }
-                        }).catch(function(){ 
-                            // Fallback: use today's date if file not found
-                            var lastUpdated = new Date();
-                            var options = { year: 'numeric', month: 'long', day: 'numeric' };
-                            dateEl.textContent = lastUpdated.toLocaleDateString('en-US', options);
+                        }
+
+                        fetch(commitsApi, { cache: 'no-store' }).then(function(r){
+                            if (!r.ok) throw new Error('no-github');
+                            return r.json();
+                        }).then(function(js){
+                            if (js && js.length && js[0].commit && js[0].commit.committer && js[0].commit.committer.date) {
+                                dateEl.textContent = formatDateISO(js[0].commit.committer.date);
+                                return;
+                            }
+                            throw new Error('no-date');
+                        }).catch(function(){
+                            // Fallback to reading last-updated.txt from the site root
+                            fetch('/last-updated.txt').then(function(r){ if(r.ok) return r.text(); throw new Error('no'); }).then(function(dateStr){
+                                var dateStrTrimmed = dateStr.trim();
+                                if (dateStrTrimmed) {
+                                    var parts = dateStrTrimmed.split('-');
+                                    if (parts.length === 3) {
+                                        var date = new Date(parts[0], parts[1] - 1, parts[2]);
+                                        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                                        dateEl.textContent = date.toLocaleDateString('en-US', options);
+                                    } else {
+                                        dateEl.textContent = dateStrTrimmed;
+                                    }
+                                    return;
+                                }
+                                // Final fallback: use today's date
+                                var lastUpdated = new Date();
+                                var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                                dateEl.textContent = lastUpdated.toLocaleDateString('en-US', options);
+                            }).catch(function(){
+                                var lastUpdated = new Date();
+                                var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                                dateEl.textContent = lastUpdated.toLocaleDateString('en-US', options);
+                            });
                         });
                     })();
                 </script>
