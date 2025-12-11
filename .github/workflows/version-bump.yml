@@ -33,10 +33,12 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          if git diff --quiet version.txt last-updated.txt; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
+          # Detect any staged or unstaged changes caused by the increment script
+          # Use git status --porcelain which shows staged (index) and unstaged changes
+          if [ -n "$(git status --porcelain)" ]; then
             echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
           fi
       
       - name: Commit and push changes
