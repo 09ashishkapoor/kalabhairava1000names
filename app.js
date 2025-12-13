@@ -14,9 +14,7 @@
     currentPage: 0,
     pageSize: 30,
     searchQuery: '',
-    language: 'english',
-    expandedItems: new Set(),
-    theme: localStorage.getItem('theme') || 'dark'
+    expandedItems: new Set()
   };
   
   // DOM Elements
@@ -26,9 +24,13 @@
   function init() {
     cacheDOMElements();
     setupEventListeners();
-    applyTheme(state.theme);
     promotePreloadedStyles();
-    scheduleBgLoad();
+    
+    // Initialize language toggle UI based on i18n current language
+    if (window.i18n && elements.languageToggle) {
+      updateLanguageToggleUI(window.i18n.getCurrentLanguage());
+    }
+    
     loadData();
     initScrollAnimations();
     console.log('✅ App initialized');
@@ -61,9 +63,8 @@
   
   function cacheDOMElements() {
     elements.searchInput = document.getElementById('search-input');
-    elements.languageSelect = document.getElementById('language-select');
+    elements.languageToggle = document.getElementById('language-toggle');
     elements.clearBtn = document.getElementById('clear-btn');
-    elements.themeToggle = document.getElementById('theme-toggle');
     elements.exploreBtn = document.getElementById('explore-btn');
     elements.namesGrid = document.getElementById('names-grid');
     elements.loadMoreBtn = document.getElementById('load-more-btn');
@@ -79,14 +80,16 @@
     // Search
     elements.searchInput.addEventListener('input', debounce(handleSearch, 300));
     
-    // Language
-    elements.languageSelect.addEventListener('change', handleLanguageChange);
+    // Language toggle
+    if (elements.languageToggle) {
+      elements.languageToggle.addEventListener('click', handleLanguageToggle);
+    }
+    
+    // Listen for language changes from i18n
+    window.addEventListener('languageChanged', handleLanguageChanged);
     
     // Clear
     elements.clearBtn.addEventListener('click', handleClear);
-    
-    // Theme
-    elements.themeToggle.addEventListener('click', toggleTheme);
     
     // Explore button
     elements.exploreBtn.addEventListener('click', scrollToNames);
@@ -179,9 +182,10 @@
     card.style.setProperty('--i', String(index % state.pageSize));
 
     const isExpanded = state.expandedItems.has(entry.index);
-    const name = state.language === 'english' ? entry.english_name : entry.hindi_name;
-    const oneLine = state.language === 'english' ? entry.english_one_line : entry.hindi_one_line;
-    const elaboration = state.language === 'english' ? entry.english_elaboration : entry.hindi_elaboration;
+    const currentLang = window.i18n ? window.i18n.getCurrentLanguage() : 'en';
+    const name = currentLang === 'hi' ? entry.hindi_name : entry.english_name;
+    const oneLine = currentLang === 'hi' ? entry.hindi_one_line : entry.english_one_line;
+    const elaboration = currentLang === 'hi' ? entry.hindi_elaboration : entry.english_elaboration;
 
     const header = document.createElement('div');
     header.className = 'card-header';
@@ -202,7 +206,7 @@
     toggleBtn.className = 'toggle-btn';
     toggleBtn.setAttribute('data-index', String(entry.index));
     const span = document.createElement('span');
-    span.textContent = isExpanded ? 'Hide Elaboration' : 'Reveal Elaboration';
+    span.textContent = window.i18n ? window.i18n.getRevealButtonText(isExpanded) : (isExpanded ? 'Hide Elaboration' : 'Reveal Elaboration');
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('class', `chevron ${isExpanded ? 'rotated' : ''}`);
     svg.setAttribute('width', '20');
@@ -252,11 +256,11 @@
     if (state.expandedItems.has(index)) {
       elaboration.classList.add('expanded');
       chevron.classList.add('rotated');
-      span.textContent = 'Hide Elaboration';
+      span.textContent = window.i18n ? window.i18n.t('names.hideButton') : 'Hide Elaboration';
     } else {
       elaboration.classList.remove('expanded');
       chevron.classList.remove('rotated');
-      span.textContent = 'Reveal Elaboration';
+      span.textContent = window.i18n ? window.i18n.t('names.revealButton') : 'Reveal Elaboration';
     }
   }
   
@@ -278,9 +282,10 @@
   function handleSearch(e) {
     state.searchQuery = e.target.value.toLowerCase().trim();
     state.currentPage = 0;
+    const currentLang = window.i18n ? window.i18n.getCurrentLanguage() : 'en';
     if (state.searchWorker) {
       const reqId = Date.now() + Math.random();
-      state.searchWorker.postMessage({ cmd: 'search', query: state.searchQuery, language: state.language, reqId });
+      state.searchWorker.postMessage({ cmd: 'search', query: state.searchQuery, language: currentLang, reqId });
     } else {
       // fallback
       filterData();
@@ -313,9 +318,46 @@
     });
   }
   
-  function handleLanguageChange(e) {
-    state.language = e.target.value;
+  function handleLanguageToggle(e) {
+    const target = e.target.closest('.language-toggle-option');
+    if (!target) return;
+    
+    const lang = target.getAttribute('data-lang');
+    if (!lang) return;
+    
+    // Update i18n language (this will trigger languageChanged event which updates UI)
+    if (window.i18n) {
+      window.i18n.setLanguage(lang);
+    }
+  }
+  
+  function updateLanguageToggleUI(lang) {
+    const options = elements.languageToggle.querySelectorAll('.language-toggle-option');
+    const slider = elements.languageToggle.querySelector('.language-toggle-slider');
+    
+    let selectedIndex = 0;
+    options.forEach((option, index) => {
+      const optionLang = option.getAttribute('data-lang');
+      if (optionLang === lang) {
+        option.classList.add('active');
+        option.setAttribute('aria-checked', 'true');
+        selectedIndex = index;
+      } else {
+        option.classList.remove('active');
+        option.setAttribute('aria-checked', 'false');
+      }
+    });
+    
+    // Move slider to selected option
+    slider.style.transform = `translateX(${selectedIndex * 100}%)`;
+  }
+  
+  function handleLanguageChanged(e) {
+    // Called when language changes from i18n system
+    const lang = e.detail.language;
+    updateLanguageToggleUI(lang);
     renderNames();
+    updateStats();
   }
   
   function handleClear() {
@@ -349,37 +391,25 @@
     const totalNames = state.data.length;
     const filteredCount = state.filteredData.length;
     
-    if (state.searchQuery) {
-      elements.statsDisplay.innerHTML = `
-        🔍 Found <strong>${filteredCount}</strong> name${filteredCount !== 1 ? 's' : ''} 
-        matching "<strong>${state.searchQuery}</strong>" 
-        out of <strong>${totalNames}</strong> total names
-      `;
+    if (window.i18n) {
+      elements.statsDisplay.innerHTML = window.i18n.getStatsMessage(
+        state.searchQuery,
+        filteredCount,
+        totalNames
+      );
     } else {
-      elements.statsDisplay.innerHTML = `
-        📿 Displaying the sacred <strong>${totalNames}</strong> names of <strong>Śrī Kālabhairava</strong>
-      `;
-    }
-  }
-  
-  // Theme
-  function toggleTheme() {
-    state.theme = state.theme === 'dark' ? 'light' : 'dark';
-    applyTheme(state.theme);
-    localStorage.setItem('theme', state.theme);
-  }
-  
-  function applyTheme(theme) {
-    document.body.setAttribute('data-theme', theme);
-    const sunIcon = elements.themeToggle.querySelector('.sun-icon');
-    const moonIcon = elements.themeToggle.querySelector('.moon-icon');
-    
-    if (theme === 'dark') {
-      sunIcon.classList.remove('hidden');
-      moonIcon.classList.add('hidden');
-    } else {
-      sunIcon.classList.add('hidden');
-      moonIcon.classList.remove('hidden');
+      // Fallback if i18n not loaded yet
+      if (state.searchQuery) {
+        elements.statsDisplay.innerHTML = `
+          🔍 Found <strong>${filteredCount}</strong> name${filteredCount !== 1 ? 's' : ''} 
+          matching "<strong>${state.searchQuery}</strong>" 
+          out of <strong>${totalNames}</strong> total names
+        `;
+      } else {
+        elements.statsDisplay.innerHTML = `
+          📿 Displaying the sacred <strong>${totalNames}</strong> names of <strong>Śrī Kālabhairava</strong>
+        `;
+      }
     }
   }
   
@@ -431,28 +461,6 @@
     };
   }
 
-  // Lazy-load the large background image after idle/load to avoid render-blocking
-  function scheduleBgLoad() {
-    const loadBg = () => {
-      try {
-        const img = new Image();
-        img.src = '/MaaAdyaKali_5.webp';
-        img.onload = () => document.body.classList.add('bg-loaded');
-      } catch (e) {
-        // fail silently
-      }
-    };
-
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadBg, { timeout: 2000 });
-    } else if (document.readyState === 'complete') {
-      setTimeout(loadBg, 1000);
-    } else {
-      window.addEventListener('load', loadBg, { once: true });
-      setTimeout(loadBg, 3000);
-    }
-  }
-  
   // Scroll-triggered animations
   function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('[data-scroll-animate]');
@@ -478,7 +486,20 @@
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
-    init();
+    // Ensure i18n is ready before initializing
+    if (window.i18n) {
+      init();
+    } else {
+      // Wait for i18n to be available
+      let attempts = 0;
+      const checkI18n = setInterval(() => {
+        if (window.i18n || attempts > 10) {
+          clearInterval(checkI18n);
+          init();
+        }
+        attempts++;
+      }, 50);
+    }
   }
   
 })();

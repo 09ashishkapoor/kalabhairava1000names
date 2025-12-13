@@ -1,15 +1,43 @@
 @echo off
+echo ========================================
+echo Kalabhairava Sahasranama - Local Server
+echo ========================================
+echo.
 echo Starting local web server...
-echo.
-echo Server will be available at: http://localhost:8001
-echo Press Ctrl+C to stop the server
-echo.
 cd /d "%~dp0"
 
-REM Try using the custom server first, fallback to standard if it doesn't exist
+REM Set the port
+set PORT=8000
+
+REM Check if simple-server.py exists
 if exist simple-server.py (
+    echo Using custom Python server on port %PORT%
+    echo.
+    echo Server URL: http://localhost:%PORT%
+    echo.
+    echo Opening browser in 2 seconds...
+    echo Press Ctrl+C to stop the server
+    echo ========================================
+    echo.
+    
+    REM Open browser after a short delay
+    start "" cmd /c "timeout /t 2 /nobreak >nul && start http://localhost:%PORT%"
+    
+    REM Start the server
     python simple-server.py
 ) else (
-    python -m http.server 8001
+    echo Using standard Python HTTP server on port %PORT%
+    echo.
+    echo Server URL: http://localhost:%PORT%
+    echo.
+    echo Opening browser in 2 seconds...
+    echo Press Ctrl+C to stop the server
+    echo ========================================
+    echo.
+    
+    REM Open browser after a short delay
+    start "" cmd /c "timeout /t 2 /nobreak >nul && start http://localhost:%PORT%"
+    
+    REM Start the server
+    python -m http.server %PORT%
 )
-

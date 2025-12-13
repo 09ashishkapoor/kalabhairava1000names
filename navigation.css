@@ -110,3 +110,128 @@
     transform: scale(1);
   }
 }
+
+/* iOS-Style Language Toggle */
+.language-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 22px;
+  padding: 3px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: brightPulse 2.5s ease-out;
+  will-change: transform;
+}
+
+/* Pulse animation - plays once on load */
+@keyframes brightPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.8),
+                0 0 35px rgba(255, 165, 0, 0.6),
+                0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Sliding background indicator */
+.language-toggle-slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  height: calc(100% - 6px);
+  background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
+  border-radius: 19px;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 2px 8px rgba(220, 20, 60, 0.4);
+}
+
+/* Language option buttons */
+.language-toggle-option {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  border: none;
+  padding: 8px 20px;
+  min-width: 50px;
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  border-radius: 19px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.language-toggle-option:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.language-toggle-option.active {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Desktop: larger size */
+@media (min-width: 641px) {
+  .language-toggle {
+    top: 20px;
+    right: 20px;
+    border-radius: 26px;
+    padding: 4px;
+  }
+  
+  .language-toggle-slider {
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    border-radius: 22px;
+  }
+  
+  .language-toggle-option {
+    padding: 10px 24px;
+    min-width: 60px;
+    font-size: 15px;
+    border-radius: 22px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .language-toggle {
+    top: 15px;
+    right: 15px;
+  }
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .language-toggle {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .language-toggle-option {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] .language-toggle-option:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="light"] .language-toggle-option.active {
+  color: #ffffff;
+}

@@ -108,17 +108,11 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  /* Defer loading the large background image — applied when `.bg-loaded` is set by JS */
-  background-image: none;
+  background-image: url('/MaaAdyaKali_5.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   z-index: -2; /* Behind overlays but still visible */
-}
-
-/* Apply the large background image only after it is loaded by JavaScript */
-body.bg-loaded::before {
-  background-image: url('/MaaAdyaKali_5.webp');
 }
 
 /* Dark overlay pseudo-element */

@@ -22,7 +22,7 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         return super().do_GET()
 
 def main():
-    PORT = 8000
+    PORT = int(os.environ.get('PORT', 8000))
     
     # Change to the script's directory
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
