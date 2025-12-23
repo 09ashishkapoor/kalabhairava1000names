@@ -7,7 +7,7 @@ echo Starting local web server...
 cd /d "%~dp0"
 
 REM Set the port
-set PORT=8000
+set PORT=8100
 
 REM Check if simple-server.py exists
 if exist simple-server.py (

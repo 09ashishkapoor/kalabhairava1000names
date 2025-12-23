@@ -199,7 +199,7 @@
                 EN
             </button>
             <button class="language-toggle-option" data-lang="hi" role="radio" aria-checked="false">
-                HI
+                हि
             </button>
         </div>
         
@@ -256,7 +256,7 @@
     <!-- Free Ebook Banner Section -->
     
     <!-- SEO Content Section -->
-    <section class="about-section" data-scroll-section>
+    <section id="about-section" class="about-section" data-scroll-section>
         <div class="container">
             <header class="names-header" data-scroll-animate>
                 <h2 class="section-title" data-i18n="about.title">The Power of Kalabhairava Sahasranama</h2>
@@ -421,13 +421,17 @@
             <span data-i18n="footer.dedication">Dedicated to <strong>Shri Praveen Radhakrishnan</strong> and <strong>Khyapa Parampara</strong></span><br>
             <span class="footer-mantra" data-i18n="footer.mantra">Jai Ma Krishna • Jai Mā Ādya Mahākālī • Jai Kālabhairava</span><br>
             <br>
-            <p><span data-i18n="footer.instagram">Find me on Instagram:</span> <a href="https://www.instagram.com/ashishkaliputra" target="_blank" rel="noopener noreferrer">@ashishkaliputra</a></p>
+            <p>
+                <span data-i18n="footer.instagram">Find me on Instagram:</span> <a href="https://www.instagram.com/ashishkaliputra" target="_blank" rel="noopener noreferrer">@ashishkaliputra</a>
+                <span class="footer-separator">|</span>
+                <a href="#about-section" data-i18n="footer.infoLink">More Info</a>
+            </p>
             <br>
             <small data-i18n="footer.disclaimer">Disclaimer: The information provided on this website is compiled from multiple online sources and is intended for spiritual and educational purposes only. If you identify any inaccuracies or have concerns, please email kaliputraashish@gmail.com.</small>
                 <br>
-                <small class="site-version">v1.18</small>
+                <small class="site-version">v1.20</small>
                 <br>
-                <small><span data-i18n="footer.lastUpdated">Last Updated:</span> <span id="last-updated-date">December 10, 2025</span></small>
+                <small><span data-i18n="footer.lastUpdated">Last Updated:</span> <span id="last-updated-date">December 22, 2025</span></small>
                 <script>
                     (function(){
                         var el = document.querySelector('.site-version');
