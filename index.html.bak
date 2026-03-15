@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Description (Keyword Rich for Google) -->
-    <meta name="description" content="Kalabhairava Sahasranama — Complete list of Kalabhairava 1000 Names with English & Hindi meanings. Explore the full Sahasranama (1000 sacred names), translations, and devotional context to learn the meanings and significance of each name.">
+    <meta name="description" content="Kalabhairava Sahasranama: Complete list of 1000 sacred names of Kālabhairava with English &amp; Hindi meanings, devotional commentary, and transliterations. Explore the full Bhairava Sahasranama with name-by-name meanings.">
     
     <meta name="theme-color" content="#0a0a0a">
     
@@ -105,11 +105,14 @@
     
     <link rel="icon" type="image/webp" href="MaaAdyaKali_5.webp">
     
+    <!-- Preload background image so it starts downloading immediately -->
+    <link rel="preload" href="/MaaAdyaKali_5.webp" as="image" type="image/webp">
+
     <!-- Preload JSON Data for Performance -->
     <link rel="preload" href="/sahasranama_meanings.json" as="fetch" crossorigin>
 
     <!-- Page Title: Standard English for Search Engines -->
-    <title>Kalabhairava Sahasranama</title>
+    <title>Kalabhairava Sahasranama — 1000 Names with English &amp; Hindi Meanings</title>
     
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;">
     
@@ -429,9 +432,9 @@
             <br>
             <small data-i18n="footer.disclaimer">Disclaimer: The information provided on this website is compiled from multiple online sources and is intended for spiritual and educational purposes only. If you identify any inaccuracies or have concerns, please email kaliputraashish@gmail.com.</small>
                 <br>
-                <small class="site-version">v1.20</small>
+                <small class="site-version">v1.22</small>
                 <br>
-                <small><span data-i18n="footer.lastUpdated">Last Updated:</span> <span id="last-updated-date">December 22, 2025</span></small>
+                <small><span data-i18n="footer.lastUpdated">Last Updated:</span> <span id="last-updated-date">March 15, 2026</span></small>
                 <script>
                     (function(){
                         var el = document.querySelector('.site-version');
