@@ -87,6 +87,7 @@ const translations = {
       mantra: 'Jai Ma Krishna • Jai Mā Ādya Mahākālī • Jai Kālabhairava',
       instagram: 'Find me on Instagram:',
       infoLink: 'More Info',
+      openSource: 'Open Source on GitHub:',
       disclaimer: 'Disclaimer: The information provided on this website is compiled from multiple online sources and is intended for spiritual and educational purposes only. If you identify any inaccuracies or have concerns, please email kaliputraashish@gmail.com.',
       lastUpdated: 'Last Updated:'
     }
@@ -175,6 +176,7 @@ const translations = {
       mantra: 'जय माँ कृष्णा • जय माँ आद्या महाकाली • जय कालभैरव',
       instagram: 'मुझे Instagram पर खोजें:',
       infoLink: 'अधिक जानकारी',
+      openSource: 'GitHub पर ओपन सोर्स:',
       disclaimer: 'Disclaimer: इस वेबसाइट पर दी गई जानकारी कई ऑनलाइन स्रोतों से ली गई है और यह सिर्फ़ आध्यात्मिक और शैक्षिक उद्देश्य के लिए है। अगर आपको कोई ग़लती मिले या कोई सवाल हो, तो कृपया kaliputraashish@gmail.com पर ईमेल करें।',
       lastUpdated: 'आख़िरी अपडेट:'
     }
