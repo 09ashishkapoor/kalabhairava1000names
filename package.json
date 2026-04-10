@@ -1,0 +1,24 @@
+{
+  "name": "kalabhairava1000names",
+  "version": "1.0.0",
+  "description": "A fast, framework-free devotional web app presenting the 1000 names of Sri Kalabhairava with English and Hindi content, search, and mobile-friendly reading.",
+  "scripts": {
+    "prepare": "husky",
+    "test": "python -m pytest tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/09ashishkapoor/kalabhairava1000names.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/09ashishkapoor/kalabhairava1000names/issues"
+  },
+  "homepage": "https://github.com/09ashishkapoor/kalabhairava1000names#readme",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}

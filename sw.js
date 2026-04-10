@@ -1,5 +1,119 @@
-if(!self.define){let e,s={};const n=(n,i)=>(n=new URL(n+".js",i).href,s[n]||new Promise(s=>{if("document"in self){const e=document.createElement("script");e.src=n,e.onload=s,document.head.appendChild(e)}else e=n,importScripts(n),s()}).then(()=>{let e=s[n];if(!e)throw new Error(`Module ${n} didn’t register its module`);return e}));self.define=(i,c)=>{const t=e||("document"in self?document.currentScript.src:"")||location.href;if(s[t])return;let a={};const o=e=>n(e,t),r={module:{uri:t},exports:a,require:o};s[t]=Promise.all(i.map(e=>r[e]||o(e))).then(e=>(c(...e),a))}}define(["./workbox-239d0d27"],function(e){"use strict";self.skipWaiting(),e.clientsClaim(),e.precacheAndRoute([{url:"assets/index-BWUmFyWu.css",revision:null},{url:"assets/index-DReP8wmY.js",revision:null},{url:"registerSW.js",revision:"1872c500de691dce40960bb85481de07"},{url:"vite.svg",revision:"8e3a10e157f75ada21ab742c022d5430"},{url:"MaaAdyaKali_5.webp",revision:"c707af60d268db32caa96b66c6c5c0cf"},{url:"manifest.webmanifest",revision:"31eccfa43cba1fcd2d26fe258dd8495e"}],{}),e.cleanupOutdatedCaches(),
-// Always fetch navigation (index.html) from network so users see latest HTML, avoid stale SW precache
-e.registerRoute(new e.NavigationRoute(function(opts){
-	return fetch(opts.request);
-})),e.registerRoute(/^https:\/\/fonts\.googleapis\.com\/.*/i,new e.CacheFirst({cacheName:"google-fonts-cache",plugins:[new e.ExpirationPlugin({maxEntries:10,maxAgeSeconds:31536e3})]}),"GET"),e.registerRoute(/^https:\/\/fonts\.gstatic\.com\/.*/i,new e.CacheFirst({cacheName:"google-fonts-cache",plugins:[new e.ExpirationPlugin({maxEntries:10,maxAgeSeconds:31536e3})]}),"GET"),e.registerRoute(/\/sahasranama_meanings\.json$/,new e.NetworkFirst({cacheName:"sahasranama-data",plugins:[new e.ExpirationPlugin({maxEntries:1,maxAgeSeconds:604800})]}),"GET")});
+if (!self.define) {
+  let currentScript;
+  const modules = {};
+
+  const loadModule = (moduleName, parentUrl) => {
+    const moduleUrl = new URL(`${moduleName}.js`, parentUrl).href;
+    if (!modules[moduleUrl]) {
+      modules[moduleUrl] = new Promise((resolve) => {
+        if ("document" in self) {
+          const script = document.createElement("script");
+          script.src = moduleUrl;
+          script.onload = resolve;
+          document.head.appendChild(script);
+          return;
+        }
+
+        currentScript = moduleUrl;
+        importScripts(moduleUrl);
+        resolve();
+      }).then(() => {
+        const module = modules[moduleUrl];
+        if (!module) {
+          throw new Error(`Module ${moduleUrl} did not register its module`);
+        }
+
+        return module;
+      });
+    }
+
+    return modules[moduleUrl];
+  };
+
+  self.define = (dependencies, factory) => {
+    const scriptUrl =
+      currentScript ||
+      ("document" in self ? document.currentScript?.src : "") ||
+      location.href;
+
+    if (modules[scriptUrl]) {
+      return;
+    }
+
+    const exports = {};
+    const require = (dependency) => loadModule(dependency, scriptUrl);
+    const args = dependencies.map((dependency) => {
+      if (dependency === "exports") {
+        return exports;
+      }
+
+      if (dependency === "module") {
+        return { uri: scriptUrl };
+      }
+
+      return require(dependency);
+    });
+
+    modules[scriptUrl] = Promise.all(args).then((resolvedArgs) => {
+      factory(...resolvedArgs);
+      return exports;
+    });
+  };
+}
+
+define(["./workbox-239d0d27"], function (workbox) {
+  "use strict";
+
+  self.skipWaiting();
+  workbox.clientsClaim();
+  workbox.cleanupOutdatedCaches();
+
+  // Always fetch HTML from the network so content updates are visible immediately.
+  workbox.registerRoute(
+    new workbox.NavigationRoute(function ({ request }) {
+      return fetch(request);
+    })
+  );
+
+  workbox.registerRoute(
+    /^https:\/\/fonts\.googleapis\.com\/.*/i,
+    new workbox.CacheFirst({
+      cacheName: "google-fonts-cache",
+      plugins: [
+        new workbox.ExpirationPlugin({
+          maxEntries: 10,
+          maxAgeSeconds: 31536000,
+        }),
+      ],
+    }),
+    "GET"
+  );
+
+  workbox.registerRoute(
+    /^https:\/\/fonts\.gstatic\.com\/.*/i,
+    new workbox.CacheFirst({
+      cacheName: "google-fonts-cache",
+      plugins: [
+        new workbox.ExpirationPlugin({
+          maxEntries: 10,
+          maxAgeSeconds: 31536000,
+        }),
+      ],
+    }),
+    "GET"
+  );
+
+  workbox.registerRoute(
+    /\/sahasranama_meanings\.json$/,
+    new workbox.NetworkFirst({
+      cacheName: "sahasranama-data",
+      plugins: [
+        new workbox.ExpirationPlugin({
+          maxEntries: 1,
+          maxAgeSeconds: 604800,
+        }),
+      ],
+    }),
+    "GET"
+  );
+});

@@ -31,9 +31,27 @@
       updateLanguageToggleUI(window.i18n.getCurrentLanguage());
     }
     
+    initWorker();
     loadData();
     initScrollAnimations();
     console.log('✅ App initialized');
+  }
+
+  // Initialize search worker (separated from data loading)
+  function initWorker() {
+    if (!window.Worker) return;
+    state.searchWorker = new Worker('/search-worker.js');
+    state.searchWorker.onmessage = function(e) {
+      const msg = e.data;
+      if (!msg) return;
+      if (msg.type === 'results') {
+        const ids = new Set(msg.results);
+        state.filteredData = state.data.filter(it => ids.has(it.index));
+        state.currentPage = 0;
+        renderNames();
+        updateStats();
+      }
+    };
   }
 
   // Promote <link rel="preload" as="style"> elements to actual stylesheets
@@ -118,24 +136,7 @@
       state.data = await response.json();
       state.filteredData = [...state.data];
       
-      // Initialize search worker for indexing
-      if (window.Worker) {
-        if (!state.searchWorker) {
-          state.searchWorker = new Worker('/search-worker.js');
-          state.searchWorker.onmessage = function(e) {
-            const msg = e.data;
-            if (!msg) return;
-            if (msg.type === 'results') {
-              // msg.results is an array of matching entry.index values
-              // Map indexes to entries and update filteredData
-              const ids = new Set(msg.results);
-              state.filteredData = state.data.filter(it => ids.has(it.index));
-              state.currentPage = 0;
-              renderNames();
-              updateStats();
-            }
-          };
-        }
+      if (state.searchWorker) {
         state.searchWorker.postMessage({ cmd: 'index', data: state.data });
       }
       
@@ -483,29 +484,15 @@
   }
   
   // Start the app
+  // i18n.js loads synchronously (no defer), so window.i18n is always available
+  // by the time this defer script runs. No polling needed.
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
-    // Ensure i18n is ready before initializing
-    if (window.i18n) {
-      init();
-    } else {
-      // Wait for i18n to be available
-      let attempts = 0;
-      const checkI18n = setInterval(() => {
-        if (window.i18n || attempts > 10) {
-          clearInterval(checkI18n);
-          init();
-        }
-        attempts++;
-      }, 50);
-    }
+    init();
   }
-  
-})();
 
-// chunked creation pseudo
-const CHUNK = 50;
+})();
 let i = 0;
 function createChunk() {
   const end = Math.min(i+CHUNK, displayed.length);

@@ -1,247 +1,65 @@
-# 🚀 Quick Deployment Guide
+# Deployment Guide
 
-## Current Status ✅
-Your website is **production-ready** and uses modern web standards!
+This repository is a root-level static site. There is no `site/` subdirectory and there is no build step.
 
-### Tech Stack Summary
-```
-Frontend: Vanilla JavaScript (ES6+) + HTML5 + CSS3
-Data: JSON (1000 entries)
-Assets: Google Fonts + 1 PNG image
-Dependencies: ZERO (no npm, no build process)
-Bundle Size: < 5MB total
-```
+## What to deploy
 
----
+Publish the repository root as static files. The core runtime assets are:
 
-## Deploy in 2 Minutes
+- `index.html`
+- `styles.css`
+- `navigation.css`
+- `app.js`
+- `i18n.js`
+- `translations.js`
+- `navigation.js`
+- `search-worker.js`
+- `critical.css`
+- `load-styles.js`
+- `sahasranama_meanings.json`
+- `manifest.webmanifest`
+- `registerSW.js`
+- `sw.js`
+- `MaaAdyaKali_5.webp`
+- `_headers` and `_redirects` when your host supports them
 
-### 🌐 **Netlify** (Recommended - Easiest)
+## Local preview
 
-**Method 1: Drag & Drop**
-1. Go to https://app.netlify.com/drop
-2. Drag the entire `site` folder
-3. Done! You get a URL like: `https://kalabhairava-xyz.netlify.app`
-
-**Method 2: GitHub Integration**
-```bash
-# Push to GitHub first
-git init
-git add .
-git commit -m "Sacred website for Kalabhairava Sahasranama"
-git remote add origin YOUR_GITHUB_REPO_URL
-git push -u origin main
-
-# Then on Netlify:
-1. Click "New site from Git"
-2. Choose your repository
-3. Build command: (leave empty)
-4. Publish directory: site
-5. Deploy!
-```
-
-**Custom Domain** (Optional):
-- Go to Domain settings → Add custom domain
-- Point your domain DNS to Netlify
-
----
-
-### 📘 **GitHub Pages** (FREE Forever)
+Use the included Python helper:
 
 ```bash
-# 1. Push to GitHub
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/USERNAME/kalabhairava-sahasranama.git
-git push -u origin main
-
-# 2. Enable GitHub Pages
-# Go to: Settings → Pages → Source: main branch → /site folder
-# Your site will be live at: https://USERNAME.github.io/kalabhairava-sahasranama/
+python simple-server.py
 ```
 
----
+On Windows you can also use:
 
-### ⚡ **Vercel** (Fast & Modern)
-
-```bash
-# Install Vercel CLI
-npm install -g vercel
-
-# Deploy
-cd site
-vercel
-
-# Follow prompts, then your site is live!
-# Example: https://kalabhairava-sahasranama.vercel.app
+```powershell
+./start-server.ps1
 ```
 
----
+Default local URL: `http://localhost:8000`
 
-### 🔥 **Cloudflare Pages** (Ultra-Fast CDN)
+## Static host settings
 
-1. Push code to GitHub (see above)
-2. Go to https://pages.cloudflare.com/
-3. Connect repository
-4. Build settings:
-   - Build command: (none)
-   - Build output directory: `site`
-5. Deploy!
+For Netlify, Cloudflare Pages, Vercel, GitHub Pages, or similar static hosts:
 
-**Benefits**: 
-- Cloudflare's global CDN
-- Free SSL
-- Unlimited bandwidth
+- Build command: leave empty
+- Output directory: repository root / `.`
+- Node install step: not required
 
----
+### Host notes
 
-### 🐳 **Traditional Hosting** (cPanel/FTP)
+- `sahasranama_meanings.json` must be served as `application/json`
+- Keep `_headers` and `_redirects` if your platform understands them
+- Service worker registration is already skipped on `localhost` and `127.0.0.1`
 
-1. **Login to your hosting control panel**
-2. **Navigate to File Manager or use FTP client**
-3. **Upload entire `site` folder contents to `public_html/`**
-4. **Done!** Visit: `https://yourdomain.com`
+## GitHub Pages
 
-**FTP Commands:**
-```bash
-# Using FileZilla or command line:
-cd site
-# Upload all files to your web root
-```
+If you use GitHub Pages, publish from the root of your selected branch. Do not point Pages at a non-existent `site/` folder.
 
----
+## Quick publish checklist
 
-## 📱 Mobile Testing Before Deploy
-
-**Test on real devices:**
-```bash
-# Find your local IP
-ipconfig  # Windows
-ifconfig  # Mac/Linux
-
-# Start server
-python -m http.server 8080
-
-# On your phone, visit:
-http://YOUR_IP_ADDRESS:8080
-# Example: http://192.168.1.100:8080
-```
-
-**Chrome DevTools Mobile Emulator:**
-1. Open http://localhost:8080
-2. Press F12
-3. Click device toolbar icon (or Ctrl+Shift+M)
-4. Select iPhone/Android device
-
----
-
-## 🎯 Performance Checklist
-
-✅ **Optimized for:**
-- Mobile phones (iOS & Android)
-- Tablets (iPad, etc.)
-- Desktop (all screen sizes)
-- Touch and mouse inputs
-- Slow internet connections (lazy loading)
-- Screen readers (semantic HTML)
-
-✅ **Modern Features:**
-- Progressive Web App (PWA) - installable on phones
-- Service Worker ready (cache for offline)
-- Responsive images
-- Optimized fonts loading
-- Minimal JavaScript
-- No external dependencies
-
----
-
-## 🔧 Optional Enhancements
-
-### Add Service Worker (Offline Support)
-Create `sw.js` in site folder:
-```javascript
-const CACHE_NAME = 'kalabhairava-v1';
-const urlsToCache = [
-  './',
-  './index.html',
-  './styles.css',
-  './app.js',
-  './sahasranama_meanings.json',
-  './MaaAdyaKali_5.webp'
-];
-
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
-  );
-});
-
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
-  );
-});
-```
-
-Register in `app.js`:
-```javascript
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js');
-}
-```
-
-### Add Analytics (Optional)
-```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID"></script>
-```
-
----
-
-## 🆘 Troubleshooting
-
-**Problem: Fonts not loading**
-- Check internet connection
-- Google Fonts CDN might be blocked
-- Solution: Download fonts and host locally
-
-**Problem: Images not showing**
-- Check file paths are relative (`./image.png`)
-- Ensure files copied to site folder
-
-**Problem: JSON not loading**
-- Check browser console (F12)
-- Verify `sahasranama_meanings.json` exists in site folder
-- Check CORS settings on host
-
----
-
-## 📊 Recommended Hosting
-
-| Platform | Speed | Price | SSL | Custom Domain | Bandwidth |
-|----------|-------|-------|-----|---------------|-----------|
-| **Netlify** | ⚡⚡⚡⚡⚡ | FREE | ✅ | ✅ | 100GB/mo |
-| **Vercel** | ⚡⚡⚡⚡⚡ | FREE | ✅ | ✅ | 100GB/mo |
-| **Cloudflare Pages** | ⚡⚡⚡⚡⚡ | FREE | ✅ | ✅ | Unlimited |
-| **GitHub Pages** | ⚡⚡⚡⚡ | FREE | ✅ | ✅ | 100GB/mo |
-
-**Winner for this project: Netlify or Cloudflare Pages** ✨
-
----
-
-## 🙏 Final Steps
-
-1. **Deploy** using one of the methods above
-2. **Test** on mobile devices
-3. **Share** the URL with devotees
-4. **Monitor** traffic (add analytics if needed)
-
----
-
-## ॐ Jai Kālabhairava • Jai Mā Ādya Mahākālī 🔱
-
-**Questions?** The website is ready to serve millions of devotees worldwide!
+1. Confirm the repo root contains the expected static files.
+2. Preview locally and verify search, language toggle, and dataset loading.
+3. Publish the repository root as the site output.
+4. Verify that `manifest.webmanifest`, `sw.js`, and `sahasranama_meanings.json` load successfully in production.
