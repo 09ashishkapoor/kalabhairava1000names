@@ -13,7 +13,9 @@ const translations = {
       significance: '<strong>Significance:</strong> Chanting the <em>Kalabhairava Sahasranama</em> is believed to remove fear, grant protection from negativity, destroy internal enemies (ego, anger), and bestow spiritual liberation (Moksha).',
       dedication: 'Bhairava Kalike Namosthute.<br>Through Bhairava we attain Maa Kali.<br>Start your journey toward Maa Adya Mahakali with 1000 Names of Kālabhairav Baba: Kindest Guru, Destroyer of Fear, Supreme Protector.',
       dedicationFooter: 'Dedicated to Shri Praveen Radhakrishnan and Khyapa Parampara.<br><span class="dedication-gold">Om Shri Gurubhyo Namaha, Jai Khyapa Parampara 🙏</span>',
-      exploreButton: 'Explore Sacred Names'
+      exploreButton: 'Explore Sacred Names',
+      learnButton: 'Learn About Baba',
+      tagline: 'Complete Kālabhairava Sahasranāma — 1000 sacred names with English & Hindi meanings.'
     },
 
     // About section
@@ -99,7 +101,9 @@ const translations = {
       significance: '<strong>महत्व:</strong> <em>कालभैरव सहस्रनाम</em> का जाप करने से डर दूर होता है, नकारात्मकता (negativity) से रक्षा होती है, अंदर के दुश्मन (अहंकार, गुस्सा) ख़त्म होते हैं और मोक्ष मिलता है।',
       dedication: 'भैरव कालिके नमोस्तुते।<br>भैरव के ज़रिए ही हम माँ काली को पाते हैं।<br>कालभैरव बाबा के १००० नामों के साथ माँ आद्या महाकाली की ओर अपनी यात्रा शुरू करें: सबसे दयालु गुरु, डर को मिटाने वाले, हमारे परम रक्षक।',
       dedicationFooter: 'श्री प्रवीण राधाकृष्णन और ख्यापा परंपरा को समर्पित।<br><span class="dedication-gold">ॐ श्री गुरुभ्यो नमः, जय ख्यापा परंपरा 🙏</span>',
-      exploreButton: 'पवित्र नामों को देखें'
+      exploreButton: 'पवित्र नामों को देखें',
+      learnButton: 'बाबा के बारे में जानें',
+      tagline: 'पूरी कालभैरव सहस्रनामावली — अंग्रेजी और हिंदी अर्थों सहित १००० पवित्र नाम।'
     },
 
     // About section

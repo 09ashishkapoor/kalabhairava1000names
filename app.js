@@ -84,6 +84,7 @@
     elements.languageToggle = document.getElementById('language-toggle');
     elements.clearBtn = document.getElementById('clear-btn');
     elements.exploreBtn = document.getElementById('explore-btn');
+    elements.learnBtn = document.getElementById('learn-btn');
     elements.namesGrid = document.getElementById('names-grid');
     elements.loadMoreBtn = document.getElementById('load-more-btn');
     elements.loadingState = document.getElementById('loading-state');
@@ -111,6 +112,11 @@
     
     // Explore button
     elements.exploreBtn.addEventListener('click', scrollToNames);
+    
+    // Learn About button
+    if (elements.learnBtn) {
+      elements.learnBtn.addEventListener('click', scrollToAbout);
+    }
     
     // Load more
     elements.loadMoreBtn.addEventListener('click', loadMoreNames);
@@ -227,14 +233,18 @@
     elaborationDiv.setAttribute('data-index', String(entry.index));
     const elaborationContent = document.createElement('div');
     elaborationContent.className = 'elaboration-content';
-    elaborationContent.textContent = elaboration;
+    // meaning shown inside elaboration, matching sister site layout
+    elaborationContent.appendChild(p);
+    const elaborationCopy = document.createElement('div');
+    elaborationCopy.className = 'elaboration-copy';
+    elaborationCopy.textContent = elaboration;
+    elaborationContent.appendChild(elaborationCopy);
     elaborationDiv.appendChild(elaborationContent);
 
     toggleBtn.addEventListener('click', () => toggleElaboration(entry.index));
 
     card.appendChild(header);
     card.appendChild(h3);
-    card.appendChild(p);
     card.appendChild(toggleBtn);
     card.appendChild(elaborationDiv);
 
@@ -419,6 +429,13 @@
     const namesSection = document.getElementById('names-section');
     if (namesSection) {
       namesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function scrollToAbout() {
+    const aboutSection = document.getElementById('about-section');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
   

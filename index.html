@@ -215,36 +215,23 @@
                 <div class="title-line" data-i18n="landing.title1">Kālabhairava</div>
                 <div class="title-line" data-i18n="landing.title2">Sahasranāma</div>
             </h1>
-            <!-- Visible SEO intro: include common English search phrase -->
-            <p class="seo-intro">
-                <span data-i18n="landing.subtitle">Kalabhairava 1000 Names — Complete Kālabhairava Sahasranāma with English & Hindi meanings. Explore the full list of 1000 sacred names, translations, and devotional notes on this page.</span>
-                <br><br>
-                <span data-i18n="landing.significance"><strong>Significance:</strong> Chanting the <em>Kalabhairava Sahasranama</em> is believed to remove fear, grant protection from negativity, destroy internal enemies (ego, anger), and bestow spiritual liberation (Moksha).</span>
-            </p>
-            
-            <!-- Subtitle (Fixed Nesting Error) -->
-            <p class="subtitle">
-                <span class="subtitle-gold" data-i18n="landing.dedication">
-                    Bhairava Kalike Namosthute.<br>
-                    Through Bhairava we attain Maa Kali.<br>
-                    Start your journey toward Maa Adya Mahakali with 1000 Names of Kālabhairav Baba: Kindest Guru, Destroyer of Fear, Supreme Protector.
-                </span>
-            </p>
-            
-            <!-- Dedication moved outside paragraph -->
-            <div class="dedication-crimson" data-i18n="landing.dedicationFooter">
-                Dedicated to Shri Praveen Radhakrishnan and Khyapa Parampara.<br>
-                <span class="dedication-gold">Om Shri Gurubhyo Namaha, Jai Khyapa Parampara <span title="Namaste">🙏</span></span>
+
+            <!-- Short tagline -->
+            <p class="landing-tagline" data-i18n="landing.tagline">Complete Kālabhairava Sahasranāma — 1000 sacred names with English &amp; Hindi meanings.</p>
+
+            <!-- CTA Buttons -->
+            <div class="cta-group">
+                <button id="explore-btn" class="explore-button">
+                    <span data-i18n="landing.exploreButton">Explore Sacred Names</span>
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                </button>
+                <button id="learn-btn" class="learn-button">
+                    <span data-i18n="landing.learnButton">Learn About Baba</span>
+                </button>
             </div>
-            
-            <!-- CTA Button -->
-            <button id="explore-btn" class="explore-button">
-                <span data-i18n="landing.exploreButton">Explore Sacred Names</span>
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                    <polyline points="19 12 12 19 5 12"></polyline>
-                </svg>
-            </button>
             
             <!-- Scroll Hint -->
             <div class="scroll-hint">
@@ -267,7 +254,27 @@
                     Understanding the significance and benefits of chanting the 1000 sacred names.
                 </p>
             </header>
-            
+
+            <!-- Intro content moved from landing for a cleaner hero -->
+            <div class="landing-intro" data-scroll-animate>
+                <p class="seo-intro">
+                    <span data-i18n="landing.subtitle">Kalabhairava 1000 Names — Complete Kālabhairava Sahasranāma with English &amp; Hindi meanings. Explore the full list of 1000 sacred names, translations, and devotional notes on this page.</span>
+                    <br><br>
+                    <span data-i18n="landing.significance"><strong>Significance:</strong> Chanting the <em>Kalabhairava Sahasranama</em> is believed to remove fear, grant protection from negativity, destroy internal enemies (ego, anger), and bestow spiritual liberation (Moksha).</span>
+                </p>
+                <p class="subtitle">
+                    <span class="subtitle-gold" data-i18n="landing.dedication">
+                        Bhairava Kalike Namosthute.<br>
+                        Through Bhairava we attain Maa Kali.<br>
+                        Start your journey toward Maa Adya Mahakali with 1000 Names of Kālabhairav Baba: Kindest Guru, Destroyer of Fear, Supreme Protector.
+                    </span>
+                </p>
+                <div class="dedication-crimson" data-i18n="landing.dedicationFooter">
+                    Dedicated to Shri Praveen Radhakrishnan and Khyapa Parampara.<br>
+                    <span class="dedication-gold">Om Shri Gurubhyo Namaha, Jai Khyapa Parampara <span title="Namaste">🙏</span></span>
+                </div>
+            </div>
+
             <div class="about-grid">
                 <div class="about-card" data-scroll-animate data-animate-delay="0.1">
                     <div class="card-icon">🔱</div>
