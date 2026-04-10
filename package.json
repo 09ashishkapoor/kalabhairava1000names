@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A fast, framework-free devotional web app presenting the 1000 names of Sri Kalabhairava with English and Hindi content, search, and mobile-friendly reading.",
   "scripts": {
+    "start": "python simple-server.py",
     "prepare": "husky",
     "test": "python -m pytest tests/"
   },
