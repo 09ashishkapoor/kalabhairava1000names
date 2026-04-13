@@ -1,84 +1,49 @@
-/**
- * Kālabhairava Sahasranāma - Pure Vanilla JS Application
- * Mobile-first, lightweight, fast
+﻿/**
+ * Kalabhairava Sahasranama - mobile-first reader flow
+ * Faster initial reading path with deferred full-search readiness.
  */
 
-(function() {
+(function () {
   'use strict';
-  
-  // State
+
+  const DATA_PATHS = {
+    bootstrap: '/data/bootstrap-names.json',
+    manifest: '/data/names-manifest.json',
+  };
+
   const state = {
     data: [],
     filteredData: [],
     displayedData: [],
     currentPage: 0,
-    pageSize: 30,
+    pageSize: 11,
     searchQuery: '',
-    expandedItems: new Set()
+    expandedItems: new Set(),
+    manifest: null,
+    totalNames: 0,
+    nextChunkIndex: 0,
+    searchReady: false,
+    searchLoading: false,
+    readingLoading: false,
+    activeSearchRequestId: null,
   };
-  
-  // DOM Elements
+
   const elements = {};
-  
-  // Initialize
+
   function init() {
     cacheDOMElements();
     setupEventListeners();
     promotePreloadedStyles();
-    
-    // Initialize language toggle UI based on i18n current language
+
     if (window.i18n && elements.languageToggle) {
       updateLanguageToggleUI(window.i18n.getCurrentLanguage());
     }
-    
+
     initWorker();
-    loadData();
+    loadInitialData();
     initScrollAnimations();
-    console.log('✅ App initialized');
   }
 
-  // Initialize search worker (separated from data loading)
-  function initWorker() {
-    if (!window.Worker) return;
-    state.searchWorker = new Worker('/search-worker.js');
-    state.searchWorker.onmessage = function(e) {
-      const msg = e.data;
-      if (!msg) return;
-      if (msg.type === 'results') {
-        const ids = new Set(msg.results);
-        state.filteredData = state.data.filter(it => ids.has(it.index));
-        state.currentPage = 0;
-        renderNames();
-        updateStats();
-      }
-    };
-  }
-
-  // Promote <link rel="preload" as="style"> elements to actual stylesheets
-  // This avoids inline onload handlers (which your CSP blocks) and ensures
-  // preloaded CSS is applied. Runs early during init().
-  function promotePreloadedStyles() {
-    try {
-      const links = Array.from(document.querySelectorAll('link[rel="preload"][as="style"]'));
-      links.forEach(preload => {
-        // If the stylesheet is already applied, skip
-        if (preload.rel === 'stylesheet') return;
-
-        // Create a new stylesheet link and append it — safer across browsers
-        const href = preload.href;
-        const sheet = document.createElement('link');
-        sheet.rel = 'stylesheet';
-        sheet.href = href;
-        // Preserve media attribute if present on preload
-        if (preload.media) sheet.media = preload.media;
-        document.head.appendChild(sheet);
-      });
-    } catch (e) {
-      // silent fail — styles will eventually load via noscript fallback if needed
-      console.error('Error promoting preloaded styles', e);
-    }
-  }
-  
   function cacheDOMElements() {
     elements.searchInput = document.getElementById('search-input');
     elements.languageToggle = document.getElementById('language-toggle');
@@ -94,98 +59,148 @@
     elements.ebookBanner = document.querySelector('.ebook-banner');
     elements.ebookBannerClose = document.querySelector('.ebook-banner-close');
   }
-  
+
   function setupEventListeners() {
-    // Search
     elements.searchInput.addEventListener('input', debounce(handleSearch, 300));
-    
-    // Language toggle
+
     if (elements.languageToggle) {
       elements.languageToggle.addEventListener('click', handleLanguageToggle);
     }
-    
-    // Listen for language changes from i18n
+
     window.addEventListener('languageChanged', handleLanguageChanged);
-    
-    // Clear
     elements.clearBtn.addEventListener('click', handleClear);
-    
-    // Explore button
     elements.exploreBtn.addEventListener('click', scrollToNames);
-    
-    // Learn About button
+
     if (elements.learnBtn) {
       elements.learnBtn.addEventListener('click', scrollToAbout);
     }
-    
-    // Load more
+
     elements.loadMoreBtn.addEventListener('click', loadMoreNames);
-    
-    // Ebook banner close
+
     if (elements.ebookBannerClose) {
       elements.ebookBannerClose.addEventListener('click', closeEbookBanner);
     }
-    
-    // Restore ebook banner visibility if needed
+
     restoreEbookBannerVisibility();
   }
-  
-  // Load Data
-  async function loadData() {
-    try {
-      elements.loadingState.classList.remove('hidden');
-      elements.errorState.classList.add('hidden');
-      
-      const response = await fetch('/sahasranama_meanings.json');
-      if (!response.ok) throw new Error('Failed to load sacred names');
-      
-      state.data = await response.json();
-      state.filteredData = [...state.data];
-      
-      if (state.searchWorker) {
-        state.searchWorker.postMessage({ cmd: 'index', data: state.data });
+
+  function initWorker() {
+    if (!window.Worker) {
+      return;
+    }
+
+    state.searchWorker = new Worker('/search-worker.js');
+    state.searchWorker.onmessage = function (event) {
+      const message = event.data;
+      if (!message || message.type !== 'results') {
+        return;
       }
-      
+
+      if (message.reqId !== state.activeSearchRequestId) {
+        return;
+      }
+
+      const ids = new Set(message.results || []);
+      state.filteredData = state.data.filter((item) => ids.has(item.index));
+      state.currentPage = 0;
       renderNames();
       updateStats();
-      
-      elements.loadingState.classList.add('hidden');
+    };
+  }
+
+  function promotePreloadedStyles() {
+    try {
+      const links = Array.from(document.querySelectorAll('link[rel="preload"][as="style"]'));
+      links.forEach(function (preload) {
+        if (preload.rel === 'stylesheet') {
+          return;
+        }
+
+        const sheet = document.createElement('link');
+        sheet.rel = 'stylesheet';
+        sheet.href = preload.href;
+        if (preload.media) {
+          sheet.media = preload.media;
+        }
+        document.head.appendChild(sheet);
+      });
     } catch (error) {
-      showError(error.message);
-      elements.loadingState.classList.add('hidden');
+      console.error('Error promoting preloaded styles', error);
     }
   }
-  
-  // Render Names
-  function renderNames() {
-    const start = 0;
-    const end = (state.currentPage + 1) * state.pageSize;
-    state.displayedData = state.filteredData.slice(start, end);
-    // Build all cards in a fragment to avoid repeated reflows
-    const frag = document.createDocumentFragment();
-    // clear grid
-    while (elements.namesGrid.firstChild) elements.namesGrid.removeChild(elements.namesGrid.firstChild);
-    state.displayedData.forEach((entry, index) => {
-      const card = createNameCard(entry, index);
-      frag.appendChild(card);
-    });
-    elements.namesGrid.appendChild(frag);
-    
-    // Show/hide load more button
-    if (state.displayedData.length < state.filteredData.length) {
-      elements.loadMoreBtn.classList.remove('hidden');
-    } else {
-      elements.loadMoreBtn.classList.add('hidden');
+
+  async function loadInitialData() {
+    try {
+      showInitialLoading();
+      const bootstrapResponse = await fetch(DATA_PATHS.bootstrap);
+      if (!bootstrapResponse.ok) {
+        throw new Error('Failed to load sacred names');
+      }
+
+      const bootstrapData = await bootstrapResponse.json();
+
+      state.data = bootstrapData;
+      state.filteredData = bootstrapData.slice();
+      state.totalNames = bootstrapData.length;
+      state.nextChunkIndex = 0;
+
+      renderNames();
+      updateStats();
+      hideInitialLoading();
+      loadManifestInBackground();
+    } catch (error) {
+      hideInitialLoading();
+      showError(error.message);
     }
-    
-    // Animate cards (staggered) with a single RAF loop to reduce timers
+  }
+
+  async function loadManifestInBackground() {
+    try {
+      const response = await fetch(DATA_PATHS.manifest);
+      if (!response.ok) {
+        throw new Error('Failed to load more names');
+      }
+
+      const manifest = await response.json();
+      state.manifest = manifest;
+      state.totalNames = manifest.totalNames || state.totalNames;
+      updateLoadMoreButton();
+      updateStats();
+    } catch (error) {
+      console.warn('Manifest load deferred:', error.message);
+    }
+  }
+
+  function showInitialLoading() {
+    elements.loadingState.classList.remove('hidden');
+    elements.errorState.classList.add('hidden');
+  }
+
+  function hideInitialLoading() {
+    elements.loadingState.classList.add('hidden');
+  }
+
+  function renderNames() {
+    const end = (state.currentPage + 1) * state.pageSize;
+    state.displayedData = state.filteredData.slice(0, end);
+
+    const fragment = document.createDocumentFragment();
+    while (elements.namesGrid.firstChild) {
+      elements.namesGrid.removeChild(elements.namesGrid.firstChild);
+    }
+
+    state.displayedData.forEach(function (entry, index) {
+      fragment.appendChild(createNameCard(entry, index));
+    });
+
+    elements.namesGrid.appendChild(fragment);
+    updateLoadMoreButton();
     animateCards();
   }
-  
+
   function createNameCard(entry, index) {
     const card = document.createElement('div');
     card.className = 'name-card';
-    // expose index for CSS stagger if needed
     card.style.setProperty('--i', String(index % state.pageSize));
 
     const isExpanded = state.expandedItems.has(entry.index);
@@ -196,123 +211,294 @@
 
     const header = document.createElement('div');
     header.className = 'card-header';
-    const idxSpan = document.createElement('span');
-    idxSpan.className = 'card-index';
-    idxSpan.textContent = `#${entry.index}`;
-    header.appendChild(idxSpan);
+    const indexBadge = document.createElement('span');
+    indexBadge.className = 'card-index';
+    indexBadge.textContent = '#' + entry.index;
+    header.appendChild(indexBadge);
 
-    const h3 = document.createElement('h3');
-    h3.className = 'card-name';
-    h3.textContent = name;
+    const title = document.createElement('h3');
+    title.className = 'card-name';
+    title.textContent = name;
 
-    const p = document.createElement('p');
-    p.className = 'card-meaning';
-    p.textContent = oneLine;
+    const summary = document.createElement('p');
+    summary.className = 'card-meaning';
+    summary.textContent = oneLine;
 
     const toggleBtn = document.createElement('button');
     toggleBtn.className = 'toggle-btn';
     toggleBtn.setAttribute('data-index', String(entry.index));
-    const span = document.createElement('span');
-    span.textContent = window.i18n ? window.i18n.getRevealButtonText(isExpanded) : (isExpanded ? 'Hide Elaboration' : 'Reveal Elaboration');
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('class', `chevron ${isExpanded ? 'rotated' : ''}`);
-    svg.setAttribute('width', '20');
-    svg.setAttribute('height', '20');
-    svg.setAttribute('viewBox', '0 0 24 24');
-    svg.setAttribute('fill', 'none');
-    svg.setAttribute('stroke', 'currentColor');
-    svg.setAttribute('stroke-width', '2');
-    const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
-    poly.setAttribute('points', '6 9 12 15 18 9');
-    svg.appendChild(poly);
-    toggleBtn.appendChild(span);
-    toggleBtn.appendChild(svg);
 
-    const elaborationDiv = document.createElement('div');
-    elaborationDiv.className = `elaboration ${isExpanded ? 'expanded' : ''}`;
-    elaborationDiv.setAttribute('data-index', String(entry.index));
+    const label = document.createElement('span');
+    label.textContent = window.i18n
+      ? window.i18n.getRevealButtonText(isExpanded)
+      : (isExpanded ? 'Hide Elaboration' : 'Reveal Elaboration');
+
+    const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    icon.setAttribute('class', 'chevron' + (isExpanded ? ' rotated' : ''));
+    icon.setAttribute('width', '20');
+    icon.setAttribute('height', '20');
+    icon.setAttribute('viewBox', '0 0 24 24');
+    icon.setAttribute('fill', 'none');
+    icon.setAttribute('stroke', 'currentColor');
+    icon.setAttribute('stroke-width', '2');
+    const polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+    polyline.setAttribute('points', '6 9 12 15 18 9');
+    icon.appendChild(polyline);
+    toggleBtn.appendChild(label);
+    toggleBtn.appendChild(icon);
+
+    const elaborationWrap = document.createElement('div');
+    elaborationWrap.className = 'elaboration' + (isExpanded ? ' expanded' : '');
+    elaborationWrap.setAttribute('data-index', String(entry.index));
     const elaborationContent = document.createElement('div');
     elaborationContent.className = 'elaboration-content';
-    // meaning shown inside elaboration, matching sister site layout
-    elaborationContent.appendChild(p);
+    elaborationContent.appendChild(summary);
     const elaborationCopy = document.createElement('div');
     elaborationCopy.className = 'elaboration-copy';
     elaborationCopy.textContent = elaboration;
     elaborationContent.appendChild(elaborationCopy);
-    elaborationDiv.appendChild(elaborationContent);
+    elaborationWrap.appendChild(elaborationContent);
 
-    toggleBtn.addEventListener('click', () => toggleElaboration(entry.index));
+    toggleBtn.addEventListener('click', function () {
+      toggleElaboration(entry.index);
+    });
 
     card.appendChild(header);
-    card.appendChild(h3);
+    card.appendChild(title);
     card.appendChild(toggleBtn);
-    card.appendChild(elaborationDiv);
-
+    card.appendChild(elaborationWrap);
     return card;
   }
-  
+
   function toggleElaboration(index) {
     if (state.expandedItems.has(index)) {
       state.expandedItems.delete(index);
     } else {
       state.expandedItems.add(index);
     }
-    
-    // Find the card and update it
-    const elaboration = document.querySelector(`.elaboration[data-index="${index}"]`);
-    const toggleBtn = document.querySelector(`.toggle-btn[data-index="${index}"]`);
+
+    const elaboration = document.querySelector('.elaboration[data-index="' + index + '"]');
+    const toggleBtn = document.querySelector('.toggle-btn[data-index="' + index + '"]');
+    if (!elaboration || !toggleBtn) {
+      return;
+    }
+
     const chevron = toggleBtn.querySelector('.chevron');
-    const span = toggleBtn.querySelector('span');
-    
+    const label = toggleBtn.querySelector('span');
+
     if (state.expandedItems.has(index)) {
       elaboration.classList.add('expanded');
       chevron.classList.add('rotated');
-      span.textContent = window.i18n ? window.i18n.t('names.hideButton') : 'Hide Elaboration';
+      label.textContent = window.i18n ? window.i18n.t('names.hideButton') : 'Hide Elaboration';
     } else {
       elaboration.classList.remove('expanded');
       chevron.classList.remove('rotated');
-      span.textContent = window.i18n ? window.i18n.t('names.revealButton') : 'Reveal Elaboration';
+      label.textContent = window.i18n ? window.i18n.t('names.revealButton') : 'Reveal Elaboration';
     }
   }
-  
+
   function animateCards() {
     const cards = elements.namesGrid.querySelectorAll('.name-card');
-    // Add visible class in batches via RAF to avoid many timers
-    let i = 0;
+    let index = 0;
+
     function step() {
-      const batch = 6; // number of cards to reveal per frame
-      for (let j = 0; j < batch && i < cards.length; j++, i++) {
-        cards[i].classList.add('visible');
+      const batch = 6;
+      for (let count = 0; count < batch && index < cards.length; count += 1, index += 1) {
+        cards[index].classList.add('visible');
       }
-      if (i < cards.length) requestAnimationFrame(step);
+      if (index < cards.length) {
+        requestAnimationFrame(step);
+      }
     }
+
     requestAnimationFrame(step);
   }
-  
-  // Search & Filter
-  function handleSearch(e) {
-    state.searchQuery = e.target.value.toLowerCase().trim();
-    state.currentPage = 0;
-    const currentLang = window.i18n ? window.i18n.getCurrentLanguage() : 'en';
-    if (state.searchWorker) {
-      const reqId = Date.now() + Math.random();
-      state.searchWorker.postMessage({ cmd: 'search', query: state.searchQuery, language: currentLang, reqId });
-    } else {
-      // fallback
-      filterData();
-      renderNames();
-      updateStats();
-    }
-    updateClearButton();
+
+  function hasRemainingChunks() {
+    return Boolean(state.manifest) && state.nextChunkIndex < state.manifest.chunks.length;
   }
-  
-  function filterData() {
-    if (!state.searchQuery) {
-      state.filteredData = [...state.data];
+
+  async function ensureDataForPage(targetPage) {
+    if (state.searchQuery) {
       return;
     }
-    
-    state.filteredData = state.data.filter(entry => {
+
+    const requiredCount = (targetPage + 1) * state.pageSize;
+    while (state.data.length < requiredCount && hasRemainingChunks()) {
+      await loadNextChunk();
+    }
+  }
+
+  async function loadNextChunk() {
+    if (state.readingLoading || !hasRemainingChunks()) {
+      return;
+    }
+
+    state.readingLoading = true;
+    setLoadMoreLoading(true);
+
+    try {
+      const chunkMeta = state.manifest.chunks[state.nextChunkIndex];
+      const response = await fetch(chunkMeta.path);
+      if (!response.ok) {
+        throw new Error('Failed to load more sacred names');
+      }
+
+      const chunkData = await response.json();
+      state.data = state.data.concat(chunkData);
+      if (!state.searchQuery) {
+        state.filteredData = state.data.slice();
+      }
+      state.nextChunkIndex += 1;
+    } finally {
+      state.readingLoading = false;
+      setLoadMoreLoading(false);
+    }
+  }
+
+  function updateLoadMoreButton() {
+    const hasMore = state.searchQuery
+      ? state.displayedData.length < state.filteredData.length
+      : state.displayedData.length < state.totalNames;
+
+    if (hasMore) {
+      elements.loadMoreBtn.classList.remove('hidden');
+    } else {
+      elements.loadMoreBtn.classList.add('hidden');
+    }
+  }
+
+  function setLoadMoreLoading(isLoading) {
+    elements.loadMoreBtn.disabled = isLoading;
+    elements.loadMoreBtn.textContent = getText(
+      isLoading ? 'names.loadingMoreButton' : 'names.loadMoreButton',
+      isLoading ? 'Loading More Names...' : 'Load More Names'
+    );
+  }
+
+  async function loadMoreNames() {
+    const targetPage = state.currentPage + 1;
+
+    try {
+      await ensureDataForPage(targetPage);
+      const requiredCount = (targetPage + 1) * state.pageSize;
+      if (!state.searchQuery && state.data.length < requiredCount) {
+        showTransientNotice(
+          'names.loadingMoreDelayed',
+          'More names are still loading. Please try again in a moment.'
+        );
+        return;
+      }
+
+      state.currentPage = targetPage;
+      renderNames();
+      const newCardSelector = '.name-card:nth-child(' + (state.displayedData.length - state.pageSize + 1) + ')';
+      const newCard = elements.namesGrid.querySelector(newCardSelector);
+      if (newCard) {
+        setTimeout(function () {
+          newCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      }
+    } catch (error) {
+      showTransientNotice(
+        'names.loadingMoreDelayed',
+        'More names are taking longer than expected. Please try again in a moment.'
+      );
+    }
+  }
+
+  function handleSearch(event) {
+    state.searchQuery = event.target.value.toLowerCase().trim();
+    state.currentPage = 0;
+    updateClearButton();
+
+    if (!state.searchQuery) {
+      clearSearchResults();
+      return;
+    }
+
+    if (!state.searchReady) {
+      showSearchPendingNotice();
+      prepareSearchIndex();
+      return;
+    }
+
+    runSearch();
+  }
+
+  function clearSearchResults() {
+    state.filteredData = state.data.slice();
+    renderNames();
+    updateStats();
+  }
+
+  async function prepareSearchIndex() {
+    if (state.searchReady || state.searchLoading) {
+      return;
+    }
+
+    state.searchLoading = true;
+    elements.searchInput.setAttribute('aria-busy', 'true');
+
+    try {
+      const searchSourcePath = state.manifest && state.manifest.searchSourcePath
+        ? state.manifest.searchSourcePath
+        : '/sahasranama_meanings.json';
+      const response = await fetch(searchSourcePath);
+      if (!response.ok) {
+        throw new Error('Failed to prepare search');
+      }
+
+      const fullData = await response.json();
+      state.data = fullData;
+      state.filteredData = fullData.slice();
+      state.totalNames = fullData.length;
+      state.searchReady = true;
+
+      if (state.searchWorker) {
+        state.searchWorker.postMessage({ cmd: 'index', data: state.data });
+      }
+
+      if (state.searchQuery) {
+        runSearch();
+      } else {
+        renderNames();
+        updateStats();
+      }
+    } catch (error) {
+      showTransientNotice(
+        'names.searchUnavailable',
+        'Search needs the remaining names and could not finish loading right now. Please continue reading or try again.'
+      );
+    } finally {
+      state.searchLoading = false;
+      elements.searchInput.removeAttribute('aria-busy');
+    }
+  }
+
+  function runSearch() {
+    if (state.searchWorker) {
+      state.activeSearchRequestId = Date.now() + Math.random();
+      state.searchWorker.postMessage({
+        cmd: 'search',
+        query: state.searchQuery,
+        reqId: state.activeSearchRequestId,
+      });
+      return;
+    }
+
+    filterData();
+    renderNames();
+    updateStats();
+  }
+
+  function filterData() {
+    if (!state.searchQuery) {
+      state.filteredData = state.data.slice();
+      return;
+    }
+
+    state.filteredData = state.data.filter(function (entry) {
       const searchFields = [
         entry.english_name,
         entry.english_one_line,
@@ -320,111 +506,116 @@
         entry.hindi_name,
         entry.hindi_one_line,
         entry.hindi_elaboration,
-        entry.index.toString()
+        String(entry.index),
       ];
-      
-      return searchFields.some(field => 
-        field && field.toLowerCase().includes(state.searchQuery)
-      );
+
+      return searchFields.some(function (field) {
+        return field && field.toLowerCase().includes(state.searchQuery);
+      });
     });
   }
-  
-  function handleLanguageToggle(e) {
-    const target = e.target.closest('.language-toggle-option');
-    if (!target) return;
-    
+
+  function showSearchPendingNotice() {
+    elements.statsDisplay.innerHTML = getText(
+      'names.searchLoading',
+      'Search is preparing the remaining names. Results will appear shortly.'
+    );
+  }
+
+  function showTransientNotice(key, fallback) {
+    elements.errorState.classList.add('hidden');
+    elements.statsDisplay.innerHTML = getText(key, fallback);
+  }
+
+  function handleLanguageToggle(event) {
+    const target = event.target.closest('.language-toggle-option');
+    if (!target) {
+      return;
+    }
+
     const lang = target.getAttribute('data-lang');
-    if (!lang) return;
-    
-    // Update i18n language (this will trigger languageChanged event which updates UI)
-    if (window.i18n) {
+    if (lang && window.i18n) {
       window.i18n.setLanguage(lang);
     }
   }
-  
+
   function updateLanguageToggleUI(lang) {
     const options = elements.languageToggle.querySelectorAll('.language-toggle-option');
     const slider = elements.languageToggle.querySelector('.language-toggle-slider');
-    
     let selectedIndex = 0;
-    options.forEach((option, index) => {
+
+    options.forEach(function (option, index) {
       const optionLang = option.getAttribute('data-lang');
-      if (optionLang === lang) {
-        option.classList.add('active');
-        option.setAttribute('aria-checked', 'true');
+      const isActive = optionLang === lang;
+      option.classList.toggle('active', isActive);
+      option.setAttribute('aria-checked', isActive ? 'true' : 'false');
+      if (isActive) {
         selectedIndex = index;
-      } else {
-        option.classList.remove('active');
-        option.setAttribute('aria-checked', 'false');
       }
     });
-    
-    // Move slider to selected option
-    slider.style.transform = `translateX(${selectedIndex * 100}%)`;
+
+    slider.style.transform = 'translateX(' + (selectedIndex * 100) + '%)';
+    setLoadMoreLoading(state.readingLoading);
+
+    if (state.searchLoading && state.searchQuery) {
+      showSearchPendingNotice();
+    } else {
+      updateStats();
+    }
   }
-  
-  function handleLanguageChanged(e) {
-    // Called when language changes from i18n system
-    const lang = e.detail.language;
-    updateLanguageToggleUI(lang);
+
+  function handleLanguageChanged(event) {
+    updateLanguageToggleUI(event.detail.language);
     renderNames();
-    updateStats();
   }
-  
+
   function handleClear() {
     state.searchQuery = '';
     state.currentPage = 0;
     elements.searchInput.value = '';
-    state.filteredData = [...state.data];
-    renderNames();
-    updateStats();
+    clearSearchResults();
     updateClearButton();
   }
-  
+
   function updateClearButton() {
     elements.clearBtn.disabled = !state.searchQuery;
   }
-  
-  function loadMoreNames() {
-    state.currentPage++;
-    renderNames();
-    
-    // Smooth scroll to new content
-    setTimeout(() => {
-      const newCard = elements.namesGrid.querySelector(`.name-card:nth-child(${state.displayedData.length - state.pageSize + 1})`);
-      if (newCard) {
-        newCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }, 100);
-  }
-  
+
   function updateStats() {
-    const totalNames = state.data.length;
+    const totalNames = state.totalNames || state.data.length;
     const filteredCount = state.filteredData.length;
-    
+
     if (window.i18n) {
       elements.statsDisplay.innerHTML = window.i18n.getStatsMessage(
         state.searchQuery,
         filteredCount,
         totalNames
       );
+      return;
+    }
+
+    if (state.searchQuery) {
+      const plural = filteredCount === 1 ? '' : 's';
+      elements.statsDisplay.innerHTML =
+        '🔍 Found <strong>' + filteredCount + '</strong> name' + plural +
+        ' matching "<strong>' + state.searchQuery + '</strong>" out of <strong>' +
+        totalNames + '</strong> total names';
     } else {
-      // Fallback if i18n not loaded yet
-      if (state.searchQuery) {
-        elements.statsDisplay.innerHTML = `
-          🔍 Found <strong>${filteredCount}</strong> name${filteredCount !== 1 ? 's' : ''} 
-          matching "<strong>${state.searchQuery}</strong>" 
-          out of <strong>${totalNames}</strong> total names
-        `;
-      } else {
-        elements.statsDisplay.innerHTML = `
-          📿 Displaying the sacred <strong>${totalNames}</strong> names of <strong>Śrī Kālabhairava</strong>
-        `;
-      }
+      elements.statsDisplay.innerHTML =
+        '📿 Displaying the sacred <strong>' + totalNames + '</strong> names of <strong>Śrī Kālabhairava</strong>';
     }
   }
-  
-  // Navigation
+
+  function getText(key, fallback) {
+    if (window.i18n) {
+      const translated = window.i18n.t(key);
+      if (translated && translated !== key) {
+        return translated;
+      }
+    }
+    return fallback;
+  }
+
   function scrollToNames() {
     const namesSection = document.getElementById('names-section');
     if (namesSection) {
@@ -438,55 +629,57 @@
       aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
-  
-  // Error handling
+
   function showError(message) {
     elements.errorState.classList.remove('hidden');
     elements.errorMessage.textContent = message;
     elements.namesGrid.innerHTML = '';
+    elements.loadMoreBtn.classList.add('hidden');
   }
-  
-  // Ebook banner management
+
   function closeEbookBanner() {
-    if (elements.ebookBanner) {
-      elements.ebookBanner.classList.add('hidden');
-      // Save preference for 30 days
-      const expiryDate = new Date();
-      expiryDate.setDate(expiryDate.getDate() + 30);
-      document.cookie = `ebookBannerClosed=true; path=/; expires=${expiryDate.toUTCString()}`;
+    if (!elements.ebookBanner) {
+      return;
     }
+
+    elements.ebookBanner.classList.add('hidden');
+    const expiryDate = new Date();
+    expiryDate.setDate(expiryDate.getDate() + 30);
+    document.cookie = 'ebookBannerClosed=true; path=/; expires=' + expiryDate.toUTCString();
   }
-  
+
   function restoreEbookBannerVisibility() {
-    const cookies = document.cookie.split(';').map(c => c.trim());
-    const isClosed = cookies.some(c => c.startsWith('ebookBannerClosed=true'));
-    
+    const cookies = document.cookie.split(';').map(function (cookie) {
+      return cookie.trim();
+    });
+    const isClosed = cookies.some(function (cookie) {
+      return cookie.startsWith('ebookBannerClosed=true');
+    });
+
     if (isClosed && elements.ebookBanner) {
       elements.ebookBanner.classList.add('hidden');
     }
   }
-  
-  // Utility: Debounce
+
   function debounce(func, wait) {
     let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
+    return function debounced() {
+      const args = arguments;
       clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
+      timeout = setTimeout(function () {
+        func.apply(null, args);
+      }, wait);
     };
   }
 
-  // Scroll-triggered animations
   function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('[data-scroll-animate]');
-    
-    if (!animatedElements.length) return;
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    if (!animatedElements.length) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
@@ -494,19 +687,17 @@
       });
     }, {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: '0px 0px -50px 0px',
     });
-    
-    animatedElements.forEach(el => observer.observe(el));
+
+    animatedElements.forEach(function (element) {
+      observer.observe(element);
+    });
   }
-  
-  // Start the app
-  // i18n.js loads synchronously (no defer), so window.i18n is always available
-  // by the time this defer script runs. No polling needed.
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
-
 })();

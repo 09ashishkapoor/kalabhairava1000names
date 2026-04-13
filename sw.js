@@ -104,12 +104,12 @@ define(["./workbox-239d0d27"], function (workbox) {
   );
 
   workbox.registerRoute(
-    /\/sahasranama_meanings\.json$/,
-    new workbox.NetworkFirst({
-      cacheName: "sahasranama-data",
+    /\/data\/(?:bootstrap-names|names-manifest|name-chunks\/chunk-\d+)\.json$/,
+    new workbox.StaleWhileRevalidate({
+      cacheName: "sahasranama-reader-data",
       plugins: [
         new workbox.ExpirationPlugin({
-          maxEntries: 1,
+          maxEntries: 40,
           maxAgeSeconds: 604800,
         }),
       ],

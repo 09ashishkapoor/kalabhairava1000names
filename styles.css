@@ -108,11 +108,17 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/MaaAdyaKali_5.webp');
+  background-image: url('/MaaAdyaKali_5-mobile.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   z-index: -2; /* Behind overlays but still visible */
+}
+
+@media (min-width: 768px) {
+  body::before {
+    background-image: url('/MaaAdyaKali_5.webp');
+  }
 }
 
 /* Dark overlay pseudo-element */

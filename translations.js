@@ -72,12 +72,14 @@ const translations = {
       searchPlaceholder: 'Search names or meanings...',
       clearButton: 'Clear',
       loadMoreButton: 'Load More Names',
+      loadingMoreButton: 'Loading More Names...',
       loadingState: 'Loading sacred names...',
       errorTitle: 'Error Loading Sacred Names',
       revealButton: 'Reveal Elaboration',
       hideButton: 'Hide Elaboration',
       statsDisplay: '📿 Displaying the sacred <strong>{total}</strong> names of <strong>Śrī Kālabhairava</strong>',
-      statsSearch: '🔍 Found <strong>{count}</strong> name{plural} matching "<strong>{query}</strong>" out of <strong>{total}</strong> total names'
+      statsSearch: '🔍 Found <strong>{count}</strong> name{plural} matching "<strong>{query}</strong>" out of <strong>{total}</strong> total names',
+      searchLoading: '? Search is preparing the remaining names. Results will appear shortly.'
     },
 
     // Footer
@@ -161,12 +163,14 @@ const translations = {
       searchPlaceholder: 'नाम या अर्थ खोजें...',
       clearButton: 'Clear',
       loadMoreButton: 'और नाम लोड करें',
+      loadingMoreButton: '?? ??? ??? ?? ??? ???...',
       loadingState: 'पवित्र नाम लोड हो रहे हैं...',
       errorTitle: 'नाम लोड करने में दिक़्क़त आ रही है',
       revealButton: 'विस्तार से देखें',
       hideButton: 'विस्तार छुपाएं',
       statsDisplay: '📿 <strong>श्री कालभैरव</strong> के <strong>{total}</strong> पवित्र नाम दिखाए जा रहे हैं',
-      statsSearch: '🔍 "<strong>{query}</strong>" से मिलते-जुलते <strong>{count}</strong> नाम मिले (कुल <strong>{total}</strong> में से)'
+      statsSearch: '🔍 "<strong>{query}</strong>" से मिलते-जुलते <strong>{count}</strong> नाम मिले (कुल <strong>{total}</strong> में से)',
+      searchLoading: '? ???? ??? ??? ?? ??? ????? ??? ?? ??? ???? ?????? ????? ??? ??? ????????'
     },
 
     // Footer

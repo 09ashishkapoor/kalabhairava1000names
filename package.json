@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/09ashishkapoor/kalabhairava1000names#readme",
   "devDependencies": {
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "serve": "^14.2.6"
   }
 }
