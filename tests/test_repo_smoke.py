@@ -97,6 +97,13 @@ class RepoSmokeTests(unittest.TestCase):
             with self.subTest(precache_url=raw_url):
                 self.assertTrue((REPO_ROOT / local_path).exists())
 
+    def test_app_script_stays_fully_wrapped_in_main_iife(self):
+        app_source = (REPO_ROOT / "app.js").read_text(encoding="utf-8").rstrip()
+        self.assertTrue(
+            app_source.endswith("})();"),
+            "app.js should not leak extra executable code after the main IIFE",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

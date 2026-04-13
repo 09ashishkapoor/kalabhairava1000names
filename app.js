@@ -510,17 +510,3 @@
   }
 
 })();
-let i = 0;
-function createChunk() {
-  const end = Math.min(i+CHUNK, displayed.length);
-  for (; i < end; i++) frag.appendChild(createNameCard(displayed[i], i));
-  if (i < displayed.length) {
-    requestIdleCallback(createChunk, {timeout:200});
-  } else {
-    namesGrid.appendChild(frag);
-  }
-}
-// Removed stray chunked creation helper — renderNames() handles rendering
-// and incremental animations. If you need chunked rendering for very large
-// datasets, we can implement a proper chunked renderer that uses the
-// `state` variables and encapsulated fragments defined above.
