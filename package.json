@@ -4,8 +4,14 @@
   "description": "A fast, framework-free devotional web app presenting the 1000 names of Sri Kalabhairava with English and Hindi content, search, and mobile-friendly reading.",
   "scripts": {
     "start": "python simple-server.py",
+    "playwright:install": "playwright install chromium",
     "prepare": "husky",
-    "test": "python -m pytest tests/"
+    "test": "python -m pytest tests/",
+    "test:repo": "python -m pytest tests/",
+    "test:e2e": "playwright test tests/e2e/site-smoke.spec.js",
+    "test:visual": "playwright test tests/e2e/visual-regression.spec.js",
+    "test:perf": "playwright test tests/e2e/perf-budget.spec.js",
+    "validate": "npm run test:repo && npm run test:e2e && npm run test:visual && npm run test:perf"
   },
   "repository": {
     "type": "git",
@@ -20,6 +26,8 @@
   },
   "homepage": "https://github.com/09ashishkapoor/kalabhairava1000names#readme",
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
+    "@playwright/test": "^1.59.1",
     "husky": "^9.1.7",
     "serve": "^14.2.6"
   }

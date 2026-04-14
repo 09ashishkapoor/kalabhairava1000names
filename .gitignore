@@ -46,6 +46,8 @@ Thumbs.db
 
 # Local caches
 .cache/
+playwright-report/
+test-results/
 
 # Node (not currently used, safety net)
 node_modules/

@@ -102,6 +102,73 @@ npm test
 python -m pytest tests/
 ```
 
+## Browser Validation Baseline
+
+This repository includes a Playwright-based browser validation suite for the
+highest-value manual checks:
+
+- page load + core UI smoke coverage
+- language toggle persistence
+- bootstrap search flow
+- accessibility scan on the names explorer flow
+- visual regression baselines for the landing hero and names explorer
+- baseline performance budgets for landing-page rendering
+- HTML report, trace, screenshot, and video artifacts on failures
+
+### Install browser test dependencies
+
+```bash
+npm run playwright:install
+```
+
+### Run all validation checks
+
+```bash
+npm run validate
+```
+
+### Run only browser validation
+
+```bash
+npm run test:e2e
+```
+
+The Playwright suite starts a local static server automatically at
+`http://127.0.0.1:4173` and writes the HTML report to `playwright-report/`.
+
+### Update visual baselines intentionally
+
+```bash
+npx playwright test tests/e2e/visual-regression.spec.js --update-snapshots
+```
+
+### Run performance budgets only
+
+```bash
+npm run test:perf
+```
+
+## Continuous Validation
+
+GitHub Actions now runs the repo smoke tests and Playwright browser validation on:
+
+- every pull request
+- pushes to `main`
+
+When browser validation fails, the workflow uploads the Playwright HTML report as
+an artifact so manual review can start from traces/screenshots instead of
+reproducing the issue from scratch.
+
+Phase 2 adds:
+
+- visual snapshot regression checks
+- automated performance budgets
+- broken-link checking for markdown and HTML entrypoints
+
+For reuse in other repos, see:
+
+- `docs/AGENT_VALIDATION_PROMPT.md`
+
 ## Contributing
 1. Create a branch
 2. Make focused changes

@@ -252,6 +252,9 @@
     elaborationWrap.setAttribute('data-index', String(entry.index));
     const elaborationContent = document.createElement('div');
     elaborationContent.className = 'elaboration-content';
+    elaborationContent.setAttribute('tabindex', '0');
+    elaborationContent.setAttribute('role', 'region');
+    elaborationContent.setAttribute('aria-label', name + ' elaboration');
     elaborationContent.appendChild(summary);
     const elaborationCopy = document.createElement('div');
     elaborationCopy.className = 'elaboration-copy';
