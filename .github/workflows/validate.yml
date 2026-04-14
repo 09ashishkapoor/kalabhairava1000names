@@ -69,7 +69,7 @@ jobs:
           args: >
             --no-progress
             --verbose
-            --exclude-mail
+            --root-dir "${{ github.workspace }}"
             --accept 200,206,429
             ./README.md
             ./DEPLOYMENT.md
