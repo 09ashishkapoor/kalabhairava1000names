@@ -825,6 +825,25 @@ body[data-theme="light"] .names-overlay {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+.section-subtitle a {
+  color: var(--color-divine-gold);
+  text-decoration-color: rgba(255, 215, 0, 0.6);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.section-subtitle a:hover {
+  color: var(--color-crimson);
+  text-decoration-color: rgba(220, 20, 60, 0.7);
+}
+
+.section-subtitle a:focus-visible {
+  outline: 2px solid rgba(255, 215, 0, 0.7);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 @media (min-width: 768px) {
   .section-subtitle {
     font-size: 1.25rem;

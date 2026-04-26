@@ -1,188 +1,185 @@
-# Kalabhairava Sahasranama - 1000 names of Baba KalaBhairava
+# Kalabhairava Sahasranama
 
-A fast, framework-free devotional web app presenting the 1000 names of Kalabhairava Baba with English and Hindi meanings, real-time search, and a clean mobile-friendly reading experience.
+A fast, framework-free devotional web app for browsing the 1000 names of Sri Kalabhairava with English and Hindi meanings, search, and crawlable static reference pages.
 
 ## Highlights
-- Bilingual interface — English and Hindi
-- Real-time search across all 1000 names and meanings (Web Worker)
-- Clean landing page with two reading modes: Browse by card or Search
-- Lightweight static architecture — no framework, no build step
+
+- Bilingual interface in English and Hindi
+- Real-time search across all 1000 names and meanings
+- Interactive homepage reader with progressive loading
+- Generated static `/names/` pages for indexable range-based browsing
 - Responsive layout for desktop and mobile
-- Version auto-bumped on every commit via Husky pre-commit hook
-- Progressive Web App (installable, service worker in production)
+- Progressive Web App support
+- Repo smoke tests plus Playwright browser validation
 
 ## Tech Stack
+
 - HTML5 / CSS3
-- Vanilla JavaScript (IIFE module pattern + Web Worker for search)
-- JSON dataset (`sahasranama_meanings.json`) — 1000 entries with name, one-line meaning, and full elaboration in English and Hindi
-- Python dev server (`simple-server.py`) with automatic port fallback
-- Husky for pre-commit version bumping
+- Vanilla JavaScript
+- Web Worker search
+- Python utilities for artifact generation and local serving
+- Node-based npm scripts for cross-platform command execution
+- Pytest and Playwright for validation
 
 ## Repository Structure
 
 | File / Folder | Purpose |
 |---|---|
-| `index.html` | Single-page app shell — landing, names, about, footer |
-| `app.js` | App state, card rendering, search, i18n wiring |
-| `i18n.js` | Language state and translation lookup |
-| `translations.js` | UI strings in English and Hindi |
-| `search-worker.js` | Background Web Worker for fuzzy name search |
-| `styles.css` | Full site styles |
-| `critical.css` | Above-the-fold CSS inlined in `<head>` |
-| `load-styles.js` | Async CSS loader for non-critical styles |
-| `navigation.css` / `navigation.js` | Sticky nav and section scroll logic |
-| `sahasranama_meanings.json` | Core dataset — 1000 names with meanings |
-| `manifest.webmanifest` | PWA web app manifest |
-| `registerSW.js` | Service worker registration (skipped on localhost) |
-| `sw.js` / `workbox-239d0d27.js` | Workbox-based service worker |
-| `robots.txt` / `sitemap.xml` | SEO |
-| `_headers` / `_redirects` | Cloudflare Pages platform config |
-| `info.html` | Redirect page for `/info` → `/#about-section` |
-| `version.txt` / `last-updated.txt` | Version and date shown in footer |
-| `increment_version.sh` / `.ps1` | Version bump scripts |
-| `inject_version.py` | Injects version into HTML at build time (CF Pages) |
+| `index.html` | Main landing page and interactive names reader |
+| `app.js` | Reader state, rendering, progressive loading, search wiring |
+| `i18n.js` / `translations.js` | Language state and UI strings |
+| `search-worker.js` | Background search worker |
+| `styles.css` / `critical.css` | Main site styling |
+| `navigation.css` / `navigation.js` | Sticky nav and section scroll behavior |
+| `sahasranama_meanings.json` | Canonical source dataset |
+| `data/bootstrap-names.json` | Initial reader payload |
+| `data/names-manifest.json` | Progressive-loading manifest |
+| `data/name-chunks/` | Chunked name data for the reader |
+| `names/` | Generated static SEO pages for 100-name ranges |
+| `names/static-pages.css` | Shared stylesheet for generated static pages |
+| `generate_loading_artifacts.py` | Generates reader data artifacts, static pages, sitemap entries, and mobile hero asset |
+| `inject_version.py` | Injects the version number into HTML at build time |
 | `simple-server.py` | Local dev server with automatic port fallback |
-| `package.json` | npm scripts: `start`, `prepare` (Husky), `test` |
-| `.husky/pre-commit` | Runs `increment_version.sh` on every commit |
-| `tests/` | Smoke tests (`pytest`) |
+| `scripts/run-python.js` | Cross-platform Python launcher used by npm scripts |
+| `manifest.webmanifest` / `registerSW.js` / `sw.js` | PWA assets |
+| `robots.txt` / `sitemap.xml` | SEO assets |
+| `tests/` | Pytest smoke tests and Playwright browser validation |
 
 ## Local Development
+
+Start the local server:
 
 ```bash
 npm start
 ```
 
-The server starts on port 8000 by default. If that port is busy it automatically tries 8001, 8002, … up to 8019.
-Always open the exact `http://127.0.0.1:PORT` URL printed by the server, because the active port may not be `8000`.
+The server starts on port `8000` by default. If that port is busy it automatically tries `8001` through `8019`. Open the exact `http://127.0.0.1:PORT` URL reported by the server.
 
-Or run directly with Python:
-
-```bash
-python3 simple-server.py
-```
-
-To use a different starting port:
+Run the server directly with Python:
 
 ```bash
-PORT=9000 python3 simple-server.py
+python simple-server.py
 ```
 
-## Deployment
+Use a different starting port:
 
-Deploy the repository root as a static site to Cloudflare Pages, Netlify, Vercel, GitHub Pages, or any static host.
-
-- **Build command:** `python inject_version.py` (optional — injects the version number into the footer at build time)
-- **Output directory:** repository root (`.`)
-- **No Node install step required**
-
-### Host notes
-- `sahasranama_meanings.json` must be served as `application/json`
-- Keep `_headers` and `_redirects` for Cloudflare Pages
-- GitHub Pages ignores `_headers`, so the JSON `X-Robots-Tag: noindex` rule will not apply there
-- For Cloudflare Pages: add env var `HUSKY=0` so the Husky install step is skipped during CI
-
-## Versioning
-
-Version is stored in `version.txt` and shown in the footer.
-
-**Automatic (Husky pre-commit hook):** the version is bumped on every `git commit` — no manual step needed.
-
-**Manual bump if needed:**
-```bash
-./increment_version.sh
-```
-PowerShell:
 ```powershell
-./increment_version.ps1
+$env:PORT='9000'
+python simple-server.py
+```
+
+## Generated Artifacts
+
+This repo keeps several generated files under version control:
+
+- `data/bootstrap-names.json`
+- `data/names-manifest.json`
+- `data/name-chunks/*.json`
+- `names/index.html`
+- `names/*/index.html`
+- `sitemap.xml`
+- `MaaAdyaKali_5-mobile.webp`
+
+Regenerate them after changing the canonical dataset, static names-page copy, or generator logic:
+
+```bash
+node scripts/run-python.js generate_loading_artifacts.py
 ```
 
 ## Running Tests
 
+Run repo smoke tests:
+
 ```bash
 npm test
-# or
+```
+
+Run them directly with Python:
+
+```bash
 python -m pytest tests/
 ```
 
-## Browser Validation Baseline
+## Browser Validation
 
-This repository includes a Playwright-based browser validation suite for the
-highest-value manual checks:
-
-- page load + core UI smoke coverage
-- language toggle persistence
-- bootstrap search flow
-- accessibility scan on the names explorer flow
-- visual regression baselines for the landing hero and names explorer
-- baseline performance budgets for landing-page rendering
-- HTML report, trace, screenshot, and video artifacts on failures
-
-### Install browser test dependencies
+Install Playwright browser dependencies:
 
 ```bash
 npm run playwright:install
 ```
 
-### Run all validation checks
-
-```bash
-npm run validate
-```
-
-### Run only browser validation
+Run the core browser smoke suite:
 
 ```bash
 npm run test:e2e
 ```
 
-The Playwright suite starts a local static server automatically at
-`http://127.0.0.1:4173` and writes the HTML report to `playwright-report/`.
-
-### Update visual baselines intentionally
+Run visual validation:
 
 ```bash
-npx playwright test tests/e2e/visual-regression.spec.js --update-snapshots
+npm run test:visual
 ```
 
-### Run performance budgets only
+Run performance validation:
 
 ```bash
 npm run test:perf
 ```
 
-## Continuous Validation
+Run the full validation sequence:
 
-GitHub Actions now runs the repo smoke tests and Playwright browser validation on:
+```bash
+npm run validate
+```
 
-- every pull request
-- pushes to `main`
+The Playwright suite starts its own local server at `http://127.0.0.1:4173` and writes artifacts to `playwright-report/` and `test-results/`.
 
-When browser validation fails, the workflow uploads the Playwright HTML report as
-an artifact so manual review can start from traces/screenshots instead of
-reproducing the issue from scratch.
+## Deployment
 
-Phase 2 adds:
+Deploy the repository root as a static site to Cloudflare Pages, Netlify, Vercel, GitHub Pages, or any comparable static host.
 
-- visual snapshot regression checks
-- automated performance budgets
-- broken-link checking for markdown and HTML entrypoints
+- Output directory: `.`
+- No framework build is required for normal deploys
+- Optional version injection step: `python inject_version.py`
 
-For reuse in other repos, see:
+If you changed `sahasranama_meanings.json` or generator-driven SEO/static content and want the host to build from source, run artifact generation before deploy:
 
-- `docs/AGENT_VALIDATION_PROMPT.md`
+```bash
+python generate_loading_artifacts.py
+python inject_version.py
+```
+
+### Host Notes
+
+- `sahasranama_meanings.json` must be served as `application/json`
+- Keep `_headers` and `_redirects` for Cloudflare Pages
+- GitHub Pages ignores `_headers`
+- For Cloudflare Pages, set `HUSKY=0` during CI so Husky installation is skipped
+
+## SEO Notes
+
+- The generated `/names/` pages are intended as crawlable static reference pages
+- `sitemap.xml` is generated from the artifact pipeline
+- Submit the sitemap URL in Google Search Console once, then let Google re-fetch it
+- Use URL Inspection for important newly deployed pages if you want faster discovery
+
+## Versioning
+
+Version is stored in `version.txt` and shown in the footer.
+
+- Automatic: Husky bumps the version on each commit
+- Manual shell script: `./increment_version.sh`
+- Manual PowerShell script: `./increment_version.ps1`
 
 ## Contributing
+
 1. Create a branch
 2. Make focused changes
-3. `npm start` to preview locally
-4. Open a pull request with a clear description
+3. Regenerate artifacts if you changed source data or generator output
+4. Run `npm test`
+5. Use `npm start` to preview locally
+6. Open a pull request with a clear description
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Free to use, modify, and distribute.
-
-## End Notes 
-Built and maintained by KaliPutra_Ashish for access to 1000 names of Kalabhairava baba.  
-Dedicated to my Guru Shri Praveen Radhakrishnan ❤️ and 🙏 Khyapa Parampara.
-
-For any issues or suggestions, please open an issue or submit a pull request.
+MIT. See [LICENSE](LICENSE).
