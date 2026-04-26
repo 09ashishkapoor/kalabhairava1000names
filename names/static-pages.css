@@ -1,18 +1,20 @@
 :root {
-  color-scheme: light;
-  --page-bg: #f6efe2;
-  --page-bg-soft: #fbf7f0;
-  --surface: rgba(255, 251, 245, 0.9);
-  --surface-strong: rgba(255, 253, 249, 0.96);
-  --border: rgba(131, 29, 45, 0.18);
-  --border-strong: rgba(131, 29, 45, 0.32);
-  --text: #211b18;
-  --text-muted: #65564b;
-  --heading: #5f0f21;
-  --accent: #8a1f34;
-  --accent-deep: #611120;
-  --gold: #a97b18;
-  --shadow: 0 18px 40px rgba(74, 40, 23, 0.08);
+  color-scheme: dark;
+  --page-bg: #1f0b11;
+  --page-bg-soft: #2d0f18;
+  --surface: rgba(45, 15, 24, 0.82);
+  --surface-strong: rgba(31, 11, 17, 0.92);
+  --border: rgba(232, 196, 104, 0.18);
+  --border-strong: rgba(232, 196, 104, 0.4);
+  --text: #fff8f0;
+  --text-muted: #f0dcc8;
+  --heading: #f4e4c1;
+  --accent: #e8c468;
+  --accent-deep: #8b2635;
+  --gold: #e8c468;
+  --gold-bright: #f4e4c1;
+  --gold-gradient: linear-gradient(90deg, #8b2635 0%, #e8c468 48%, #f4e4c1 100%);
+  --shadow: 0 24px 50px rgba(5, 2, 3, 0.32);
   --radius: 16px;
   --content-width: 1040px;
   --font-body: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -36,23 +38,24 @@ body {
   font-family: var(--font-body);
   line-height: 1.7;
   background:
-    radial-gradient(circle at top left, rgba(169, 123, 24, 0.12), transparent 28%),
-    radial-gradient(circle at top right, rgba(138, 31, 52, 0.1), transparent 24%),
-    linear-gradient(180deg, #f8f0e2 0%, #f6efe2 34%, #fbf7f0 100%);
+    radial-gradient(circle at top left, rgba(232, 196, 104, 0.1), transparent 30%),
+    radial-gradient(circle at top right, rgba(139, 38, 53, 0.22), transparent 28%),
+    radial-gradient(circle at bottom center, rgba(244, 228, 193, 0.05), transparent 34%),
+    radial-gradient(ellipse at top, #2d0f18 0%, #1f0b11 45%, #0d0506 100%);
 }
 
 a {
-  color: var(--accent-deep);
+  color: var(--accent);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.14em;
 }
 
 a:hover {
-  color: var(--accent);
+  color: var(--gold-bright);
 }
 
 a:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--gold-bright);
   outline-offset: 3px;
 }
 
@@ -98,15 +101,19 @@ h3 {
 code {
   padding: 0.12rem 0.34rem;
   border-radius: 999px;
-  background: rgba(95, 15, 33, 0.08);
-  color: var(--accent-deep);
+  background: rgba(232, 196, 104, 0.12);
+  color: var(--gold-bright);
 }
 
 .hero-panel {
   position: relative;
   margin-bottom: 1.6rem;
-  padding: 1.4rem 0 1.5rem;
-  border-bottom: 1px solid var(--border-strong);
+  padding: 1.4rem 1.2rem 1.5rem;
+  border: 1px solid var(--border-strong);
+  border-radius: calc(var(--radius) + 4px);
+  background: linear-gradient(180deg, rgba(45, 15, 24, 0.86), rgba(18, 7, 10, 0.94));
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
 .hero-panel::before {
@@ -114,7 +121,7 @@ code {
   position: absolute;
   inset: 0 0 auto;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent-deep), var(--gold), var(--accent));
+  background: var(--gold-gradient);
 }
 
 .intro {
@@ -142,20 +149,20 @@ code {
   align-items: center;
   min-height: 2.6rem;
   padding: 0.68rem 1rem;
-  border: 1px solid rgba(95, 15, 33, 0.15);
+  border: 1px solid rgba(232, 196, 104, 0.3);
   border-radius: 999px;
-  background: rgba(255, 251, 245, 0.72);
-  box-shadow: 0 8px 20px rgba(74, 40, 23, 0.04);
-  color: var(--accent-deep);
+  background: linear-gradient(180deg, rgba(73, 21, 34, 0.92), rgba(32, 11, 18, 0.94));
+  box-shadow: 0 10px 24px rgba(5, 2, 3, 0.22);
+  color: var(--gold-bright);
   font-weight: 600;
   text-decoration: none;
-  transition: transform 140ms ease, border-color 140ms ease, background-color 140ms ease;
+  transition: transform 140ms ease, border-color 140ms ease, background-color 140ms ease, color 140ms ease;
 }
 
 .page-nav a:hover {
   transform: translateY(-1px);
-  border-color: rgba(95, 15, 33, 0.28);
-  background: rgba(255, 253, 249, 0.92);
+  border-color: rgba(244, 228, 193, 0.54);
+  background: linear-gradient(180deg, rgba(94, 28, 44, 0.96), rgba(40, 13, 21, 0.96));
 }
 
 .ranges-panel {
@@ -179,10 +186,10 @@ code {
 .range-list li {
   position: relative;
   padding: 1rem 1rem 1.05rem 1.15rem;
-  border: 1px solid rgba(169, 123, 24, 0.24);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   background:
-    linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(253, 247, 238, 0.96)),
+    linear-gradient(180deg, rgba(58, 20, 30, 0.9), rgba(19, 8, 12, 0.94)),
     var(--surface-strong);
   box-shadow: var(--shadow);
 }
@@ -224,9 +231,9 @@ code {
 .entry {
   position: relative;
   padding: 1.15rem 1.1rem 1rem;
-  border: 1px solid rgba(131, 29, 45, 0.16);
+  border: 1px solid rgba(232, 196, 104, 0.2);
   border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(255, 253, 249, 0.98) 0%, rgba(253, 247, 238, 0.98) 100%);
+  background: linear-gradient(180deg, rgba(46, 16, 24, 0.96) 0%, rgba(17, 7, 10, 0.98) 100%);
   box-shadow: var(--shadow);
   overflow: hidden;
 }
@@ -236,12 +243,12 @@ code {
   position: absolute;
   inset: 0 0 auto;
   height: 4px;
-  background: linear-gradient(90deg, rgba(95, 15, 33, 0.92), rgba(169, 123, 24, 0.78));
+  background: var(--gold-gradient);
 }
 
 .entry:target {
-  border-color: rgba(95, 15, 33, 0.38);
-  box-shadow: 0 0 0 4px rgba(169, 123, 24, 0.12), var(--shadow);
+  border-color: rgba(244, 228, 193, 0.54);
+  box-shadow: 0 0 0 4px rgba(232, 196, 104, 0.14), var(--shadow);
 }
 
 .entry h2 {
@@ -253,8 +260,8 @@ code {
 
 .entry h3 {
   padding-top: 0.2rem;
-  border-top: 1px solid rgba(131, 29, 45, 0.1);
-  color: var(--accent-deep);
+  border-top: 1px solid rgba(232, 196, 104, 0.16);
+  color: var(--gold-bright);
 }
 
 .entry p {
@@ -262,14 +269,16 @@ code {
 }
 
 .entry p strong {
-  color: var(--accent-deep);
+  color: var(--accent);
 }
 
 .source-notes {
   margin-top: 1.9rem;
-  padding: 1.35rem 0 0.6rem;
-  border-top: 1px solid var(--border-strong);
-  background: linear-gradient(180deg, rgba(169, 123, 24, 0.06), rgba(169, 123, 24, 0));
+  padding: 1.35rem 1.2rem 0.8rem;
+  border: 1px solid var(--border-strong);
+  border-radius: calc(var(--radius) + 2px);
+  background: linear-gradient(180deg, rgba(38, 14, 21, 0.86), rgba(15, 6, 9, 0.94));
+  box-shadow: var(--shadow);
 }
 
 .source-notes h2 {
@@ -298,7 +307,7 @@ code {
   }
 
   .hero-panel {
-    padding-top: 1rem;
+    padding: 1rem;
   }
 
   .page-nav ul {
@@ -317,5 +326,9 @@ code {
 
   .entry {
     padding: 1rem 0.9rem 0.88rem;
+  }
+
+  .source-notes {
+    padding: 1rem 0.95rem 0.7rem;
   }
 }
