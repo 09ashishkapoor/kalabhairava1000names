@@ -53,14 +53,15 @@
     <meta name="twitter:image" content="https://bhairavakalikenamosthute.com/MaaAdyaKali_5.webp">
     <meta name="twitter:image:alt" content="Maa Adya Kali - Sacred Image">
     
-        <!-- Structured Data: WebPage and a sample ItemList (first 10 names) -->
+        <!-- Structured Data: Homepage entity only -->
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "name": "Kālabhairava Sahasranāma",
-            "description": "Kalabhairava Sahasranama — Complete list of 1000 names of Kalabhairava with English & Hindi meanings and devotional notes.",
-            "url": "https://bhairavakalikenamosthute.com",
+            "description": "Homepage reader for Kalabhairava Sahasranama with bilingual English and Hindi meanings.",
+            "url": "https://bhairavakalikenamosthute.com/",
+            "inLanguage": ["en", "hi"],
             "publisher": {
                 "@type": "Organization",
                 "name": "Kaliputra Ashish",
@@ -70,47 +71,15 @@
             }
         }
         </script>
-
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "name": "Kalabhairava Sahasranama — 1000 Sacred Names",
-            "description": "A comprehensive list of the 1000 names of Kalabhairava with meanings in English and Hindi. Below are the first 20 names.",
-            "numberOfItems": 1000,
-            "itemListElement": [
-                {"@type":"ListItem","position":1,"name":"Bhairavaaya","description":"Salutations To The one who is terrifying and destroys fear."},
-                {"@type":"ListItem","position":2,"name":"Bhuutanaathaaya","description":"Salutations To The lord and master of all beings, including ghosts and spirits."},
-                {"@type":"ListItem","position":3,"name":"Bhuutaatmane","description":"Salutations To The one who is the very soul and essence of all living beings."},
-                {"@type":"ListItem","position":4,"name":"Bhuutabhaavanaaya","description":"Salutations To The creator and nurturer of all beings in the universe."},
-                {"@type":"ListItem","position":5,"name":"Bhuutavaasaaya","description":"Salutations To The one who resides within all of existence and in whom all beings dwell."},
-                {"@type":"ListItem","position":6,"name":"Bhuutaduutaaya","description":"Salutations To The one who has ghosts and spirits as his messengers."},
-                {"@type":"ListItem","position":7,"name":"Bhuurishaaya","description":"Salutations To The one who possesses great wealth and abundance."},
-                {"@type":"ListItem","position":8,"name":"Bhuuridakshinaaya","description":"Salutations To The one who is extremely generous and gives great rewards."},
-                {"@type":"ListItem","position":9,"name":"Bhuutaadhyakshaaya","description":"Salutations To The supreme overseer and presides over all beings."},
-                {"@type":"ListItem","position":10,"name":"Bhuutapataye","description":"Salutations To The commander and protector of all beings."},
-                {"@type":"ListItem","position":11,"name":"Bhuudharaaya","description":"Salutations To The one who supports the Earth."},
-                {"@type":"ListItem","position":12,"name":"Bhuudharaatmajaaya","description":"Salutations To The son of the mountain-bearer (often referring to Parvati's son, but here an epithet of Bhairava's power)."},
-                {"@type":"ListItem","position":13,"name":"Bhuupataye","description":"Salutations To The supreme lord of the Earth."},
-                {"@type":"ListItem","position":14,"name":"Bhaaskaraaya","description":"Salutations To The one who is radiant and effulgent like the sun."},
-                {"@type":"ListItem","position":15,"name":"Bhiirave","description":"Salutations To The one who is formidable and inspires awe."},
-                {"@type":"ListItem","position":16,"name":"Bhiimaaya","description":"Salutations To The one who is of immense and dreadful strength."},
-                {"@type":"ListItem","position":17,"name":"Bhuumaye","description":"Salutations To The one who is the Earth itself."},
-                {"@type":"ListItem","position":18,"name":"Vibhuutidaaya","description":"Salutations To The bestower of divine powers, prosperity, and sacred ash."},
-                {"@type":"ListItem","position":19,"name":"Bhuutaaya","description":"Salutations To The one who has come into being and exists as all of creation."},
-                {"@type":"ListItem","position":20,"name":"Bhuukampanaaya","description":"Salutations To The one who can cause the earth to tremble."}
-            ]
-        }
-        </script>
     
     <link rel="icon" type="image/webp" href="MaaAdyaKali_5.webp">
     
     <!-- Preload responsive hero assets without forcing the wrong variant -->
-    <link rel="preload" href="/MaaAdyaKali_5-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
-    <link rel="preload" href="/MaaAdyaKali_5.webp" as="image" type="image/webp" media="(min-width: 768px)">
+    <link rel="preload" href="./MaaAdyaKali_5-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
+    <link rel="preload" href="./MaaAdyaKali_5.webp" as="image" type="image/webp" media="(min-width: 768px)">
 
     <!-- Preload the tiny bootstrap dataset for the first 11 names -->
-    <link rel="preload" href="/data/bootstrap-names.json" as="fetch" crossorigin>
+    <link rel="preload" href="./data/bootstrap-names.json" as="fetch" crossorigin>
 
     <!-- Page Title: Standard English for Search Engines -->
     <title>Kalabhairava Sahasranama — 1000 Names with English &amp; Hindi Meanings</title>
@@ -123,50 +92,18 @@
     <!-- Using system fonts to avoid webfont layout shifts -->
 
         <!-- Critical CSS loaded from external file to comply with CSP -->
-        <link rel="stylesheet" href="/critical.css">
+        <link rel="stylesheet" href="./critical.css">
 
         <!-- Load remaining styles via external script (no inline handlers) -->
-        <script src="/load-styles.js" defer></script>
+        <script src="./load-styles.js" defer></script>
         <noscript>
-            <link rel="stylesheet" href="/styles.css?v=6">
-            <link rel="stylesheet" href="/navigation.css?v=6">
+            <link rel="stylesheet" href="./styles.css?v=6">
+            <link rel="stylesheet" href="./navigation.css?v=6">
         </noscript>
     
     <!-- PWA -->
-    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="manifest" href="./manifest.webmanifest">
 
-        <script type="application/ld+json">
-        {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "What is the Kalabhairava Sahasranama?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The Kalabhairava Sahasranama is a sacred hymn consisting of 1000 names of Kalabhairava Baba, the Guru tatva of Lord Shiva. Chanting these 1000 names is a devotional practice to synchronize yourself with cosmic Guru."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What are the benefits of chanting Kalabhairava 1000 Names?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Devotees believe that chanting or listening to the 1000 names annihilates fear, internal and external blocks, increases guru tatva within, and bring you closer to Ma Kali(Moksha)."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Who is Kalabhairava?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Kalabhairava is the Guru of Shakti Vidya (the 5th Veda). He is the ever-present companion and GPS of the Shakta path, and the supreme guardian (firewall) of the sacred state of Kashi (Ma Kali)."
-            }
-        }
-    ]
-}
-        </script>
 
         <!-- Breadcrumb Schema for SEO -->
         <script type="application/ld+json">
@@ -339,6 +276,23 @@
         </div>
     </section>
 
+    <section id="sources-section" class="about-section" data-scroll-section>
+        <div class="container">
+            <header class="names-header" data-scroll-animate>
+                <h2 class="section-title">Sources and notes</h2>
+                <p class="section-subtitle">This project compiles devotional material and meaning notes from public references plus the maintainer's explanatory summaries.</p>
+            </header>
+            <div class="about-card" data-scroll-animate>
+                <p>Primary references used during compilation:</p>
+                <ul>
+                    <li><a href="https://sanskritdocuments.org/" target="_blank" rel="noopener noreferrer">SanskritDocuments.org</a></li>
+                </ul>
+                <p>Use this website for spiritual study and personal chanting support. Report inaccuracies to <a href="mailto:kaliputraashish@gmail.com">kaliputraashish&#64;gmail.com</a> for correction.</p>
+            </div>
+        </div>
+    </section>
+
+
     <section class="ebook-banner">
         <div class="ebook-banner-content">
             <div class="ebook-banner-icon">📚</div>
@@ -376,6 +330,9 @@
                 <h2 class="section-title" data-i18n="names.title">Explore the 1000 Names of Kālabhairava</h2>
                 <p class="section-subtitle" data-i18n="names.subtitle">
                     Discover the divine thousand names of Kālabhairava Baba, each carrying profound spiritual significance and gyaan.
+                </p>
+                <p class="section-subtitle">
+                    Prefer static pages for reading and sharing? <a href="./names/">Browse all 1000 Kalabhairava names with meanings</a>.
                 </p>
             </header>
             
@@ -437,10 +394,12 @@
                 <span class="footer-separator">|</span>
                 <a href="#about-section" data-i18n="footer.infoLink">About This Page</a>
                 <span class="footer-separator">|</span>
+                <a href="./names/">Browse all 1000 Kalabhairava names with meanings</a>
+                <span class="footer-separator">|</span>
                 ⭐ <span data-i18n="footer.openSource">Open source on GitHub:</span> <a href="https://github.com/09ashishkapoor/kalabhairava1000names" target="_blank" rel="noopener noreferrer">View repository</a>
             </p>
             <br>
-            <small data-i18n="footer.disclaimer">Disclaimer: The information provided on this website is compiled from multiple online sources and is intended for spiritual and educational purposes only. If you identify any inaccuracies or have concerns, please email kaliputraashish&#64;gmail.com.</small>
+            <small data-i18n="footer.disclaimer">Disclaimer: The information provided on this website is compiled from multiple online sources and is intended for spiritual and educational purposes only. If you identify any inaccuracies or have concerns, please email <a href="mailto:kaliputraashish@gmail.com">kaliputraashish&#64;gmail.com</a>.</small>
                 <br>
                 <small class="site-version"></small>
                 <br>
@@ -449,7 +408,7 @@
                     (function(){
                         var el = document.querySelector('.site-version');
                         if (!el) return;
-                        fetch('/version.txt').then(function(r){ if(r.ok) return r.text(); throw new Error(); }).then(function(t){ if(t.trim()) el.textContent = t.trim(); }).catch(function(){});
+                        fetch('./version.txt').then(function(r){ if(r.ok) return r.text(); throw new Error(); }).then(function(t){ if(t.trim()) el.textContent = t.trim(); }).catch(function(){});
                     })();
                     // Use the locally published last-updated file to avoid third-party requests on startup
                     (function(){
@@ -462,7 +421,7 @@
                             dateEl.textContent = lastUpdated.toLocaleDateString('en-US', options);
                         }
 
-                        fetch('/last-updated.txt').then(function(r){ if(r.ok) return r.text(); throw new Error('no'); }).then(function(dateStr){
+                        fetch('./last-updated.txt').then(function(r){ if(r.ok) return r.text(); throw new Error('no'); }).then(function(dateStr){
                             var dateStrTrimmed = dateStr.trim();
                             if (!dateStrTrimmed) {
                                 setToday();
@@ -487,11 +446,11 @@
     </footer>
     
     <!-- Scripts -->
-    <script src="translations.js?v=2"></script>
-    <script src="i18n.js?v=2"></script>
-    <script src="navigation.js?v=2" defer></script>
-    <script src="app.js?v=2" defer></script>
-    <script src="registerSW.js" defer></script>
+    <script src="./translations.js?v=2"></script>
+    <script src="./i18n.js?v=2"></script>
+    <script src="./navigation.js?v=2" defer></script>
+    <script src="./app.js?v=2" defer></script>
+    <script src="./registerSW.js" defer></script>
 
     <noscript>
         <section class="static-names-list">

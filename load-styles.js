@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   function loadStyles(){
-    var styles = ['/styles.css?v=6','/navigation.css?v=6'];
+    var styles = ['./styles.css?v=6','./navigation.css?v=6'];
     styles.forEach(function(h){
       var l = document.createElement('link');
       l.rel = 'stylesheet';

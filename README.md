@@ -52,18 +52,19 @@ A fast, framework-free devotional web app presenting the 1000 names of Kalabhair
 npm start
 ```
 
-The server starts on port 8000 by default. If that port is in use it automatically tries 8001, 8002, … up to 8019 and prints which port it picked.
+The server starts on port 8000 by default. If that port is busy it automatically tries 8001, 8002, … up to 8019.
+Always open the exact `http://127.0.0.1:PORT` URL printed by the server, because the active port may not be `8000`.
 
 Or run directly with Python:
 
 ```bash
-python simple-server.py
+python3 simple-server.py
 ```
 
 To use a different starting port:
 
 ```bash
-PORT=9000 python simple-server.py
+PORT=9000 python3 simple-server.py
 ```
 
 ## Deployment
@@ -77,6 +78,7 @@ Deploy the repository root as a static site to Cloudflare Pages, Netlify, Vercel
 ### Host notes
 - `sahasranama_meanings.json` must be served as `application/json`
 - Keep `_headers` and `_redirects` for Cloudflare Pages
+- GitHub Pages ignores `_headers`, so the JSON `X-Robots-Tag: noindex` rule will not apply there
 - For Cloudflare Pages: add env var `HUSKY=0` so the Husky install step is skipped during CI
 
 ## Versioning

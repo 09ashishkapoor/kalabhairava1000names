@@ -25,7 +25,7 @@
   --color-surface-elevated: #2a2a2a;
   --color-text-primary: #f5f5f5;
   --color-text-secondary: #b0b0b0;
-  --color-text-muted: #808080;
+  --color-text-muted: #b3b3b3;
   
   --color-crimson: #dc143c;
   --color-blood-red: #8b0000;
@@ -66,7 +66,7 @@ body[data-theme="light"] {
   --color-surface-elevated: #f0f0f0;
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #4a4a4a;
-  --color-text-muted: #808080;
+  --color-text-muted: #666666;
   --color-smoke: rgba(255, 255, 255, 0.95);
 }
 
@@ -881,7 +881,8 @@ body[data-theme="light"] .names-overlay {
 }
 
 #search-input::placeholder {
-  color: var(--color-text-muted);
+  color: #d0d0d0;
+  opacity: 1;
 }
 
 /* Filters Row */
@@ -1767,6 +1768,25 @@ body[data-theme="light"] .about-card:hover {
   margin-bottom: var(--spacing-md);
   line-height: 1.9;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.about-card a {
+  color: var(--color-divine-gold);
+  text-decoration-color: rgba(255, 215, 0, 0.6);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.about-card a:hover {
+  color: var(--color-crimson);
+  text-decoration-color: rgba(220, 20, 60, 0.7);
+}
+
+.about-card a:focus-visible {
+  outline: 2px solid rgba(255, 215, 0, 0.7);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 @media (min-width: 768px) {

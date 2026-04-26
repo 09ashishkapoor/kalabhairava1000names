@@ -7,6 +7,6 @@ if ('serviceWorker' in navigator) {
 			console.log('Service worker registration skipped on local host');
 			return;
 		}
-		navigator.serviceWorker.register('/sw.js', { scope: '/' });
+		navigator.serviceWorker.register('./sw.js', { scope: './' });
 	});
 }

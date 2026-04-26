@@ -64,14 +64,16 @@ def main():
 
     port = find_free_port(preferred)
     if port != preferred:
-        print(f'WARNING: Port {preferred} is in use - using {port} instead.')
+        print(f'WARNING: Port {preferred} is in use; open http://127.0.0.1:{port} instead.')
+        print()
 
     with socketserver.TCPServer(('', port), MyHTTPRequestHandler) as httpd:
         print('=' * 60)
         print('Server started successfully!')
         print('=' * 60)
-        print(f'Local:   http://localhost:{port}')
-        print(f'Network: http://127.0.0.1:{port}')
+        print('Open this URL in your browser:')
+        print(f'  http://127.0.0.1:{port}')
+        print(f'Alternate: http://localhost:{port}')
         print('=' * 60)
         print('Press Ctrl+C to stop the server')
         print('=' * 60)

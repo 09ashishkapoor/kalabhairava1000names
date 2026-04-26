@@ -43,13 +43,14 @@ npm start
 Or directly:
 
 ```bash
-python simple-server.py
+python3 simple-server.py
 ```
 
-Default URL: `http://localhost:8000`. If the port is occupied the server automatically tries the next available port up to 8019. Set `PORT` to change the starting port:
+Default port is `8000`. If that port is occupied the server automatically tries the next available port up to 8019.
+Open the exact `http://127.0.0.1:PORT` URL printed by the server, because the active port may not be `8000`. Set `PORT` to change the starting port:
 
 ```bash
-PORT=9000 python simple-server.py
+PORT=9000 python3 simple-server.py
 ```
 
 ## Static host settings
@@ -72,7 +73,7 @@ PORT=9000 python simple-server.py
 
 ### GitHub Pages
 - Publish from the branch root. Do not point Pages at a `site/` folder.
-
+- GitHub Pages ignores `_headers`, so the JSON `X-Robots-Tag: noindex` rule does not apply there. The site will still render, but this host is weaker for the current SEO setup.
 ## Quick publish checklist
 
 1. Run `npm start` and verify: search works, language toggle works, names load.

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Kalabhairava Sahasranama - mobile-first reader flow
  * Faster initial reading path with deferred full-search readiness.
  */
@@ -7,8 +7,8 @@
   'use strict';
 
   const DATA_PATHS = {
-    bootstrap: '/data/bootstrap-names.json',
-    manifest: '/data/names-manifest.json',
+    bootstrap: './data/bootstrap-names.json',
+    manifest: './data/names-manifest.json',
   };
 
   const state = {
@@ -89,7 +89,7 @@
       return;
     }
 
-    state.searchWorker = new Worker('/search-worker.js');
+    state.searchWorker = new Worker('./search-worker.js');
     state.searchWorker.onmessage = function (event) {
       const message = event.data;
       if (!message || message.type !== 'results') {
@@ -446,7 +446,7 @@
     try {
       const searchSourcePath = state.manifest && state.manifest.searchSourcePath
         ? state.manifest.searchSourcePath
-        : '/sahasranama_meanings.json';
+        : './sahasranama_meanings.json';
       const response = await fetch(searchSourcePath);
       if (!response.ok) {
         throw new Error('Failed to prepare search');
