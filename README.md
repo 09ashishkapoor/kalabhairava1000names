@@ -1,4 +1,4 @@
-# Kalabhairava Sahasranama
+# Kalabhairava Sahasranama - 1000 names of Kalabhairava baba
 
 A fast, framework-free devotional web app for browsing the 1000 names of Sri Kalabhairava with English and Hindi meanings, search, and crawlable static reference pages.
 
@@ -179,6 +179,10 @@ Version is stored in `version.txt` and shown in the footer.
 4. Run `npm test`
 5. Use `npm start` to preview locally
 6. Open a pull request with a clear description
+
+## End Notes 
+Built and maintained by KaliPutra_Ashish for access to 1000 names of Kalabhairava baba.  
+Dedicated to my Guru Shri Praveen Radhakrishnan ❤️ and 🙏 Khyapa Parampara.
 
 ## License
 
