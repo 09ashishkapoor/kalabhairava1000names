@@ -35,10 +35,6 @@
     setupEventListeners();
     promotePreloadedStyles();
 
-    if (window.i18n && elements.languageToggle) {
-      updateLanguageToggleUI(window.i18n.getCurrentLanguage());
-    }
-
     initWorker();
     loadInitialData();
     initScrollAnimations();
@@ -46,7 +42,6 @@
 
   function cacheDOMElements() {
     elements.searchInput = document.getElementById('search-input');
-    elements.languageToggle = document.getElementById('language-toggle');
     elements.clearBtn = document.getElementById('clear-btn');
     elements.exploreBtn = document.getElementById('explore-btn');
     elements.learnBtn = document.getElementById('learn-btn');
@@ -63,11 +58,6 @@
   function setupEventListeners() {
     elements.searchInput.addEventListener('input', debounce(handleSearch, 300));
 
-    if (elements.languageToggle) {
-      elements.languageToggle.addEventListener('click', handleLanguageToggle);
-    }
-
-    window.addEventListener('languageChanged', handleLanguageChanged);
     elements.clearBtn.addEventListener('click', handleClear);
     elements.exploreBtn.addEventListener('click', scrollToNames);
 
@@ -204,10 +194,9 @@
     card.style.setProperty('--i', String(index % state.pageSize));
 
     const isExpanded = state.expandedItems.has(entry.index);
-    const currentLang = window.i18n ? window.i18n.getCurrentLanguage() : 'en';
-    const name = currentLang === 'hi' ? entry.hindi_name : entry.english_name;
-    const oneLine = currentLang === 'hi' ? entry.hindi_one_line : entry.english_one_line;
-    const elaboration = currentLang === 'hi' ? entry.hindi_elaboration : entry.english_elaboration;
+    const name = entry.english_name;
+    const oneLine = entry.english_one_line;
+    const elaboration = entry.english_elaboration;
 
     const header = document.createElement('div');
     header.className = 'card-header';
@@ -506,9 +495,6 @@
         entry.english_name,
         entry.english_one_line,
         entry.english_elaboration,
-        entry.hindi_name,
-        entry.hindi_one_line,
-        entry.hindi_elaboration,
         String(entry.index),
       ];
 
@@ -528,48 +514,6 @@
   function showTransientNotice(key, fallback) {
     elements.errorState.classList.add('hidden');
     elements.statsDisplay.innerHTML = getText(key, fallback);
-  }
-
-  function handleLanguageToggle(event) {
-    const target = event.target.closest('.language-toggle-option');
-    if (!target) {
-      return;
-    }
-
-    const lang = target.getAttribute('data-lang');
-    if (lang && window.i18n) {
-      window.i18n.setLanguage(lang);
-    }
-  }
-
-  function updateLanguageToggleUI(lang) {
-    const options = elements.languageToggle.querySelectorAll('.language-toggle-option');
-    const slider = elements.languageToggle.querySelector('.language-toggle-slider');
-    let selectedIndex = 0;
-
-    options.forEach(function (option, index) {
-      const optionLang = option.getAttribute('data-lang');
-      const isActive = optionLang === lang;
-      option.classList.toggle('active', isActive);
-      option.setAttribute('aria-checked', isActive ? 'true' : 'false');
-      if (isActive) {
-        selectedIndex = index;
-      }
-    });
-
-    slider.style.transform = 'translateX(' + (selectedIndex * 100) + '%)';
-    setLoadMoreLoading(state.readingLoading);
-
-    if (state.searchLoading && state.searchQuery) {
-      showSearchPendingNotice();
-    } else {
-      updateStats();
-    }
-  }
-
-  function handleLanguageChanged(event) {
-    updateLanguageToggleUI(event.detail.language);
-    renderNames();
   }
 
   function handleClear() {

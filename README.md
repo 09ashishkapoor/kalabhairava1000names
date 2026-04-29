@@ -1,10 +1,10 @@
 # Kalabhairava Sahasranama - 1000 names of Kalabhairava baba
 
-A fast, framework-free devotional web app for browsing the 1000 names of Sri Kalabhairava with English and Hindi meanings, search, and crawlable static reference pages.
+A fast, framework-free devotional web app for browsing the 1000 names of Sri Kalabhairava with English meanings, search, and crawlable static reference pages.
 
 ## Highlights
 
-- Bilingual interface in English and Hindi
+- English-only interface and meanings
 - Real-time search across all 1000 names and meanings
 - Interactive homepage reader with progressive loading
 - Generated static `/names/` pages for indexable range-based browsing
@@ -27,7 +27,7 @@ A fast, framework-free devotional web app for browsing the 1000 names of Sri Kal
 |---|---|
 | `index.html` | Main landing page and interactive names reader |
 | `app.js` | Reader state, rendering, progressive loading, search wiring |
-| `i18n.js` / `translations.js` | Language state and UI strings |
+| `i18n.js` / `translations.js` | English UI strings and translation helpers |
 | `search-worker.js` | Background search worker |
 | `styles.css` / `critical.css` | Main site styling |
 | `navigation.css` / `navigation.js` | Sticky nav and section scroll behavior |

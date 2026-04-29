@@ -180,14 +180,13 @@ def build_range_pages(data: list[dict]) -> list[str]:
         for position, entry in enumerate(entries, start=1):
             index_value = entry["index"]
             english_name = entry["english_name"]
-            hindi_name = entry["hindi_name"]
             entry_anchor = f"name-{index_value}"
             item_list_entries.append(
                 {
                     "@type": "ListItem",
                     "position": position,
                     "url": f"{canonical_url}#{entry_anchor}",
-                    "name": f"{english_name} ({hindi_name})",
+                    "name": english_name,
                 }
             )
 
@@ -195,21 +194,18 @@ def build_range_pages(data: list[dict]) -> list[str]:
                 "\n".join(
                     [
                         f'<article class="entry" id="{entry_anchor}">',
-                        f"  <h2>{to_html_text(index_value)}. {to_html_text(english_name)} ({to_html_text(hindi_name)})</h2>",
-                        f"  <p><strong>English one-line meaning:</strong> {to_html_text(entry['english_one_line'])}</p>",
-                        f"  <p><strong>Hindi one-line meaning:</strong> {to_html_text(entry['hindi_one_line'])}</p>",
-                        "  <h3>English elaboration</h3>",
+                        f"  <h2>{to_html_text(index_value)}. {to_html_text(english_name)}</h2>",
+                        f"  <p><strong>English meaning:</strong> {to_html_text(entry['english_one_line'])}</p>",
+                        "  <h3>Elaboration</h3>",
                         f"  {to_html_paragraphs(entry['english_elaboration'])}",
-                        "  <h3>Hindi elaboration</h3>",
-                        f"  {to_html_paragraphs(entry['hindi_elaboration'])}",
                         "</article>",
                     ]
                 )
             )
 
-        title = f"Kalabhairava Names {start_index}-{end_index} (English and Hindi Meanings)"
+        title = f"Kalabhairava Names {start_index}-{end_index} (English Meanings)"
         description = (
-            f"Browse Kalabhairava names {start_index}-{end_index} with English and Hindi meanings, "
+            f"Browse Kalabhairava names {start_index}-{end_index} with English meanings, "
             "one-line summaries, and detailed elaboration."
         )
 
@@ -220,13 +216,13 @@ def build_range_pages(data: list[dict]) -> list[str]:
             "itemListOrder": "https://schema.org/ItemListOrderAscending",
             "numberOfItems": len(entries),
             "url": canonical_url,
-            "inLanguage": ["en", "hi"],
+            "inLanguage": "en",
             "itemListElement": item_list_entries,
         }
 
         body = f"""
     <section class="hero-panel">
-      <p class="intro">This page is a static collection of Kalabhairava names {start_index}-{end_index} with bilingual meanings. It is designed to remain useful without JavaScript.</p>
+      <p class="intro">This page is a static collection of Kalabhairava names {start_index}-{end_index} with English meanings. It is designed to remain useful without JavaScript.</p>
       <nav class="page-nav" aria-label="Page navigation">
         <ul>
           <li><a href="../../">Open the interactive homepage reader</a></li>
@@ -288,7 +284,7 @@ def build_names_hub(data: list[dict], range_paths: list[str]) -> None:
         )
 
     hub_title = "All 1000 Kalabhairava Names with Meanings | Browse by Range"
-    hub_description = "Browse all 1000 Kalabhairava names in ten crawlable static pages with English and Hindi meanings."
+    hub_description = "Browse all 1000 Kalabhairava names in ten crawlable static pages with English meanings."
     hub_canonical = f"{SITE_URL}/names/"
 
     json_ld = {
@@ -296,7 +292,7 @@ def build_names_hub(data: list[dict], range_paths: list[str]) -> None:
         "@type": "CollectionPage",
         "name": "Kalabhairava Names Hub",
         "url": hub_canonical,
-        "inLanguage": ["en", "hi"],
+        "inLanguage": "en",
         "hasPart": [
             {
                 "@type": "CollectionPage",
@@ -309,7 +305,7 @@ def build_names_hub(data: list[dict], range_paths: list[str]) -> None:
 
     hub_body = f"""
     <section class="hero-panel">
-      <p class="intro">Use this static hub to browse all 1000 Kalabhairava names by 100-name sections. Each section page includes the full visible entries with one-line and detailed meanings in English and Hindi.</p>
+      <p class="intro">Use this static hub to browse all 1000 Kalabhairava names by 100-name sections. Each section page includes the full visible entries with English meanings and detailed elaboration.</p>
       <nav class="page-nav" aria-label="Hub navigation">
         <ul>
           <li><a href="../">Open the interactive homepage reader</a></li>

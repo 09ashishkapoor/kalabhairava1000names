@@ -1,7 +1,7 @@
 {
   "name": "kalabhairava1000names",
   "version": "1.0.0",
-  "description": "A fast, framework-free devotional web app presenting the 1000 names of Sri Kalabhairava with English and Hindi content, search, and mobile-friendly reading.",
+  "description": "A fast, framework-free devotional web app presenting the 1000 names of Sri Kalabhairava with English meanings, search, and mobile-friendly reading.",
   "scripts": {
     "start": "node scripts/run-python.js simple-server.py",
     "playwright:install": "playwright install chromium",

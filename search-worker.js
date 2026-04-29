@@ -17,13 +17,9 @@ self.onmessage = function (ev) {
     self._data = msg.data || [];
     self._index = self._data.map(item => ({
       index: item.index,
-      // Store both normalized (ASCII-friendly) and original lowercase for Hindi
-      english_name:         normalize((item.english_name || '').toLowerCase()),
-      english_one_line:     normalize((item.english_one_line || '').toLowerCase()),
-      english_elaboration:  normalize((item.english_elaboration || '').toLowerCase()),
-      hindi_name:           (item.hindi_name || '').toLowerCase(),
-      hindi_one_line:       (item.hindi_one_line || '').toLowerCase(),
-      hindi_elaboration:    (item.hindi_elaboration || '').toLowerCase()
+      english_name: normalize((item.english_name || '').toLowerCase()),
+      english_one_line: normalize((item.english_one_line || '').toLowerCase()),
+      english_elaboration: normalize((item.english_elaboration || '').toLowerCase())
     }));
     return;
   }
@@ -60,19 +56,15 @@ self.onmessage = function (ev) {
         continue;
       }
 
-      // #4 Always search all 6 fields regardless of UI language
-      // #3 All tokens must match at least one field (AND logic)
+      // #3 All tokens must match at least one English field (AND logic)
       let totalScore = 0;
       let allTokensMatch = true;
 
       for (const token of tokens) {
         let tokenScore = 0;
-        if (row.english_name.includes(token))        tokenScore = Math.max(tokenScore, SCORE.name);
-        if (row.english_one_line.includes(token))    tokenScore = Math.max(tokenScore, SCORE.one_line);
+        if (row.english_name.includes(token)) tokenScore = Math.max(tokenScore, SCORE.name);
+        if (row.english_one_line.includes(token)) tokenScore = Math.max(tokenScore, SCORE.one_line);
         if (row.english_elaboration.includes(token)) tokenScore = Math.max(tokenScore, SCORE.elaboration);
-        if (row.hindi_name.includes(token))          tokenScore = Math.max(tokenScore, SCORE.name);
-        if (row.hindi_one_line.includes(token))      tokenScore = Math.max(tokenScore, SCORE.one_line);
-        if (row.hindi_elaboration.includes(token))   tokenScore = Math.max(tokenScore, SCORE.elaboration);
 
         if (tokenScore === 0) { allTokensMatch = false; break; }
         totalScore += tokenScore;

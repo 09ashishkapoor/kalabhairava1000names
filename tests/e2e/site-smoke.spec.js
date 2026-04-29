@@ -18,22 +18,18 @@ test('loads the landing page and initial names explorer content', async ({ page,
   runtimeGuards.assertClean();
 });
 
-test('switches language and persists the selected locale', async ({ page, baseURL }) => {
+test('stays English-only and does not expose a language toggle', async ({ page, baseURL }) => {
   const runtimeGuards = await installRuntimeGuards(page, baseURL);
 
   await page.goto('/', { waitUntil: 'domcontentloaded' });
-  await page.locator('[data-lang="hi"]').click();
 
-  await expect(page.locator('html')).toHaveAttribute('lang', 'hi');
-  await expect(page.locator('#explore-btn')).not.toContainText('Explore Sacred Names');
-  await expect(page.locator('#search-input')).not.toHaveAttribute('placeholder', 'Search names or meanings...');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await expect(page.locator('#language-toggle')).toHaveCount(0);
+  await expect(page.locator('#explore-btn')).toContainText('Start With the Names');
+  await expect(page.locator('#search-input')).toHaveAttribute('placeholder', 'Search names or meanings...');
   await expect
     .poll(() => page.evaluate(() => window.localStorage.getItem('selectedLanguage')))
-    .toBe('hi');
-
-  await page.reload({ waitUntil: 'domcontentloaded' });
-  await expect(page.locator('html')).toHaveAttribute('lang', 'hi');
-  await expect(page.locator('#explore-btn')).not.toContainText('Explore Sacred Names');
+    .toBe(null);
 
   runtimeGuards.assertClean();
 });

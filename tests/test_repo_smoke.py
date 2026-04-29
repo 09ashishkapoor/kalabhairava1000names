@@ -95,15 +95,19 @@ class RepoSmokeTests(unittest.TestCase):
             self._assert_page_core_metadata(page_html, f'{BASE_URL}/names/{start}-{end}/')
             self.assertIn('../static-pages.css', page_html)
             self.assertRegex(page_html, r'"@type"\s*:\s*"ItemList"')
+            self.assertIn('"inLanguage":"en"', page_html)
+            self.assertNotIn('Hindi one-line meaning', page_html)
+            self.assertNotIn('Hindi elaboration', page_html)
 
             first_entry_for_range = dataset[start - 1]
             with self.subTest(range=f'{start}-{end}', field='english_name'):
                 self.assertIn(first_entry_for_range['english_name'], page_html)
-            with self.subTest(range=f'{start}-{end}', field='hindi_name'):
-                self.assertIn(first_entry_for_range['hindi_name'], page_html)
 
     def test_index_references_mobile_startup_assets(self):
         index_html = (REPO_ROOT / 'index.html').read_text(encoding='utf-8')
+        self.assertNotIn('id="language-toggle"', index_html)
+        self.assertNotIn('og:locale:alternate', index_html)
+        self.assertNotIn('English &amp; Hindi', index_html)
 
         expected_references = [
             './critical.css',
