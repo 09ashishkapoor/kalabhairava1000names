@@ -13,6 +13,9 @@
 /navigation.css
   Cache-Control: public, max-age=31536000, immutable
 
+/names/static-pages.css
+  Cache-Control: public, max-age=31536000, immutable
+
 /*.js
   Cache-Control: public, max-age=31536000, immutable
 

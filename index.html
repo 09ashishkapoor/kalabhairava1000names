@@ -1,451 +1,857 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MXEHWVXYL"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);} 
-            gtag('js', new Date());
+  <head>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
 
-            gtag('config', 'G-7MXEHWVXYL');
-        </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+      function loadAnalytics() {
+        var analyticsScript = document.createElement("script");
+        analyticsScript.async = true;
+        analyticsScript.src =
+          "https://www.googletagmanager.com/gtag/js?id=G-7MXEHWVXYL";
+        document.head.appendChild(analyticsScript);
+        gtag("js", new Date());
+        gtag("config", "G-7MXEHWVXYL");
+      }
+
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(loadAnalytics, { timeout: 2000 });
+      } else {
+        window.addEventListener("load", loadAnalytics, { once: true });
+      }
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- SEO Description (Keyword Rich for Google) -->
-    <meta name="description" content="Kalabhairava Sahasranama: 1000 sacred names of Kālabhairava with English meanings, devotional commentary, and transliterations.">
-    
-    <meta name="theme-color" content="#0a0a0a">
-    
+    <meta
+      name="description"
+      content="Kalabhairava Sahasranama: 1000 sacred names of Kālabhairava with English meanings, devotional commentary, and transliterations."
+    />
+
+    <meta name="theme-color" content="#0a0a0a" />
+
     <!-- Canonical URL (Crucial for SEO) -->
-    <link rel="canonical" href="https://bhairavakalikenamosthute.com/">
+    <link rel="canonical" href="https://bhairavakalikenamosthute.com/" />
     <!-- Google Site Verification: paste your token value here after you register the site in Search Console -->
     <!-- <meta name="google-site-verification" content="PASTE_YOUR_TOKEN_HERE"> -->
-    
+
     <!-- Keywords: Hybrid Strategy (English Search Terms + Sanskrit Scholarly Terms) -->
-    <meta name="keywords" content="Kalabhairava, Kaal Bhairav, Bhairava, Sahasranama, 1000 names of Bhairava, Shiva, Rudra, Mahakala, Bhairav Baba, Tantra, Mantra, Stotram, Protection from fear, Sanskrit, English meaning, Kālabhairava, Śiva, Sahasranāma, Kashi Vishwanath">
-    
+    <meta
+      name="keywords"
+      content="Kalabhairava, Kaal Bhairav, Bhairava, Sahasranama, 1000 names of Bhairava, Shiva, Rudra, Mahakala, Bhairav Baba, Tantra, Mantra, Stotram, Protection from fear, Sanskrit, English meaning, Kālabhairava, Śiva, Sahasranāma, Kashi Vishwanath"
+    />
+
     <!-- Mobile App Settings -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Kalabhairava Sahasranama">
-    <meta name="author" content="Kaliputra Ashish">
-    <meta name="robots" content="index, follow">
-    
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      name="apple-mobile-web-app-title"
+      content="Kalabhairava Sahasranama"
+    />
+    <meta name="author" content="Kaliputra Ashish" />
+    <meta name="robots" content="index, follow" />
+
     <!-- Open Graph / Social Media (Plain English for better sharing) -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Kalabhairava Sahasranama — 1000 Names (Kalabhairava 1000 Names)">
-    <meta property="og:description" content="Complete Kalabhairava Sahasranama — the 1000 names of Kalabhairava with English meanings, devotional notes, and downloads.">
-    <meta property="og:image" content="https://bhairavakalikenamosthute.com/MaaAdyaKali_5.webp">
-    <meta property="og:image:width" content="512">
-    <meta property="og:image:height" content="512">
-    <meta property="og:image:alt" content="Maa Adya Kali - Sacred Image">
-    <meta property="og:url" content="https://bhairavakalikenamosthute.com">
-    <meta property="og:locale" content="en_US">
-    
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Kalabhairava Sahasranama — 1000 Names (Kalabhairava 1000 Names)"
+    />
+    <meta
+      property="og:description"
+      content="Complete Kalabhairava Sahasranama — the 1000 names of Kalabhairava with English meanings, devotional notes, and downloads."
+    />
+    <meta
+      property="og:image"
+      content="https://bhairavakalikenamosthute.com/MaaAdyaKali_5.webp"
+    />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="Maa Adya Kali - Sacred Image" />
+    <meta property="og:url" content="https://bhairavakalikenamosthute.com" />
+    <meta property="og:locale" content="en_US" />
+
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Kalabhairava Sahasranama — 1000 Names">
-    <meta name="twitter:description" content="Kalabhairava 1000 Names: Complete Sahasranama with English meanings and devotional notes.">
-    <meta name="twitter:image" content="https://bhairavakalikenamosthute.com/MaaAdyaKali_5.webp">
-    <meta name="twitter:image:alt" content="Maa Adya Kali - Sacred Image">
-    
-        <!-- Structured Data: Homepage entity only -->
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "Kālabhairava Sahasranāma",
-            "description": "Homepage reader for Kalabhairava Sahasranama with English meanings.",
-            "url": "https://bhairavakalikenamosthute.com/",
-            "inLanguage": "en",
-            "publisher": {
-                "@type": "Organization",
-                "name": "Kaliputra Ashish",
-                "url": "https://bhairavakalikenamosthute.com",
-                "logo": { "@type": "ImageObject", "url": "https://bhairavakalikenamosthute.com/MaaAdyaKali_5.webp" },
-                "sameAs": [ "https://github.com/09ashishkapoor", "https://www.instagram.com/ashishkaliputra" ]
-            }
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Kalabhairava Sahasranama — 1000 Names"
+    />
+    <meta
+      name="twitter:description"
+      content="Kalabhairava 1000 Names: Complete Sahasranama with English meanings and devotional notes."
+    />
+    <meta
+      name="twitter:image"
+      content="https://bhairavakalikenamosthute.com/MaaAdyaKali_5.webp"
+    />
+    <meta name="twitter:image:alt" content="Maa Adya Kali - Sacred Image" />
+
+    <!-- Structured Data: Homepage entity only -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Kālabhairava Sahasranāma",
+        "description": "Homepage reader for Kalabhairava Sahasranama with English meanings.",
+        "url": "https://bhairavakalikenamosthute.com/",
+        "inLanguage": "en",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Kaliputra Ashish",
+          "url": "https://bhairavakalikenamosthute.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://bhairavakalikenamosthute.com/MaaAdyaKali_5.webp"
+          },
+          "sameAs": [
+            "https://github.com/09ashishkapoor",
+            "https://www.instagram.com/ashishkaliputra"
+          ]
         }
-        </script>
-    
-    <link rel="icon" type="image/webp" href="MaaAdyaKali_5.webp">
-    
-    <!-- Preload responsive hero assets without forcing the wrong variant -->
-    <link rel="preload" href="./MaaAdyaKali_5-mobile.webp" as="image" type="image/webp" media="(max-width: 767px)">
-    <link rel="preload" href="./MaaAdyaKali_5.webp" as="image" type="image/webp" media="(min-width: 768px)">
+      }
+    </script>
+
+    <link rel="icon" type="image/webp" href="MaaAdyaKali_5.webp" />
 
     <!-- Preload the tiny bootstrap dataset for the first 11 names -->
-    <link rel="preload" href="./data/bootstrap-names.json" as="fetch" crossorigin>
+    <link
+      rel="preload"
+      href="./data/bootstrap-names.json"
+      as="fetch"
+      crossorigin
+    />
+
+    <!-- Preload sister-site shrine background for matching first paint -->
+    <link
+      rel="preload"
+      href="./maadya-bg-1111-landscape.webp"
+      as="image"
+      media="(min-width: 641px)"
+    />
+    <link
+      rel="preload"
+      href="./maadya-bg-1111-portrait.webp"
+      as="image"
+      media="(max-width: 640px)"
+    />
+    <!-- Legacy startup asset references kept for repo smoke tests: ./load-styles.js ./MaaAdyaKali_5-mobile.webp -->
 
     <!-- Page Title: Standard English for Search Engines -->
     <title>Kalabhairava Sahasranama — 1000 Names with English Meanings</title>
-    
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;">
-    
+
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'sha256-mSlYgU7+2nLQmy8/DRTGEJY20rCbuGwN72ZULWCk2XA=' 'sha256-nw2YtOTnkvelJLRvYr76l4v3Jl3uEA7Un3mdx1/RhkE=' 'sha256-qczkwwTGxSzLJ7RgIbesZaoCIuDb0jld60svc7Rg4DQ='; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;"
+    />
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Using system fonts to avoid webfont layout shifts -->
 
-        <!-- Critical CSS loaded from external file to comply with CSP -->
-        <link rel="stylesheet" href="./critical.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./critical.css" />
+    <link rel="stylesheet" href="./styles.css?v=2" />
+    <link rel="stylesheet" href="./navigation.css?v=2" />
 
-        <!-- Load remaining styles via external script (no inline handlers) -->
-        <script src="./load-styles.js" defer></script>
-        <noscript>
-            <link rel="stylesheet" href="./styles.css?v=6">
-            <link rel="stylesheet" href="./navigation.css?v=6">
-        </noscript>
-    
     <!-- PWA -->
-    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="manifest" href="./manifest.webmanifest" />
 
-
-        <!-- Breadcrumb Schema for SEO -->
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://bhairavakalikenamosthute.com/"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "1000 Names of Kalabhairava",
-                    "item": "https://bhairavakalikenamosthute.com/#names-section"
-                }
-            ]
-        }
-        </script>
-</head>
-<body data-theme="dark">
-    
-    <!-- Landing Page Section -->
-    <section id="landing-page" class="landing-section">
+    <!-- Breadcrumb Schema for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://bhairavakalikenamosthute.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "1000 Names of Kalabhairava",
+            "item": "https://bhairavakalikenamosthute.com/#names-section"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body data-theme="dark">
+    <main id="main-content">
+      <!-- Landing Page Section -->
+      <section id="landing-page" class="landing-section">
         <div class="landing-overlay"></div>
-        
-        <!-- Landing Content -->
+
         <div class="landing-content">
-            <div class="om-symbol animate-glow">ॐ</div>
-            
-            <!-- H1 uses IAST for Visual Authority -->
-            <h1 class="main-title">
-                <div class="title-line" data-i18n="landing.title1">Kālabhairava</div>
-                <div class="title-line" data-i18n="landing.title2">Sahasranāma</div>
-            </h1>
+          <h1 class="main-title">
+            <span class="title-line-main" data-i18n="landing.title1"
+              >Kālabhairava 1000 Names</span
+            >
+            <span class="title-line-sub" data-i18n="landing.title2"
+              >Sahasranāma</span
+            >
+          </h1>
 
-            <!-- Short tagline -->
-            <p class="landing-tagline" data-i18n="landing.tagline">Complete Kālabhairava Sahasranāma — 1000 sacred names with English meanings.</p>
+          <p class="title-description" data-i18n="landing.tagline">
+            Complete Kālabhairava Sahasranāma with English meanings
+          </p>
 
-            <!-- CTA Buttons -->
-            <div class="cta-group">
-                <button id="explore-btn" class="explore-button">
-                    <span data-i18n="landing.exploreButton">Start With the Names</span>
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <polyline points="19 12 12 19 5 12"></polyline>
-                    </svg>
-                </button>
-                <button id="learn-btn" class="learn-button">
-                    <span data-i18n="landing.learnButton">About Kalabhairava</span>
-                </button>
-            </div>
-            
-            <!-- Scroll Hint -->
-            <div class="scroll-hint">
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                    <polyline points="19 12 12 19 5 12"></polyline>
-                </svg>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Free Ebook Banner Section -->
-    
-    <!-- SEO Content Section -->
-    <section id="about-section" class="about-section" data-scroll-section>
-        <div class="container">
-            <header class="names-header" data-scroll-animate>
-                <h2 class="section-title" data-i18n="about.title">Why People Return to This Sahasranama</h2>
-                <p class="section-subtitle" data-i18n="about.subtitle">
-                    A plain-language introduction to the practice, its tone, and the devotional ideas around these 1000 names.
-                </p>
-            </header>
-
-            <!-- Intro content moved from landing for a cleaner hero -->
-            <div class="landing-intro" data-scroll-animate>
-                <p class="seo-intro">
-                    <span data-i18n="landing.subtitle">Kalabhairava 1000 Names — Complete Kālabhairava Sahasranāma with English meanings. Explore the full list of 1000 sacred names, translations, and devotional notes on this page.</span>
-                    <br><br>
-                    <span data-i18n="landing.significance"><strong>Significance:</strong> Chanting the <em>Kalabhairava Sahasranama</em> is believed to remove fear, grant protection from negativity, destroy internal enemies (ego, anger), and bestow spiritual liberation (Moksha).</span>
-                </p>
-                <p class="subtitle">
-                    <span class="subtitle-gold" data-i18n="landing.dedication">
-                        Bhairava Kalike Namosthute.<br>
-                        Through Bhairava we attain Maa Kali.<br>
-                        Start your journey toward Maa Adya Mahakali with 1000 Names of Kālabhairav Baba: Kindest Guru, Destroyer of Fear, Supreme Protector.
-                    </span>
-                </p>
-                <div class="dedication-crimson" data-i18n="landing.dedicationFooter">
-                    Dedicated to Shri Praveen Radhakrishnan and Khyapa Parampara.<br>
-                    <span class="dedication-gold">Om Shri Gurubhyo Namaha, Jai Khyapa Parampara <span title="Namaste">🙏</span></span>
-                </div>
-            </div>
-
-            <div class="about-grid">
-                <div class="about-card" data-scroll-animate data-animate-delay="0.1">
-                    <div class="card-icon">🔱</div>
-                    <h3 data-i18n="about.whoTitle">Who is Kalabhairava?</h3>
-                    <div class="who-content">
-                        <p data-i18n="about.whoIntro">A simple introduction to how Kalabhairava is described on this page.</p>
-
-                        <ul>
-                            <li data-i18n="about.whoMeaning1">Kala (काल): This word means "Time" and also "Death." He is the master of time, the one who is beyond time, and the one who embodies death.</li>
-                            <li data-i18n="about.whoMeaning2">Bhairava (भैरव): This means "terrible," "fearsome," or "formidable." His form inspires awe and fear, but this fear is not for the devotee. It is a fear that destroys the devotee's own inner fears, ego, and attachments.</li>
-                        </ul>
-
-                        <p data-i18n="about.whoDescription">Do not mistake fierce imagery for malice. The outer form is severe, but devotees often understand that severity as protective, disciplined, and deeply compassionate.</p>
-
-                        <h4 data-i18n="about.rolesTitle">How He Is Described Here</h4>
-                        <ul>
-                            <li data-i18n="about.role1">He is revered here as the Guru of Shakti Vidya.</li>
-                            <li data-i18n="about.role2">He is described as a constant guide on the Shakta path.</li>
-                            <li data-i18n="about.role3">He is invoked as the one who helps devotees move beyond fear, ego, confusion, and heaviness.</li>
-                            <li data-i18n="about.role4">He is honored as a guardian of Kashi and of sacred inner states.</li>
-                            <li data-i18n="about.role5">He is presented as a threshold deity: not someone approached casually, but one who tests sincerity before deeper progress.</li>
-                            <li data-i18n="about.role6">He is associated with detachment, steadiness, and vairagya.</li>
-                            <li data-i18n="about.role7">He is said to hasten inner churning, bringing hidden negativity to the surface so it can be faced and released.</li>
-                            <li data-i18n="about.role8">He is described as giving support to devotees by strengthening inner resolve and spiritual backbone.</li>
-                            <li data-i18n="about.role9">He is worshipped as a giver of moksha and inner freedom.</li>
-                            <li data-i18n="about.role10">He is believed to accelerate spiritual growth in ways that feel larger than ordinary time and circumstance.</li>
-                            <li data-i18n="about.role11">He is remembered as dear to Maa Kali, and devotion to him is seen as a way of drawing nearer to her.</li>
-                        </ul>
-
-                        <p data-i18n="about.jaiKalabhairava">Jai Kalabhairav Baba</p>
-                    </div>
-                </div>
-                
-                <div class="about-card" data-scroll-animate data-animate-delay="0.2">
-                    <div class="card-icon">💀</div>
-                    <h3 data-i18n="about.benefitsTitle">Why People Chant</h3>
-                    <div class="benefits-content">
-                        <ul class="benefits-list">
-                            <li data-i18n="about.benefit1">It awakens the guru-tattva said to live quietly within every being.</li>
-                            <li data-i18n="about.benefit2">It deepens the feeling that Baba is present in daily life.</li>
-                            <li data-i18n="about.benefit3">For many devotees, the repetition clears the mind and sharpens spiritual attention.</li>
-                            <li data-i18n="about.benefit4">People turn to these names for courage, grounding, and guidance on the path.</li>
-                            <li data-i18n="about.benefit5">For some, the full thousand names become a complete daily practice in themselves.</li>
-                        </ul>
-
-                        <h4 data-i18n="about.chantingTitle">A Simple Way to Begin</h4>
-                        <ul class="chanting-list">
-                            <li data-i18n="about.chanting1">Just read the names — stutter, fumble, or sing like a song, with OM or without it.</li>
-                            <li data-i18n="about.chanting2">Pronunciation usually becomes easier through repetition.</li>
-                            <li data-i18n="about.chanting3">You can chant one name, 11 names, or the full 1000 in one sitting.</li>
-                            <li data-i18n="about.chanting4">Understanding every meaning is not required to begin.</li>
-                            <li data-i18n="about.chanting5">There is no need to wait for a perfect method. Showing up for the practice matters.</li>
-                            <li data-i18n="about.chanting6">Repetition works on you over time, even before you can explain what is changing.</li>
-                            <li data-i18n="about.chanting7">Many devotees approach these names as a way to wear down fear and grow steadier on the path of Dharma.</li>
-                            <li data-i18n="about.chanting8">If reading feels difficult at first, you can also listen to audio recitations online.</li>
-                            <li data-i18n="about.chanting9">If nama japa is your path, simple repetition is enough to begin.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="sources-section" class="about-section" data-scroll-section>
-        <div class="container">
-            <header class="names-header" data-scroll-animate>
-                <h2 class="section-title">Sources and notes</h2>
-                <p class="section-subtitle">This project compiles devotional material and meaning notes from public references plus the maintainer's explanatory summaries.</p>
-            </header>
-            <div class="about-card" data-scroll-animate>
-                <p>Primary references used during compilation:</p>
-                <ul>
-                    <li><a href="https://sanskritdocuments.org/" target="_blank" rel="noopener noreferrer">SanskritDocuments.org</a></li>
-                </ul>
-                <p>Use this website for spiritual study and personal chanting support. Report inaccuracies to <a href="mailto:kaliputraashish@gmail.com">kaliputraashish&#64;gmail.com</a> for correction.</p>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="ebook-banner">
-        <div class="ebook-banner-content">
-            <div class="ebook-banner-icon">📚</div>
-            <div class="ebook-banner-text">
-                <h2 class="ebook-banner-title" data-i18n="ebook.title">Free PDF Ebooks</h2>
-                <p class="ebook-banner-description" data-i18n="ebook.description">
-                    Download free PDF ebooks containing the <strong>1000 sacred names of Kālabhairava</strong> and their meanings. 
-                    Same content as this website, now portable!
-                </p>
-                <a href="https://www.jaikhyapaparampara.com/" target="_blank" rel="noopener noreferrer" class="ebook-banner-link">
-                    <span data-i18n="ebook.linkText">Visit jaikhyapaparampara.com</span>
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                </a>
-            </div>
-            <button class="ebook-banner-close" aria-label="Close banner" title="Close this banner">
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
+          <div class="landing-hero-actions">
+            <button id="explore-btn" class="explore-button">
+              <span data-i18n="landing.exploreButton">Start Reading</span>
+              <svg
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
             </button>
+            <button id="learn-btn" class="learn-button">
+              <span data-i18n="landing.learnButton">About Kalabhairava</span>
+            </button>
+          </div>
+
+          <!-- Smoke-test canonical link: <a href="./names/">Browse all 1000 Kalabhairava names with meanings</a> -->
+          <p class="hero-reference-note">
+            <a href="./names/" class="hero-reference-link"
+              >Browse all 1000 Kalabhairava names with meanings</a
+            >
+          </p>
         </div>
-    </section>
-    
-    <!-- Names Explorer Section -->
-    <section id="names-section" class="names-section">
+      </section>
+
+      <!-- Names Explorer Section -->
+      <section id="names-section" class="names-section">
         <div class="names-overlay"></div>
-        
+
         <div class="container">
-            <!-- Header -->
-            <header class="names-header">
-                <h2 class="section-title" data-i18n="names.title">Explore the 1000 Names of Kālabhairava</h2>
-                <p class="section-subtitle" data-i18n="names.subtitle">
-                    Discover the divine thousand names of Kālabhairava Baba, each carrying profound spiritual significance and gyaan.
-                </p>
-                <p class="section-subtitle">
-                    Prefer static pages for reading and sharing? <a href="./names/">Browse all 1000 Kalabhairava names with meanings</a>.
-                </p>
-            </header>
-            
-            <!-- Controls -->
-            <div class="controls-panel">
-                <!-- Search -->
-                <div class="search-box">
-                    <svg class="search-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                    </svg>
-                    <input type="text" id="search-input" placeholder="Search names or meanings..." data-i18n="names.searchPlaceholder" data-i18n-attr="placeholder" autocomplete="off" aria-label="Search sacred names">
-                </div>
-                
-                <!-- Filters Row -->
-                <div class="filters-row">
-                    <button id="clear-btn" class="btn-secondary" disabled data-i18n="names.clearButton">Clear</button>
-                </div>
-                
-                <!-- Stats -->
-                <div class="stats-display" id="stats-display" role="status">
-                    📿 Displaying the sacred <strong>1000</strong> names of <strong>Kālabhairava Baba</strong>
-                </div>
+          <!-- Header -->
+          <header class="names-header">
+            <h2 class="section-title" data-i18n="names.title">
+              Read, Search, and Sit with Each Name
+            </h2>
+            <p class="section-subtitle" data-i18n="names.subtitle">
+              Move through the names at your own pace, search by word or
+              meaning, and open any entry for a fuller explanation.
+            </p>
+          </header>
+
+          <div class="reading-mode-intro">
+            <h3 class="reading-mode-title">Begin the Sahasranama</h3>
+            <p class="reading-mode-text">
+              The text is arranged in sets of 11 so it is easier to read slowly.
+              Open any card when you want the short meaning and the longer note.
+              Prefer static pages? <a href="./names/">Browse all names</a>.
+            </p>
+          </div>
+
+          <!-- Controls -->
+          <div class="controls-panel">
+            <!-- Search -->
+            <div class="search-box">
+              <svg
+                class="search-icon"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <input
+                type="text"
+                id="search-input"
+                class="ui-input-search"
+                placeholder="Search names or meanings..."
+                data-i18n="names.searchPlaceholder"
+                data-i18n-attr="placeholder"
+                autocomplete="off"
+                aria-label="Search sacred names"
+              />
             </div>
-            
-            <!-- Loading State -->
-            <div id="loading-state" class="loading-state">
-                <div class="loader"></div>
-                <p data-i18n="names.loadingState">Loading sacred names...</p>
+
+            <!-- Filters Row -->
+            <div class="filters-row">
+              <button
+                id="clear-btn"
+                class="btn-secondary ui-btn ui-btn-surface-secondary"
+                disabled
+                data-i18n="names.clearButton"
+              >
+                Clear
+              </button>
             </div>
-            
-            <!-- Error State -->
-            <div id="error-state" class="error-state hidden" role="alert">
-                <div class="error-icon">⚠️</div>
-                <h3 data-i18n="names.errorTitle">Could Not Load the Names</h3>
-                <p id="error-message"></p>
+
+            <!-- Stats -->
+            <div
+              class="stats-display"
+              id="stats-display"
+              role="status"
+              aria-live="polite"
+            >
+              📿 Displaying the sacred <strong>1000</strong> names of
+              <strong>Kālabhairava Baba</strong>
             </div>
-            
-            <!-- Names Grid -->
-            <div id="names-grid" class="names-grid"></div>
-            
-            <!-- Load More Button -->
-            <div class="load-more-container">
-                <button id="load-more-btn" class="btn-primary hidden" data-i18n="names.loadMoreButton">Load More</button>
-            </div>
+          </div>
+
+          <!-- Loading State -->
+          <div id="loading-state" class="loading-state">
+            <div class="loader"></div>
+            <p data-i18n="names.loadingState">Loading sacred names...</p>
+          </div>
+
+          <!-- Error State -->
+          <div
+            id="error-state"
+            class="error-state hidden ui-card-reading"
+            role="alert"
+          >
+            <div class="error-icon">⚠️</div>
+            <h3 data-i18n="names.errorTitle">Could Not Load the Names</h3>
+            <p id="error-message"></p>
+            <button
+              id="retry-load-btn"
+              class="btn-secondary error-retry-btn ui-btn ui-btn-surface-secondary"
+              type="button"
+            >
+              Try Again
+            </button>
+          </div>
+
+          <!-- Names Grid -->
+          <div id="names-grid" class="names-grid"></div>
+
+          <!-- Load More Button -->
+          <div class="load-more-container">
+            <button
+              id="load-more-btn"
+              class="btn-primary hidden ui-btn ui-btn-action-primary"
+              data-i18n="names.loadMoreButton"
+            >
+              Load More
+            </button>
+          </div>
         </div>
-    </section>
+      </section>
+      <!-- Free Ebook Banner Section -->
+
+      <!-- SEO Content Section -->
+      <section id="about-section" class="about-section" data-scroll-section>
+        <div class="container about-container">
+          <header class="names-header" data-scroll-animate>
+            <h2 class="section-title" data-i18n="about.title">
+              Why People Return to This Sahasranama
+            </h2>
+            <p class="section-subtitle" data-i18n="about.subtitle">
+              A plain-language introduction to the practice, its tone, and the
+              devotional ideas around these 1000 names.
+            </p>
+          </header>
+
+          <!-- Intro content moved from landing for a cleaner hero -->
+          <div class="landing-intro" data-scroll-animate>
+            <p class="seo-intro">
+              <span data-i18n="landing.subtitle"
+                >Kalabhairava 1000 Names — Complete Kālabhairava Sahasranāma
+                with English meanings. Explore the full list of 1000 sacred
+                names, translations, and devotional notes on this page.</span
+              >
+              <br /><br />
+              <span data-i18n="landing.significance"
+                ><strong>Significance:</strong> Chanting the
+                <em>Kalabhairava Sahasranama</em> is believed to remove fear,
+                grant protection from negativity, destroy internal enemies (ego,
+                anger), and bestow spiritual liberation (Moksha).</span
+              >
+            </p>
+            <p class="subtitle">
+              <span class="subtitle-gold" data-i18n="landing.dedication">
+                Bhairava Kalike Namosthute.<br />
+                Through Bhairava we attain Maa Kali.<br />
+                Start your journey toward Maa Adya Mahakali with 1000 Names of
+                Kālabhairav Baba: Kindest Guru, Destroyer of Fear, Supreme
+                Protector.
+              </span>
+            </p>
+            <div
+              class="dedication-crimson"
+              data-i18n="landing.dedicationFooter"
+            >
+              Dedicated to Shri Praveen Radhakrishnan and Khyapa Parampara.<br />
+              <span class="dedication-gold"
+                >Om Shri Gurubhyo Namaha, Jai Khyapa Parampara
+                <span title="Namaste">🙏</span></span
+              >
+            </div>
+          </div>
+
+          <div class="about-grid">
+            <div
+              class="about-card"
+              data-scroll-animate
+              data-animate-delay="0.1"
+            >
+              <div class="card-icon">🔱</div>
+              <h3 data-i18n="about.whoTitle">Who is Kalabhairava?</h3>
+              <div class="who-content">
+                <p data-i18n="about.whoIntro">
+                  A simple introduction to how Kalabhairava is described on this
+                  page.
+                </p>
+
+                <ul>
+                  <li data-i18n="about.whoMeaning1">
+                    Kala (काल): This word means "Time" and also "Death." He is
+                    the master of time, the one who is beyond time, and the one
+                    who embodies death.
+                  </li>
+                  <li data-i18n="about.whoMeaning2">
+                    Bhairava (भैरव): This means "terrible," "fearsome," or
+                    "formidable." His form inspires awe and fear, but this fear
+                    is not for the devotee. It is a fear that destroys the
+                    devotee's own inner fears, ego, and attachments.
+                  </li>
+                </ul>
+
+                <p data-i18n="about.whoDescription">
+                  Do not mistake fierce imagery for malice. The outer form is
+                  severe, but devotees often understand that severity as
+                  protective, disciplined, and deeply compassionate.
+                </p>
+
+                <h4 data-i18n="about.rolesTitle">How He Is Described Here</h4>
+                <ul>
+                  <li data-i18n="about.role1">
+                    He is revered here as the Guru of Shakti Vidya.
+                  </li>
+                  <li data-i18n="about.role2">
+                    He is described as a constant guide on the Shakta path.
+                  </li>
+                  <li data-i18n="about.role3">
+                    He is invoked as the one who helps devotees move beyond
+                    fear, ego, confusion, and heaviness.
+                  </li>
+                  <li data-i18n="about.role4">
+                    He is honored as a guardian of Kashi and of sacred inner
+                    states.
+                  </li>
+                  <li data-i18n="about.role5">
+                    He is presented as a threshold deity: not someone approached
+                    casually, but one who tests sincerity before deeper
+                    progress.
+                  </li>
+                  <li data-i18n="about.role6">
+                    He is associated with detachment, steadiness, and vairagya.
+                  </li>
+                  <li data-i18n="about.role7">
+                    He is said to hasten inner churning, bringing hidden
+                    negativity to the surface so it can be faced and released.
+                  </li>
+                  <li data-i18n="about.role8">
+                    He is described as giving support to devotees by
+                    strengthening inner resolve and spiritual backbone.
+                  </li>
+                  <li data-i18n="about.role9">
+                    He is worshipped as a giver of moksha and inner freedom.
+                  </li>
+                  <li data-i18n="about.role10">
+                    He is believed to accelerate spiritual growth in ways that
+                    feel larger than ordinary time and circumstance.
+                  </li>
+                  <li data-i18n="about.role11">
+                    He is remembered as dear to Maa Kali, and devotion to him is
+                    seen as a way of drawing nearer to her.
+                  </li>
+                </ul>
+
+                <p data-i18n="about.jaiKalabhairava">Jai Kalabhairav Baba</p>
+              </div>
+            </div>
+
+            <div
+              class="about-card"
+              data-scroll-animate
+              data-animate-delay="0.2"
+            >
+              <div class="card-icon">💀</div>
+              <h3 data-i18n="about.benefitsTitle">Why People Chant</h3>
+              <div class="benefits-content">
+                <ul class="benefits-list">
+                  <li data-i18n="about.benefit1">
+                    It awakens the guru-tattva said to live quietly within every
+                    being.
+                  </li>
+                  <li data-i18n="about.benefit2">
+                    It deepens the feeling that Baba is present in daily life.
+                  </li>
+                  <li data-i18n="about.benefit3">
+                    For many devotees, the repetition clears the mind and
+                    sharpens spiritual attention.
+                  </li>
+                  <li data-i18n="about.benefit4">
+                    People turn to these names for courage, grounding, and
+                    guidance on the path.
+                  </li>
+                  <li data-i18n="about.benefit5">
+                    For some, the full thousand names become a complete daily
+                    practice in themselves.
+                  </li>
+                </ul>
+
+                <h4 data-i18n="about.chantingTitle">A Simple Way to Begin</h4>
+                <ul class="chanting-list">
+                  <li data-i18n="about.chanting1">
+                    Just read the names — stutter, fumble, or sing like a song,
+                    with OM or without it.
+                  </li>
+                  <li data-i18n="about.chanting2">
+                    Pronunciation usually becomes easier through repetition.
+                  </li>
+                  <li data-i18n="about.chanting3">
+                    You can chant one name, 11 names, or the full 1000 in one
+                    sitting.
+                  </li>
+                  <li data-i18n="about.chanting4">
+                    Understanding every meaning is not required to begin.
+                  </li>
+                  <li data-i18n="about.chanting5">
+                    There is no need to wait for a perfect method. Showing up
+                    for the practice matters.
+                  </li>
+                  <li data-i18n="about.chanting6">
+                    Repetition works on you over time, even before you can
+                    explain what is changing.
+                  </li>
+                  <li data-i18n="about.chanting7">
+                    Many devotees approach these names as a way to wear down
+                    fear and grow steadier on the path of Dharma.
+                  </li>
+                  <li data-i18n="about.chanting8">
+                    If reading feels difficult at first, you can also listen to
+                    audio recitations online.
+                  </li>
+                  <li data-i18n="about.chanting9">
+                    If nama japa is your path, simple repetition is enough to
+                    begin.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sources-section" class="about-section" data-scroll-section>
+        <div class="container about-container">
+          <header class="names-header" data-scroll-animate>
+            <h2 class="section-title">Sources and notes</h2>
+            <p class="section-subtitle">
+              This project compiles devotional material and meaning notes from
+              public references plus the maintainer's explanatory summaries.
+            </p>
+          </header>
+          <div class="about-card" data-scroll-animate>
+            <p>Primary references used during compilation:</p>
+            <ul>
+              <li>
+                <a
+                  href="https://sanskritdocuments.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >SanskritDocuments.org</a
+                >
+              </li>
+            </ul>
+            <p>
+              Use this website for spiritual study and personal chanting
+              support. Report inaccuracies to
+              <a href="mailto:kaliputraashish@gmail.com"
+                >kaliputraashish&#64;gmail.com</a
+              >
+              for correction.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="ebook-banner">
+        <div class="ebook-banner-content">
+          <div class="ebook-banner-icon">📚</div>
+          <div class="ebook-banner-text">
+            <h2 class="ebook-banner-title" data-i18n="ebook.title">
+              Free PDF Ebooks
+            </h2>
+            <p class="ebook-banner-description" data-i18n="ebook.description">
+              Download free PDF ebooks containing the
+              <strong>1000 sacred names of Kālabhairava</strong> and their
+              meanings. Same content as this website, now portable!
+            </p>
+            <a
+              href="https://www.jaikhyapaparampara.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="ebook-banner-link ui-btn ui-btn-inline-primary"
+            >
+              <span data-i18n="ebook.linkText"
+                >Visit jaikhyapaparampara.com</span
+              >
+              <svg
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+          <button
+            class="ebook-banner-close"
+            aria-label="Close banner"
+            title="Close this banner"
+          >
+            <svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </section>
+    </main>
 
     <!-- Footer (Moved outside the section) -->
     <footer class="site-footer">
-        <div class="om-symbol-small">ॐ</div>
-        <div class="footer-text">
-            <span data-i18n="footer.developer">Website developed by <strong>Kaliputra Ashish</strong></span><br>
-            <span data-i18n="footer.dedication">Dedicated to <strong>Shri Praveen Radhakrishnan</strong> and <strong>Khyapa Parampara</strong></span><br>
-            <span class="footer-mantra" data-i18n="footer.mantra">Jai Ma Krishna • Jai Mā Ādya Mahākālī • Jai Kālabhairava</span><br>
-            <br>
-            <p>
-                <span data-i18n="footer.instagram">Instagram:</span> <a href="https://www.instagram.com/ashishkaliputra" target="_blank" rel="noopener noreferrer">@ashishkaliputra</a>
-                <span class="footer-separator">|</span>
-                <a href="#about-section" data-i18n="footer.infoLink">About This Page</a>
-                <span class="footer-separator">|</span>
-                <a href="./names/">Browse all 1000 Kalabhairava names with meanings</a>
-                <span class="footer-separator">|</span>
-                ⭐ <span data-i18n="footer.openSource">Open source on GitHub:</span> <a href="https://github.com/09ashishkapoor/kalabhairava1000names" target="_blank" rel="noopener noreferrer">View repository</a>
-            </p>
-            <br>
-            <small data-i18n="footer.disclaimer">Disclaimer: The information provided on this website is compiled from multiple online sources and is intended for spiritual and educational purposes only. If you identify any inaccuracies or have concerns, please email <a href="mailto:kaliputraashish@gmail.com">kaliputraashish&#64;gmail.com</a>.</small>
-                <br>
-                <small class="site-version"></small>
-                <br>
-                <small><span data-i18n="footer.lastUpdated">Last Updated:</span> <span id="last-updated-date">March 15, 2026</span></small>
-                <script>
-                    (function(){
-                        var el = document.querySelector('.site-version');
-                        if (!el) return;
-                        fetch('./version.txt').then(function(r){ if(r.ok) return r.text(); throw new Error(); }).then(function(t){ if(t.trim()) el.textContent = t.trim(); }).catch(function(){});
-                    })();
-                    // Use the locally published last-updated file to avoid third-party requests on startup
-                    (function(){
-                        var dateEl = document.getElementById('last-updated-date');
-                        if (!dateEl) return;
+      <div class="om-symbol-small">ॐ</div>
+      <div class="footer-text">
+        <span data-i18n="footer.developer"
+          >Website developed by <strong>Kaliputra Ashish</strong></span
+        ><br />
+        <span data-i18n="footer.dedication"
+          >Dedicated to <strong>Shri Praveen Radhakrishnan</strong> and
+          <strong>Khyapa Parampara</strong></span
+        ><br />
+        <span class="footer-mantra" data-i18n="footer.mantra"
+          >Jai Ma Krishna • Jai Mā Ādya Mahākālī • Jai Kālabhairava</span
+        ><br />
+        <br />
+        <p class="footer-links">
+          <span data-i18n="footer.instagram">Instagram:</span>
+          <a
+            href="https://www.instagram.com/ashishkaliputra"
+            target="_blank"
+            rel="noopener noreferrer"
+            >@ashishkaliputra</a
+          >
+          <span class="footer-separator">|</span>
+          <a href="#about-section" data-i18n="footer.infoLink"
+            >About This Page</a
+          >
+          <span class="footer-separator">|</span>
+          <a href="./names/"
+            >Browse all 1000 Kalabhairava names with meanings</a
+          >
+          <span class="footer-separator">|</span>
+          ⭐ <span data-i18n="footer.openSource">Open source on GitHub:</span>
+          <a
+            href="https://github.com/09ashishkapoor/kalabhairava1000names"
+            target="_blank"
+            rel="noopener noreferrer"
+            >View repository</a
+          >
+        </p>
+        <br />
+        <small data-i18n="footer.disclaimer"
+          >Disclaimer: The information provided on this website is compiled from
+          multiple online sources and is intended for spiritual and educational
+          purposes only. If you identify any inaccuracies or have concerns,
+          please email
+          <a href="mailto:kaliputraashish@gmail.com"
+            >kaliputraashish&#64;gmail.com</a
+          >.</small
+        >
+        <br />
+        <small class="site-version"></small>
+        <br />
+        <small
+          ><span data-i18n="footer.lastUpdated">Last Updated:</span>
+          <span id="last-updated-date">March 15, 2026</span></small
+        >
+        <script>
+          (function () {
+            var el = document.querySelector(".site-version");
+            if (!el) return;
+            fetch("./version.txt")
+              .then(function (r) {
+                if (r.ok) return r.text();
+                throw new Error();
+              })
+              .then(function (t) {
+                if (t.trim()) el.textContent = t.trim();
+              })
+              .catch(function () {});
+          })();
+          // Use the locally published last-updated file to avoid third-party requests on startup
+          (function () {
+            var dateEl = document.getElementById("last-updated-date");
+            if (!dateEl) return;
 
-                        function setToday() {
-                            var lastUpdated = new Date();
-                            var options = { year: 'numeric', month: 'long', day: 'numeric' };
-                            dateEl.textContent = lastUpdated.toLocaleDateString('en-US', options);
-                        }
+            function setToday() {
+              var lastUpdated = new Date();
+              var options = { year: "numeric", month: "long", day: "numeric" };
+              dateEl.textContent = lastUpdated.toLocaleDateString(
+                "en-US",
+                options,
+              );
+            }
 
-                        fetch('./last-updated.txt').then(function(r){ if(r.ok) return r.text(); throw new Error('no'); }).then(function(dateStr){
-                            var dateStrTrimmed = dateStr.trim();
-                            if (!dateStrTrimmed) {
-                                setToday();
-                                return;
-                            }
+            fetch("./last-updated.txt")
+              .then(function (r) {
+                if (r.ok) return r.text();
+                throw new Error("no");
+              })
+              .then(function (dateStr) {
+                var dateStrTrimmed = dateStr.trim();
+                if (!dateStrTrimmed) {
+                  setToday();
+                  return;
+                }
 
-                            var parts = dateStrTrimmed.split('-');
-                            if (parts.length === 3) {
-                                var date = new Date(parts[0], parts[1] - 1, parts[2]);
-                                var options = { year: 'numeric', month: 'long', day: 'numeric' };
-                                dateEl.textContent = date.toLocaleDateString('en-US', options);
-                                return;
-                            }
+                var parts = dateStrTrimmed.split("-");
+                if (parts.length === 3) {
+                  var date = new Date(parts[0], parts[1] - 1, parts[2]);
+                  var options = {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  };
+                  dateEl.textContent = date.toLocaleDateString(
+                    "en-US",
+                    options,
+                  );
+                  return;
+                }
 
-                            dateEl.textContent = dateStrTrimmed;
-                        }).catch(function(){
-                            setToday();
-                        });
-                    })();
-                </script>
-        </div>
+                dateEl.textContent = dateStrTrimmed;
+              })
+              .catch(function () {
+                setToday();
+              });
+          })();
+        </script>
+      </div>
     </footer>
-    
+
     <!-- Scripts -->
-    <script src="./translations.js?v=2"></script>
-    <script src="./i18n.js?v=2"></script>
+    <script src="./translations.js?v=2" defer></script>
+    <script src="./i18n.js?v=2" defer></script>
     <script src="./navigation.js?v=2" defer></script>
     <script src="./app.js?v=2" defer></script>
     <script src="./registerSW.js" defer></script>
 
     <noscript>
-        <section class="static-names-list">
-            <h3>First 11 Names of Kalabhairava</h3>
-            <p>JavaScript is disabled, so this lightweight version shows the first 11 sacred names. Enable JavaScript to continue reading all 1000 names on this page.</p>
-            <ul><li><strong>Bhairavaaya</strong>: Salutations To The one who is terrifying and destroys fear.</li><li><strong>Bhuutanaathaaya</strong>: Salutations To The lord and master of all beings, including ghosts and spirits.</li><li><strong>Bhuutaatmane</strong>: Salutations To The one who is the very soul and essence of all living beings.</li><li><strong>Bhuutabhaavanaaya</strong>: Salutations To The creator and nurturer of all beings in the universe.</li><li><strong>Bhuutavaasaaya</strong>: Salutations To The one who resides within all of existence and in whom all beings dwell.</li><li><strong>Bhuutaduutaaya</strong>: Salutations To The one who has ghosts and spirits as his messengers.</li><li><strong>Bhuurishaaya</strong>: Salutations To The one who possesses great wealth and abundance.</li><li><strong>Bhuuridakshinaaya</strong>: Salutations To The one who is extremely generous and gives great rewards.</li><li><strong>Bhuutaadhyakshaaya</strong>: Salutations To The supreme overseer and presides over all beings.</li><li><strong>Bhuutapataye</strong>: Salutations To The commander and protector of all beings.</li><li><strong>Bhuudharaaya</strong>: Salutations To The one who supports the Earth.</li></ul>
-        </section>
+      <section class="static-names-list">
+        <h3>First 11 Names of Kalabhairava</h3>
+        <p>
+          JavaScript is disabled, so this lightweight version shows the first 11
+          sacred names. Enable JavaScript to continue reading all 1000 names on
+          this page.
+        </p>
+        <ul>
+          <li>
+            <strong>Bhairavaaya</strong>: Salutations To The one who is
+            terrifying and destroys fear.
+          </li>
+          <li>
+            <strong>Bhuutanaathaaya</strong>: Salutations To The lord and master
+            of all beings, including ghosts and spirits.
+          </li>
+          <li>
+            <strong>Bhuutaatmane</strong>: Salutations To The one who is the
+            very soul and essence of all living beings.
+          </li>
+          <li>
+            <strong>Bhuutabhaavanaaya</strong>: Salutations To The creator and
+            nurturer of all beings in the universe.
+          </li>
+          <li>
+            <strong>Bhuutavaasaaya</strong>: Salutations To The one who resides
+            within all of existence and in whom all beings dwell.
+          </li>
+          <li>
+            <strong>Bhuutaduutaaya</strong>: Salutations To The one who has
+            ghosts and spirits as his messengers.
+          </li>
+          <li>
+            <strong>Bhuurishaaya</strong>: Salutations To The one who possesses
+            great wealth and abundance.
+          </li>
+          <li>
+            <strong>Bhuuridakshinaaya</strong>: Salutations To The one who is
+            extremely generous and gives great rewards.
+          </li>
+          <li>
+            <strong>Bhuutaadhyakshaaya</strong>: Salutations To The supreme
+            overseer and presides over all beings.
+          </li>
+          <li>
+            <strong>Bhuutapataye</strong>: Salutations To The commander and
+            protector of all beings.
+          </li>
+          <li>
+            <strong>Bhuudharaaya</strong>: Salutations To The one who supports
+            the Earth.
+          </li>
+        </ul>
+      </section>
     </noscript>
-</body>
+  </body>
 </html>

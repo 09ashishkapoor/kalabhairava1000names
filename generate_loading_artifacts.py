@@ -12,7 +12,7 @@ from html import escape
 from pathlib import Path
 
 try:
-    from PIL import Image
+    from PIL import Image  # type: ignore[import-not-found]
 except ModuleNotFoundError:  # pragma: no cover - fallback for minimal environments
     Image = None
 
@@ -56,15 +56,54 @@ def to_html_text(value: object) -> str:
     return escape(str(value), quote=True)
 
 
+def markdown_heading_text(line: str) -> str | None:
+    match = re.fullmatch(r"#{3,6}\s+(.+)", line.strip())
+    if not match:
+        return None
+    return match.group(1).strip()
+
+
 def to_html_paragraphs(value: str) -> str:
     text = (value or "").strip()
     if not text:
         return "<p>—</p>"
 
+    blocks: list[str] = []
     paragraphs = [segment.strip() for segment in text.split("\n\n") if segment.strip()]
-    return "\n".join(
-        f"<p>{to_html_text(paragraph).replace(chr(10), '<br>')}</p>" for paragraph in paragraphs
-    )
+
+    for paragraph in paragraphs:
+        lines = [line.strip() for line in paragraph.splitlines() if line.strip()]
+        if not lines:
+            continue
+
+        # The source elaborations occasionally contain Markdown fragments from
+        # upstream notes. Render the useful structure and drop separator-only
+        # artifacts so the static devotional pages stay clean without JS.
+        if len(lines) == 1 and lines[0] in {"-", "—", "---"}:
+            continue
+
+        if all(line.startswith(("* ", "- ")) for line in lines):
+            items = [f"<li>{to_html_text(line[2:].strip())}</li>" for line in lines]
+            blocks.append("<ul>" + "".join(items) + "</ul>")
+            continue
+
+        if len(lines) == 1 and (heading_text := markdown_heading_text(lines[0])):
+            blocks.append(f"<h4>{to_html_text(heading_text)}</h4>")
+            continue
+
+        rendered_lines = []
+        for line in lines:
+            if heading_text := markdown_heading_text(line):
+                rendered_lines.append(f"</p>\n<h4>{to_html_text(heading_text)}</h4>\n<p>")
+            elif line.startswith(("* ", "- ")):
+                rendered_lines.append(to_html_text(line[2:].strip()))
+            else:
+                rendered_lines.append(to_html_text(line))
+
+        rendered = "<br>".join(rendered_lines).replace("<p><br>", "<p>").replace("<br></p>", "</p>")
+        blocks.append(f"<p>{rendered}</p>")
+
+    return "\n".join(blocks) if blocks else "<p>—</p>"
 
 
 def to_json_ld_script(payload: dict) -> str:
@@ -196,7 +235,7 @@ def build_range_pages(data: list[dict]) -> list[str]:
                         f'<article class="entry" id="{entry_anchor}">',
                         f"  <h2>{to_html_text(index_value)}. {to_html_text(english_name)}</h2>",
                         f"  <p><strong>English meaning:</strong> {to_html_text(entry['english_one_line'])}</p>",
-                        "  <h3>Elaboration</h3>",
+                        f"  <h3>Elaboration for name {to_html_text(index_value)}, {to_html_text(english_name)}</h3>",
                         f"  {to_html_paragraphs(entry['english_elaboration'])}",
                         "</article>",
                     ]
@@ -222,11 +261,11 @@ def build_range_pages(data: list[dict]) -> list[str]:
 
         body = f"""
     <section class="hero-panel">
-      <p class="intro">This page is a static collection of Kalabhairava names {start_index}-{end_index} with English meanings. It is designed to remain useful without JavaScript.</p>
+      <p class="intro">Read Kalabhairava names {start_index}-{end_index} with English meanings and detailed notes, all visible on the page for steady study.</p>
       <nav class="page-nav" aria-label="Page navigation">
         <ul>
-          <li><a href="../../">Open the interactive homepage reader</a></li>
-          <li><a href="../">Browse all ranges</a></li>
+          <li><a href="../../">Use the searchable homepage reader</a></li>
+          <li><a href="../">Browse every 100-name range</a></li>
           {prev_link}
           {next_link}
         </ul>
@@ -240,7 +279,7 @@ def build_range_pages(data: list[dict]) -> list[str]:
       <p>This project compiles devotional material and meaning notes from public references plus the maintainer's explanatory summaries.</p>
       <p>Primary references used during compilation:</p>
       <ul>
-        <li><a href="https://sanskritdocuments.org/" rel="noopener">SanskritDocuments.org</a></li>
+        <li><a href="https://sanskritdocuments.org/" rel="noopener">Open the SanskritDocuments.org source archive</a></li>
       </ul>
       <p>Use this website for spiritual study and personal chanting support. Report inaccuracies to <a href="mailto:kaliputraashish@gmail.com">kaliputraashish@gmail.com</a> for correction.</p>
     </section>
@@ -255,7 +294,7 @@ def build_range_pages(data: list[dict]) -> list[str]:
             json_ld=json_ld,
             stylesheet_href="../static-pages.css",
             page_class="names-static names-static--range",
-            page_kicker="Static devotional reference",
+            page_kicker="Devotional reference",
         )
 
         output_dir = NAMES_DIR / slug
@@ -305,10 +344,10 @@ def build_names_hub(data: list[dict], range_paths: list[str]) -> None:
 
     hub_body = f"""
     <section class="hero-panel">
-      <p class="intro">Use this static hub to browse all 1000 Kalabhairava names by 100-name sections. Each section page includes the full visible entries with English meanings and detailed elaboration.</p>
+      <p class="intro">Browse all 1000 Kalabhairava names in 100-name sections. Each range keeps the names, English meanings, and detailed notes visible for focused reading.</p>
       <nav class="page-nav" aria-label="Hub navigation">
         <ul>
-          <li><a href="../">Open the interactive homepage reader</a></li>
+          <li><a href="../">Use the searchable homepage reader</a></li>
         </ul>
       </nav>
     </section>
@@ -326,7 +365,7 @@ def build_names_hub(data: list[dict], range_paths: list[str]) -> None:
       <p>This project compiles devotional material and meaning notes from public references plus the maintainer's explanatory summaries.</p>
       <p>Primary references used during compilation:</p>
       <ul>
-        <li><a href="https://sanskritdocuments.org/" rel="noopener">SanskritDocuments.org</a></li>
+        <li><a href="https://sanskritdocuments.org/" rel="noopener">Open the SanskritDocuments.org source archive</a></li>
       </ul>
       <p>Use this website for spiritual study and personal chanting support. Report inaccuracies to <a href="mailto:kaliputraashish@gmail.com">kaliputraashish@gmail.com</a> for correction.</p>
     </section>
@@ -341,7 +380,7 @@ def build_names_hub(data: list[dict], range_paths: list[str]) -> None:
         json_ld=json_ld,
         stylesheet_href="./static-pages.css",
         page_class="names-static names-static--hub",
-        page_kicker="Static study hub",
+        page_kicker="Study hub",
     )
 
     (NAMES_DIR / "index.html").write_text(hub_html, encoding="utf-8")

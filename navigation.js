@@ -1,151 +1,209 @@
 /**
- * Vanilla JS Mobile Navigation for Kalabhairava Sahasranama
- * Pure JavaScript - no dependencies, no framework issues
+ * Sister-site floating navigation for Kalabhairava Sahasranama.
  */
 
-(function() {
-  'use strict';
-  
-  // Wait for DOM to be ready
-  function init() {
-    // Create navigation buttons
-    createNavigationButtons();
-    
-    // Set up scroll detection
-    setupScrollDetection();
-    
-    console.log('✅ Navigation system initialized');
-  }
+(() => {
+	"use strict";
 
-  // Exposed toggle handler so the button can reference it immediately
-  // even if `setupScrollDetection` hasn't finished wiring observers.
-  function toggleScroll() {
-    const namesSection = document.getElementById('names-section');
-    if (!namesSection) return scrollToNames();
+	const NAVIGATION_BUTTONS = [
+		{
+			id: "nav-up-button",
+			className: "nav-button nav-up hidden",
+			label: "Back to top",
+			title: "Back to landing page",
+			direction: "up",
+			onClick: scrollToTop,
+		},
+		{
+			id: "nav-down-button",
+			className: "nav-button nav-down",
+			label: "Go to names",
+			title: "Explore sacred names",
+			direction: "down",
+			onClick: scrollToNames,
+		},
+	];
 
-    const rect = namesSection.getBoundingClientRect();
-    const shouldScrollDown = rect.top > window.innerHeight * 0.3;
+	function init() {
+		createNavigationButtons();
+		setupScrollDetection();
+	}
 
-    if (shouldScrollDown) {
-      scrollToNames();
-    } else {
-      scrollToTop();
-    }
-  }
-  
-  function createNavigationButtons() {
-    // Single toggle button that switches between DOWN and UP states to avoid overlap/confusion
-    const toggleButton = document.createElement('button');
-    toggleButton.id = 'nav-toggle-button';
-    toggleButton.className = 'nav-button nav-down';
-    toggleButton.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="12" y1="5" x2="12" y2="19"></line>
-        <polyline points="19 12 12 19 5 12"></polyline>
-      </svg>
-    `;
-    toggleButton.setAttribute('aria-label', 'Go to names');
-    toggleButton.setAttribute('title', 'Explore sacred names');
-    // Attach click handler. toggleScroll is hoisted below so it's available
-    toggleButton.onclick = toggleScroll;
+	function updateNavigationText() {
+		NAVIGATION_BUTTONS.forEach(({ id, label, title }) => {
+			const button = document.getElementById(id);
+			if (button) {
+				button.setAttribute("aria-label", label);
+				button.setAttribute("title", title);
+			}
+		});
+	}
 
-    document.body.appendChild(toggleButton);
-  }
-  
-  function setupScrollDetection() {
-    // Use a single toggle button to avoid overlapping icons
-    const toggleButton = document.getElementById('nav-toggle-button');
+	window.updateNavigationText = updateNavigationText;
 
-    function setButtonToUp() {
-      if (!toggleButton) return;
-      toggleButton.classList.remove('nav-down');
-      toggleButton.classList.add('nav-up');
-      toggleButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="12" y1="19" x2="12" y2="5"></line>
-          <polyline points="5 12 12 5 19 12"></polyline>
-        </svg>
-      `;
-      toggleButton.setAttribute('aria-label', 'Back to top');
-      toggleButton.setAttribute('title', 'Back to landing page');
-    }
+	function createNavigationButtons() {
+		NAVIGATION_BUTTONS.forEach((config) => {
+			document.body.appendChild(createNavigationButton(config));
+		});
+	}
 
-    function setButtonToDown() {
-      if (!toggleButton) return;
-      toggleButton.classList.remove('nav-up');
-      toggleButton.classList.add('nav-down');
-      toggleButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="12" y1="5" x2="12" y2="19"></line>
-          <polyline points="19 12 12 19 5 12"></polyline>
-        </svg>
-      `;
-      toggleButton.setAttribute('aria-label', 'Go to names');
-      toggleButton.setAttribute('title', 'Explore sacred names');
-    }
+	function createSvgElement(name, attrs) {
+		const element = document.createElementNS(
+			"http://www.w3.org/2000/svg",
+			name,
+		);
+		Object.entries(attrs).forEach(([key, value]) => {
+			element.setAttribute(key, value);
+		});
+		return element;
+	}
 
-    // toggleScroll is defined in outer scope (hoisted) so the button
-    // can safely reference it even before setupScrollDetection completes.
+	function createArrowIcon(direction) {
+		const svg = createSvgElement("svg", {
+			"aria-hidden": "true",
+			xmlns: "http://www.w3.org/2000/svg",
+			width: "24",
+			height: "24",
+			viewBox: "0 0 24 24",
+			fill: "none",
+			stroke: "currentColor",
+			"stroke-width": "2",
+			"stroke-linecap": "round",
+			"stroke-linejoin": "round",
+		});
+		const isUp = direction === "up";
+		svg.appendChild(
+			createSvgElement("line", {
+				x1: "12",
+				y1: isUp ? "19" : "5",
+				x2: "12",
+				y2: isUp ? "5" : "19",
+			}),
+		);
+		svg.appendChild(
+			createSvgElement("polyline", {
+				points: isUp ? "5 12 12 5 19 12" : "19 12 12 19 5 12",
+			}),
+		);
+		return svg;
+	}
 
-    const namesSection = document.getElementById('names-section');
-    if (!namesSection) {
-      // If section not present yet, poll a few times without blocking layout
-      let tries = 0;
-      const t = setInterval(() => {
-        const ns = document.getElementById('names-section');
-        tries++;
-        if (ns) {
-          clearInterval(t);
-          setupObserver(ns);
-        } else if (tries > 10) {
-          clearInterval(t);
-        }
-      }, 300);
-      return;
-    }
+	function createNavigationButton({
+		id,
+		className,
+		label,
+		title,
+		direction,
+		onClick,
+	}) {
+		const button = document.createElement("button");
+		button.id = id;
+		button.className = className;
+		button.type = "button";
+		button.appendChild(createArrowIcon(direction));
+		button.addEventListener("click", onClick);
+		button.setAttribute("aria-label", label);
+		button.setAttribute("title", title);
+		return button;
+	}
 
-    function setupObserver(target) {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          const showUp = entry.intersectionRatio > 0.3 && entry.boundingClientRect.top < window.innerHeight;
-          if (showUp) setButtonToUp(); else setButtonToDown();
-        });
-      }, { threshold: [0, 0.15, 0.3, 0.5] });
+	function setupScrollDetection() {
+		let ticking = false;
+		let namesSection = document.getElementById("names-section");
+		const upButton = document.getElementById("nav-up-button");
+		const downButton = document.getElementById("nav-down-button");
 
-      observer.observe(target);
-      // Initial evaluation
-      const rect = target.getBoundingClientRect();
-      const initiallyShowUp = rect.top < window.innerHeight * 0.7;
-      if (initiallyShowUp) setButtonToUp(); else setButtonToDown();
-    }
+		if (!upButton || !downButton) return;
 
-    setupObserver(namesSection);
-  }
-  
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
-  
-  function scrollToNames() {
-    const namesSection = document.getElementById('names-section');
-    if (namesSection) {
-      namesSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  }
-  
-  // Initialize when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+		let namesSectionTop = null;
+		let lastState = null;
+
+		function computeNamesTop() {
+			namesSection = document.getElementById("names-section");
+			if (!namesSection) return null;
+			let el = namesSection;
+			let top = 0;
+			while (el) {
+				top += el.offsetTop;
+				el = el.offsetParent;
+			}
+			namesSectionTop = top;
+			return namesSectionTop;
+		}
+
+		let resizeTimer = null;
+		function onResize() {
+			clearTimeout(resizeTimer);
+			resizeTimer = setTimeout(() => {
+				computeNamesTop();
+				requestUpdate();
+			}, 120);
+		}
+
+		function updateNavigation() {
+			const scrollPosition = window.scrollY;
+			const windowHeight = window.innerHeight;
+
+			if (namesSectionTop === null && computeNamesTop() === null) {
+				setTimeout(requestUpdate, 500);
+				ticking = false;
+				return;
+			}
+
+			const threshold = namesSectionTop - windowHeight * 0.3;
+			const inNamesSection = scrollPosition > threshold;
+
+			if (inNamesSection !== lastState) {
+				if (inNamesSection) {
+					upButton.classList.remove("hidden");
+					downButton.classList.add("hidden");
+				} else {
+					upButton.classList.add("hidden");
+					downButton.classList.remove("hidden");
+				}
+				lastState = inNamesSection;
+			}
+
+			ticking = false;
+		}
+
+		function requestUpdate() {
+			if (!ticking) {
+				window.requestAnimationFrame(updateNavigation);
+				ticking = true;
+			}
+		}
+
+		window.addEventListener("scroll", requestUpdate, { passive: true });
+		window.addEventListener("resize", onResize, { passive: true });
+
+		computeNamesTop();
+		requestUpdate();
+	}
+
+	function getScrollBehavior() {
+		return window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+			? "auto"
+			: "smooth";
+	}
+
+	function scrollToTop() {
+		window.scrollTo({ top: 0, behavior: getScrollBehavior() });
+	}
+
+	function scrollToNames() {
+		const namesSection = document.getElementById("names-section");
+		if (namesSection) {
+			namesSection.scrollIntoView({
+				behavior: getScrollBehavior(),
+				block: "start",
+			});
+		}
+	}
+
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", init);
+	} else {
+		init();
+	}
 })();
-// Note: any script-injection snippets were removed — navigation.js should contain
-// only JavaScript. If you want deferred loading of this file, include a small
-// loader snippet in `index.html` instead (or rely on `defer` on the script tag).

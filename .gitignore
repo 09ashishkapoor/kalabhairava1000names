@@ -65,3 +65,25 @@ build/
 
 # Local config overrides
 *.local
+PRODUCT.md
+DESIGN.md
+.pi-lens/metrics-history.json
+.pi-lens/turn-state.json
+.pi-lens/cache/javascript-rules-v1.json
+.pi-lens/cache/jscpd.json
+.pi-lens/cache/jscpd.meta.json
+.pi-lens/cache/knip.json
+.pi-lens/cache/knip.meta.json
+.pi-lens/cache/session-start-guidance.json
+.pi-lens/cache/session-start-guidance.meta.json
+.pi-lens/cache/todo-baseline.json
+.pi-lens/cache/todo-baseline.meta.json
+.pi-lens/worklog.jsonl
+.pi-lens/cache/python-rules-v1.json
+.pi-lens/cache/turn-end-findings-last.json
+.pi-lens/cache/turn-end-findings-last.meta.json
+.pi-lens/cache/turn-end-findings.json
+.pi-lens/cache/turn-end-findings.meta.json
+DESIGN.json
+.pi/extensions/guardrails.json
+.pi/extensions/guardrails.v0.json
