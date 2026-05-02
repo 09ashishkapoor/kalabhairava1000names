@@ -263,8 +263,8 @@ def build_range_pages(data: list[dict]) -> list[str]:
         theme_summary = range_theme_summary(entries)
         title = f"Kalabhairava Names {start_index}-{end_index}: {first_name} to {last_name}"
         description = (
-            f"Study Kalabhairava names {start_index}-{end_index}, from {first_name} to {last_name}, "
-            "with English meanings, transliteration-style names, and devotional notes."
+            f"Read Kalabhairava names {start_index}-{end_index} with English meanings, "
+            f"from {first_name} through {last_name}."
         )
 
         json_ld = {
