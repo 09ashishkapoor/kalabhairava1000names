@@ -106,7 +106,7 @@ def to_html_paragraphs(value: str) -> str:
     return "\n".join(blocks) if blocks else "<p>—</p>"
 
 
-def to_json_ld_script(payload: dict) -> str:
+def to_json_ld_script(payload: object) -> str:
     serialized = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
     return serialized.replace("</", "<\\/")
 
@@ -117,6 +117,22 @@ def read_lastmod() -> str:
         if re.fullmatch(r"\d{4}-\d{2}-\d{2}", candidate):
             return candidate
     return datetime.now(timezone.utc).date().isoformat()
+
+
+def contact_text() -> str:
+    """Return a human-readable contact that avoids crawler-created email protection URLs."""
+    return "kaliputraashish [at] gmail [dot] com"
+
+
+def range_theme_summary(entries: list[dict]) -> str:
+    names = [str(entry.get("english_name", "")) for entry in entries[:8]]
+    if any(name.startswith(("Bhu", "Bhai", "Bhi")) for name in names):
+        return "This opening section emphasizes Bhairava as protector, lord of beings, destroyer of fear, and cosmic support."
+    if any(name.startswith(("Kaal", "Kala", "Kaala")) for name in names):
+        return "This section contains time, discipline, protection, and sovereignty names associated with Kāla Bhairava."
+    if any(name.startswith(("Sh", "Sri", "Sree")) for name in names):
+        return "This section highlights auspicious, devotional, and refuge-giving qualities in the later names."
+    return "This section continues the ordered Sahasranama sequence with meanings, transliteration-style spellings, and study notes."
 
 
 def generate_name_artifacts(data: list[dict]) -> None:
@@ -161,7 +177,7 @@ def page_shell(
     canonical_url: str,
     h1: str,
     body_html: str,
-    json_ld: dict,
+    json_ld: object,
     stylesheet_href: str,
     page_class: str,
     page_kicker: str,
@@ -242,26 +258,50 @@ def build_range_pages(data: list[dict]) -> list[str]:
                 )
             )
 
-        title = f"Kalabhairava Names {start_index}-{end_index} (English Meanings)"
+        first_name = entries[0]["english_name"]
+        last_name = entries[-1]["english_name"]
+        theme_summary = range_theme_summary(entries)
+        title = f"Kalabhairava Names {start_index}-{end_index}: {first_name} to {last_name}"
         description = (
-            f"Browse Kalabhairava names {start_index}-{end_index} with English meanings, "
-            "one-line summaries, and detailed elaboration."
+            f"Study Kalabhairava names {start_index}-{end_index}, from {first_name} to {last_name}, "
+            "with English meanings, transliteration-style names, and devotional notes."
         )
 
         json_ld = {
             "@context": "https://schema.org",
-            "@type": "ItemList",
-            "name": f"Kalabhairava Names {start_index}-{end_index}",
-            "itemListOrder": "https://schema.org/ItemListOrderAscending",
-            "numberOfItems": len(entries),
-            "url": canonical_url,
-            "inLanguage": "en",
-            "itemListElement": item_list_entries,
+            "@graph": [
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_URL}/"},
+                        {"@type": "ListItem", "position": 2, "name": "Kalabhairava Names Hub", "item": f"{SITE_URL}/names/"},
+                        {"@type": "ListItem", "position": 3, "name": f"Names {start_index}-{end_index}", "item": canonical_url},
+                    ],
+                },
+                {
+                    "@type": "CollectionPage",
+                    "name": f"Kalabhairava Names {start_index}-{end_index}",
+                    "description": description,
+                    "url": canonical_url,
+                    "inLanguage": "en",
+                    "isPartOf": {"@type": "WebSite", "name": "Kālabhairava Sahasranāma", "url": SITE_URL},
+                },
+                {
+                    "@type": "ItemList",
+                    "name": f"Kalabhairava Names {start_index}-{end_index}",
+                    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+                    "numberOfItems": len(entries),
+                    "url": canonical_url,
+                    "inLanguage": "en",
+                    "itemListElement": item_list_entries,
+                },
+            ],
         }
 
         body = f"""
     <section class="hero-panel">
-      <p class="intro">Read Kalabhairava names {start_index}-{end_index} with English meanings and detailed notes, all visible on the page for steady study.</p>
+      <p class="intro">Read Kalabhairava names {start_index}-{end_index}, beginning with {to_html_text(first_name)} and ending with {to_html_text(last_name)}. Every name in this range includes an English meaning and expanded notes in crawlable text for steady study.</p>
+      <p>{to_html_text(theme_summary)}</p>
       <nav class="page-nav" aria-label="Page navigation">
         <ul>
           <li><a href="../../">Use the searchable homepage reader</a></li>
@@ -271,17 +311,22 @@ def build_range_pages(data: list[dict]) -> list[str]:
         </ul>
       </nav>
     </section>
+    <section class="study-notes" aria-labelledby="range-study-notes-heading">
+      <h2 id="range-study-notes-heading">How to use this range</h2>
+      <p>Use this static page when you want the full text visible without relying on JavaScript search. The headings make each name directly linkable, while the short meaning gives a quick devotional sense before the longer explanation.</p>
+      <p>The spellings use a simple Latin transliteration style for accessibility. Where Sanskrit terms carry several meanings, the notes explain the devotional interpretation used on this site rather than claiming a single exclusive translation.</p>
+    </section>
     <div class="entries-stack">
       {''.join(entries_html)}
     </div>
     <section class="source-notes" aria-labelledby="source-notes-heading">
-      <h2 id="source-notes-heading">Sources and notes</h2>
-      <p>This project compiles devotional material and meaning notes from public references plus the maintainer's explanatory summaries.</p>
+      <h2 id="source-notes-heading">Sources, corrections, and editorial notes</h2>
+      <p>This project compiles devotional material and meaning notes from public references, Sanskrit source archives, and the maintainer's explanatory summaries. It is intended for spiritual study and personal chanting support.</p>
       <p>Primary references used during compilation:</p>
       <ul>
         <li><a href="https://sanskritdocuments.org/" rel="noopener">Open the SanskritDocuments.org source archive</a></li>
       </ul>
-      <p>Use this website for spiritual study and personal chanting support. Report inaccuracies to <a href="mailto:kaliputraashish@gmail.com">kaliputraashish@gmail.com</a> for correction.</p>
+      <p>If you notice a spelling, translation, or source issue, please send the page URL and name number to {to_html_text(contact_text())} so it can be reviewed and corrected.</p>
     </section>
 """
 
@@ -328,28 +373,47 @@ def build_names_hub(data: list[dict], range_paths: list[str]) -> None:
 
     json_ld = {
         "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": "Kalabhairava Names Hub",
-        "url": hub_canonical,
-        "inLanguage": "en",
-        "hasPart": [
+        "@graph": [
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_URL}/"},
+                    {"@type": "ListItem", "position": 2, "name": "Kalabhairava Names Hub", "item": hub_canonical},
+                ],
+            },
             {
                 "@type": "CollectionPage",
-                "name": f"Kalabhairava Names {path.rstrip('/').split('/')[-1]}",
-                "url": f"{SITE_URL}{path}",
-            }
-            for path in range_paths
+                "name": "Kalabhairava Names Hub",
+                "description": hub_description,
+                "url": hub_canonical,
+                "inLanguage": "en",
+                "isPartOf": {"@type": "WebSite", "name": "Kālabhairava Sahasranāma", "url": SITE_URL},
+                "hasPart": [
+                    {
+                        "@type": "CollectionPage",
+                        "name": f"Kalabhairava Names {path.rstrip('/').split('/')[-1]}",
+                        "url": f"{SITE_URL}{path}",
+                    }
+                    for path in range_paths
+                ],
+            },
         ],
     }
 
     hub_body = f"""
     <section class="hero-panel">
-      <p class="intro">Browse all 1000 Kalabhairava names in 100-name sections. Each range keeps the names, English meanings, and detailed notes visible for focused reading.</p>
+      <p class="intro">Browse all 1000 Kalabhairava names in ten crawlable 100-name sections. This hub is the static reference version of the searchable reader, designed so readers and search engines can reach every name, meaning, and devotional note without client-side rendering.</p>
+      <p>Use the range links below for focused study, citation, or sharing a specific part of the Sahasranama. Each range page includes direct anchors for individual names, concise English meanings, and longer explanatory notes.</p>
       <nav class="page-nav" aria-label="Hub navigation">
         <ul>
           <li><a href="../">Use the searchable homepage reader</a></li>
         </ul>
       </nav>
+    </section>
+    <section class="study-notes" aria-labelledby="hub-study-notes-heading">
+      <h2 id="hub-study-notes-heading">About this Kalabhairava Sahasranama reference</h2>
+      <p>Kālabhairava, a fierce and protective form of Shiva, is traditionally associated with time, discipline, protection, fearlessness, and the guardianship of sacred space. A Sahasranama is a devotional sequence of one thousand names used for chanting, contemplation, and study.</p>
+      <p>This site presents the names in English-first form for accessible reading. The transliteration-style spellings are kept simple, and the explanations aim to clarify devotional meaning rather than replace Sanskrit study with a single fixed translation.</p>
     </section>
     <section class="ranges-panel" aria-labelledby="ranges-heading">
       <div class="section-heading">
@@ -361,13 +425,13 @@ def build_names_hub(data: list[dict], range_paths: list[str]) -> None:
       </ol>
     </section>
     <section class="source-notes" aria-labelledby="hub-source-notes-heading">
-      <h2 id="hub-source-notes-heading">Sources and notes</h2>
-      <p>This project compiles devotional material and meaning notes from public references plus the maintainer's explanatory summaries.</p>
+      <h2 id="hub-source-notes-heading">Sources, corrections, and editorial notes</h2>
+      <p>This project compiles devotional material and meaning notes from public references, Sanskrit source archives, and the maintainer's explanatory summaries. It is intended for spiritual study and personal chanting support.</p>
       <p>Primary references used during compilation:</p>
       <ul>
         <li><a href="https://sanskritdocuments.org/" rel="noopener">Open the SanskritDocuments.org source archive</a></li>
       </ul>
-      <p>Use this website for spiritual study and personal chanting support. Report inaccuracies to <a href="mailto:kaliputraashish@gmail.com">kaliputraashish@gmail.com</a> for correction.</p>
+      <p>If you notice a spelling, translation, or source issue, please send the page URL and name number to {to_html_text(contact_text())} so it can be reviewed and corrected.</p>
     </section>
 """
 

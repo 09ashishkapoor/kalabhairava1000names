@@ -15,7 +15,7 @@ const translations = {
 				"Bhairava Kalike Namosthute.<br>Through Bhairava we attain Maa Kali.<br>Start your journey toward Maa Adya Mahakali with 1000 Names of Kālabhairav Baba: Kindest Guru, Destroyer of Fear, Supreme Protector.",
 			dedicationFooter:
 				'Dedicated to Shri Praveen Radhakrishnan and Khyapa Parampara.<br><span class="dedication-gold">Om Shri Gurubhyo Namaha, Jai Khyapa Parampara 🙏</span>',
-			exploreButton: "Start Reading",
+			exploreButton: "Start With the Names",
 			learnButton: "About Kalabhairava",
 			tagline: "Complete Kālabhairava Sahasranāma with English meanings",
 		},
@@ -117,7 +117,7 @@ const translations = {
 			infoLink: "About This Page",
 			openSource: "Open source on GitHub:",
 			disclaimer:
-				"Disclaimer: The information provided on this website is compiled from multiple online sources and is intended for spiritual and educational purposes only. If you identify any inaccuracies or have concerns, please email kaliputraashish\u0040gmail.com.",
+				"Disclaimer: The information provided on this website is compiled from multiple online sources and is intended for spiritual and educational purposes only. If you identify any inaccuracies or have concerns, please email kaliputraashish [at] gmail [dot] com.",
 			lastUpdated: "Last Updated:",
 		},
 	},

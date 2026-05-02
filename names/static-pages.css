@@ -392,6 +392,7 @@ code {
 	color: var(--accent);
 }
 
+.study-notes,
 .source-notes {
 	margin-top: 1.9rem;
 	padding: 1.35rem 1.2rem 0.8rem;
@@ -405,10 +406,16 @@ code {
 	box-shadow: var(--shadow);
 }
 
+.study-notes {
+	margin-bottom: 1.8rem;
+}
+
+.study-notes h2,
 .source-notes h2 {
 	margin-bottom: 0.7rem;
 }
 
+.study-notes p,
 .source-notes p,
 .source-notes li {
 	color: var(--text-muted);

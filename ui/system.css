@@ -264,8 +264,8 @@ body[data-theme="light"] {
 .ui-input-search::placeholder,
 .ui-input-search::-webkit-input-placeholder,
 .ui-input-search::-moz-placeholder {
-	color: var(--color-text-secondary) !important;
-	-webkit-text-fill-color: var(--color-text-secondary);
+	color: #ffffff !important;
+	-webkit-text-fill-color: #ffffff;
 	opacity: 1 !important;
 }
 

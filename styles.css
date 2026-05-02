@@ -88,12 +88,6 @@ body {
 		-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
 		Cantarell, sans-serif;
 	background-color: #0a0a0a; /* Fallback color */
-	/* Fallback background image on body to ensure visibility across browsers */
-	background-image: url("maadya-bg-1111-landscape.webp");
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
 	color: var(--color-text-primary);
 	line-height: 1.6;
 	overflow-x: hidden;
@@ -122,18 +116,11 @@ body::before {
 }
 
 @media (max-width: 640px) {
-	body {
-		background-image: url("maadya-bg-1111-portrait.webp");
-	}
-
 	body::before {
-		background-image:
-			url("maadya-bg-1111-portrait.webp"), url("maadya-bg-1111-portrait.webp");
-		background-size: contain, cover;
-		background-position:
-			center center,
-			center center;
-		background-repeat: no-repeat, no-repeat;
+		background-image: url("maadya-bg-1111-portrait.webp");
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
 	}
 }
 
@@ -185,7 +172,6 @@ body::after {
 	max-width: min(92vw, 900px);
 	width: 100%;
 	margin: 0 auto;
-	animation: fadeSlideUp 1s ease-out;
 	padding-top: clamp(1.5rem, 7vh, 4rem);
 }
 
@@ -201,7 +187,6 @@ body::after {
 	flex-direction: column;
 	align-items: center;
 	gap: 0.3rem;
-	animation: titleFadeIn 1.2s ease-out;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	max-width: 100%;
@@ -827,8 +812,12 @@ body::after {
 		0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-#search-input::placeholder {
-	color: var(--color-text-muted);
+#search-input::placeholder,
+#search-input::-webkit-input-placeholder,
+#search-input::-moz-placeholder {
+	color: #ffffff;
+	-webkit-text-fill-color: #ffffff;
+	opacity: 1;
 }
 
 /* Filters Row */
@@ -2153,7 +2142,12 @@ main#main-content {
 	left: 0;
 	right: 0;
 	height: 1px;
-	background: linear-gradient(90deg, transparent, var(--color-divine-gold), transparent);
+	background: linear-gradient(
+		90deg,
+		transparent,
+		var(--color-divine-gold),
+		transparent
+	);
 }
 
 .ebook-banner-icon {
@@ -2184,11 +2178,17 @@ main#main-content {
 	padding: 1rem 1.75rem;
 	font-weight: 700;
 	color: var(--color-text-primary);
-	background: linear-gradient(135deg, var(--color-crimson), var(--color-blood-red));
+	background: linear-gradient(
+		135deg,
+		var(--color-crimson),
+		var(--color-blood-red)
+	);
 	border-radius: var(--radius-full);
 	text-decoration: none;
 	box-shadow: 0 4px 20px rgba(220, 20, 60, 0.36);
-	transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+	transition:
+		transform var(--transition-normal),
+		box-shadow var(--transition-normal);
 }
 
 .ebook-banner-link:hover,

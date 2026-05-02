@@ -152,6 +152,12 @@
 			renderNames();
 			updateStats();
 			hideInitialLoading();
+
+			ensureManifest()
+				.then(() => updateStats())
+				.catch(() => {
+					// Keep the bootstrap reader usable even if the range manifest is delayed.
+				});
 		} catch (error) {
 			hideInitialLoading();
 			showError(error.message);

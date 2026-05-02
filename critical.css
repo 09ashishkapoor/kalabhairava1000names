@@ -2,11 +2,6 @@ body {
 	font-family:
 		-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 	background-color: #0a0a0a;
-	background-image: url("./maadya-bg-1111-landscape.webp");
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
 	color: #f5f5f5;
 	line-height: 1.6;
 	margin: 0;
@@ -25,16 +20,11 @@ body:before {
 	z-index: -2;
 }
 @media (max-width: 640px) {
-	body {
-		background-image: url("./maadya-bg-1111-portrait.webp");
-	}
 	body:before {
-		background-image:
-			url("./maadya-bg-1111-portrait.webp"),
-			url("./maadya-bg-1111-portrait.webp");
-		background-size: contain, cover;
-		background-position: center, center;
-		background-repeat: no-repeat, no-repeat;
+		background-image: url("./maadya-bg-1111-portrait.webp");
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 }
 body:after {
