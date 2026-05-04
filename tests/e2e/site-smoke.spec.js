@@ -63,7 +63,7 @@ test("supports focused search on the bootstrap dataset without breaking the read
 		.poll(async () => page.locator("#names-grid .name-card").count())
 		.toBeGreaterThan(0);
 	await expect(page.locator("#names-grid .name-card").first()).toContainText(
-		"Bhairavaaya",
+		"BHAIRAVAAYA",
 	);
 
 	await page.locator("#clear-btn").click();

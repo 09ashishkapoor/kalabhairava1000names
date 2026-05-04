@@ -644,7 +644,7 @@
 			const searchSourcePath =
 				state.manifest && state.manifest.searchSourcePath
 					? state.manifest.searchSourcePath
-					: "./data/search-index.json";
+					: "./sahasranama_meanings.json";
 			const response = await fetch(searchSourcePath);
 			if (!response.ok) {
 				throw new Error("Failed to prepare search");

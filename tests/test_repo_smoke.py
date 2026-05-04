@@ -191,12 +191,17 @@ class RepoSmokeTests(unittest.TestCase):
             'english_name',
             'english_one_line',
             'english_elaboration',
+        ]:
+            with self.subTest(key=key):
+                self.assertIn(key, first_entry)
+
+        for removed_key in [
             'hindi_name',
             'hindi_one_line',
             'hindi_elaboration',
         ]:
-            with self.subTest(key=key):
-                self.assertIn(key, first_entry)
+            with self.subTest(removed_key=removed_key):
+                self.assertNotIn(removed_key, first_entry)
 
     def test_bootstrap_artifact_matches_first_eleven_entries(self):
         dataset = json.loads(SOURCE_DATA_PATH.read_text(encoding='utf-8'))

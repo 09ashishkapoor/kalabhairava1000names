@@ -1,53 +1,58 @@
-# Plan: remove Hindi mode and Hindi SEO content
+# Plan: update English Kalabhairava names prose and remove Hindi fields
 
 ## Context
-- The site currently ships an English/Hindi language toggle on the homepage and bilingual content across the interactive reader and generated static `/names/` pages.
-- You want Hindi mode removed because it is costly to maintain.
-- SEO artifacts also need to be updated so the site no longer advertises bilingual/Hindi content.
-- The `/names/` hub and `/names/<range>/` pages are the “knowledge hub pages” to update.
-- I checked the canonical dataset shape: all 1000 entries have populated `english_name`, `english_one_line`, and `english_elaboration` fields, so the English meanings/elaborations are standalone and do not depend on the Hindi UI mode.
+
+- The source text file `kalabhairava_sahasranama1000_withelaborations_may042027.txt` contains 1000 numbered English entries.
+- The canonical site dataset is `sahasranama_meanings.json`, which feeds generated loading artifacts and static SEO pages.
+- I verified that the text file and JSON dataset both contain exactly 1000 entries, and their indexes/names match exactly after normalizing capitalization/spacing.
+- The website is already English-only in the UI/static page generator, but the canonical dataset still carries unused `hindi_*` fields that should be removed.
+- `data/search-index.json` is only referenced as an `app.js` fallback if `data/names-manifest.json` has not loaded; the manifest’s active search source is already `sahasranama_meanings.json`.
 
 ## Approach
-- Remove the runtime language-switching UI/behavior from the homepage and leave the site English-only.
-- Simplify the reader so it always renders English fields and no longer depends on Hindi translations for UI state or persisted locale storage.
-- Narrow search/display behavior to English-only fields so Hindi content is no longer surfaced in the interactive reader.
-- Update homepage metadata/schema/social tags and manifest copy so they describe the site as English-only.
-- Update the generator so future `/names/` hub and range pages are emitted as English-only, then regenerate those pages and the sitemap.
-- Update tests/docs that currently assume bilingual behavior.
+
+- Parse the text file into structured entries keyed by index/name.
+- Rebuild the canonical JSON dataset with only English fields: `index`, `english_name`, `english_one_line`, and `english_elaboration`.
+- Use the text file as the source of truth for English names, one-line meanings, and elaborations.
+- Change `app.js` search fallback from `./data/search-index.json` to `./sahasranama_meanings.json`, then remove the unused fallback file.
+- Update `last-updated.txt` to `2026-05-04`, then regenerate derived artifacts from `generate_loading_artifacts.py` so homepage bootstrap/chunks, static `/names/` pages, and sitemap lastmod use the refreshed content.
+- Keep generated output paths and chunk sizing unchanged.
 
 ## Files to modify
-- `index.html`
+
+- `sahasranama_meanings.json`
 - `app.js`
-- `i18n.js`
-- `translations.js`
-- `generate_loading_artifacts.py`
-- `manifest.webmanifest`
+- `data/bootstrap-names.json`
+- `data/name-chunks/*.json`
+- `data/search-index.json` (remove after changing fallback)
 - `names/index.html`
 - `names/*/index.html`
 - `sitemap.xml`
-- `README.md`
-- `package.json`
-- `tests/e2e/site-smoke.spec.js`
+- `last-updated.txt`
 - `tests/test_repo_smoke.py`
 
 ## Reuse
-- Existing reader rendering in `app.js` already chooses between `english_*` and `hindi_*` fields; that logic can be reduced to the English path instead of rewriting the reader.
-- Existing search flow in `app.js` / `search-worker.js` already indexes canonical dataset fields; the searchable fields can be narrowed instead of rebuilding search.
-- Existing static page generation in `generate_loading_artifacts.py` already owns `/names/` page output and `sitemap.xml`; it should be the single place to remove Hindi SEO/static copy and regenerate artifacts.
-- Existing repo smoke tests in `tests/test_repo_smoke.py` already validate generated pages and sitemap coverage; they can be updated to assert the English-only output.
+
+- `generate_loading_artifacts.py` already generates `data/bootstrap-names.json`, `data/name-chunks/*.json`, `/names/` static pages, and `sitemap.xml` from `sahasranama_meanings.json`.
+- Existing app rendering in `app.js` already uses only `english_name`, `english_one_line`, and `english_elaboration` for cards and search matching.
+- Existing `search-worker.js` already indexes only English fields, so it should not require changes.
+- Existing repo smoke tests in `tests/test_repo_smoke.py` validate dataset shape, generated artifact consistency, and English-only static pages; update the dataset-shape assertion to require absence of Hindi keys.
 
 ## Steps
-- [ ] Remove homepage language toggle markup and Hindi-facing UI copy from `index.html`.
-- [ ] Simplify `i18n.js` / `translations.js` to English-only behavior, including removing persisted Hindi locale handling.
-- [ ] Update `app.js` so cards, stats, button labels, and search use English-only fields and no longer listen for language switching.
-- [ ] Update homepage SEO/social/schema/PWA copy in `index.html` and `manifest.webmanifest` to remove Hindi/bilingual claims (`Hindi meanings`, `inLanguage: ["en","hi"]`, `og:locale:alternate`, etc.).
-- [ ] Update `generate_loading_artifacts.py` to emit English-only `/names/` hub and range pages.
-- [ ] Regenerate `names/` pages and `sitemap.xml` from the updated generator.
-- [ ] Update automated tests/docs that currently reference Hindi or locale switching.
+
+- [ ] Add/use a one-off parser to read each text entry as: index, source name line, one-line meaning, and `ELABORATION:` body.
+- [ ] Validate parsed count is exactly 1000 and every parsed index/name matches `sahasranama_meanings.json` after normalization.
+- [ ] Replace the canonical dataset with English-only records populated from the parsed text file.
+- [ ] Remove `hindi_name`, `hindi_one_line`, and `hindi_elaboration` from every canonical dataset entry.
+- [ ] Change the `app.js` search fallback from `./data/search-index.json` to `./sahasranama_meanings.json` so `data/search-index.json` can be safely removed without breaking early search if the manifest is delayed.
+- [ ] Remove `data/search-index.json`.
+- [ ] Update `last-updated.txt` to `2026-05-04`.
+- [ ] Regenerate loading artifacts and static SEO pages with `python3 generate_loading_artifacts.py`.
+- [ ] Update `tests/test_repo_smoke.py` so the canonical dataset shape expects only English fields and asserts Hindi fields are absent.
 
 ## Verification
-- Load `/` and confirm there is no language toggle and the reader/search/cards render correctly in English.
-- Search for several entries and confirm results still work using English names/meanings only.
-- Load `/names/` and several range pages and confirm English-only explanatory copy/metadata.
-- Check homepage HTML, manifest, and generated names pages for removed Hindi SEO phrases (`Hindi meanings`, `inLanguage ["en","hi"]`, `og:locale:alternate`, etc.).
-- Run repo smoke tests and the Playwright smoke suite.
+
+- Run a parser validation check: 1000 parsed entries, no index/name mismatches, no empty one-line meanings or elaborations, and no remaining `hindi_*` keys.
+- Run `npm run test:repo` to verify dataset shape and generated artifact consistency.
+- Manually inspect entries 1, a middle entry, and 1000 in `sahasranama_meanings.json`, homepage data artifacts, and `/names/` static HTML.
+- Search the repo for `hindi_name`, `hindi_one_line`, `hindi_elaboration`, and `data/search-index.json` to confirm no live references remain.
+- Run the site locally and confirm the reader/search shows the updated prose.

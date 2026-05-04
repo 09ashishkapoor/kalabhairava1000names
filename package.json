@@ -4,6 +4,8 @@
   "description": "A fast, framework-free devotional web app presenting the 1000 names of Sri Kalabhairava with English meanings, search, and mobile-friendly reading.",
   "scripts": {
     "start": "node scripts/run-python.js simple-server.py",
+    "start:fast": "node dev-server.js --open",
+    "start:serve": "serve . --no-clipboard --no-request-logging -l 8000",
     "playwright:install": "playwright install chromium",
     "prepare": "husky",
     "test": "node scripts/run-python.js -m pytest tests/",

@@ -39,7 +39,8 @@ A fast, framework-free devotional web app for browsing the 1000 names of Sri Kal
 | `names/static-pages.css` | Shared stylesheet for generated static pages |
 | `generate_loading_artifacts.py` | Generates reader data artifacts, static pages, sitemap entries, and mobile hero asset |
 | `inject_version.py` | Injects the version number into HTML at build time |
-| `simple-server.py` | Local dev server with automatic port fallback |
+| `simple-server.py` | Python dev server with automatic port fallback |
+| `dev-server.js` | Fast Node.js dev server (~2ms) with SPA fallback and auto-open |
 | `scripts/run-python.js` | Cross-platform Python launcher used by npm scripts |
 | `manifest.webmanifest` / `registerSW.js` / `sw.js` | PWA assets |
 | `robots.txt` / `sitemap.xml` | SEO assets |
@@ -47,15 +48,44 @@ A fast, framework-free devotional web app for browsing the 1000 names of Sri Kal
 
 ## Local Development
 
-Start the local server:
+Three options are available — pick the one that fits your workflow.
+
+### Option 1 (fastest) — Pure Node.js dev server
+
+```bash
+npm run start:fast
+```
+
+A zero-dependency Node.js server with ~2ms response time. Features:
+- Correct MIME types, no-cache headers, SPA fallback
+- Serves subdirectory `index.html` files (e.g. `/names/` → `/names/index.html`)
+- Auto-opens the browser
+- Auto-detects a free port if `8000` is busy
+- Shows your LAN IP for testing on other devices
+
+Start on a specific port:
+
+```bash
+node dev-server.js --port 3000 --open
+```
+
+### Option 2 — Vercel `serve` (also very fast)
+
+```bash
+npm run start:serve
+```
+
+Uses the pre-installed [`serve`](https://www.npmjs.com/package/serve) package (a compiled Go binary). Near-instant startup.
+
+### Option 3 — Python server (original)
 
 ```bash
 npm start
 ```
 
-The server starts on port `8000` by default. If that port is busy it automatically tries `8001` through `8019`. Open the exact `http://127.0.0.1:PORT` URL reported by the server.
+Launches `simple-server.py` via Node. If port `8000` is busy it automatically tries `8001` through `8019`. Open the exact `http://127.0.0.1:PORT` URL reported by the server.
 
-Run the server directly with Python:
+Run it directly with Python:
 
 ```bash
 python simple-server.py
@@ -177,7 +207,7 @@ Version is stored in `version.txt` and shown in the footer.
 2. Make focused changes
 3. Regenerate artifacts if you changed source data or generator output
 4. Run `npm test`
-5. Use `npm start` to preview locally
+5. Use `npm run start:fast` to preview locally (or `npm start` for the original Python server)
 6. Open a pull request with a clear description
 
 ## End Notes 
