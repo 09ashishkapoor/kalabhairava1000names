@@ -185,7 +185,15 @@ function main() {
 		const spellingSimple = titleCaseWords(simpleRaw);
 		const spellingSite = String(entry.english_name ?? "").trim();
 
+		// Many names are dative forms (Bhairavāya); readers search the stem (Bhairava).
+		const stemWords = spellingCommon.split(" ");
+		const stemLast = stemWords[stemWords.length - 1];
+		const spellingStem = /aya$/iu.test(stemLast)
+			? [...stemWords.slice(0, -1), stemLast.replace(/aya$/iu, "a")].join(" ")
+			: "";
+
 		const variants = uniqueStrings([
+			spellingStem !== "" && spellingStem !== spellingCommon ? spellingStem : "",
 			spellingSimple !== spellingCommon ? spellingSimple : "",
 			spellingWithW !== spellingCommon ? spellingWithW : "",
 			spellingWithGy !== spellingCommon ? spellingWithGy : "",
@@ -198,7 +206,7 @@ function main() {
 
 		const match = validateAgainstElaboration(
 			`${entry.english_one_line}\n${entry.english_elaboration}`,
-			[spellingCommon, spellingWithW, spellingWithGy, spellingSimple, spellingSite],
+			[spellingCommon, spellingStem, spellingWithW, spellingWithGy, spellingSimple, spellingSite],
 		);
 
 		const flags = [];
@@ -228,11 +236,17 @@ function main() {
 		};
 	});
 
-	// Names repeat in the Sahasranama; identical Devanagari means one shared page.
+	// Names repeat in the Sahasranama; identical site spelling means one shared page.
+	// Grouping by the site spelling (instead of the legacy Devanagari) keeps the
+	// 75 repeated positions on their canonical page even when the legacy
+	// Devanagari spelling varies slightly between occurrences.
 	const groupOrder = [];
 	const groups = new Map();
 	for (const row of rows) {
-		const key = row.devanagari === "" ? `__row-${row.number}` : row.devanagari;
+		const key =
+			row.spelling_site === ""
+				? `__row-${row.number}`
+				: row.spelling_site.toUpperCase().replace(/\s+/gu, " ").trim();
 		if (!groups.has(key)) {
 			groups.set(key, {
 				key,
