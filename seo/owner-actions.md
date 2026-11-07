@@ -26,16 +26,23 @@ Nothing here requires touching the Astro code.
 2. Submit the same sitemap.
 3. Optional: enable IndexNow later if you want instant URL submission.
 
-## 3. Cloudflare Pages
+## 3. Cloudflare Pages ✅ done 2026-11-07
 
-1. Change build configuration to Astro:
+1. Build configuration switched to Astro:
    - Build command: `npm run build`
    - Build output directory: `dist`
-   - Node version: `22`, environment variable `HUSKY=0`
-2. Keep the apex domain as canonical; the site includes a `www` → apex redirect
-   in `public/_redirects`.
-3. After deploy, purge cache for `/`, `/names/*`, `/sw.js`, `/version.json`.
-4. Optional: add a Cloudflare cache rule so HTML is revalidated while
+   - Environment: `HUSKY=0`, `NODE_VERSION=22`
+2. Production deploy verified after the switch (new homepage, name pages,
+   946-URL sitemap, PDF, `/pdf/` and `/info.html` redirects).
+3. Two custom domains are attached to the project:
+   - `bhairavakalikenamosthute.com` (canonical)
+   - `bhairavakaalikenamosthute.com` (extra "aa" domain; currently also serves
+     the site)
+   Decide whether to keep the second domain. If kept, make it 301 to the
+   canonical domain in Cloudflare; otherwise remove it from the Pages project so
+   Google does not see duplicate content.
+4. Optional after deploy: purge cache for `/`, `/names/*`, `/sw.js`,
+   `/version.json`; add a Cloudflare cache rule so HTML is revalidated while
    `/downloads/*.pdf`, images and `/reference.css` are cached for longer.
 
 ## 4. Analytics
@@ -83,8 +90,8 @@ If an identifier changes, update `archiveEnglish`, `archiveHindi` and
 
 ## 8. Confirmations for the agent/handoff
 
-- [ ] Cloudflare build settings switched to Astro (`npm run build` → `dist`).
-- [ ] Production deploy verified with the post-deploy checklist in
+- [x] Cloudflare build settings switched to Astro (`npm run build` → `dist`).
+- [x] Production deploy verified with the post-deploy checklist in
       [`DEPLOYMENT.md`](DEPLOYMENT.md).
 - [ ] Sitemap submitted in GSC and Bing.
 - [ ] GA property confirmed.

@@ -13,7 +13,8 @@ the owner approves the switch.
 
 ## Cloudflare Pages settings
 
-In the Cloudflare Pages project for `bhairavakalikenamosthute.com`, update:
+These are the settings now configured for the Cloudflare Pages project (kept here
+for audit/rebuild):
 
 | Setting | Value |
 | --- | --- |

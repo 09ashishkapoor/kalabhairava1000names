@@ -4,7 +4,7 @@ A free devotional reference for the **Kalabhairava Sahasranama**: 1,000 names
 of Sri Kalabhairava with English one-line meanings, longer explanations,
 Devanagari, IAST transliteration and a printable PDF.
 
-Live site: <https://bhairavakalikenamosthute.com>
+Live site: <https://bhairavakalikenamosthute.com> — deployed on Cloudflare Pages on 2026-11-07.
 
 ## Stack
 
