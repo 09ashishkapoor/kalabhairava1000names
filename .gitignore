@@ -115,3 +115,6 @@ docs/seo-audit-2026-04-30.md
 docs/deep-seo-audit-2026-04-30.md
 adyamahakali_sahasranama1000_withelaborations_combined_may042027.txt
 PLAN-update-prose-from-text.md
+
+# Local SERP/visibility audit tooling (reads local API keys; not part of the site)
+search-quality/

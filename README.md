@@ -1,219 +1,100 @@
-# Kalabhairava Sahasranama - 1000 names of Kalabhairava baba
+# Kalabhairava 1000 Names
 
-A fast, framework-free devotional web app for browsing the 1000 names of Sri Kalabhairava with English meanings, search, and crawlable static reference pages.
+A free devotional reference for the **Kalabhairava Sahasranama**: 1,000 names
+of Sri Kalabhairava with English one-line meanings, longer explanations,
+Devanagari, IAST transliteration and a printable PDF.
 
-## Highlights
+Live site: <https://bhairavakalikenamosthute.com>
 
-- English-only interface and meanings
-- Real-time search across all 1000 names and meanings
-- Interactive homepage reader with progressive loading
-- Generated static `/names/` pages for indexable range-based browsing
-- Responsive layout for desktop and mobile
-- Progressive Web App support
-- Repo smoke tests plus Playwright browser validation
+## Stack
 
-## Tech Stack
+- **Astro 6** static site (`output: "static"`), deployed on **Cloudflare Pages**.
+- Plain CSS (`public/reference.css` + the homepage stylesheets), no UI framework.
+- Small vanilla JS reader on the homepage; static HTML for all reference pages.
+- Playwright browser tests + Node unit tests, run by GitHub Actions.
+- Python scripts are only used for the printable PDF build (Chrome headless via
+  the PDF generator); the live site itself is pure static HTML/CSS/JS.
 
-- HTML5 / CSS3
-- Vanilla JavaScript
-- Web Worker search
-- Python utilities for artifact generation and local serving
-- Node-based npm scripts for cross-platform command execution
-- Pytest and Playwright for validation
+## Project layout
 
-## Repository Structure
+```
+src/
+  layouts/ReferenceLayout.astro      header/footer/meta chrome for all non-home pages
+  lib/staticNames.js                 data loading, ranges, mapping helpers
+  pages/
+    index.astro                      searchable reading UI (client-side JS)
+    names/                           hub, 10 range pages, 925 per-name pages
+    108-names-of-kalabhairava/       108-name practice list
+    1000-names-of-kalabhairava/      count explainer (1,000 / 108 / 1,008)
+    kalabhairava-sahasranama-pdf/    PDF landing + archive.org editions
+    kalabhairava-sahasranama-lyrics/ chant order + opening names
+    kalabhairava-sahasranama-benefits/
+    about/ contact/ privacy/ sources/
+  data/name-mapping.json             generated name mapping (1,000 rows → 925 pages)
+public/
+  reference.css                      sister-site design system
+  data_manifest.json + data_chunk_*.json   reader payloads (1,000 entries)
+  sw.js                              offline service worker
+  version.json                       version + build date rendered into footers
+  downloads/kalabhairava-sahasranama-names.pdf
+  _headers, _redirects, robots.txt, sitemap.xml, llms.txt
+seo/
+  build-name-mapping.mjs             Devanagari → common spelling, overrides, QA
+  build-data-chunks.mjs              manifest + reader chunks
+  build-sitemap.mjs                  sitemap (prebuild step)
+  build-print-pdf.mjs                Chrome-headless printable PDF (66 pages)
+  extract-legacy-devanagari.mjs      one-off recovery from commit b9adb4e
+  lib/transliterate.mjs              Devanagari → IAST → readable English
+  data/name-overrides.json           reviewed spelling corrections
+  name-mapping-report.md             QA statistics + known follow-ups
+tests/                               Node unit/regression tests
+playwright-tests/                    browser smoke/a11y/visual/performance tests
+docs/KALABHAIRAVA-SEO-REBUILD-GUIDE.md   the rebuild guide used for this work
+```
 
-| File / Folder | Purpose |
-|---|---|
-| `index.html` | Main landing page and interactive names reader |
-| `app.js` | Reader state, rendering, progressive loading, search wiring |
-| `i18n.js` / `translations.js` | English UI strings and translation helpers |
-| `search-worker.js` | Background search worker |
-| `styles.css` / `critical.css` | Main site styling |
-| `navigation.css` / `navigation.js` | Sticky nav and section scroll behavior |
-| `sahasranama_meanings.json` | Canonical source dataset |
-| `data/bootstrap-names.json` | Initial reader payload |
-| `data/names-manifest.json` | Progressive-loading manifest |
-| `data/name-chunks/` | Chunked name data for the reader |
-| `names/` | Generated static SEO pages for 100-name ranges |
-| `names/static-pages.css` | Shared stylesheet for generated static pages |
-| `generate_loading_artifacts.py` | Generates reader data artifacts, static pages, sitemap entries, and mobile hero asset |
-| `inject_version.py` | Injects the version number into HTML at build time |
-| `simple-server.py` | Python dev server with automatic port fallback |
-| `dev-server.js` | Fast Node.js dev server (~2ms) with SPA fallback and auto-open |
-| `scripts/run-python.js` | Cross-platform Python launcher used by npm scripts |
-| `manifest.webmanifest` / `registerSW.js` / `sw.js` | PWA assets |
-| `robots.txt` / `sitemap.xml` | SEO assets |
-| `tests/` | Pytest smoke tests and Playwright browser validation |
+The legacy framework-free site files are kept at the repository root for
+rollback until the first Astro deployment is confirmed. They are not used by
+the Astro build and are not part of the deployed output.
 
-## Local Development
-
-Three options are available — pick the one that fits your workflow.
-
-### Option 1 (fastest) — Pure Node.js dev server
+## Commands
 
 ```bash
-npm run start:fast
+npm install
+npm run dev            # Astro dev server
+npm run build          # sitemap prebuild + static build into dist/
+npm run preview        # preview dist/ on localhost
+npm run validate       # unit tests + syntax check + build + Playwright browser suite
+npm run test:unit
+npm run test:browser
+npm run test:browser:update   # refresh Playwright visual baselines
+node seo/build-name-mapping.mjs   # regenerate name mapping from data/overrides
+node seo/build-print-pdf.mjs      # regenerate the printable PDF
 ```
 
-A zero-dependency Node.js server with ~2ms response time. Features:
-- Correct MIME types, no-cache headers, SPA fallback
-- Serves subdirectory `index.html` files (e.g. `/names/` → `/names/index.html`)
-- Auto-opens the browser
-- Auto-detects a free port if `8000` is busy
-- Shows your LAN IP for testing on other devices
+## Data pipeline
 
-Start on a specific port:
-
-```bash
-node dev-server.js --port 3000 --open
-```
-
-### Option 2 — Vercel `serve` (also very fast)
-
-```bash
-npm run start:serve
-```
-
-Uses the pre-installed [`serve`](https://www.npmjs.com/package/serve) package (a compiled Go binary). Near-instant startup.
-
-### Option 3 — Python server (original)
-
-```bash
-npm start
-```
-
-Launches `simple-server.py` via Node. If port `8000` is busy it automatically tries `8001` through `8019`. Open the exact `http://127.0.0.1:PORT` URL reported by the server.
-
-Run it directly with Python:
-
-```bash
-python simple-server.py
-```
-
-Use a different starting port:
-
-```powershell
-$env:PORT='9000'
-python simple-server.py
-```
-
-## Generated Artifacts
-
-This repo keeps several generated files under version control:
-
-- `data/bootstrap-names.json`
-- `data/names-manifest.json`
-- `data/name-chunks/*.json`
-- `names/index.html`
-- `names/*/index.html`
-- `sitemap.xml`
-- `MaaAdyaKali_5-mobile.webp`
-
-Regenerate them after changing the canonical dataset, static names-page copy, or generator logic:
-
-```bash
-node scripts/run-python.js generate_loading_artifacts.py
-```
-
-## Running Tests
-
-Run repo smoke tests:
-
-```bash
-npm test
-```
-
-Run them directly with Python:
-
-```bash
-python -m pytest tests/
-```
-
-## Browser Validation
-
-Install Playwright browser dependencies:
-
-```bash
-npm run playwright:install
-```
-
-Run the core browser smoke suite:
-
-```bash
-npm run test:e2e
-```
-
-Run visual validation:
-
-```bash
-npm run test:visual
-```
-
-Run performance validation:
-
-```bash
-npm run test:perf
-```
-
-Run the full validation sequence:
-
-```bash
-npm run validate
-```
-
-The Playwright suite starts its own local server at `http://127.0.0.1:4173` and writes artifacts to `playwright-report/` and `test-results/`.
+1. `sahasranama_meanings.json` (root) is the canonical dataset: 1,000 entries
+   with `index`, `english_name`, `english_one_line`, `english_elaboration`.
+2. Devanagari names come from the legacy commit `b9adb4e` (Hindi UI/prose is
+   not restored — only the name spelling field). `seo/extract-legacy-devanagari.mjs`
+   regenerates `seo/data/legacy-devanagari-names.json`.
+3. `seo/build-name-mapping.mjs` produces `src/data/name-mapping.json` and
+   `seo/name-mapping.csv`. Fix names there, never in generated pages.
+4. `seo/build-data-chunks.mjs` produces the homepage reader payloads.
 
 ## Deployment
 
-Deploy the repository root as a static site to Cloudflare Pages, Netlify, Vercel, GitHub Pages, or any comparable static host.
+Cloudflare Pages (detailed checklist in [`DEPLOYMENT.md`](DEPLOYMENT.md)):
 
-- Output directory: `.`
-- No framework build is required for normal deploys
-- Optional version injection step: `python inject_version.py`
+- Build command: `npm run build`
+- Build output directory: `dist`
+- Node version: 22 (`HUSKY=0` so the version-bump hook is skipped in CI)
 
-If you changed `sahasranama_meanings.json` or generator-driven SEO/static content and want the host to build from source, run artifact generation before deploy:
+Owner-specific external steps (search console, archive links, cache rules) are
+tracked in [`seo/owner-actions.md`](seo/owner-actions.md).
 
-```bash
-python generate_loading_artifacts.py
-python inject_version.py
-```
+## Licensing / reuse
 
-### Host Notes
-
-- `sahasranama_meanings.json` must be served as `application/json`
-- Keep `_headers` and `_redirects` for Cloudflare Pages
-- GitHub Pages ignores `_headers`
-- For Cloudflare Pages, set `HUSKY=0` during CI so Husky installation is skipped
-
-## SEO Notes
-
-- The generated `/names/` pages are intended as crawlable static reference pages
-- `sitemap.xml` is generated from the artifact pipeline
-- Submit the sitemap URL in Google Search Console once, then let Google re-fetch it
-- Use URL Inspection for important newly deployed pages if you want faster discovery
-
-## Versioning
-
-Version is stored in `version.txt` and shown in the footer.
-
-- Automatic: Husky bumps the version on each commit
-- Manual shell script: `./increment_version.sh`
-- Manual PowerShell script: `./increment_version.ps1`
-
-## Contributing
-
-1. Create a branch
-2. Make focused changes
-3. Regenerate artifacts if you changed source data or generator output
-4. Run `npm test`
-5. Use `npm run start:fast` to preview locally (or `npm start` for the original Python server)
-6. Open a pull request with a clear description
-
-## End Notes 
-Built and maintained by KaliPutra_Ashish for access to 1000 names of Kalabhairava baba.  
-Dedicated to my Guru Shri Praveen Radhakrishnan ❤️ and 🙏 Khyapa Parampara.
-
-## License
-
-MIT. See [LICENSE](LICENSE).
+Free for personal devotional reading and study. Please link to the canonical
+pages rather than redistributing modified copies. See `/sources/` on the site for
+source and citation notes.

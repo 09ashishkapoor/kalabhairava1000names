@@ -22,7 +22,7 @@ This repo now uses one small validation pattern that can be reused on similar st
 The smoke suite intentionally covers only the flows with the highest merge-review value:
 - landing CTA -> names explorer
 - search + clear
-- mobile reader controls: search toggle, language switch, pagination, elaboration reveal
+- mobile reader controls: search toggle, pagination, elaboration reveal
 
 ### Accessibility scope
 Axe checks `#names-section` only. That is the most stable, user-critical interactive surface in this repo.

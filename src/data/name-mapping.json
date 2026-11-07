@@ -279,23 +279,22 @@
   },
   {
    "number": 15,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "BHIIRAVE",
-   "spelling_common": "Bhirove",
+   "spelling_common": "Bhirave",
    "spelling_simple": "Bhirove",
    "iast": "Bhīrove",
    "devanagari": "भीरोवे",
    "variants": [
+    "Bhirove",
     "Bhīrove",
     "BHIIRAVE"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is formidable and inspires awe.",
-   "slug": "bhirove",
-   "page_slug": "bhirove"
+   "slug": "bhirave",
+   "page_slug": "bhirave"
   },
   {
    "number": 16,
@@ -336,22 +335,23 @@
   },
   {
    "number": 18,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VIBHUUTIDAAYA",
-   "spelling_common": "Vibhutidayaya",
+   "spelling_common": "Vibhutidaya",
    "spelling_simple": "Vibhutidayaya",
    "iast": "Vibhūtidāyāya",
    "devanagari": "विभूतिदायाय",
    "variants": [
-    "Vibhutidaya",
+    "Vibhutida",
+    "Vibhutidayaya",
     "Vibhūtidāyāya",
     "VIBHUUTIDAAYA"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The  bestower of divine powers, prosperity, and sacred ash.",
-   "slug": "vibhutidayaya",
-   "page_slug": "vibhutidayaya"
+   "slug": "vibhutidaya",
+   "page_slug": "vibhutidaya"
   },
   {
    "number": 19,
@@ -644,24 +644,23 @@
   },
   {
    "number": 35,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "BHRINGGIRITINE",
-   "spelling_common": "Bhringagiritine",
+   "spelling_common": "Bhringiritine",
    "spelling_simple": "Bhrmgagiritine",
    "iast": "Bhṛṃgagiriṭīne",
    "devanagari": "भृंगगिरिटीने",
    "variants": [
     "Bhrmgagiritine",
+    "Bhringagiritine",
     "Bhṛṃgagiriṭīne",
     "BHRINGGIRITINE"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is accompanied by the devoted sage Bhringi.",
-   "slug": "bhringagiritine",
-   "page_slug": "bhringagiritine"
+   "slug": "bhringiritine",
+   "page_slug": "bhringiritine"
   },
   {
    "number": 36,
@@ -878,26 +877,25 @@
   },
   {
    "number": 47,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VISHVAGARBHAAYA",
-   "spelling_common": "Vishvagarbhyaya",
+   "spelling_common": "Vishvagarbhaya",
    "spelling_simple": "Visvagarbhyaya",
    "iast": "Viśvagarbhyāya",
    "devanagari": "विश्वगर्भ्याय",
    "variants": [
-    "Vishvagarbhya",
+    "Vishvagarbha",
     "Visvagarbhyaya",
     "Vishwagarbhyaya",
+    "Vishvagarbhyaya",
     "Viśvagarbhyāya",
     "VISHVAGARBHAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who contains the entire universe within his being.",
-   "slug": "vishvagarbhyaya",
-   "page_slug": "vishvagarbhyaya"
+   "slug": "vishvagarbhaya",
+   "page_slug": "vishvagarbhaya"
   },
   {
    "number": 48,
@@ -1426,22 +1424,23 @@
   },
   {
    "number": 75,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "NAMANAAYA",
-   "spelling_common": "Namanyaya",
+   "spelling_common": "Namanaya",
    "spelling_simple": "Namanyaya",
    "iast": "Namanyāya",
    "devanagari": "नमन्याय",
    "variants": [
-    "Namanya",
+    "Namana",
+    "Namanyaya",
     "Namanyāya",
     "NAMANAAYA"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is worthy of all reverence and to whom all must bow.",
-   "slug": "namanyaya",
-   "page_slug": "namanyaya"
+   "slug": "namanaya",
+   "page_slug": "namanaya"
   },
   {
    "number": 76,
@@ -1899,21 +1898,21 @@
   },
   {
    "number": 100,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "KAPAYE",
-   "spelling_common": "Kapae",
+   "spelling_common": "Kapaye",
    "spelling_simple": "Kapae",
    "iast": "Kapāe",
    "devanagari": "कपाए",
    "variants": [
-    "Kapāe",
-    "KAPAYE"
+    "Kapae",
+    "Kapāe"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is the chief, or is reddish-brown in color like an ape.",
-   "slug": "kapae",
-   "page_slug": "kapae"
+   "slug": "kapaye",
+   "page_slug": "kapaye"
   },
   {
    "number": 101,
@@ -2050,13 +2049,14 @@
   },
   {
    "number": 108,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "KALPAADAYE",
-   "spelling_common": "Kalpadye",
+   "spelling_common": "Kalpadaye",
    "spelling_simple": "Kalpadye",
    "iast": "Kalpādye",
    "devanagari": "कल्पाद्ये",
    "variants": [
+    "Kalpadye",
     "Kalpādye",
     "KALPAADAYE"
    ],
@@ -2065,8 +2065,8 @@
     "no-text-match"
    ],
    "meaning": "Salutations To The one who is the very beginning of every cosmic cycle.",
-   "slug": "kalpadye",
-   "page_slug": "kalpadye"
+   "slug": "kalpadaye",
+   "page_slug": "kalpadaye"
   },
   {
    "number": 109,
@@ -2142,25 +2142,24 @@
   },
   {
    "number": 113,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "AKALMASHAAYA",
-   "spelling_common": "Akalamashaya",
+   "spelling_common": "Akalmashaya",
    "spelling_simple": "Akalamasaya",
    "iast": "Akalamaṣāya",
    "devanagari": "अकलमषाय",
    "variants": [
-    "Akalamasha",
+    "Akalmasha",
     "Akalamasaya",
+    "Akalamashaya",
     "Akalamaṣāya",
     "AKALMASHAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is absolutely pure, sinless, and without any stain or impurity.",
-   "slug": "akalamashaya",
-   "page_slug": "akalamashaya"
+   "slug": "akalmashaya",
+   "page_slug": "akalmashaya"
   },
   {
    "number": 114,
@@ -2335,13 +2334,14 @@
   },
   {
    "number": 123,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "KAUSHIKAAYA",
-   "spelling_common": "Kaushika",
+   "spelling_common": "Kaushikaya",
    "spelling_simple": "Kausika",
    "iast": "Kauśikā",
    "devanagari": "कौशिका",
    "variants": [
+    "Kaushika",
     "Kausika",
     "Kauśikā",
     "KAUSHIKAAYA"
@@ -2349,8 +2349,8 @@
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is associated with the sage Kushika or is encased in the five sheaths (koshas).",
-   "slug": "kaushika",
-   "page_slug": "kaushika"
+   "slug": "kaushikaya",
+   "page_slug": "kaushikaya"
   },
   {
    "number": 124,
@@ -2601,14 +2601,14 @@
   },
   {
    "number": 137,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "KAALAJNAANINE",
-   "spelling_common": "Kalajnanaya",
+   "spelling_common": "Kalajnanine",
    "spelling_simple": "Kalajnanaya",
    "iast": "Kālajñānāya",
    "devanagari": "कालज्ञानाय",
    "variants": [
-    "Kalajnana",
+    "Kalajnanaya",
     "Kalagyanaya",
     "Kālajñānāya",
     "KAALAJNAANINE"
@@ -2616,8 +2616,8 @@
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who possesses the perfect knowledge of time—past, present, and future.",
-   "slug": "kalajnanaya",
-   "page_slug": "kalajnanaya"
+   "slug": "kalajnanine",
+   "page_slug": "kalajnanine"
   },
   {
    "number": 138,
@@ -2714,24 +2714,23 @@
   },
   {
    "number": 143,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "KAARYAKOVIDAVIKRAMAAYA",
-   "spelling_common": "Karyakovidvikramaya",
+   "spelling_common": "Karyakovidavikramaya",
    "spelling_simple": "Karyakovidvikramaya",
    "iast": "Kāryakovidvikramāya",
    "devanagari": "कार्यकोविद्विक्रमाय",
    "variants": [
-    "Karyakovidvikrama",
+    "Karyakovidavikrama",
+    "Karyakovidvikramaya",
     "Kāryakovidvikramāya",
     "KAARYAKOVIDAVIKRAMAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one whose extraordinary valor is guided by his expertise in all actions.",
-   "slug": "karyakovidvikramaya",
-   "page_slug": "karyakovidvikramaya"
+   "slug": "karyakovidavikramaya",
+   "page_slug": "karyakovidavikramaya"
   },
   {
    "number": 144,
@@ -2923,22 +2922,22 @@
   },
   {
    "number": 154,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "GOPTRE",
-   "spelling_common": "Goptri",
+   "spelling_common": "Goptre",
    "spelling_simple": "Goptr",
    "iast": "Goptṛ",
    "devanagari": "गोप्तृ",
    "variants": [
     "Goptr",
-    "Goptṛ",
-    "GOPTRE"
+    "Goptri",
+    "Goptṛ"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is the ultimate protector, guardian, and preserver of all creation.",
-   "slug": "goptri",
-   "page_slug": "goptri"
+   "slug": "goptre",
+   "page_slug": "goptre"
   },
   {
    "number": 155,
@@ -3031,7 +3030,7 @@
    ],
    "meaning": "Salutations To The one who is the supreme protector and concealer of the universe.",
    "slug": "goptre",
-   "page_slug": "goptri"
+   "page_slug": "goptre"
   },
   {
    "number": 160,
@@ -3337,13 +3336,15 @@
   },
   {
    "number": 176,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "GAGANAALAYAAYA",
-   "spelling_common": "Gaganalayeya",
+   "spelling_common": "Gaganalayaya",
    "spelling_simple": "Gaganalayeya",
    "iast": "Gaganālayeya",
    "devanagari": "गगनालयेय",
    "variants": [
+    "Gaganalaya",
+    "Gaganalayeya",
     "Gaganālayeya",
     "GAGANAALAYAAYA"
    ],
@@ -3352,8 +3353,8 @@
     "no-text-match"
    ],
    "meaning": "Salutations To The one who has the vast, infinite sky as his eternal and sacred abode.",
-   "slug": "gaganalayeya",
-   "page_slug": "gaganalayeya"
+   "slug": "gaganalayaya",
+   "page_slug": "gaganalayaya"
   },
   {
    "number": 177,
@@ -4108,13 +4109,14 @@
   },
   {
    "number": 216,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "JANAJANMAADAYE",
-   "spelling_common": "Janajanmadye",
+   "spelling_common": "Janajanmadaye",
    "spelling_simple": "Janajanmadye",
    "iast": "Janajanmādye",
    "devanagari": "जनजन्माद्ये",
    "variants": [
+    "Janajanmadye",
     "Janajanmādye",
     "JANAJANMAADAYE"
    ],
@@ -4123,8 +4125,8 @@
     "no-text-match"
    ],
    "meaning": "Salutations To The one who is the primordial origin of all beings and their births.",
-   "slug": "janajanmadye",
-   "page_slug": "janajanmadye"
+   "slug": "janajanmadaye",
+   "page_slug": "janajanmadaye"
   },
   {
    "number": 217,
@@ -4281,26 +4283,25 @@
   },
   {
    "number": 225,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "JANESHVARAAYA",
-   "spelling_common": "Janeshvara Aya",
+   "spelling_common": "Janeshvaraya",
    "spelling_simple": "Janesvara Aya",
    "iast": "Janeśvara Āya",
    "devanagari": "जनेश्वर आय",
    "variants": [
-    "Janeshvara a",
+    "Janeshvara",
     "Janesvara Aya",
     "Janeshwara Aya",
-    "JaneshvaraAya",
-    "Janeśvara Āya"
+    "Janeshvara Aya",
+    "Janeśvara Āya",
+    "JANESHVARAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is the supreme ruler and God of all people.",
-   "slug": "janeshvara-aya",
-   "page_slug": "janeshvara-aya"
+   "slug": "janeshvaraya",
+   "page_slug": "janeshvaraya"
   },
   {
    "number": 226,
@@ -4572,25 +4573,24 @@
   },
   {
    "number": 240,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "UTTAMAANGGAAYA",
-   "spelling_common": "Uttarangaya",
+   "spelling_common": "Uttamangaya",
    "spelling_simple": "Uttaramgaya",
    "iast": "Uttarāṃgāya",
    "devanagari": "उत्तरांगाय",
    "variants": [
-    "Uttaranga",
+    "Uttamanga",
     "Uttaramgaya",
+    "Uttarangaya",
     "Uttarāṃgāya",
     "UTTAMAANGGAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who has the most excellent and supreme limbs and form.",
-   "slug": "uttarangaya",
-   "page_slug": "uttarangaya"
+   "slug": "uttamangaya",
+   "page_slug": "uttamangaya"
   },
   {
    "number": 241,
@@ -4919,14 +4919,14 @@
   },
   {
    "number": 259,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "AATMAYOGASHAYAAYA",
-   "spelling_common": "Atmayogashaya",
+   "spelling_common": "Atmayogashayaya",
    "spelling_simple": "Atmayogasaya",
    "iast": "Ātmayogaśāya",
    "devanagari": "आत्मयोगशाय",
    "variants": [
-    "Atmayogasha",
+    "Atmayogashaya",
     "Atmayogasaya",
     "Ātmayogaśāya",
     "AATMAYOGASHAYAAYA"
@@ -4934,8 +4934,8 @@
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who rests in the profound state of union with his own self.",
-   "slug": "atmayogashaya",
-   "page_slug": "atmayogashaya"
+   "slug": "atmayogashayaya",
+   "page_slug": "atmayogashayaya"
   },
   {
    "number": 260,
@@ -5210,16 +5210,17 @@
   },
   {
    "number": 274,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "TRIRVACAH STHAAYA",
-   "spelling_common": "Triravachah Sthaya",
+   "spelling_common": "Trirvachah Sthaya",
    "spelling_simple": "Triravacah Sthaya",
    "iast": "Triravacaḥ Sthāya",
    "devanagari": "त्रिरवचः स्थाय",
    "variants": [
-    "Triravachah Stha",
+    "Trirvachah Stha",
     "Triravacah Sthaya",
-    "TriravachahSthaya",
+    "Triravachah Sthaya",
+    "TrirvachahSthaya",
     "Triravacaḥ Sthāya",
     "TRIRVACAH STHAAYA"
    ],
@@ -5228,8 +5229,8 @@
     "no-text-match"
    ],
    "meaning": "Salutations To The one who is established in the three sacred utterances (Bhur, Bhuvah, Svah).",
-   "slug": "triravachah-sthaya",
-   "page_slug": "triravachah-sthaya"
+   "slug": "trirvachah-sthaya",
+   "page_slug": "trirvachah-sthaya"
   },
   {
    "number": 275,
@@ -5312,24 +5313,23 @@
   },
   {
    "number": 279,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "DUSSAHODAYAAYA",
-   "spelling_common": "Dussahadayaya",
+   "spelling_common": "Dussahodayaya",
    "spelling_simple": "Dussahadayaya",
    "iast": "Dussahadayāya",
    "devanagari": "दुस्सहॊदयाय",
    "variants": [
-    "Dussahadaya",
+    "Dussahodaya",
+    "Dussahadayaya",
     "Dussahadayāya",
     "DUSSAHODAYAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one whose appearance or rising is unbearable for his enemies.",
-   "slug": "dussahadayaya",
-   "page_slug": "dussahadayaya"
+   "slug": "dussahodayaya",
+   "page_slug": "dussahodayaya"
   },
   {
    "number": 280,
@@ -5505,25 +5505,24 @@
   },
   {
    "number": 289,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "DURNEYAAYA",
-   "spelling_common": "Durjneyaya",
+   "spelling_common": "Durneyaya",
    "spelling_simple": "Durjneyaya",
    "iast": "Durjñeyāya",
    "devanagari": "दुर्ज्ञेयाय",
    "variants": [
-    "Durjneya",
+    "Durneya",
+    "Durjneyaya",
     "Durgyeyaya",
     "Durjñeyāya",
     "DURNEYAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is difficult to know or to ascertain.",
-   "slug": "durjneyaya",
-   "page_slug": "durjneyaya"
+   "slug": "durneyaya",
+   "page_slug": "durneyaya"
   },
   {
    "number": 290,
@@ -6155,24 +6154,23 @@
   },
   {
    "number": 323,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VYAYANIRVAHANAAYA",
-   "spelling_common": "Vyayananirvahanaya",
+   "spelling_common": "Vyayanirvahanaya",
    "spelling_simple": "Vyayananirvahanaya",
    "iast": "Vyayananirvāhaṇāya",
    "devanagari": "व्ययननिर्वाहणाय",
    "variants": [
-    "Vyayananirvahana",
+    "Vyayanirvahana",
+    "Vyayananirvahanaya",
     "Vyayananirvāhaṇāya",
     "VYAYANIRVAHANAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who manages and oversees all cosmic expenditure.",
-   "slug": "vyayananirvahanaya",
-   "page_slug": "vyayananirvahanaya"
+   "slug": "vyayanirvahanaya",
+   "page_slug": "vyayanirvahanaya"
   },
   {
    "number": 324,
@@ -6518,24 +6516,23 @@
   },
   {
    "number": 342,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "NIRDHYAATAVYAAYA",
-   "spelling_common": "Nirdhyayaya",
+   "spelling_common": "Nirdhyatavyaya",
    "spelling_simple": "Nirdhyayaya",
    "iast": "Nirdhyāyāya",
    "devanagari": "निर्ध्यायाय",
    "variants": [
-    "Nirdhyaya",
+    "Nirdhyatavya",
+    "Nirdhyayaya",
     "Nirdhyāyāya",
     "NIRDHYAATAVYAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is beyond all meditation, yet is the goal of meditation.",
-   "slug": "nirdhyayaya",
-   "page_slug": "nirdhyayaya"
+   "slug": "nirdhyatavyaya",
+   "page_slug": "nirdhyatavyaya"
   },
   {
    "number": 343,
@@ -7128,24 +7125,23 @@
   },
   {
    "number": 374,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "PURAATSUUTAAYA",
-   "spelling_common": "Purastutaya",
+   "spelling_common": "Puratsutaya",
    "spelling_simple": "Purastutaya",
    "iast": "Purāstutāya",
    "devanagari": "पुरास्तुताय",
    "variants": [
-    "Purastuta",
+    "Puratsuta",
+    "Purastutaya",
     "Purāstutāya",
     "PURAATSUUTAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is praised and celebrated in the ancient Puranas.",
-   "slug": "purastutaya",
-   "page_slug": "purastutaya"
+   "slug": "puratsutaya",
+   "page_slug": "puratsutaya"
   },
   {
    "number": 375,
@@ -7207,23 +7203,24 @@
   },
   {
    "number": 378,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "PANCAVIMSHATITATVASTHAAYA",
-   "spelling_common": "Panchavinshatitattvasthaya",
+   "spelling_common": "Panchavimshatitatvasthaya",
    "spelling_simple": "Pancavimsatitattvasthaya",
    "iast": "Pañcaviṃśatitattvasthāya",
    "devanagari": "पञ्चविंशतितत्त्वस्थाय",
    "variants": [
-    "Panchavinshatitattvastha",
+    "Panchavimshatitatvastha",
     "Pancavimsatitattvasthaya",
+    "Panchavinshatitattvasthaya",
     "Pañcaviṃśatitattvasthāya",
     "PANCAVIMSHATITATVASTHAAYA"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who resides in the twenty-five fundamental principles (tattvas) of creation.",
-   "slug": "panchavinshatitattvasthaya",
-   "page_slug": "panchavinshatitattvasthaya"
+   "slug": "panchavimshatitatvasthaya",
+   "page_slug": "panchavimshatitatvasthaya"
   },
   {
    "number": 379,
@@ -7677,45 +7674,43 @@
   },
   {
    "number": 403,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "PRATYAYAACIRSHE",
-   "spelling_common": "Pratyayachirashe",
+   "spelling_common": "Pratyayachirshe",
    "spelling_simple": "Pratyayacirase",
    "iast": "Pratyāyāciraśe",
    "devanagari": "प्रत्यायाचिरशे",
    "variants": [
     "Pratyayacirase",
+    "Pratyayachirashe",
     "Pratyāyāciraśe",
     "PRATYAYAACIRSHE"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is the pinnacle and crown of all faith.",
-   "slug": "pratyayachirashe",
-   "page_slug": "pratyayachirashe"
+   "slug": "pratyayachirshe",
+   "page_slug": "pratyayachirshe"
   },
   {
    "number": 404,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "APAAM NIDHAYE",
-   "spelling_common": "Apama Nidhaye",
+   "spelling_common": "Apam Nidhaye",
    "spelling_simple": "Apama Nidhaye",
    "iast": "Apāma Nidhaye",
    "devanagari": "अपाम निधये",
    "variants": [
-    "ApamaNidhaye",
+    "Apama Nidhaye",
+    "ApamNidhaye",
     "Apāma Nidhaye",
     "APAAM NIDHAYE"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is the great treasure-house and receptacle of all waters.",
-   "slug": "apama-nidhaye",
-   "page_slug": "apama-nidhaye"
+   "slug": "apam-nidhaye",
+   "page_slug": "apam-nidhaye"
   },
   {
    "number": 405,
@@ -7776,47 +7771,45 @@
   },
   {
    "number": 408,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "PURUHUUTAAYA",
-   "spelling_common": "Purushutaya",
+   "spelling_common": "Puruhutaya",
    "spelling_simple": "Purusutaya",
    "iast": "Puruṣūtāya",
    "devanagari": "पुरुषूताय",
    "variants": [
-    "Purushuta",
+    "Puruhuta",
     "Purusutaya",
+    "Purushutaya",
     "Puruṣūtāya",
     "PURUHUUTAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is invoked and called upon by many.",
-   "slug": "purushutaya",
-   "page_slug": "purushutaya"
+   "slug": "puruhutaya",
+   "page_slug": "puruhutaya"
   },
   {
    "number": 409,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "PURUSHTUTAAYA",
-   "spelling_common": "Purushastutaya",
+   "spelling_common": "Purushtutaya",
    "spelling_simple": "Purusastutaya",
    "iast": "Puruṣastutāya",
    "devanagari": "पुरुषस्तुताय",
    "variants": [
-    "Purushastuta",
+    "Purushtuta",
     "Purusastutaya",
+    "Purushastutaya",
     "Puruṣastutāya",
     "PURUSHTUTAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is praised and extolled by many devotees.",
-   "slug": "purushastutaya",
-   "page_slug": "purushastutaya"
+   "slug": "purushtutaya",
+   "page_slug": "purushtutaya"
   },
   {
    "number": 410,
@@ -8261,20 +8254,20 @@
   },
   {
    "number": 433,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "PITRE",
-   "spelling_common": "Pitrai",
+   "spelling_common": "Pitre",
    "spelling_simple": "Pitrai",
    "iast": "Pitrai",
    "devanagari": "पित्रै",
    "variants": [
-    "PITRE"
+    "Pitrai"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is the divine father of the entire universe.",
-   "slug": "pitrai",
-   "page_slug": "pitrai"
+   "slug": "pitre",
+   "page_slug": "pitre"
   },
   {
    "number": 434,
@@ -8739,25 +8732,24 @@
   },
   {
    "number": 458,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "MAHAUSHADHAAYA",
-   "spelling_common": "Mahaaushadhaya",
+   "spelling_common": "Mahaushadhaya",
    "spelling_simple": "Mahaausadhaya",
    "iast": "Mahāauṣadhāya",
    "devanagari": "महाऔषधाय",
    "variants": [
-    "Mahaaushadha",
+    "Mahaushadha",
     "Mahaausadhaya",
+    "Mahaaushadhaya",
     "Mahāauṣadhāya",
     "MAHAUSHADHAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is the great, universal medicine that cures all ills.",
-   "slug": "mahaaushadhaya",
-   "page_slug": "mahaaushadhaya"
+   "slug": "mahaushadhaya",
+   "page_slug": "mahaushadhaya"
   },
   {
    "number": 459,
@@ -8820,22 +8812,22 @@
   },
   {
    "number": 462,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "MAHAALAYAAYA",
-   "spelling_common": "Mahalaya",
+   "spelling_common": "Mahalayaya",
    "spelling_simple": "Mahalaya",
    "iast": "Mahālaya",
    "devanagari": "महालय",
    "variants": [
-    "Mahala",
+    "Mahalaya",
     "Mahālaya",
     "MAHAALAYAAYA"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is the great, supreme, and ultimate abode of the universe.",
-   "slug": "mahalaya",
-   "page_slug": "mahalaya"
+   "slug": "mahalayaya",
+   "page_slug": "mahalayaya"
   },
   {
    "number": 463,
@@ -9008,24 +9000,23 @@
   },
   {
    "number": 472,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "AMRITAAMSHAVE",
-   "spelling_common": "Amritanshave",
+   "spelling_common": "Amritamshave",
    "spelling_simple": "Amrtamsave",
    "iast": "Amṛtāṃśave",
    "devanagari": "अमृतांशवे",
    "variants": [
     "Amrtamsave",
+    "Amritanshave",
     "Amṛtāṃśave",
     "AMRITAAMSHAVE"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one whose rays are like life-giving nectar.",
-   "slug": "amritanshave",
-   "page_slug": "amritanshave"
+   "slug": "amritamshave",
+   "page_slug": "amritamshave"
   },
   {
    "number": 473,
@@ -9275,22 +9266,21 @@
   },
   {
    "number": 486,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "MATAYE",
-   "spelling_common": "Mataya",
+   "spelling_common": "Mataye",
    "spelling_simple": "Mataya",
    "iast": "Matāya",
    "devanagari": "मताय",
    "variants": [
-    "Mata",
-    "Matāya",
-    "MATAYE"
+    "Mataya",
+    "Matāya"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is the very embodiment of thought, wisdom, and intellect.",
-   "slug": "mataya",
-   "page_slug": "mataya"
+   "slug": "mataye",
+   "page_slug": "mataye"
   },
   {
    "number": 487,
@@ -9480,22 +9470,21 @@
   },
   {
    "number": 497,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "MATAYE",
-   "spelling_common": "Mataya",
+   "spelling_common": "Mataye",
    "spelling_simple": "Mataya",
    "iast": "Matāya",
    "devanagari": "मताय",
    "variants": [
-    "Mata",
-    "Matāya",
-    "MATAYE"
+    "Mataya",
+    "Matāya"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is supreme intelligence and guiding thought.",
-   "slug": "mataya",
-   "page_slug": "mataya"
+   "slug": "mataye",
+   "page_slug": "mataye"
   },
   {
    "number": 498,
@@ -10405,25 +10394,24 @@
   },
   {
    "number": 546,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "MAHAACAARAAYA",
-   "spelling_common": "Mahacharyaya",
+   "spelling_common": "Mahacharaya",
    "spelling_simple": "Mahacaryaya",
    "iast": "Mahācāryāya",
    "devanagari": "महाचार्याय",
    "variants": [
-    "Mahacharya",
+    "Mahachara",
     "Mahacaryaya",
+    "Mahacharyaya",
     "Mahācāryāya",
     "MAHAACAARAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who follows the greatest and most noble code of conduct.",
-   "slug": "mahacharyaya",
-   "page_slug": "mahacharyaya"
+   "slug": "mahacharaya",
+   "page_slug": "mahacharaya"
   },
   {
    "number": 547,
@@ -10497,24 +10485,23 @@
   },
   {
    "number": 551,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "MAGHAVATPRIYAAYA",
-   "spelling_common": "Maghavatapriyaya",
+   "spelling_common": "Maghavatpriyaya",
    "spelling_simple": "Maghavatapriyaya",
    "iast": "Maghavatapriyāya",
    "devanagari": "मघवतप्रियाय",
    "variants": [
-    "Maghavatapriya",
+    "Maghavatpriya",
+    "Maghavatapriyaya",
     "Maghavatapriyāya",
     "MAGHAVATPRIYAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is dear Salutations To The  generous and bountiful Indra (Maghavan).",
-   "slug": "maghavatapriyaya",
-   "page_slug": "maghavatapriyaya"
+   "slug": "maghavatpriyaya",
+   "page_slug": "maghavatpriyaya"
   },
   {
    "number": 552,
@@ -11310,22 +11297,22 @@
   },
   {
    "number": 594,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "RAUDRARSHAYE",
-   "spelling_common": "Raudrarishaye",
+   "spelling_common": "Raudrarshaye",
    "spelling_simple": "Raudrarsaye",
    "iast": "Raudraṛṣaye",
    "devanagari": "रौद्रऋषये",
    "variants": [
     "Raudrarsaye",
-    "Raudraṛṣaye",
-    "RAUDRARSHAYE"
+    "Raudrarishaye",
+    "Raudraṛṣaye"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is the fierce and powerful divine sage.",
-   "slug": "raudrarishaye",
-   "page_slug": "raudrarishaye"
+   "slug": "raudrarshaye",
+   "page_slug": "raudrarshaye"
   },
   {
    "number": 595,
@@ -11347,23 +11334,23 @@
   },
   {
    "number": 596,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "RATIRATNAAYA",
-   "spelling_common": "Rati Ratnaya",
+   "spelling_common": "Ratiratnaya",
    "spelling_simple": "Rati Ratnaya",
    "iast": "Rati Ratnāya",
    "devanagari": "रति रत्नाय",
    "variants": [
-    "Rati Ratna",
-    "RatiRatnaya",
+    "Ratiratna",
+    "Rati Ratnaya",
     "Rati Ratnāya",
     "RATIRATNAAYA"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is the most precious jewel of all delights and pleasures.",
-   "slug": "rati-ratnaya",
-   "page_slug": "rati-ratnaya"
+   "slug": "ratiratnaya",
+   "page_slug": "ratiratnaya"
   },
   {
    "number": 597,
@@ -11593,24 +11580,23 @@
   },
   {
    "number": 609,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VANDYAAYA",
-   "spelling_common": "Vanyaya",
+   "spelling_common": "Vandyaya",
    "spelling_simple": "Vanyaya",
    "iast": "Vanyāya",
    "devanagari": "वन्याय",
    "variants": [
-    "Vanya",
+    "Vandya",
+    "Vanyaya",
     "Vanyāya",
     "VANDYAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is worthy of all worship, adoration, and reverence.",
-   "slug": "vanyaya",
-   "page_slug": "vanyaya"
+   "slug": "vandyaya",
+   "page_slug": "vandyaya"
   },
   {
    "number": 610,
@@ -11810,25 +11796,25 @@
   },
   {
    "number": 620,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VISHVARUUPAAYA",
-   "spelling_common": "Vishva Rupaya",
+   "spelling_common": "Vishvarupaya",
    "spelling_simple": "Visva Rupaya",
    "iast": "Viśva Rūpāya",
    "devanagari": "विश्व रूपाय",
    "variants": [
-    "Vishva Rupa",
+    "Vishvarupa",
     "Visva Rupaya",
     "Vishwa Rupaya",
-    "VishvaRupaya",
+    "Vishva Rupaya",
     "Viśva Rūpāya",
     "VISHVARUUPAAYA"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who possesses a universal, all-encompassing form.",
-   "slug": "vishva-rupaya",
-   "page_slug": "vishva-rupaya"
+   "slug": "vishvarupaya",
+   "page_slug": "vishvarupaya"
   },
   {
    "number": 621,
@@ -12013,25 +11999,25 @@
   },
   {
    "number": 630,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VISHVAAYA",
-   "spelling_common": "Vishvasmai",
+   "spelling_common": "Vishvaya",
    "spelling_simple": "Visvasmai",
    "iast": "Viśvasmai",
    "devanagari": "विश्वस्मै",
    "variants": [
+    "Vishva",
     "Visvasmai",
     "Vishwasmai",
+    "Vishvasmai",
     "Viśvasmai",
     "VISHVAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is the cosmos, the universe in its entirety.",
-   "slug": "vishvasmai",
-   "page_slug": "vishvasmai-2"
+   "slug": "vishvaya",
+   "page_slug": "vishvaya"
   },
   {
    "number": 631,
@@ -12126,14 +12112,15 @@
   },
   {
    "number": 636,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VAANGMAYAIKANIDHAYE",
-   "spelling_common": "Vangmayikanidhaye",
+   "spelling_common": "Vangmayaikanidhaye",
    "spelling_simple": "Vamgmayikanidhaye",
    "iast": "Vāṃgmayīkanidhaye",
    "devanagari": "वांग्मयीकनिधये",
    "variants": [
     "Vamgmayikanidhaye",
+    "Vangmayikanidhaye",
     "Vāṃgmayīkanidhaye",
     "VAANGMAYAIKANIDHAYE"
    ],
@@ -12142,8 +12129,8 @@
     "no-text-match"
    ],
    "meaning": "Salutations To The one who is the sole and ultimate treasure-house of all speech and literature.",
-   "slug": "vangmayikanidhaye",
-   "page_slug": "vangmayikanidhaye"
+   "slug": "vangmayaikanidhaye",
+   "page_slug": "vangmayaikanidhaye"
   },
   {
    "number": 637,
@@ -12385,23 +12372,22 @@
   },
   {
    "number": 650,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VIMOCAKAAYA",
-   "spelling_common": "Vimokaya",
+   "spelling_common": "Vimochakaya",
    "spelling_simple": "Vimokaya",
    "iast": "Vimokāya",
    "devanagari": "विमोकाय",
    "variants": [
-    "Vimoka",
+    "Vimochaka",
+    "Vimokaya",
     "Vimokāya",
     "VIMOCAKAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is the great liberator from all forms of bondage.",
-   "slug": "vimokaya",
+   "slug": "vimochakaya",
    "page_slug": "vimochakaya"
   },
   {
@@ -12425,25 +12411,24 @@
   },
   {
    "number": 652,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VISHISHTAAYA",
-   "spelling_common": "Vishishthaya",
+   "spelling_common": "Vishishtaya",
    "spelling_simple": "Visisthaya",
    "iast": "Viśiṣṭhāya",
    "devanagari": "विशिष्ठाय",
    "variants": [
-    "Vishishtha",
+    "Vishishta",
     "Visisthaya",
+    "Vishishthaya",
     "Viśiṣṭhāya",
     "VISHISHTAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is the most distinguished, excellent, and special of all.",
-   "slug": "vishishthaya",
-   "page_slug": "vishishthaya"
+   "slug": "vishishtaya",
+   "page_slug": "vishishtaya"
   },
   {
    "number": 653,
@@ -12507,13 +12492,14 @@
   },
   {
    "number": 656,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VAADINE",
-   "spelling_common": "Vadina",
+   "spelling_common": "Vadine",
    "spelling_simple": "Vadina",
    "iast": "Vādina",
    "devanagari": "वादिन",
    "variants": [
+    "Vadina",
     "Vādina",
     "VAADINE"
    ],
@@ -12522,8 +12508,8 @@
     "no-text-match"
    ],
    "meaning": "Salutations To The one who is the supreme proponent, the ultimate speaker and advocate of truth.",
-   "slug": "vadina",
-   "page_slug": "vadina"
+   "slug": "vadine",
+   "page_slug": "vadine"
   },
   {
    "number": 657,
@@ -12752,21 +12738,22 @@
   },
   {
    "number": 669,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VAALAKHILYAAYA",
-   "spelling_common": "Valakhilya",
+   "spelling_common": "Valakhilyaya",
    "spelling_simple": "Valakhilya",
    "iast": "Vālakhilya",
    "devanagari": "वालखिल्य",
    "variants": [
+    "Valakhilya",
     "Vālakhilya",
     "VAALAKHILYAAYA"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is the divine sage, the Valakhilya, small in stature but immense in power.",
-   "slug": "valakhilya",
-   "page_slug": "valakhilya"
+   "slug": "valakhilyaya",
+   "page_slug": "valakhilyaya"
   },
   {
    "number": 670,
@@ -12925,21 +12912,21 @@
   },
   {
    "number": 678,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VASHINE",
-   "spelling_common": "Vashina",
+   "spelling_common": "Vashine",
    "spelling_simple": "Vasina",
    "iast": "Vaśina",
    "devanagari": "वशिन",
    "variants": [
     "Vasina",
-    "Vaśina",
-    "VASHINE"
+    "Vashina",
+    "Vaśina"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who has perfect control over his senses and the entire universe.",
-   "slug": "vashina",
+   "slug": "vashine",
    "page_slug": "vashine"
   },
   {
@@ -13256,24 +13243,23 @@
   },
   {
    "number": 695,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VAJRARUUPAAYA",
-   "spelling_common": "Vajararupaya",
+   "spelling_common": "Vajrarupaya",
    "spelling_simple": "Vajararupaya",
    "iast": "Vajararūpāya",
    "devanagari": "वजररूपाय",
    "variants": [
-    "Vajararupa",
+    "Vajrarupa",
+    "Vajararupaya",
     "Vajararūpāya",
     "VAJRARUUPAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one whose form is as hard and indestructible as a diamond.",
-   "slug": "vajararupaya",
-   "page_slug": "vajararupaya"
+   "slug": "vajrarupaya",
+   "page_slug": "vajrarupaya"
   },
   {
    "number": 696,
@@ -13639,7 +13625,7 @@
    "flags": [],
    "meaning": "Salutations To The one who contains the entire universe within his womb.",
    "slug": "vishvagarbhaya",
-   "page_slug": "vishvagarbhyaya"
+   "page_slug": "vishvagarbhaya"
   },
   {
    "number": 715,
@@ -13723,25 +13709,24 @@
   },
   {
    "number": 719,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VRISHAVARDDHANAAYA",
-   "spelling_common": "Vrishavardhanaya",
+   "spelling_common": "Vrishavarddhanaya",
    "spelling_simple": "Vrsavardhanaya",
    "iast": "Vṛṣavardhanāya",
    "devanagari": "वृषवर्धनाय",
    "variants": [
-    "Vrishavardhana",
+    "Vrishavarddhana",
     "Vrsavardhanaya",
+    "Vrishavardhanaya",
     "Vṛṣavardhanāya",
     "VRISHAVARDDHANAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who causes righteousness and virtue to grow and flourish.",
-   "slug": "vrishavardhanaya",
-   "page_slug": "vrishavardhanaya"
+   "slug": "vrishavarddhanaya",
+   "page_slug": "vrishavarddhanaya"
   },
   {
    "number": 720,
@@ -13849,25 +13834,25 @@
   },
   {
    "number": 726,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VISHVARUUPAAYA",
-   "spelling_common": "Vishva Rupaya",
+   "spelling_common": "Vishvarupaya",
    "spelling_simple": "Visva Rupaya",
    "iast": "Viśva Rūpāya",
    "devanagari": "विश्व रूपाय",
    "variants": [
-    "Vishva Rupa",
+    "Vishvarupa",
     "Visva Rupaya",
     "Vishwa Rupaya",
-    "VishvaRupaya",
+    "Vishva Rupaya",
     "Viśva Rūpāya",
     "VISHVARUUPAAYA"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one whose form encompasses the entire universe.",
-   "slug": "vishva-rupaya",
-   "page_slug": "vishva-rupaya"
+   "slug": "vishvarupaya",
+   "page_slug": "vishvarupaya"
   },
   {
    "number": 727,
@@ -14262,22 +14247,23 @@
   },
   {
    "number": 747,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "RAASHAYE",
-   "spelling_common": "Rashibhyo",
+   "spelling_common": "Rashaye",
    "spelling_simple": "Rasibhyo",
    "iast": "Rāśibhyo",
    "devanagari": "राशिभ्यो",
    "variants": [
     "Rasibhyo",
+    "Rashibhyo",
     "Rāśibhyo",
     "RAASHAYE"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is the aggregate, the great heap of all existence.",
-   "slug": "rashibhyo",
-   "page_slug": "rashibhyo"
+   "slug": "rashaye",
+   "page_slug": "rashaye"
   },
   {
    "number": 748,
@@ -14409,13 +14395,14 @@
   },
   {
    "number": 755,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "SUNIITAYE",
-   "spelling_common": "Suniti",
+   "spelling_common": "Sunitaye",
    "spelling_simple": "Suniti",
    "iast": "Sunīti",
    "devanagari": "सुनीति",
    "variants": [
+    "Suniti",
     "Sunīti",
     "SUNIITAYE"
    ],
@@ -14424,8 +14411,8 @@
     "no-text-match"
    ],
    "meaning": "Salutations To The one who is the embodiment of wise conduct and excellent, righteous guidance.",
-   "slug": "suniti",
-   "page_slug": "suniti"
+   "slug": "sunitaye",
+   "page_slug": "sunitaye"
   },
   {
    "number": 756,
@@ -14545,23 +14532,22 @@
   },
   {
    "number": 762,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "SUKIIRTAYE",
-   "spelling_common": "Sukritaye",
+   "spelling_common": "Sukirtaye",
    "spelling_simple": "Sukritaye",
    "iast": "Sukrītaye",
    "devanagari": "सुक्रीतये",
    "variants": [
+    "Sukritaye",
     "Sukrītaye",
     "SUKIIRTAYE"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who possesses great, noble, and auspicious fame.",
-   "slug": "sukritaye",
-   "page_slug": "sukritaye"
+   "slug": "sukirtaye",
+   "page_slug": "sukirtaye"
   },
   {
    "number": 763,
@@ -15109,13 +15095,14 @@
   },
   {
    "number": 792,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "SARVAADAYE",
-   "spelling_common": "Sarvadi",
+   "spelling_common": "Sarvadaye",
    "spelling_simple": "Sarvadi",
    "iast": "Sarvādi",
    "devanagari": "सर्वादि",
    "variants": [
+    "Sarvadi",
     "Sarvādi",
     "SARVAADAYE"
    ],
@@ -15124,8 +15111,8 @@
     "no-text-match"
    ],
    "meaning": "Salutations To The one who is the primordial beginning and origin of all things.",
-   "slug": "sarvadi",
-   "page_slug": "sarvadi"
+   "slug": "sarvadaye",
+   "page_slug": "sarvadaye"
   },
   {
    "number": 793,
@@ -15359,25 +15346,24 @@
   },
   {
    "number": 805,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "SANGGAMAAYA",
-   "spelling_common": "Sanggamaya",
+   "spelling_common": "Sangamaya",
    "spelling_simple": "Samggamaya",
    "iast": "Saṃggamāya",
    "devanagari": "संग्गमाय",
    "variants": [
-    "Sanggama",
+    "Sangama",
     "Samggamaya",
+    "Sanggamaya",
     "Saṃggamāya",
     "SANGGAMAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is the sacred confluence, the perfect union of all things.",
-   "slug": "sanggamaya",
-   "page_slug": "sanggamaya"
+   "slug": "sangamaya",
+   "page_slug": "sangamaya"
   },
   {
    "number": 806,
@@ -15436,7 +15422,7 @@
    "flags": [],
    "meaning": "Salutations To The one who is the most excellent, distinguished, and unique of all.",
    "slug": "vishishtaya",
-   "page_slug": "vishishthaya"
+   "page_slug": "vishishtaya"
   },
   {
    "number": 809,
@@ -15883,25 +15869,24 @@
   },
   {
    "number": 832,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "SHADVIMSHAAYA",
-   "spelling_common": "Shadvinshayaya",
+   "spelling_common": "Shadvimshaya",
    "spelling_simple": "Sadvimsayaya",
    "iast": "Ṣaḍviṃśāyāya",
    "devanagari": "षड्विंशायाय",
    "variants": [
-    "Shadvinshaya",
+    "Shadvimsha",
     "Sadvimsayaya",
+    "Shadvinshayaya",
     "Ṣaḍviṃśāyāya",
     "SHADVIMSHAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is the twenty-sixth principle, the Purusha, beyond the 25 tattvas.",
-   "slug": "shadvinshayaya",
-   "page_slug": "shadvinshayaya"
+   "slug": "shadvimshaya",
+   "page_slug": "shadvimshaya"
   },
   {
    "number": 833,
@@ -16019,25 +16004,24 @@
   },
   {
    "number": 839,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "SHUBHODAYAAYA",
-   "spelling_common": "Shubhotyavaya",
+   "spelling_common": "Shubhodayaya",
    "spelling_simple": "Subhotyavaya",
    "iast": "Śubhoṭyāvāya",
    "devanagari": "शुभोट्यावाय",
    "variants": [
-    "Shubhotyava",
+    "Shubhodaya",
     "Subhotyavaya",
+    "Shubhotyavaya",
     "Śubhoṭyāvāya",
     "SHUBHODAYAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one whose appearance brings auspiciousness, prosperity, and good fortune.",
-   "slug": "shubhotyavaya",
-   "page_slug": "shubhotyavaya"
+   "slug": "shubhodayaya",
+   "page_slug": "shubhodayaya"
   },
   {
    "number": 840,
@@ -16419,15 +16403,16 @@
   },
   {
    "number": 860,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "SHISHIRAATMAKAAYA",
-   "spelling_common": "Shishiraatmakaya",
+   "spelling_common": "Shishiratmakaya",
    "spelling_simple": "Sisiraatmakaya",
    "iast": "Śiśiraātmakāya",
    "devanagari": "शिशिरआत्मकाय",
    "variants": [
-    "Shishiraatmaka",
+    "Shishiratmaka",
     "Sisiraatmakaya",
+    "Shishiraatmakaya",
     "Śiśiraātmakāya",
     "SHISHIRAATMAKAAYA"
    ],
@@ -16436,8 +16421,8 @@
     "no-text-match"
    ],
    "meaning": "Salutations To The one who is cool and refreshing like the winter season, the very soul of coolness.",
-   "slug": "shishiraatmakaya",
-   "page_slug": "shishiraatmakaya"
+   "slug": "shishiratmakaya",
+   "page_slug": "shishiratmakaya"
   },
   {
    "number": 861,
@@ -16676,14 +16661,15 @@
   },
   {
    "number": 873,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "SARVADEVOTTAMOTTAMAAYA",
-   "spelling_common": "Sarvadevottamattamaya",
+   "spelling_common": "Sarvadevottamottamaya",
    "spelling_simple": "Sarvadevottamattamaya",
    "iast": "Sarvadevottamattamāya",
    "devanagari": "सर्वदेवोत्तमत्तमाय",
    "variants": [
-    "Sarvadevottamattama",
+    "Sarvadevottamottama",
+    "Sarvadevottamattamaya",
     "Sarvadevottamattamāya",
     "SARVADEVOTTAMOTTAMAAYA"
    ],
@@ -16692,8 +16678,8 @@
     "no-text-match"
    ],
    "meaning": "Salutations To The one who is the absolute best among the best of all the gods.",
-   "slug": "sarvadevottamattamaya",
-   "page_slug": "sarvadevottamattamaya"
+   "slug": "sarvadevottamottamaya",
+   "page_slug": "sarvadevottamottamaya"
   },
   {
    "number": 874,
@@ -16851,22 +16837,22 @@
   },
   {
    "number": 882,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "SUVISHTAPINE",
-   "spelling_common": "Suvishthapine",
+   "spelling_common": "Suvishtapine",
    "spelling_simple": "Suvisthapine",
    "iast": "Suviṣṭhapine",
    "devanagari": "सुविष्ठपिने",
    "variants": [
     "Suvisthapine",
-    "Suviṣṭhapine",
-    "SUVISHTAPINE"
+    "Suvishthapine",
+    "Suviṣṭhapine"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is the beautiful, sacred branch or the well-established peak.",
-   "slug": "suvishthapine",
-   "page_slug": "suvishthapine"
+   "slug": "suvishtapine",
+   "page_slug": "suvishtapine"
   },
   {
    "number": 883,
@@ -17133,14 +17119,15 @@
   },
   {
    "number": 897,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "IITAYE",
-   "spelling_common": "Itishe",
+   "spelling_common": "Itaye",
    "spelling_simple": "Itise",
    "iast": "Ītiṣe",
    "devanagari": "ईतिषे",
    "variants": [
     "Itise",
+    "Itishe",
     "Ītiṣe",
     "IITAYE"
    ],
@@ -17149,8 +17136,8 @@
     "no-text-match"
    ],
    "meaning": "Salutations To The one who is the embodiment of all that is desired and sought after.",
-   "slug": "itishe",
-   "page_slug": "itishe"
+   "slug": "itaye",
+   "page_slug": "itaye"
   },
   {
    "number": 898,
@@ -17253,25 +17240,24 @@
   },
   {
    "number": 903,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "SHIVAARAMBHAAYA",
-   "spelling_common": "Shivayambhyaya",
+   "spelling_common": "Shivarambhaya",
    "spelling_simple": "Sivayambhyaya",
    "iast": "Śivāyaṃbhyāya",
    "devanagari": "शिवायंभ्याय",
    "variants": [
-    "Shivayambhya",
+    "Shivarambha",
     "Sivayambhyaya",
+    "Shivayambhyaya",
     "Śivāyaṃbhyāya",
     "SHIVAARAMBHAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is the auspicious beginning of all things.",
-   "slug": "shivayambhyaya",
-   "page_slug": "shivayambhyaya"
+   "slug": "shivarambhaya",
+   "page_slug": "shivarambhaya"
   },
   {
    "number": 904,
@@ -17487,24 +17473,23 @@
   },
   {
    "number": 915,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "SAMHAARAKAARANAAYA",
-   "spelling_common": "Samharakakaranaya",
+   "spelling_common": "Samharakaranaya",
    "spelling_simple": "Samharakakaranaya",
    "iast": "Saṃhārakakāraṇāya",
    "devanagari": "संहारककारणाय",
    "variants": [
-    "Samharakakarana",
+    "Samharakarana",
+    "Samharakakaranaya",
     "Saṃhārakakāraṇāya",
     "SAMHAARAKAARANAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is the ultimate cause of the cosmic dissolution and destruction.",
-   "slug": "samharakakaranaya",
-   "page_slug": "samharakakaranaya"
+   "slug": "samharakaranaya",
+   "page_slug": "samharakaranaya"
   },
   {
    "number": 916,
@@ -17814,24 +17799,23 @@
   },
   {
    "number": 932,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "STAVYAAYA",
-   "spelling_common": "Styavaya",
+   "spelling_common": "Stavyaya",
    "spelling_simple": "Styavaya",
    "iast": "Styavāya",
    "devanagari": "स्त्यवाय",
    "variants": [
-    "Styava",
+    "Stavya",
+    "Styavaya",
     "Styavāya",
     "STAVYAAYA"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is worthy of being praised and extolled by all.",
-   "slug": "styavaya",
-   "page_slug": "styavaya"
+   "slug": "stavyaya",
+   "page_slug": "stavyaya"
   },
   {
    "number": 933,
@@ -17947,22 +17931,22 @@
   },
   {
    "number": 939,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VASHAT",
-   "spelling_common": "Vashata",
+   "spelling_common": "Vashat",
    "spelling_simple": "Vasata",
    "iast": "Vaṣaṭa",
    "devanagari": "वषट",
    "variants": [
     "Vasata",
-    "Vaṣaṭa",
-    "VASHAT"
+    "Vashata",
+    "Vaṣaṭa"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To TheThe sacred exclamation made while offering oblations inSalutations To The  fire, symbolizing the deity himself.",
-   "slug": "vashata",
-   "page_slug": "vashata"
+   "slug": "vashat",
+   "page_slug": "vashat"
   },
   {
    "number": 940,
@@ -18175,24 +18159,24 @@
   },
   {
    "number": 951,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "VASVASHTASVARNAKRITE",
-   "spelling_common": "Vasavashtasvarnakrite",
+   "spelling_common": "Vasvashtasvarnakrite",
    "spelling_simple": "Vasavastasvarnakrte",
    "iast": "Vasavaṣṭasvarṇakṛte",
    "devanagari": "वसवष्टस्वर्णकृते",
    "variants": [
     "Vasavastasvarnakrte",
-    "Vasavaṣṭasvarṇakṛte",
-    "VASVASHTASVARNAKRITE"
+    "Vasavashtasvarnakrite",
+    "Vasavaṣṭasvarṇakṛte"
    ],
    "match": "missing",
    "flags": [
     "no-text-match"
    ],
    "meaning": "Salutations To The one who creates the eight forms of wealth (Vasus) and gold.",
-   "slug": "vasavashtasvarnakrite",
-   "page_slug": "vasavashtasvarnakrite"
+   "slug": "vasvashtasvarnakrite",
+   "page_slug": "vasvashtasvarnakrite"
   },
   {
    "number": 952,
@@ -18365,22 +18349,23 @@
   },
   {
    "number": 961,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "PAADUKAASIDDHIDAAYA",
-   "spelling_common": "Padukasiddhidayaya",
+   "spelling_common": "Padukasiddhidaya",
    "spelling_simple": "Padukasiddhidayaya",
    "iast": "Pādukāsiddhidayāya",
    "devanagari": "पादुकासिद्धिदयाय",
    "variants": [
-    "Padukasiddhidaya",
+    "Padukasiddhida",
+    "Padukasiddhidayaya",
     "Pādukāsiddhidayāya",
     "PAADUKAASIDDHIDAAYA"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who grants supernatural powers through his sacred sandals (padukas).",
-   "slug": "padukasiddhidayaya",
-   "page_slug": "padukasiddhidayaya"
+   "slug": "padukasiddhidaya",
+   "page_slug": "padukasiddhidaya"
   },
   {
    "number": 962,
@@ -18423,42 +18408,41 @@
   },
   {
    "number": 964,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "ASHTASIDDHIYE",
-   "spelling_common": "Ashtasiddhaye",
+   "spelling_common": "Ashtasiddhiye",
    "spelling_simple": "Astasiddhaye",
    "iast": "Aṣṭasiddhaye",
    "devanagari": "अष्टसिद्धये",
    "variants": [
     "Astasiddhaye",
-    "Aṣṭasiddhaye",
-    "ASHTASIDDHIYE"
+    "Ashtasiddhaye",
+    "Aṣṭasiddhaye"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is the embodiment of the eight great supernatural powers (Ashta Siddhis).",
-   "slug": "ashtasiddhaye",
-   "page_slug": "ashtasiddhaye"
+   "slug": "ashtasiddhiye",
+   "page_slug": "ashtasiddhiye"
   },
   {
    "number": 965,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "MAHAASIDDHAYE",
-   "spelling_common": "Mahasaddhaye",
+   "spelling_common": "Mahasiddhaye",
    "spelling_simple": "Mahasaddhaye",
    "iast": "Mahāsaddhaye",
    "devanagari": "महासद्धये",
    "variants": [
+    "Mahasaddhaye",
     "Mahāsaddhaye",
     "MAHAASIDDHAYE"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who is the greatest and most supreme of all divine accomplishments.",
-   "slug": "mahasaddhaye",
-   "page_slug": "mahasaddhaye"
+   "slug": "mahasiddhaye",
+   "page_slug": "mahasiddhaye"
   },
   {
    "number": 966,
@@ -18576,24 +18560,23 @@
   },
   {
    "number": 972,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "KAALAAGNIRUDRASHRIYE",
-   "spelling_common": "Kalagnirudrashriyai",
+   "spelling_common": "Kalagnirudrashriye",
    "spelling_simple": "Kalagnirudrasriyai",
    "iast": "Kālāgnirudraśriyai",
    "devanagari": "कालाग्निरुद्रश्रियै",
    "variants": [
     "Kalagnirudrasriyai",
+    "Kalagnirudrashriyai",
     "Kālāgnirudraśriyai",
     "KAALAAGNIRUDRASHRIYE"
    ],
-   "match": "missing",
-   "flags": [
-    "no-text-match"
-   ],
+   "match": "found",
+   "flags": [],
    "meaning": "Salutations To The one who possesses the glorious splendor of Rudra as the fire of time that ends the cosmos.",
-   "slug": "kalagnirudrashriyai",
-   "page_slug": "kalagnirudrashriyai"
+   "slug": "kalagnirudrashriye",
+   "page_slug": "kalagnirudrashriye"
   },
   {
    "number": 973,
@@ -19053,24 +19036,24 @@
   },
   {
    "number": 996,
-   "overridden": false,
+   "overridden": true,
    "spelling_site": "SHRIYAAMVARAAYA",
-   "spelling_common": "Shriyam Varaya",
+   "spelling_common": "Shriyamvaraya",
    "spelling_simple": "Sriyam Varaya",
    "iast": "Śriyām Varāya",
    "devanagari": "श्रियाम् वराय",
    "variants": [
-    "Shriyam Vara",
+    "Shriyamvara",
     "Sriyam Varaya",
-    "ShriyamVaraya",
+    "Shriyam Varaya",
     "Śriyām Varāya",
     "SHRIYAAMVARAAYA"
    ],
    "match": "found",
    "flags": [],
    "meaning": "Salutations To The one who is the best and most excellent of all glorious beings.",
-   "slug": "shriyam-varaya",
-   "page_slug": "shriyam-varaya"
+   "slug": "shriyamvaraya",
+   "page_slug": "shriyamvaraya"
   },
   {
    "number": 997,
@@ -19404,17 +19387,18 @@
    "meaning": "Salutations To The one who is radiant and effulgent like the sun."
   },
   {
-   "slug": "bhirove",
+   "slug": "bhirave",
    "primaryNumber": 15,
    "numbers": [
     15
    ],
-   "spelling_common": "Bhirove",
+   "spelling_common": "Bhirave",
    "spelling_site": "BHIIRAVE",
    "spelling_simple": "Bhirove",
    "iast": "Bhīrove",
    "devanagari": "भीरोवे",
    "variants": [
+    "Bhirove",
     "Bhīrove",
     "BHIIRAVE"
    ],
@@ -19456,18 +19440,19 @@
    "meaning": "Salutations To The one who is the Earth itself."
   },
   {
-   "slug": "vibhutidayaya",
+   "slug": "vibhutidaya",
    "primaryNumber": 18,
    "numbers": [
     18
    ],
-   "spelling_common": "Vibhutidayaya",
+   "spelling_common": "Vibhutidaya",
    "spelling_site": "VIBHUUTIDAAYA",
    "spelling_simple": "Vibhutidayaya",
    "iast": "Vibhūtidāyāya",
    "devanagari": "विभूतिदायाय",
    "variants": [
-    "Vibhutidaya",
+    "Vibhutida",
+    "Vibhutidayaya",
     "Vibhūtidāyāya",
     "VIBHUUTIDAAYA"
    ],
@@ -19734,18 +19719,19 @@
    "meaning": "Salutations To The one who is entirely composed of sacred ash and divine glory."
   },
   {
-   "slug": "bhringagiritine",
+   "slug": "bhringiritine",
    "primaryNumber": 35,
    "numbers": [
     35
    ],
-   "spelling_common": "Bhringagiritine",
+   "spelling_common": "Bhringiritine",
    "spelling_site": "BHRINGGIRITINE",
    "spelling_simple": "Bhrmgagiritine",
    "iast": "Bhṛṃgagiriṭīne",
    "devanagari": "भृंगगिरिटीने",
    "variants": [
     "Bhrmgagiritine",
+    "Bhringagiritine",
     "Bhṛṃgagiriṭīne",
     "BHRINGGIRITINE"
    ],
@@ -19951,21 +19937,22 @@
    "meaning": "Salutations To The one who contains the great cosmic womb within himself."
   },
   {
-   "slug": "vishvagarbhyaya",
+   "slug": "vishvagarbhaya",
    "primaryNumber": 47,
    "numbers": [
     47,
     714
    ],
-   "spelling_common": "Vishvagarbhyaya",
+   "spelling_common": "Vishvagarbhaya",
    "spelling_site": "VISHVAGARBHAAYA",
    "spelling_simple": "Visvagarbhyaya",
    "iast": "Viśvagarbhyāya",
    "devanagari": "विश्वगर्भ्याय",
    "variants": [
-    "Vishvagarbhya",
+    "Vishvagarbha",
     "Visvagarbhyaya",
     "Vishwagarbhyaya",
+    "Vishvagarbhyaya",
     "Viśvagarbhyāya",
     "VISHVAGARBHAAYA"
    ],
@@ -20411,18 +20398,19 @@
    "meaning": "Salutations To The one who has the power to delude, enchant, and captivate all beings."
   },
   {
-   "slug": "namanyaya",
+   "slug": "namanaya",
    "primaryNumber": 75,
    "numbers": [
     75
    ],
-   "spelling_common": "Namanyaya",
+   "spelling_common": "Namanaya",
    "spelling_site": "NAMANAAYA",
    "spelling_simple": "Namanyaya",
    "iast": "Namanyāya",
    "devanagari": "नमन्याय",
    "variants": [
-    "Namanya",
+    "Namana",
+    "Namanyaya",
     "Namanyāya",
     "NAMANAAYA"
    ],
@@ -20808,19 +20796,19 @@
    "meaning": "Salutations To The one who is fond of the beautiful Karnikara flower."
   },
   {
-   "slug": "kapae",
+   "slug": "kapaye",
    "primaryNumber": 100,
    "numbers": [
     100
    ],
-   "spelling_common": "Kapae",
+   "spelling_common": "Kapaye",
    "spelling_site": "KAPAYE",
    "spelling_simple": "Kapae",
    "iast": "Kapāe",
    "devanagari": "कपाए",
    "variants": [
-    "Kapāe",
-    "KAPAYE"
+    "Kapae",
+    "Kapāe"
    ],
    "meaning": "Salutations To The one who is the chief, or is reddish-brown in color like an ape."
   },
@@ -20951,17 +20939,18 @@
    "meaning": "Salutations To The one who is the cosmic aeon (Kalpa) and the prescribed rules."
   },
   {
-   "slug": "kalpadye",
+   "slug": "kalpadaye",
    "primaryNumber": 108,
    "numbers": [
     108
    ],
-   "spelling_common": "Kalpadye",
+   "spelling_common": "Kalpadaye",
    "spelling_site": "KALPAADAYE",
    "spelling_simple": "Kalpadye",
    "iast": "Kalpādye",
    "devanagari": "कल्पाद्ये",
    "variants": [
+    "Kalpadye",
     "Kalpādye",
     "KALPAADAYE"
    ],
@@ -21036,19 +21025,20 @@
    "meaning": "Salutations To The one who is a master yogi perfectly united with Time."
   },
   {
-   "slug": "akalamashaya",
+   "slug": "akalmashaya",
    "primaryNumber": 113,
    "numbers": [
     113
    ],
-   "spelling_common": "Akalamashaya",
+   "spelling_common": "Akalmashaya",
    "spelling_site": "AKALMASHAAYA",
    "spelling_simple": "Akalamasaya",
    "iast": "Akalamaṣāya",
    "devanagari": "अकलमषाय",
    "variants": [
-    "Akalamasha",
+    "Akalmasha",
     "Akalamasaya",
+    "Akalamashaya",
     "Akalamaṣāya",
     "AKALMASHAAYA"
    ],
@@ -21217,17 +21207,18 @@
    "meaning": "Salutations To The one who wears a glorious, shining diadem or crown."
   },
   {
-   "slug": "kaushika",
+   "slug": "kaushikaya",
    "primaryNumber": 123,
    "numbers": [
     123
    ],
-   "spelling_common": "Kaushika",
+   "spelling_common": "Kaushikaya",
    "spelling_site": "KAUSHIKAAYA",
    "spelling_simple": "Kausika",
    "iast": "Kauśikā",
    "devanagari": "कौशिका",
    "variants": [
+    "Kaushika",
     "Kausika",
     "Kauśikā",
     "KAUSHIKAAYA"
@@ -21455,18 +21446,18 @@
    "meaning": "Salutations To The one whose real ornament and adornment is his immense fame and glory."
   },
   {
-   "slug": "kalajnanaya",
+   "slug": "kalajnanine",
    "primaryNumber": 137,
    "numbers": [
     137
    ],
-   "spelling_common": "Kalajnanaya",
+   "spelling_common": "Kalajnanine",
    "spelling_site": "KAALAJNAANINE",
    "spelling_simple": "Kalajnanaya",
    "iast": "Kālajñānāya",
    "devanagari": "कालज्ञानाय",
    "variants": [
-    "Kalajnana",
+    "Kalajnanaya",
     "Kalagyanaya",
     "Kālajñānāya",
     "KAALAJNAANINE"
@@ -21563,18 +21554,19 @@
    "meaning": "Salutations To The one who is thorny and proves to be a great obstacle to his enemies."
   },
   {
-   "slug": "karyakovidvikramaya",
+   "slug": "karyakovidavikramaya",
    "primaryNumber": 143,
    "numbers": [
     143
    ],
-   "spelling_common": "Karyakovidvikramaya",
+   "spelling_common": "Karyakovidavikramaya",
    "spelling_site": "KAARYAKOVIDAVIKRAMAAYA",
    "spelling_simple": "Karyakovidvikramaya",
    "iast": "Kāryakovidvikramāya",
    "devanagari": "कार्यकोविद्विक्रमाय",
    "variants": [
-    "Karyakovidvikrama",
+    "Karyakovidavikrama",
+    "Karyakovidvikramaya",
     "Kāryakovidvikramāya",
     "KAARYAKOVIDAVIKRAMAAYA"
    ],
@@ -21759,21 +21751,21 @@
    "meaning": "Salutations To The one who resides in the secret, sacred cave of every being's heart."
   },
   {
-   "slug": "goptri",
+   "slug": "goptre",
    "primaryNumber": 154,
    "numbers": [
     154,
     159
    ],
-   "spelling_common": "Goptri",
+   "spelling_common": "Goptre",
    "spelling_site": "GOPTRE",
    "spelling_simple": "Goptr",
    "iast": "Goptṛ",
    "devanagari": "गोप्तृ",
    "variants": [
     "Goptr",
-    "Goptṛ",
-    "GOPTRE"
+    "Goptri",
+    "Goptṛ"
    ],
    "meaning": "Salutations To The one who is the ultimate protector, guardian, and preserver of all creation."
   },
@@ -22108,17 +22100,19 @@
    "meaning": "Salutations To The one who carries a formidable club made from a human bone (Khatvanga)."
   },
   {
-   "slug": "gaganalayeya",
+   "slug": "gaganalayaya",
    "primaryNumber": 176,
    "numbers": [
     176
    ],
-   "spelling_common": "Gaganalayeya",
+   "spelling_common": "Gaganalayaya",
    "spelling_site": "GAGANAALAYAAYA",
    "spelling_simple": "Gaganalayeya",
    "iast": "Gaganālayeya",
    "devanagari": "गगनालयेय",
    "variants": [
+    "Gaganalaya",
+    "Gaganalayeya",
     "Gaganālayeya",
     "GAGANAALAYAAYA"
    ],
@@ -22820,17 +22814,18 @@
    "meaning": "Salutations To The one who is the ultimate source of all birth and creation."
   },
   {
-   "slug": "janajanmadye",
+   "slug": "janajanmadaye",
    "primaryNumber": 216,
    "numbers": [
     216
    ],
-   "spelling_common": "Janajanmadye",
+   "spelling_common": "Janajanmadaye",
    "spelling_site": "JANAJANMAADAYE",
    "spelling_simple": "Janajanmadye",
    "iast": "Janajanmādye",
    "devanagari": "जनजन्माद्ये",
    "variants": [
+    "Janajanmadye",
     "Janajanmādye",
     "JANAJANMAADAYE"
    ],
@@ -22983,22 +22978,23 @@
    "meaning": "Salutations To The one who is the absolute lord and master of the entire universe."
   },
   {
-   "slug": "janeshvara-aya",
+   "slug": "janeshvaraya",
    "primaryNumber": 225,
    "numbers": [
     225
    ],
-   "spelling_common": "Janeshvara Aya",
+   "spelling_common": "Janeshvaraya",
    "spelling_site": "JANESHVARAAYA",
    "spelling_simple": "Janesvara Aya",
    "iast": "Janeśvara Āya",
    "devanagari": "जनेश्वर आय",
    "variants": [
-    "Janeshvara a",
+    "Janeshvara",
     "Janesvara Aya",
     "Janeshwara Aya",
-    "JaneshvaraAya",
-    "Janeśvara Āya"
+    "Janeshvara Aya",
+    "Janeśvara Āya",
+    "JANESHVARAAYA"
    ],
    "meaning": "Salutations To The one who is the supreme ruler and God of all people."
   },
@@ -23254,19 +23250,20 @@
    "meaning": "Salutations To The one who is ever-vigilant, tireless, and eternally watchful."
   },
   {
-   "slug": "uttarangaya",
+   "slug": "uttamangaya",
    "primaryNumber": 240,
    "numbers": [
     240
    ],
-   "spelling_common": "Uttarangaya",
+   "spelling_common": "Uttamangaya",
    "spelling_site": "UTTAMAANGGAAYA",
    "spelling_simple": "Uttaramgaya",
    "iast": "Uttarāṃgāya",
    "devanagari": "उत्तरांगाय",
    "variants": [
-    "Uttaranga",
+    "Uttamanga",
     "Uttaramgaya",
+    "Uttarangaya",
     "Uttarāṃgāya",
     "UTTAMAANGGAAYA"
    ],
@@ -23581,18 +23578,18 @@
    "meaning": "Salutations To The one who is deeply fond of his guests and devotees."
   },
   {
-   "slug": "atmayogashaya",
+   "slug": "atmayogashayaya",
    "primaryNumber": 259,
    "numbers": [
     259
    ],
-   "spelling_common": "Atmayogashaya",
+   "spelling_common": "Atmayogashayaya",
    "spelling_site": "AATMAYOGASHAYAAYA",
    "spelling_simple": "Atmayogasaya",
    "iast": "Ātmayogaśāya",
    "devanagari": "आत्मयोगशाय",
    "variants": [
-    "Atmayogasha",
+    "Atmayogashaya",
     "Atmayogasaya",
     "Ātmayogaśāya",
     "AATMAYOGASHAYAAYA"
@@ -23839,20 +23836,21 @@
    "meaning": "Salutations To The one who is the ultimate object of knowledge, known through the three Vedas."
   },
   {
-   "slug": "triravachah-sthaya",
+   "slug": "trirvachah-sthaya",
    "primaryNumber": 274,
    "numbers": [
     274
    ],
-   "spelling_common": "Triravachah Sthaya",
+   "spelling_common": "Trirvachah Sthaya",
    "spelling_site": "TRIRVACAH STHAAYA",
    "spelling_simple": "Triravacah Sthaya",
    "iast": "Triravacaḥ Sthāya",
    "devanagari": "त्रिरवचः स्थाय",
    "variants": [
-    "Triravachah Stha",
+    "Trirvachah Stha",
     "Triravacah Sthaya",
-    "TriravachahSthaya",
+    "Triravachah Sthaya",
+    "TrirvachahSthaya",
     "Triravacaḥ Sthāya",
     "TRIRVACAH STHAAYA"
    ],
@@ -23932,18 +23930,19 @@
    "meaning": "Salutations To The one who brings about difficult or calamitous circumstances for the wicked."
   },
   {
-   "slug": "dussahadayaya",
+   "slug": "dussahodayaya",
    "primaryNumber": 279,
    "numbers": [
     279
    ],
-   "spelling_common": "Dussahadayaya",
+   "spelling_common": "Dussahodayaya",
    "spelling_site": "DUSSAHODAYAAYA",
    "spelling_simple": "Dussahadayaya",
    "iast": "Dussahadayāya",
    "devanagari": "दुस्सहॊदयाय",
    "variants": [
-    "Dussahadaya",
+    "Dussahodaya",
+    "Dussahadayaya",
     "Dussahadayāya",
     "DUSSAHODAYAAYA"
    ],
@@ -24115,18 +24114,19 @@
    "meaning": "Salutations To The one who is the ultimate destroyer of all bad dreams and nightmares."
   },
   {
-   "slug": "durjneyaya",
+   "slug": "durneyaya",
    "primaryNumber": 289,
    "numbers": [
     289
    ],
-   "spelling_common": "Durjneyaya",
+   "spelling_common": "Durneyaya",
    "spelling_site": "DURNEYAAYA",
    "spelling_simple": "Durjneyaya",
    "iast": "Durjñeyāya",
    "devanagari": "दुर्ज्ञेयाय",
    "variants": [
-    "Durjneya",
+    "Durneya",
+    "Durjneyaya",
     "Durgyeyaya",
     "Durjñeyāya",
     "DURNEYAAYA"
@@ -24709,18 +24709,19 @@
    "meaning": "Salutations To The one who holds the mighty bow named Pinaka."
   },
   {
-   "slug": "vyayananirvahanaya",
+   "slug": "vyayanirvahanaya",
    "primaryNumber": 323,
    "numbers": [
     323
    ],
-   "spelling_common": "Vyayananirvahanaya",
+   "spelling_common": "Vyayanirvahanaya",
    "spelling_site": "VYAYANIRVAHANAAYA",
    "spelling_simple": "Vyayananirvahanaya",
    "iast": "Vyayananirvāhaṇāya",
    "devanagari": "व्ययननिर्वाहणाय",
    "variants": [
-    "Vyayananirvahana",
+    "Vyayanirvahana",
+    "Vyayananirvahanaya",
     "Vyayananirvāhaṇāya",
     "VYAYANIRVAHANAAYA"
    ],
@@ -25050,18 +25051,19 @@
    "meaning": "Salutations To The one who has created and experiences divine bliss."
   },
   {
-   "slug": "nirdhyayaya",
+   "slug": "nirdhyatavyaya",
    "primaryNumber": 342,
    "numbers": [
     342
    ],
-   "spelling_common": "Nirdhyayaya",
+   "spelling_common": "Nirdhyatavyaya",
    "spelling_site": "NIRDHYAATAVYAAYA",
    "spelling_simple": "Nirdhyayaya",
    "iast": "Nirdhyāyāya",
    "devanagari": "निर्ध्यायाय",
    "variants": [
-    "Nirdhyaya",
+    "Nirdhyatavya",
+    "Nirdhyayaya",
     "Nirdhyāyāya",
     "NIRDHYAATAVYAAYA"
    ],
@@ -25585,18 +25587,19 @@
    "meaning": "Salutations To The one who is the great ruler and chastiser of the three celestial cities (Tripura)."
   },
   {
-   "slug": "purastutaya",
+   "slug": "puratsutaya",
    "primaryNumber": 374,
    "numbers": [
     374
    ],
-   "spelling_common": "Purastutaya",
+   "spelling_common": "Puratsutaya",
    "spelling_site": "PURAATSUUTAAYA",
    "spelling_simple": "Purastutaya",
    "iast": "Purāstutāya",
    "devanagari": "पुरास्तुताय",
    "variants": [
-    "Purastuta",
+    "Puratsuta",
+    "Purastutaya",
     "Purāstutāya",
     "PURAATSUUTAAYA"
    ],
@@ -25657,19 +25660,20 @@
    "meaning": "Salutations To The one who is the ultimate and final refuge for all souls."
   },
   {
-   "slug": "panchavinshatitattvasthaya",
+   "slug": "panchavimshatitatvasthaya",
    "primaryNumber": 378,
    "numbers": [
     378
    ],
-   "spelling_common": "Panchavinshatitattvasthaya",
+   "spelling_common": "Panchavimshatitatvasthaya",
    "spelling_site": "PANCAVIMSHATITATVASTHAAYA",
    "spelling_simple": "Pancavimsatitattvasthaya",
    "iast": "Pañcaviṃśatitattvasthāya",
    "devanagari": "पञ्चविंशतितत्त्वस्थाय",
    "variants": [
-    "Panchavinshatitattvastha",
+    "Panchavimshatitatvastha",
     "Pancavimsatitattvasthaya",
+    "Panchavinshatitattvasthaya",
     "Pañcaviṃśatitattvasthāya",
     "PANCAVIMSHATITATVASTHAAYA"
    ],
@@ -26081,36 +26085,38 @@
    "meaning": "Salutations To The one who is the ultimate enemy of all sin and wickedness."
   },
   {
-   "slug": "pratyayachirashe",
+   "slug": "pratyayachirshe",
    "primaryNumber": 403,
    "numbers": [
     403
    ],
-   "spelling_common": "Pratyayachirashe",
+   "spelling_common": "Pratyayachirshe",
    "spelling_site": "PRATYAYAACIRSHE",
    "spelling_simple": "Pratyayacirase",
    "iast": "Pratyāyāciraśe",
    "devanagari": "प्रत्यायाचिरशे",
    "variants": [
     "Pratyayacirase",
+    "Pratyayachirashe",
     "Pratyāyāciraśe",
     "PRATYAYAACIRSHE"
    ],
    "meaning": "Salutations To The one who is the pinnacle and crown of all faith."
   },
   {
-   "slug": "apama-nidhaye",
+   "slug": "apam-nidhaye",
    "primaryNumber": 404,
    "numbers": [
     404
    ],
-   "spelling_common": "Apama Nidhaye",
+   "spelling_common": "Apam Nidhaye",
    "spelling_site": "APAAM NIDHAYE",
    "spelling_simple": "Apama Nidhaye",
    "iast": "Apāma Nidhaye",
    "devanagari": "अपाम निधये",
    "variants": [
-    "ApamaNidhaye",
+    "Apama Nidhaye",
+    "ApamNidhaye",
     "Apāma Nidhaye",
     "APAAM NIDHAYE"
    ],
@@ -26171,38 +26177,40 @@
    "meaning": "Salutations To The one who is the revered and powerful sage Agastya."
   },
   {
-   "slug": "purushutaya",
+   "slug": "puruhutaya",
    "primaryNumber": 408,
    "numbers": [
     408
    ],
-   "spelling_common": "Purushutaya",
+   "spelling_common": "Puruhutaya",
    "spelling_site": "PURUHUUTAAYA",
    "spelling_simple": "Purusutaya",
    "iast": "Puruṣūtāya",
    "devanagari": "पुरुषूताय",
    "variants": [
-    "Purushuta",
+    "Puruhuta",
     "Purusutaya",
+    "Purushutaya",
     "Puruṣūtāya",
     "PURUHUUTAAYA"
    ],
    "meaning": "Salutations To The one who is invoked and called upon by many."
   },
   {
-   "slug": "purushastutaya",
+   "slug": "purushtutaya",
    "primaryNumber": 409,
    "numbers": [
     409
    ],
-   "spelling_common": "Purushastutaya",
+   "spelling_common": "Purushtutaya",
    "spelling_site": "PURUSHTUTAAYA",
    "spelling_simple": "Purusastutaya",
    "iast": "Puruṣastutāya",
    "devanagari": "पुरुषस्तुताय",
    "variants": [
-    "Purushastuta",
+    "Purushtuta",
     "Purusastutaya",
+    "Purushastutaya",
     "Puruṣastutāya",
     "PURUSHTUTAAYA"
    ],
@@ -26606,18 +26614,18 @@
    "meaning": "Salutations To The one who is born in many forms and is multi-faceted."
   },
   {
-   "slug": "pitrai",
+   "slug": "pitre",
    "primaryNumber": 433,
    "numbers": [
     433
    ],
-   "spelling_common": "Pitrai",
+   "spelling_common": "Pitre",
    "spelling_site": "PITRE",
    "spelling_simple": "Pitrai",
    "iast": "Pitrai",
    "devanagari": "पित्रै",
    "variants": [
-    "PITRE"
+    "Pitrai"
    ],
    "meaning": "Salutations To The one who is the divine father of the entire universe."
   },
@@ -27023,19 +27031,20 @@
    "meaning": "Salutations To The one who performs great and mighty cosmic actions."
   },
   {
-   "slug": "mahaaushadhaya",
+   "slug": "mahaushadhaya",
    "primaryNumber": 458,
    "numbers": [
     458
    ],
-   "spelling_common": "Mahaaushadhaya",
+   "spelling_common": "Mahaushadhaya",
    "spelling_site": "MAHAUSHADHAAYA",
    "spelling_simple": "Mahaausadhaya",
    "iast": "Mahāauṣadhāya",
    "devanagari": "महाऔषधाय",
    "variants": [
-    "Mahaaushadha",
+    "Mahaushadha",
     "Mahaausadhaya",
+    "Mahaaushadhaya",
     "Mahāauṣadhāya",
     "MAHAUSHADHAAYA"
    ],
@@ -27096,18 +27105,18 @@
    "meaning": "Salutations To The one who has the deer as his abode or symbol."
   },
   {
-   "slug": "mahalaya",
+   "slug": "mahalayaya",
    "primaryNumber": 462,
    "numbers": [
     462
    ],
-   "spelling_common": "Mahalaya",
+   "spelling_common": "Mahalayaya",
    "spelling_site": "MAHAALAYAAYA",
    "spelling_simple": "Mahalaya",
    "iast": "Mahālaya",
    "devanagari": "महालय",
    "variants": [
-    "Mahala",
+    "Mahalaya",
     "Mahālaya",
     "MAHAALAYAAYA"
    ],
@@ -27274,18 +27283,19 @@
    "meaning": "Salutations To The one who is the lord of death and the great controller (Yama)."
   },
   {
-   "slug": "amritanshave",
+   "slug": "amritamshave",
    "primaryNumber": 472,
    "numbers": [
     472
    ],
-   "spelling_common": "Amritanshave",
+   "spelling_common": "Amritamshave",
    "spelling_site": "AMRITAAMSHAVE",
    "spelling_simple": "Amrtamsave",
    "iast": "Amṛtāṃśave",
    "devanagari": "अमृतांशवे",
    "variants": [
     "Amrtamsave",
+    "Amritanshave",
     "Amṛtāṃśave",
     "AMRITAAMSHAVE"
    ],
@@ -27506,21 +27516,20 @@
    "meaning": "Salutations To The one who is eternally and supremely peaceful and tranquil."
   },
   {
-   "slug": "mataya",
+   "slug": "mataye",
    "primaryNumber": 486,
    "numbers": [
     486,
     497
    ],
-   "spelling_common": "Mataya",
+   "spelling_common": "Mataye",
    "spelling_site": "MATAYE",
    "spelling_simple": "Mataya",
    "iast": "Matāya",
    "devanagari": "मताय",
    "variants": [
-    "Mata",
-    "Matāya",
-    "MATAYE"
+    "Mataya",
+    "Matāya"
    ],
    "meaning": "Salutations To The one who is the very embodiment of thought, wisdom, and intellect."
   },
@@ -28479,19 +28488,20 @@
    "meaning": "Salutations To The one who is the embodiment of supreme, unending bliss."
   },
   {
-   "slug": "mahacharyaya",
+   "slug": "mahacharaya",
    "primaryNumber": 546,
    "numbers": [
     546
    ],
-   "spelling_common": "Mahacharyaya",
+   "spelling_common": "Mahacharaya",
    "spelling_site": "MAHAACAARAAYA",
    "spelling_simple": "Mahacaryaya",
    "iast": "Mahācāryāya",
    "devanagari": "महाचार्याय",
    "variants": [
-    "Mahacharya",
+    "Mahachara",
     "Mahacaryaya",
+    "Mahacharyaya",
     "Mahācāryāya",
     "MAHAACAARAAYA"
    ],
@@ -28546,18 +28556,19 @@
    "meaning": "Salutations To The one who is the great destroyer of sacrifices when they are performed with arrogance."
   },
   {
-   "slug": "maghavatapriyaya",
+   "slug": "maghavatpriyaya",
    "primaryNumber": 551,
    "numbers": [
     551
    ],
-   "spelling_common": "Maghavatapriyaya",
+   "spelling_common": "Maghavatpriyaya",
    "spelling_site": "MAGHAVATPRIYAAYA",
    "spelling_simple": "Maghavatapriyaya",
    "iast": "Maghavatapriyāya",
    "devanagari": "मघवतप्रियाय",
    "variants": [
-    "Maghavatapriya",
+    "Maghavatpriya",
+    "Maghavatapriyaya",
     "Maghavatapriyāya",
     "MAGHAVATPRIYAAYA"
    ],
@@ -29235,20 +29246,20 @@
    "meaning": "Salutations To The one who is of a fierce, wrathful, and terrible form."
   },
   {
-   "slug": "raudrarishaye",
+   "slug": "raudrarshaye",
    "primaryNumber": 594,
    "numbers": [
     594
    ],
-   "spelling_common": "Raudrarishaye",
+   "spelling_common": "Raudrarshaye",
    "spelling_site": "RAUDRARSHAYE",
    "spelling_simple": "Raudrarsaye",
    "iast": "Raudraṛṣaye",
    "devanagari": "रौद्रऋषये",
    "variants": [
     "Raudrarsaye",
-    "Raudraṛṣaye",
-    "RAUDRARSHAYE"
+    "Raudrarishaye",
+    "Raudraṛṣaye"
    ],
    "meaning": "Salutations To The one who is the fierce and powerful divine sage."
   },
@@ -29270,19 +29281,19 @@
    "meaning": "Salutations To The one who is the celestial being Rahu, who causes eclipses."
   },
   {
-   "slug": "rati-ratnaya",
+   "slug": "ratiratnaya",
    "primaryNumber": 596,
    "numbers": [
     596
    ],
-   "spelling_common": "Rati Ratnaya",
+   "spelling_common": "Ratiratnaya",
    "spelling_site": "RATIRATNAAYA",
    "spelling_simple": "Rati Ratnaya",
    "iast": "Rati Ratnāya",
    "devanagari": "रति रत्नाय",
    "variants": [
-    "Rati Ratna",
-    "RatiRatnaya",
+    "Ratiratna",
+    "Rati Ratnaya",
     "Rati Ratnāya",
     "RATIRATNAAYA"
    ],
@@ -29502,18 +29513,19 @@
    "meaning": "Salutations To The one who is the supreme bestower of all boons and blessings."
   },
   {
-   "slug": "vanyaya",
+   "slug": "vandyaya",
    "primaryNumber": 609,
    "numbers": [
     609
    ],
-   "spelling_common": "Vanyaya",
+   "spelling_common": "Vandyaya",
    "spelling_site": "VANDYAAYA",
    "spelling_simple": "Vanyaya",
    "iast": "Vanyāya",
    "devanagari": "वन्याय",
    "variants": [
-    "Vanya",
+    "Vandya",
+    "Vanyaya",
     "Vanyāya",
     "VANDYAAYA"
    ],
@@ -29687,22 +29699,22 @@
    "meaning": "Salutations To The one who is the great liberator, granting ultimate freedom from all bondage."
   },
   {
-   "slug": "vishva-rupaya",
+   "slug": "vishvarupaya",
    "primaryNumber": 620,
    "numbers": [
     620,
     726
    ],
-   "spelling_common": "Vishva Rupaya",
+   "spelling_common": "Vishvarupaya",
    "spelling_site": "VISHVARUUPAAYA",
    "spelling_simple": "Visva Rupaya",
    "iast": "Viśva Rūpāya",
    "devanagari": "विश्व रूपाय",
    "variants": [
-    "Vishva Rupa",
+    "Vishvarupa",
     "Visva Rupaya",
     "Vishwa Rupaya",
-    "VishvaRupaya",
+    "Vishva Rupaya",
     "Viśva Rūpāya",
     "VISHVARUUPAAYA"
    ],
@@ -29877,19 +29889,21 @@
    "meaning": "Salutations To The one who is the creator and fashioner of the entire universe."
   },
   {
-   "slug": "vishvasmai-2",
+   "slug": "vishvaya",
    "primaryNumber": 630,
    "numbers": [
     630
    ],
-   "spelling_common": "Vishvasmai",
+   "spelling_common": "Vishvaya",
    "spelling_site": "VISHVAAYA",
    "spelling_simple": "Visvasmai",
    "iast": "Viśvasmai",
    "devanagari": "विश्वस्मै",
    "variants": [
+    "Vishva",
     "Visvasmai",
     "Vishwasmai",
+    "Vishvasmai",
     "Viśvasmai",
     "VISHVAAYA"
    ],
@@ -29980,18 +29994,19 @@
    "meaning": "Salutations To The one who is all-pervading, permeating every particle of the universe."
   },
   {
-   "slug": "vangmayikanidhaye",
+   "slug": "vangmayaikanidhaye",
    "primaryNumber": 636,
    "numbers": [
     636
    ],
-   "spelling_common": "Vangmayikanidhaye",
+   "spelling_common": "Vangmayaikanidhaye",
    "spelling_site": "VAANGMAYAIKANIDHAYE",
    "spelling_simple": "Vamgmayikanidhaye",
    "iast": "Vāṃgmayīkanidhaye",
    "devanagari": "वांग्मयीकनिधये",
    "variants": [
     "Vamgmayikanidhaye",
+    "Vangmayikanidhaye",
     "Vāṃgmayīkanidhaye",
     "VAANGMAYAIKANIDHAYE"
    ],
@@ -30223,20 +30238,21 @@
    "meaning": "Salutations To The one who is the ultimate embodiment of victory and triumph."
   },
   {
-   "slug": "vishishthaya",
+   "slug": "vishishtaya",
    "primaryNumber": 652,
    "numbers": [
     652,
     808
    ],
-   "spelling_common": "Vishishthaya",
+   "spelling_common": "Vishishtaya",
    "spelling_site": "VISHISHTAAYA",
    "spelling_simple": "Visisthaya",
    "iast": "Viśiṣṭhāya",
    "devanagari": "विशिष्ठाय",
    "variants": [
-    "Vishishtha",
+    "Vishishta",
     "Visisthaya",
+    "Vishishthaya",
     "Viśiṣṭhāya",
     "VISHISHTAAYA"
    ],
@@ -30300,17 +30316,18 @@
    "meaning": "Salutations To The one who manifests in diverse, manifold, and various forms."
   },
   {
-   "slug": "vadina",
+   "slug": "vadine",
    "primaryNumber": 656,
    "numbers": [
     656
    ],
-   "spelling_common": "Vadina",
+   "spelling_common": "Vadine",
    "spelling_site": "VAADINE",
    "spelling_simple": "Vadina",
    "iast": "Vādina",
    "devanagari": "वादिन",
    "variants": [
+    "Vadina",
     "Vādina",
     "VAADINE"
    ],
@@ -30510,17 +30527,18 @@
    "meaning": "Salutations To The one who is the crest-jewel of all heroes and valiant warriors."
   },
   {
-   "slug": "valakhilya",
+   "slug": "valakhilyaya",
    "primaryNumber": 669,
    "numbers": [
     669
    ],
-   "spelling_common": "Valakhilya",
+   "spelling_common": "Valakhilyaya",
    "spelling_site": "VAALAKHILYAAYA",
    "spelling_simple": "Valakhilya",
    "iast": "Vālakhilya",
    "devanagari": "वालखिल्य",
    "variants": [
+    "Valakhilya",
     "Vālakhilya",
     "VAALAKHILYAAYA"
    ],
@@ -30896,18 +30914,19 @@
    "meaning": "Salutations To The one who holds the mighty thunderbolt (vajra) in his hand."
   },
   {
-   "slug": "vajararupaya",
+   "slug": "vajrarupaya",
    "primaryNumber": 695,
    "numbers": [
     695
    ],
-   "spelling_common": "Vajararupaya",
+   "spelling_common": "Vajrarupaya",
    "spelling_site": "VAJRARUUPAAYA",
    "spelling_simple": "Vajararupaya",
    "iast": "Vajararūpāya",
    "devanagari": "वजररूपाय",
    "variants": [
-    "Vajararupa",
+    "Vajrarupa",
+    "Vajararupaya",
     "Vajararūpāya",
     "VAJRARUUPAAYA"
    ],
@@ -31297,19 +31316,20 @@
    "meaning": "Salutations To The one who is the bestower of righteousness, virtue, and desires."
   },
   {
-   "slug": "vrishavardhanaya",
+   "slug": "vrishavarddhanaya",
    "primaryNumber": 719,
    "numbers": [
     719
    ],
-   "spelling_common": "Vrishavardhanaya",
+   "spelling_common": "Vrishavarddhanaya",
    "spelling_site": "VRISHAVARDDHANAAYA",
    "spelling_simple": "Vrsavardhanaya",
    "iast": "Vṛṣavardhanāya",
    "devanagari": "वृषवर्धनाय",
    "variants": [
-    "Vrishavardhana",
+    "Vrishavarddhana",
     "Vrsavardhanaya",
+    "Vrishavardhanaya",
     "Vṛṣavardhanāya",
     "VRISHAVARDDHANAAYA"
    ],
@@ -31732,18 +31752,19 @@
    "meaning": "Salutations To The one who is spotlessly clean, pure, and undefiled."
   },
   {
-   "slug": "rashibhyo",
+   "slug": "rashaye",
    "primaryNumber": 747,
    "numbers": [
     747
    ],
-   "spelling_common": "Rashibhyo",
+   "spelling_common": "Rashaye",
    "spelling_site": "RAASHAYE",
    "spelling_simple": "Rasibhyo",
    "iast": "Rāśibhyo",
    "devanagari": "राशिभ्यो",
    "variants": [
     "Rasibhyo",
+    "Rashibhyo",
     "Rāśibhyo",
     "RAASHAYE"
    ],
@@ -31854,17 +31875,18 @@
    "meaning": "Salutations To The one who knows the true nature and form of the sacred Sama Veda."
   },
   {
-   "slug": "suniti",
+   "slug": "sunitaye",
    "primaryNumber": 755,
    "numbers": [
     755
    ],
-   "spelling_common": "Suniti",
+   "spelling_common": "Sunitaye",
    "spelling_site": "SUNIITAYE",
    "spelling_simple": "Suniti",
    "iast": "Sunīti",
    "devanagari": "सुनीति",
    "variants": [
+    "Suniti",
     "Sunīti",
     "SUNIITAYE"
    ],
@@ -31978,17 +32000,18 @@
    "meaning": "Salutations To The one who is well-rounded, complete, and lives a balanced life."
   },
   {
-   "slug": "sukritaye",
+   "slug": "sukirtaye",
    "primaryNumber": 762,
    "numbers": [
     762
    ],
-   "spelling_common": "Sukritaye",
+   "spelling_common": "Sukirtaye",
    "spelling_site": "SUKIIRTAYE",
    "spelling_simple": "Sukritaye",
    "iast": "Sukrītaye",
    "devanagari": "सुक्रीतये",
    "variants": [
+    "Sukritaye",
     "Sukrītaye",
     "SUKIIRTAYE"
    ],
@@ -32457,17 +32480,18 @@
    "meaning": "Salutations To The one who is the great seizer, the one who forcibly removes all sins, sorrows, and ignorance."
   },
   {
-   "slug": "sarvadi",
+   "slug": "sarvadaye",
    "primaryNumber": 792,
    "numbers": [
     792
    ],
-   "spelling_common": "Sarvadi",
+   "spelling_common": "Sarvadaye",
    "spelling_site": "SARVAADAYE",
    "spelling_simple": "Sarvadi",
    "iast": "Sarvādi",
    "devanagari": "सर्वादि",
    "variants": [
+    "Sarvadi",
     "Sarvādi",
     "SARVAADAYE"
    ],
@@ -32693,19 +32717,20 @@
    "meaning": "Salutations To The one who is the embodiment of battle, the cosmic war against evil."
   },
   {
-   "slug": "sanggamaya",
+   "slug": "sangamaya",
    "primaryNumber": 805,
    "numbers": [
     805
    ],
-   "spelling_common": "Sanggamaya",
+   "spelling_common": "Sangamaya",
    "spelling_site": "SANGGAMAAYA",
    "spelling_simple": "Samggamaya",
    "iast": "Saṃggamāya",
    "devanagari": "संग्गमाय",
    "variants": [
-    "Sanggama",
+    "Sangama",
     "Samggamaya",
+    "Sanggamaya",
     "Saṃggamāya",
     "SANGGAMAAYA"
    ],
@@ -33132,19 +33157,20 @@
    "meaning": "Salutations To The one who is the great hero with seven mighty arms."
   },
   {
-   "slug": "shadvinshayaya",
+   "slug": "shadvimshaya",
    "primaryNumber": 832,
    "numbers": [
     832
    ],
-   "spelling_common": "Shadvinshayaya",
+   "spelling_common": "Shadvimshaya",
    "spelling_site": "SHADVIMSHAAYA",
    "spelling_simple": "Sadvimsayaya",
    "iast": "Ṣaḍviṃśāyāya",
    "devanagari": "षड्विंशायाय",
    "variants": [
-    "Shadvinshaya",
+    "Shadvimsha",
     "Sadvimsayaya",
+    "Shadvinshayaya",
     "Ṣaḍviṃśāyāya",
     "SHADVIMSHAAYA"
    ],
@@ -33260,19 +33286,20 @@
    "meaning": "Salutations To The one who is a formidable enemy to all the heroic yet wicked demons."
   },
   {
-   "slug": "shubhotyavaya",
+   "slug": "shubhodayaya",
    "primaryNumber": 839,
    "numbers": [
     839
    ],
-   "spelling_common": "Shubhotyavaya",
+   "spelling_common": "Shubhodayaya",
    "spelling_site": "SHUBHODAYAAYA",
    "spelling_simple": "Subhotyavaya",
    "iast": "Śubhoṭyāvāya",
    "devanagari": "शुभोट्यावाय",
    "variants": [
-    "Shubhotyava",
+    "Shubhodaya",
     "Subhotyavaya",
+    "Shubhotyavaya",
     "Śubhoṭyāvāya",
     "SHUBHODAYAAYA"
    ],
@@ -33613,19 +33640,20 @@
    "meaning": "Salutations To The one who is fragrant, charming, and the celestial wish-fulfilling cow (Surabhi)."
   },
   {
-   "slug": "shishiraatmakaya",
+   "slug": "shishiratmakaya",
    "primaryNumber": 860,
    "numbers": [
     860
    ],
-   "spelling_common": "Shishiraatmakaya",
+   "spelling_common": "Shishiratmakaya",
    "spelling_site": "SHISHIRAATMAKAAYA",
    "spelling_simple": "Sisiraatmakaya",
    "iast": "Śiśiraātmakāya",
    "devanagari": "शिशिरआत्मकाय",
    "variants": [
-    "Shishiraatmaka",
+    "Shishiratmaka",
     "Sisiraatmakaya",
+    "Shishiraatmakaya",
     "Śiśiraātmakāya",
     "SHISHIRAATMAKAAYA"
    ],
@@ -33835,18 +33863,19 @@
    "meaning": "Salutations To The one who has a part that is worshipped by all the divine gods."
   },
   {
-   "slug": "sarvadevottamattamaya",
+   "slug": "sarvadevottamottamaya",
    "primaryNumber": 873,
    "numbers": [
     873
    ],
-   "spelling_common": "Sarvadevottamattamaya",
+   "spelling_common": "Sarvadevottamottamaya",
    "spelling_site": "SARVADEVOTTAMOTTAMAAYA",
    "spelling_simple": "Sarvadevottamattamaya",
    "iast": "Sarvadevottamattamāya",
    "devanagari": "सर्वदेवोत्तमत्तमाय",
    "variants": [
-    "Sarvadevottamattama",
+    "Sarvadevottamottama",
+    "Sarvadevottamattamaya",
     "Sarvadevottamattamāya",
     "SARVADEVOTTAMOTTAMAAYA"
    ],
@@ -33941,20 +33970,20 @@
    "meaning": "Salutations To The one who is the sacred bridge that allows one to cross the ocean of worldly existence."
   },
   {
-   "slug": "suvishthapine",
+   "slug": "suvishtapine",
    "primaryNumber": 882,
    "numbers": [
     882
    ],
-   "spelling_common": "Suvishthapine",
+   "spelling_common": "Suvishtapine",
    "spelling_site": "SUVISHTAPINE",
    "spelling_simple": "Suvisthapine",
    "iast": "Suviṣṭhapine",
    "devanagari": "सुविष्ठपिने",
    "variants": [
     "Suvisthapine",
-    "Suviṣṭhapine",
-    "SUVISHTAPINE"
+    "Suvishthapine",
+    "Suviṣṭhapine"
    ],
    "meaning": "Salutations To The one who is the beautiful, sacred branch or the well-established peak."
   },
@@ -34188,18 +34217,19 @@
    "meaning": "Salutations To TheTo 'That' one, the ultimate, indescribable reality."
   },
   {
-   "slug": "itishe",
+   "slug": "itaye",
    "primaryNumber": 897,
    "numbers": [
     897
    ],
-   "spelling_common": "Itishe",
+   "spelling_common": "Itaye",
    "spelling_site": "IITAYE",
    "spelling_simple": "Itise",
    "iast": "Ītiṣe",
    "devanagari": "ईतिषे",
    "variants": [
     "Itise",
+    "Itishe",
     "Ītiṣe",
     "IITAYE"
    ],
@@ -34279,19 +34309,20 @@
    "meaning": "Salutations To The one who is the beloved consort of Shri (Goddess Lakshmi), a name usually for Vishnu but here indicating supreme prosperity."
   },
   {
-   "slug": "shivayambhyaya",
+   "slug": "shivarambhaya",
    "primaryNumber": 903,
    "numbers": [
     903
    ],
-   "spelling_common": "Shivayambhyaya",
+   "spelling_common": "Shivarambhaya",
    "spelling_site": "SHIVAARAMBHAAYA",
    "spelling_simple": "Sivayambhyaya",
    "iast": "Śivāyaṃbhyāya",
    "devanagari": "शिवायंभ्याय",
    "variants": [
-    "Shivayambhya",
+    "Shivarambha",
     "Sivayambhyaya",
+    "Shivayambhyaya",
     "Śivāyaṃbhyāya",
     "SHIVAARAMBHAAYA"
    ],
@@ -34477,18 +34508,19 @@
    "meaning": "Salutations To The one who is the supreme lord of the seven types of people or the seven worlds."
   },
   {
-   "slug": "samharakakaranaya",
+   "slug": "samharakaranaya",
    "primaryNumber": 915,
    "numbers": [
     915
    ],
-   "spelling_common": "Samharakakaranaya",
+   "spelling_common": "Samharakaranaya",
    "spelling_site": "SAMHAARAKAARANAAYA",
    "spelling_simple": "Samharakakaranaya",
    "iast": "Saṃhārakakāraṇāya",
    "devanagari": "संहारककारणाय",
    "variants": [
-    "Samharakakarana",
+    "Samharakarana",
+    "Samharakakaranaya",
     "Saṃhārakakāraṇāya",
     "SAMHAARAKAARANAAYA"
    ],
@@ -34708,18 +34740,19 @@
    "meaning": "Salutations To The one who has a perfectly pure and untainted intellect."
   },
   {
-   "slug": "styavaya",
+   "slug": "stavyaya",
    "primaryNumber": 932,
    "numbers": [
     932
    ],
-   "spelling_common": "Styavaya",
+   "spelling_common": "Stavyaya",
    "spelling_site": "STAVYAAYA",
    "spelling_simple": "Styavaya",
    "iast": "Styavāya",
    "devanagari": "स्त्यवाय",
    "variants": [
-    "Styava",
+    "Stavya",
+    "Styavaya",
     "Styavāya",
     "STAVYAAYA"
    ],
@@ -34832,20 +34865,20 @@
    "meaning": "Salutations To The one who is the supreme king, the ultimate sovereign of all."
   },
   {
-   "slug": "vashata",
+   "slug": "vashat",
    "primaryNumber": 939,
    "numbers": [
     939
    ],
-   "spelling_common": "Vashata",
+   "spelling_common": "Vashat",
    "spelling_site": "VASHAT",
    "spelling_simple": "Vasata",
    "iast": "Vaṣaṭa",
    "devanagari": "वषट",
    "variants": [
     "Vasata",
-    "Vaṣaṭa",
-    "VASHAT"
+    "Vashata",
+    "Vaṣaṭa"
    ],
    "meaning": "Salutations To TheThe sacred exclamation made while offering oblations inSalutations To The  fire, symbolizing the deity himself."
   },
@@ -35027,20 +35060,20 @@
    "meaning": "Salutations To The one who possesses the fierce, roaring, and terrifying form of Rudra."
   },
   {
-   "slug": "vasavashtasvarnakrite",
+   "slug": "vasvashtasvarnakrite",
    "primaryNumber": 951,
    "numbers": [
     951
    ],
-   "spelling_common": "Vasavashtasvarnakrite",
+   "spelling_common": "Vasvashtasvarnakrite",
    "spelling_site": "VASVASHTASVARNAKRITE",
    "spelling_simple": "Vasavastasvarnakrte",
    "iast": "Vasavaṣṭasvarṇakṛte",
    "devanagari": "वसवष्टस्वर्णकृते",
    "variants": [
     "Vasavastasvarnakrte",
-    "Vasavaṣṭasvarṇakṛte",
-    "VASVASHTASVARNAKRITE"
+    "Vasavashtasvarnakrite",
+    "Vasavaṣṭasvarṇakṛte"
    ],
    "meaning": "Salutations To The one who creates the eight forms of wealth (Vasus) and gold."
   },
@@ -35168,18 +35201,19 @@
    "meaning": "Salutations To The one who has fierce, blood-red eyes."
   },
   {
-   "slug": "padukasiddhidayaya",
+   "slug": "padukasiddhidaya",
    "primaryNumber": 961,
    "numbers": [
     961
    ],
-   "spelling_common": "Padukasiddhidayaya",
+   "spelling_common": "Padukasiddhidaya",
    "spelling_site": "PAADUKAASIDDHIDAAYA",
    "spelling_simple": "Padukasiddhidayaya",
    "iast": "Pādukāsiddhidayāya",
    "devanagari": "पादुकासिद्धिदयाय",
    "variants": [
-    "Padukasiddhidaya",
+    "Padukasiddhida",
+    "Padukasiddhidayaya",
     "Pādukāsiddhidayāya",
     "PAADUKAASIDDHIDAAYA"
    ],
@@ -35223,35 +35257,36 @@
    "meaning": "Salutations To The one who is the absolute destroyer of all harshness and cruelty."
   },
   {
-   "slug": "ashtasiddhaye",
+   "slug": "ashtasiddhiye",
    "primaryNumber": 964,
    "numbers": [
     964
    ],
-   "spelling_common": "Ashtasiddhaye",
+   "spelling_common": "Ashtasiddhiye",
    "spelling_site": "ASHTASIDDHIYE",
    "spelling_simple": "Astasiddhaye",
    "iast": "Aṣṭasiddhaye",
    "devanagari": "अष्टसिद्धये",
    "variants": [
     "Astasiddhaye",
-    "Aṣṭasiddhaye",
-    "ASHTASIDDHIYE"
+    "Ashtasiddhaye",
+    "Aṣṭasiddhaye"
    ],
    "meaning": "Salutations To The one who is the embodiment of the eight great supernatural powers (Ashta Siddhis)."
   },
   {
-   "slug": "mahasaddhaye",
+   "slug": "mahasiddhaye",
    "primaryNumber": 965,
    "numbers": [
     965
    ],
-   "spelling_common": "Mahasaddhaye",
+   "spelling_common": "Mahasiddhaye",
    "spelling_site": "MAHAASIDDHAYE",
    "spelling_simple": "Mahasaddhaye",
    "iast": "Mahāsaddhaye",
    "devanagari": "महासद्धये",
    "variants": [
+    "Mahasaddhaye",
     "Mahāsaddhaye",
     "MAHAASIDDHAYE"
    ],
@@ -35341,18 +35376,19 @@
    "meaning": "Salutations To The one who roars, the radiant and powerful sun."
   },
   {
-   "slug": "kalagnirudrashriyai",
+   "slug": "kalagnirudrashriye",
    "primaryNumber": 972,
    "numbers": [
     972
    ],
-   "spelling_common": "Kalagnirudrashriyai",
+   "spelling_common": "Kalagnirudrashriye",
    "spelling_site": "KAALAAGNIRUDRASHRIYE",
    "spelling_simple": "Kalagnirudrasriyai",
    "iast": "Kālāgnirudraśriyai",
    "devanagari": "कालाग्निरुद्रश्रियै",
    "variants": [
     "Kalagnirudrasriyai",
+    "Kalagnirudrashriyai",
     "Kālāgnirudraśriyai",
     "KAALAAGNIRUDRASHRIYE"
    ],
@@ -35714,20 +35750,20 @@
    "meaning": "Salutations To The one who is the glorious and excellent boon-giver."
   },
   {
-   "slug": "shriyam-varaya",
+   "slug": "shriyamvaraya",
    "primaryNumber": 996,
    "numbers": [
     996
    ],
-   "spelling_common": "Shriyam Varaya",
+   "spelling_common": "Shriyamvaraya",
    "spelling_site": "SHRIYAAMVARAAYA",
    "spelling_simple": "Sriyam Varaya",
    "iast": "Śriyām Varāya",
    "devanagari": "श्रियाम् वराय",
    "variants": [
-    "Shriyam Vara",
+    "Shriyamvara",
     "Sriyam Varaya",
-    "ShriyamVaraya",
+    "Shriyam Varaya",
     "Śriyām Varāya",
     "SHRIYAAMVARAAYA"
    ],
