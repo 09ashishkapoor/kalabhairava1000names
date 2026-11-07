@@ -1,0 +1,12 @@
+{
+  "total": 1000,
+  "chunks": 5,
+  "chunk_size": 200,
+  "files": [
+    "data_chunk_1.json",
+    "data_chunk_2.json",
+    "data_chunk_3.json",
+    "data_chunk_4.json",
+    "data_chunk_5.json"
+  ]
+}

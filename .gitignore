@@ -4,21 +4,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.coverage
-.coverage.*
-htmlcov/
-.venv/
-venv/
-env/
-ENV/
-.python-version
-.env
-.env.*
-!.env.example
-!.env.sample
 
 # IDEs
 .vscode/
@@ -30,43 +15,76 @@ ENV/
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
+ehthumbs.db
 
 # Logs
 *.log
 
-# Local OMX runtime state
-.omx/
-
-# Backup / temp artifacts
-*.bak
-*.temp
-*.tmp
-*.orig
-*.rej
-
-# Local caches
-.cache/
+# Node
+node_modules/
 playwright-report/
 test-results/
 
-# Node (not currently used, safety net)
-node_modules/
-
-# Husky internal dir is auto-generated, no need to track
-.husky/_
-
-# Build / dist artifacts
+# Astro
 dist/
-build/
+.astro/
 
-# Netlify / Cloudflare local CLI caches
-.netlify/
+# Wrangler / Cloudflare local dev
 .wrangler/
 
-# Local config overrides
+# oh-my-codex (internal tooling, not for public)
+.omx/
+
+# Local convenience scripts
+start-server.bat
+start-server-and-open.bat
+update-version.bat
+update-version.ps1
+
+# Working notes
+namecorrection.txt
+
+# Alternate/old READMEs
+README.mahakali.md
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
 *.local
-PRODUCT.md
-DESIGN.md
+.envrc
+*.secret
+*.secrets
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.csr
+
+# OMX agent scaffolds
+AGENTS.md
+scripts/AGENTS.md
+.github/AGENTS.md
+
+# GitHub Copilot / AI agent configs
+.github/agents/
+
+# Local scratch and temp files
+.history/
+.cache/
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+*.orig
+*.rej
+*.pid
+*.code-workspace
+PLAN-remove-hindi-mode.md
+.pi-lens/index.json
 .pi-lens/metrics-history.json
 .pi-lens/turn-state.json
 .pi-lens/cache/javascript-rules-v1.json
@@ -78,13 +96,22 @@ DESIGN.md
 .pi-lens/cache/session-start-guidance.meta.json
 .pi-lens/cache/todo-baseline.json
 .pi-lens/cache/todo-baseline.meta.json
-.pi-lens/worklog.jsonl
-.pi-lens/cache/python-rules-v1.json
+playwright-tests/smoke.spec.js
+playwright-tests/visual.spec.js-snapshots/first-visible-name-card-chromium-linux.png
+playwright-tests/visual.spec.js-snapshots/landing-content-chromium-linux.png
+playwright-tests/visual.spec.js-snapshots/names-controls-panel-chromium-linux.png
+tests/ux-structure.test.js
+tests/app.test.js
+tests/app.test.js
+tests/ux-structure.test.js
+playwright-tests/smoke.spec.js
 .pi-lens/cache/turn-end-findings-last.json
 .pi-lens/cache/turn-end-findings-last.meta.json
 .pi-lens/cache/turn-end-findings.json
 .pi-lens/cache/turn-end-findings.meta.json
-DESIGN.json
+docs/seo-audit-2026-04-30.md
 .pi/extensions/guardrails.json
 .pi/extensions/guardrails.v0.json
-kalabhairava_sahasranama1000_withelaborations_may042027.txt
+docs/deep-seo-audit-2026-04-30.md
+adyamahakali_sahasranama1000_withelaborations_combined_may042027.txt
+PLAN-update-prose-from-text.md

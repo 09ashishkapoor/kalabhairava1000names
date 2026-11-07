@@ -1,0 +1,131 @@
+---
+import ReferenceLayout from '../../layouts/ReferenceLayout.astro';
+
+import { getStaticNamesData } from '../../lib/staticNames.js';
+
+export function getStaticPaths() {
+  const { ranges, totalCount } = getStaticNamesData();
+
+  return ranges.map((range, index) => ({
+    params: { range: range.slug },
+    props: {
+      range,
+      previousRange: ranges[index - 1] ?? null,
+      nextRange: ranges[index + 1] ?? null,
+      totalCount
+    }
+  }));
+}
+
+const { range, previousRange, nextRange, totalCount } = Astro.props;
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': `${range.canonical}#webpage`,
+      name: range.heading,
+      description: range.description,
+      url: range.canonical,
+      inLanguage: 'en',
+      isPartOf: {
+        '@id': 'https://bhairavakalikenamosthute.com/#website'
+      },
+      mainEntity: {
+        '@id': `${range.canonical}#itemlist`
+      }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${range.canonical}#breadcrumb`,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://bhairavakalikenamosthute.com/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Names Hub',
+          item: 'https://bhairavakalikenamosthute.com/names/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: range.heading,
+          item: range.canonical
+        }
+      ]
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${range.canonical}#itemlist`,
+      name: range.heading,
+      itemListOrder: 'https://schema.org/ItemListOrderAscending',
+      numberOfItems: range.entries.length,
+      url: range.canonical,
+      inLanguage: 'en',
+      itemListElement: range.entries.map((entry, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${range.canonical}#name-${entry.index}`,
+        name: entry.english_name,
+        description: entry.english_one_line
+      }))
+    }
+  ]
+};
+---
+
+<ReferenceLayout
+	title={range.title}
+	description={range.description}
+	canonical={range.canonical}
+	schema={itemListSchema}
+>
+<p class="page-kicker">Static devotional reference</p>
+      <h1>{range.heading}</h1>
+
+      <section class="hero-panel">
+        <p class="intro">This page is a static collection of Kalabhairava names {range.label} with English meanings. It begins with <strong>{range.firstName.english}</strong> and ends with <strong>{range.lastName.english}</strong>, giving search engines and readers a crawlable reference for this part of the Sahasranama without JavaScript.</p>
+        <nav class="page-nav" aria-label="Page navigation">
+          <ul>
+            <li><a href="/">Open the interactive homepage reader</a></li>
+            <li><a href="/names/">Browse all ranges</a></li>
+            <li><a href="/kalabhairava-sahasranama-pdf/">Download the PDF edition</a></li>
+            <li><a href="/108-names-of-kalabhairava/">108 names of Kalabhairava</a></li>
+            <li><a href="/1000-names-of-kalabhairava/">1,008 vs 1,000 names</a></li>
+            {previousRange && <li><a href={previousRange.path}>← Previous range ({previousRange.label})</a></li>}
+            {nextRange && <li><a href={nextRange.path}>Next range ({nextRange.label}) →</a></li>}
+          </ul>
+        </nav>
+      </section>
+
+      <section class="range-summary" aria-label="Range summary">
+        <p>This section covers names <strong>{range.start}</strong> through <strong>{range.end}</strong> from the full set of <strong>{totalCount}</strong> names. Each name below links to its own reference page with Devanagari, transliteration, alternate spellings, and the full meaning.</p>
+        <p>Use the entries below as direct references for meanings in this range, or move through the previous and next range links to continue the full Kalabhairava Sahasranama sequence.</p>
+      </section>
+
+      <div class="entries-stack">
+        {range.entries.map((entry) => (
+          <article class="entry" id={`name-${entry.index}`}>
+            <h2>
+              {entry.index}.{' '}
+              {entry.page_slug ? (
+                <a href={`/names/${entry.page_slug}/`}>{entry.english_name}</a>
+              ) : (
+                entry.english_name
+              )}
+            </h2>
+            <p><strong>Meaning:</strong> {entry.english_one_line}</p>
+            <h3>Elaboration</h3>
+            {entry.english_elaboration_paragraphs.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </article>
+        ))}
+      </div>
+</ReferenceLayout>

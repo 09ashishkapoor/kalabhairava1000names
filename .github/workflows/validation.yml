@@ -1,0 +1,79 @@
+name: Validation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  browser-validation:
+    name: Browser validation
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.12.0
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium
+
+      - name: Run validation suite
+        run: npm run validate
+
+      - name: Upload Playwright artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-artifacts
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 14
+
+  link-check:
+    name: Link check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.12.0
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static output for link checking
+        run: npm run build
+
+      - name: Check README and sitemap links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --root-dir "${{ github.workspace }}" --verbose --no-progress README.md public/sitemap.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail: true
+
+      - name: Check built entry-page links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --root-dir "${{ github.workspace }}/dist" --verbose --no-progress --exclude "^https://www\\.instagram\\.com/" dist/index.html
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail: true

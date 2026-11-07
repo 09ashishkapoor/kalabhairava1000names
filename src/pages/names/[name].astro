@@ -1,0 +1,248 @@
+---
+import ReferenceLayout from '../../layouts/ReferenceLayout.astro';
+
+import { getStaticNamesData } from '../../lib/staticNames.js';
+
+export function getStaticPaths() {
+	const { ranges, namePages } = getStaticNamesData();
+
+	const entryByNumber = new Map();
+	const rangeByNumber = new Map();
+	for (const range of ranges) {
+		for (const entry of range.entries) {
+			entryByNumber.set(entry.index, entry);
+			rangeByNumber.set(entry.index, range);
+		}
+	}
+
+	return namePages.map((page, index) => ({
+		params: { name: page.slug },
+		props: {
+			page,
+			occurrences: page.numbers.map((number) => ({
+				number,
+				entry: entryByNumber.get(number),
+				range: rangeByNumber.get(number),
+			})),
+			previousPage: namePages[index - 1] ?? null,
+			nextPage: namePages[index + 1] ?? null,
+			totalNames: ranges.reduce((total, range) => total + range.entries.length, 0),
+		},
+	}));
+}
+
+const { page, occurrences, previousPage, nextPage, totalNames } = Astro.props;
+const { siteUrl } = getStaticNamesData();
+
+const canonical = `${siteUrl}/names/${page.slug}/`;
+const primaryOccurrence = occurrences[0];
+const primaryRange = primaryOccurrence.range;
+const isRepeated = occurrences.length > 1;
+const numbersText =
+	page.numbers.length === 1
+		? String(page.numbers[0])
+		: `${page.numbers.slice(0, -1).join(', ')} and ${page.numbers[page.numbers.length - 1]}`;
+const numbersLabel = `${isRepeated ? 'names' : 'name'} ${numbersText}`;
+const kickerLabel = `${isRepeated ? 'positions' : 'position'} ${numbersText}`;
+
+const secondaries = page.variants.filter(
+	(variant) => variant !== page.spelling_site && variant !== page.iast,
+);
+const alsoSpelled = Array.from(new Set(secondaries)).slice(0, 4);
+
+const siteTitleWithSource = `${page.spelling_common} (${page.spelling_site}) — Meaning in the 1000 Names of Kalabhairava`;
+const title =
+	siteTitleWithSource.length <= 120
+		? siteTitleWithSource
+		: `${page.spelling_common} — Meaning in the 1000 Names of Kalabhairava`;
+
+function truncate(text, maxLength = 158) {
+	if (text.length <= maxLength) {
+		return text;
+	}
+	return `${text.slice(0, maxLength - 1).replace(/\s+\S*$/u, '')}…`;
+}
+
+const description = truncate(
+	`${page.spelling_common} (${page.spelling_site}) is ${numbersLabel} of ${totalNames} in the Kalabhairava Sahasranama: ${page.meaning}${
+		alsoSpelled.length > 0 ? ` Also spelled ${alsoSpelled.join(', ')}.` : ''
+	}`,
+);
+
+const breadcrumbSchema = {
+	'@type': 'BreadcrumbList',
+	'@id': `${canonical}#breadcrumb`,
+	itemListElement: [
+		{
+			'@type': 'ListItem',
+			position: 1,
+			name: 'Home',
+			item: `${siteUrl}/`,
+		},
+		{
+			'@type': 'ListItem',
+			position: 2,
+			name: 'Names hub',
+			item: `${siteUrl}/names/`,
+		},
+		{
+			'@type': 'ListItem',
+			position: 3,
+			name: primaryRange.heading,
+			item: primaryRange.canonical,
+		},
+		{
+			'@type': 'ListItem',
+			position: 4,
+			name: page.spelling_common,
+			item: canonical,
+		},
+	],
+};
+
+const pageSchema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		breadcrumbSchema,
+		{
+			'@type': 'DefinedTerm',
+			'@id': `${canonical}#term`,
+			name: page.spelling_common,
+			alternateName: Array.from(
+				new Set([page.spelling_site, ...page.variants, page.devanagari]),
+			).filter(Boolean),
+			description: page.meaning,
+			inLanguage: 'en',
+			inDefinedTermSet: {
+				'@type': 'DefinedTermSet',
+				'@id': `${siteUrl}/names/#termset`,
+				name: 'Kalabhairava Sahasranama (1,000 names of Kalabhairava)',
+				url: `${siteUrl}/names/`,
+			},
+			url: canonical,
+		},
+		{
+			'@type': 'Article',
+			'@id': `${canonical}#article`,
+			headline: `${page.spelling_common} — Meaning in the 1000 Names of Kalabhairava`,
+			description,
+			url: canonical,
+			inLanguage: 'en',
+			isPartOf: {
+				'@id': `${siteUrl}/#website`,
+			},
+			mainEntity: {
+				'@id': `${canonical}#term`,
+			},
+			author: {
+				'@type': 'Person',
+				name: 'Kaliputra Ashish',
+				url: `${siteUrl}/about/`,
+			},
+			publisher: {
+				'@id': `${siteUrl}/#publisher`,
+			},
+		},
+	],
+};
+---
+
+<ReferenceLayout
+	title={title}
+	description={description}
+	canonical={canonical}
+	schema={pageSchema}
+	prevUrl={previousPage ? `${siteUrl}/names/${previousPage.slug}/` : null}
+	nextUrl={nextPage ? `${siteUrl}/names/${nextPage.slug}/` : null}
+>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+				<ol>
+					<li><a href="/">Home</a></li>
+					<li><a href="/names/">Names hub</a></li>
+					<li><a href={primaryRange.path}>{primaryRange.label}</a></li>
+					<li><span aria-current="page">{page.spelling_common}</span></li>
+				</ol>
+			</nav>
+
+			<header class="name-header">
+				<p class="page-kicker">Sahasranama {kickerLabel} of the 1,000 names</p>
+				<h1>{page.spelling_common}</h1>
+				<p class="name-sanskrit" lang="sa">{page.devanagari}</p>
+				<p class="name-iast"><em>{page.iast}</em></p>
+			</header>
+
+			<section class="hero-panel name-summary" aria-labelledby="summary-heading">
+				<h2 id="summary-heading">What {page.spelling_common} means</h2>
+				<p class="intro">
+					<strong>{page.spelling_common}</strong> is {numbersLabel} in the <strong>Kalabhairava Sahasranama</strong>,
+					the 1,000-name devotional text to Kalabhairava. {primaryOccurrence.entry.english_one_line}
+				</p>
+				<div class="spelling-block">
+					<h3>Also spelled</h3>
+					<ul class="spelling-list">
+						{alsoSpelled.map((variant) => <li>{variant}</li>)}
+						<li class="spelling-source">Source transliteration: <span>{page.spelling_site}</span></li>
+					</ul>
+					<p class="spelling-note">
+						Sanskrit names travel into English in several romanizations. This page keeps the common spelling,
+						the IAST form, and the source transliteration together so the same name is discoverable under each
+						spelling readers use.
+					</p>
+				</div>
+			</section>
+
+			<div class="entries-stack name-entries">
+				{occurrences.map((occurrence) => (
+					<article class="entry name-occurrence" id={`name-${occurrence.number}`}>
+						<h2>
+							{isRepeated
+								? `Name ${occurrence.number}: ${occurrence.entry.english_name}`
+								: 'Meaning and elaboration'}
+						</h2>
+						<p><strong>Meaning:</strong> {occurrence.entry.english_one_line}</p>
+						<h3>Elaboration</h3>
+						{occurrence.entry.english_elaboration_paragraphs.map((paragraph) => (
+							<p>{paragraph}</p>
+						))}
+						<p class="entry-meta">
+							Position {occurrence.number} of {totalNames} ·
+							<a href={occurrence.range.path}>Browse range {occurrence.range.label}</a>
+						</p>
+					</article>
+				))}
+			</div>
+
+			<nav class="page-nav name-pagination" aria-label="Name page navigation">
+				<ul>
+					{previousPage && (
+						<li>
+							<a href={`/names/${previousPage.slug}/`}>← Previous name: {previousPage.spelling_common}</a>
+						</li>
+					)}
+					{nextPage && (
+						<li>
+							<a href={`/names/${nextPage.slug}/`}>Next name: {nextPage.spelling_common} →</a>
+						</li>
+					)}
+					<li><a href={primaryRange.path}>All names in range {primaryRange.label}</a></li>
+					<li><a href="/names/">All 1,000 names</a></li>
+					<li><a href="/kalabhairava-sahasranama-pdf/">PDF edition</a></li>
+					<li><a href="/108-names-of-kalabhairava/">108 names guide</a></li>
+					<li><a href="/">Interactive reader</a></li>
+				</ul>
+			</nav>
+
+			<section class="source-notes" aria-labelledby="name-source-heading">
+				<h2 id="name-source-heading">Text and sources</h2>
+				<p>
+					The name list follows the Kalabhairava Sahasranama as compiled for this project. The English meaning
+					and elaboration are interpretive notes for devotional study, not a translation of a single critical
+					edition.
+				</p>
+				<p><a href="/sources/">Read the editorial method and source notes →</a></p>
+				<p>
+					<a href="/about/">About the author</a> · <a href="/contact/">Contact and corrections</a> ·
+					<a href="/privacy/">Privacy policy</a>
+				</p>
+			</section>
+</ReferenceLayout>

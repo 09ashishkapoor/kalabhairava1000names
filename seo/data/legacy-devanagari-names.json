@@ -1,0 +1,4002 @@
+[
+ {
+  "index": 1,
+  "hindi_name": "भैरवाय"
+ },
+ {
+  "index": 2,
+  "hindi_name": "भूतनाथाय"
+ },
+ {
+  "index": 3,
+  "hindi_name": "भूतात्मने"
+ },
+ {
+  "index": 4,
+  "hindi_name": "भूतभावनाय"
+ },
+ {
+  "index": 5,
+  "hindi_name": "भूतवासाय"
+ },
+ {
+  "index": 6,
+  "hindi_name": "भूतदूताय"
+ },
+ {
+  "index": 7,
+  "hindi_name": "भूरिशाय"
+ },
+ {
+  "index": 8,
+  "hindi_name": "भूरिदक्षिणाय"
+ },
+ {
+  "index": 9,
+  "hindi_name": "भूताध्यक्षाय"
+ },
+ {
+  "index": 10,
+  "hindi_name": "भूतपतये"
+ },
+ {
+  "index": 11,
+  "hindi_name": "भूधराय"
+ },
+ {
+  "index": 12,
+  "hindi_name": "भूधरात्मजाय"
+ },
+ {
+  "index": 13,
+  "hindi_name": "भूपतये"
+ },
+ {
+  "index": 14,
+  "hindi_name": "भास्कराय"
+ },
+ {
+  "index": 15,
+  "hindi_name": "भीरोवे"
+ },
+ {
+  "index": 16,
+  "hindi_name": "भीमाय"
+ },
+ {
+  "index": 17,
+  "hindi_name": "भूमये"
+ },
+ {
+  "index": 18,
+  "hindi_name": "विभूतिदायाय"
+ },
+ {
+  "index": 19,
+  "hindi_name": "भूताय"
+ },
+ {
+  "index": 20,
+  "hindi_name": "भूकम्पनाय"
+ },
+ {
+  "index": 21,
+  "hindi_name": "भूमिनाम्ने"
+ },
+ {
+  "index": 22,
+  "hindi_name": "भूताभिभावकाय"
+ },
+ {
+  "index": 23,
+  "hindi_name": "भगनेत्राय"
+ },
+ {
+  "index": 24,
+  "hindi_name": "भवाय"
+ },
+ {
+  "index": 25,
+  "hindi_name": "भोक्त्रे"
+ },
+ {
+  "index": 26,
+  "hindi_name": "भूदेवाय"
+ },
+ {
+  "index": 27,
+  "hindi_name": "भगवते"
+ },
+ {
+  "index": 28,
+  "hindi_name": "रथिणे"
+ },
+ {
+  "index": 29,
+  "hindi_name": "भ्राजिष्णवे"
+ },
+ {
+  "index": 30,
+  "hindi_name": "भोजनाय"
+ },
+ {
+  "index": 31,
+  "hindi_name": "भोक्त्रे"
+ },
+ {
+  "index": 32,
+  "hindi_name": "भिक्षाभुजे"
+ },
+ {
+  "index": 33,
+  "hindi_name": "भोजनप्रियाय"
+ },
+ {
+  "index": 34,
+  "hindi_name": "भूतिमयाय"
+ },
+ {
+  "index": 35,
+  "hindi_name": "भृंगगिरिटीने"
+ },
+ {
+  "index": 36,
+  "hindi_name": "भक्तसाधितविग्रहाय"
+ },
+ {
+  "index": 37,
+  "hindi_name": "भूतचारिणे"
+ },
+ {
+  "index": 38,
+  "hindi_name": "निशाचारिणे"
+ },
+ {
+  "index": 39,
+  "hindi_name": "प्रेतचारिणे"
+ },
+ {
+  "index": 40,
+  "hindi_name": "भयानकाय"
+ },
+ {
+  "index": 41,
+  "hindi_name": "भवात्मने"
+ },
+ {
+  "index": 42,
+  "hindi_name": "भूर्भुवोलक्ष्म्यै"
+ },
+ {
+  "index": 43,
+  "hindi_name": "भूतिमाते"
+ },
+ {
+  "index": 44,
+  "hindi_name": "भवविक्रमाय"
+ },
+ {
+  "index": 45,
+  "hindi_name": "पद्मगर्भाय"
+ },
+ {
+  "index": 46,
+  "hindi_name": "महागर्भाय"
+ },
+ {
+  "index": 47,
+  "hindi_name": "विश्वगर्भ्याय"
+ },
+ {
+  "index": 48,
+  "hindi_name": "भुवे"
+ },
+ {
+  "index": 49,
+  "hindi_name": "अभूवे"
+ },
+ {
+  "index": 50,
+  "hindi_name": "भूतत्वाय"
+ },
+ {
+  "index": 51,
+  "hindi_name": "भुवनाधीशाय"
+ },
+ {
+  "index": 52,
+  "hindi_name": "भूति कृते"
+ },
+ {
+  "index": 53,
+  "hindi_name": "भ्रान्तिनाशनाय"
+ },
+ {
+  "index": 54,
+  "hindi_name": "भूतिभूषितसर्वांगाय"
+ },
+ {
+  "index": 55,
+  "hindi_name": "भूषयाय"
+ },
+ {
+  "index": 56,
+  "hindi_name": "भूतवाहनाय"
+ },
+ {
+  "index": 57,
+  "hindi_name": "क्षेत्रज्ञाय"
+ },
+ {
+  "index": 58,
+  "hindi_name": "भुवनाधीशाय"
+ },
+ {
+  "index": 59,
+  "hindi_name": "भूतिदाय"
+ },
+ {
+  "index": 60,
+  "hindi_name": "भूतिमाते"
+ },
+ {
+  "index": 61,
+  "hindi_name": "प्रभवे"
+ },
+ {
+  "index": 62,
+  "hindi_name": "क्षेत्रज्ञाय"
+ },
+ {
+  "index": 63,
+  "hindi_name": "क्षेत्रपालाय"
+ },
+ {
+  "index": 64,
+  "hindi_name": "क्षेत्रविघ्ननिवारणाय"
+ },
+ {
+  "index": 65,
+  "hindi_name": "क्षान्ताय"
+ },
+ {
+  "index": 66,
+  "hindi_name": "क्षुद्राय"
+ },
+ {
+  "index": 67,
+  "hindi_name": "क्षेत्रपाय"
+ },
+ {
+  "index": 68,
+  "hindi_name": "क्षुद्रघ्नाय"
+ },
+ {
+  "index": 69,
+  "hindi_name": "क्षत्रपाय"
+ },
+ {
+  "index": 70,
+  "hindi_name": "क्षमिणे"
+ },
+ {
+  "index": 71,
+  "hindi_name": "क्षोभनाय"
+ },
+ {
+  "index": 72,
+  "hindi_name": "मारणाय"
+ },
+ {
+  "index": 73,
+  "hindi_name": "स्तम्भनाय"
+ },
+ {
+  "index": 74,
+  "hindi_name": "मोहनाय"
+ },
+ {
+  "index": 75,
+  "hindi_name": "नमन्याय"
+ },
+ {
+  "index": 76,
+  "hindi_name": "वशीने"
+ },
+ {
+  "index": 77,
+  "hindi_name": "क्षपणाय"
+ },
+ {
+  "index": 78,
+  "hindi_name": "क्षान्तिदाय"
+ },
+ {
+  "index": 79,
+  "hindi_name": "क्षमाया"
+ },
+ {
+  "index": 80,
+  "hindi_name": "क्षमिणे"
+ },
+ {
+  "index": 81,
+  "hindi_name": "क्षेत्रधाराय"
+ },
+ {
+  "index": 82,
+  "hindi_name": "क्षाराय"
+ },
+ {
+  "index": 83,
+  "hindi_name": "कंकालाय"
+ },
+ {
+  "index": 84,
+  "hindi_name": "कालशमनाय"
+ },
+ {
+  "index": 85,
+  "hindi_name": "कालाकाष्ठयै"
+ },
+ {
+  "index": 86,
+  "hindi_name": "कलानिधये"
+ },
+ {
+  "index": 87,
+  "hindi_name": "कालाय"
+ },
+ {
+  "index": 88,
+  "hindi_name": "करालाय"
+ },
+ {
+  "index": 89,
+  "hindi_name": "कंकालिने"
+ },
+ {
+  "index": 90,
+  "hindi_name": "कमनीयाय"
+ },
+ {
+  "index": 91,
+  "hindi_name": "कलानिधये"
+ },
+ {
+  "index": 92,
+  "hindi_name": "कालाय"
+ },
+ {
+  "index": 93,
+  "hindi_name": "कालाकृतये"
+ },
+ {
+  "index": 94,
+  "hindi_name": "वायवे"
+ },
+ {
+  "index": 95,
+  "hindi_name": "कपर्दिने"
+ },
+ {
+  "index": 96,
+  "hindi_name": "कामाशासनाय"
+ },
+ {
+  "index": 97,
+  "hindi_name": "कुबेरबन्धवे"
+ },
+ {
+  "index": 98,
+  "hindi_name": "कामात्मने"
+ },
+ {
+  "index": 99,
+  "hindi_name": "कर्णिकारप्रियाय"
+ },
+ {
+  "index": 100,
+  "hindi_name": "कपाए"
+ },
+ {
+  "index": 101,
+  "hindi_name": "कामदेवाय"
+ },
+ {
+  "index": 102,
+  "hindi_name": "कामपालाय"
+ },
+ {
+  "index": 103,
+  "hindi_name": "कामिने"
+ },
+ {
+  "index": 104,
+  "hindi_name": "कान्ताय"
+ },
+ {
+  "index": 105,
+  "hindi_name": "कृतागमाय"
+ },
+ {
+  "index": 106,
+  "hindi_name": "कल्याणप्रकृतये"
+ },
+ {
+  "index": 107,
+  "hindi_name": "कल्पाय"
+ },
+ {
+  "index": 108,
+  "hindi_name": "कल्पाद्ये"
+ },
+ {
+  "index": 109,
+  "hindi_name": "कमलेक्षणाय"
+ },
+ {
+  "index": 110,
+  "hindi_name": "कमण्डलुधाराय"
+ },
+ {
+  "index": 111,
+  "hindi_name": "केतवे"
+ },
+ {
+  "index": 112,
+  "hindi_name": "कालयोगिने"
+ },
+ {
+  "index": 113,
+  "hindi_name": "अकलमषाय"
+ },
+ {
+  "index": 114,
+  "hindi_name": "कारणाय"
+ },
+ {
+  "index": 115,
+  "hindi_name": "कारणाय"
+ },
+ {
+  "index": 116,
+  "hindi_name": "कर्त्रे"
+ },
+ {
+  "index": 117,
+  "hindi_name": "कैलासपतये"
+ },
+ {
+  "index": 118,
+  "hindi_name": "ईश्वराय"
+ },
+ {
+  "index": 119,
+  "hindi_name": "कामभुवे"
+ },
+ {
+  "index": 120,
+  "hindi_name": "कामदाय"
+ },
+ {
+  "index": 121,
+  "hindi_name": "अचिन्त्याय"
+ },
+ {
+  "index": 122,
+  "hindi_name": "किरीटिने"
+ },
+ {
+  "index": 123,
+  "hindi_name": "कौशिका"
+ },
+ {
+  "index": 124,
+  "hindi_name": "कपिलाय"
+ },
+ {
+  "index": 125,
+  "hindi_name": "कुशलाय"
+ },
+ {
+  "index": 126,
+  "hindi_name": "कर्त्रे"
+ },
+ {
+  "index": 127,
+  "hindi_name": "कुमाराय"
+ },
+ {
+  "index": 128,
+  "hindi_name": "कपटाय"
+ },
+ {
+  "index": 129,
+  "hindi_name": "क्षमाय"
+ },
+ {
+  "index": 130,
+  "hindi_name": "कलाद्यदृशे"
+ },
+ {
+  "index": 131,
+  "hindi_name": "कलाधाराय"
+ },
+ {
+  "index": 132,
+  "hindi_name": "कपालकण्ठाय"
+ },
+ {
+  "index": 133,
+  "hindi_name": "कपालभृते"
+ },
+ {
+  "index": 134,
+  "hindi_name": "कैलासशिखरावासाय"
+ },
+ {
+  "index": 135,
+  "hindi_name": "कुबेराय"
+ },
+ {
+  "index": 136,
+  "hindi_name": "कीर्तिभूषणाय"
+ },
+ {
+  "index": 137,
+  "hindi_name": "कालज्ञानाय"
+ },
+ {
+  "index": 138,
+  "hindi_name": "कलावासाय"
+ },
+ {
+  "index": 139,
+  "hindi_name": "कोपिताय"
+ },
+ {
+  "index": 140,
+  "hindi_name": "कान्तविग्रहाय"
+ },
+ {
+  "index": 141,
+  "hindi_name": "कवचीने"
+ },
+ {
+  "index": 142,
+  "hindi_name": "कंटकिने"
+ },
+ {
+  "index": 143,
+  "hindi_name": "कार्यकोविद्विक्रमाय"
+ },
+ {
+  "index": 144,
+  "hindi_name": "कालभक्षाय"
+ },
+ {
+  "index": 145,
+  "hindi_name": "कालं"
+ },
+ {
+  "index": 146,
+  "hindi_name": "कारिणे"
+ },
+ {
+  "index": 147,
+  "hindi_name": "किंकिणीकृतवासुकये"
+ },
+ {
+  "index": 148,
+  "hindi_name": "गणेश्वराय"
+ },
+ {
+  "index": 149,
+  "hindi_name": "गौरीशाय"
+ },
+ {
+  "index": 150,
+  "hindi_name": "गिरीशाय"
+ },
+ {
+  "index": 151,
+  "hindi_name": "गिरिबाधकाय"
+ },
+ {
+  "index": 152,
+  "hindi_name": "गिरिधन्वने"
+ },
+ {
+  "index": 153,
+  "hindi_name": "गुहाय"
+ },
+ {
+  "index": 154,
+  "hindi_name": "गोप्तृ"
+ },
+ {
+  "index": 155,
+  "hindi_name": "गुणराशये"
+ },
+ {
+  "index": 156,
+  "hindi_name": "गुणाकराय"
+ },
+ {
+  "index": 157,
+  "hindi_name": "गम्भीराय"
+ },
+ {
+  "index": 158,
+  "hindi_name": "गहनाय"
+ },
+ {
+  "index": 159,
+  "hindi_name": "गोप्त्रे"
+ },
+ {
+  "index": 160,
+  "hindi_name": "गायत्रीवल्लभाय"
+ },
+ {
+  "index": 161,
+  "hindi_name": "गतये"
+ },
+ {
+  "index": 162,
+  "hindi_name": "ग्रीष्माय"
+ },
+ {
+  "index": 163,
+  "hindi_name": "गृहपतये"
+ },
+ {
+  "index": 164,
+  "hindi_name": "गुप्ताय"
+ },
+ {
+  "index": 165,
+  "hindi_name": "गेयाय"
+ },
+ {
+  "index": 166,
+  "hindi_name": "गव्यपतये"
+ },
+ {
+  "index": 167,
+  "hindi_name": "अगाय"
+ },
+ {
+  "index": 168,
+  "hindi_name": "गणवाहाय"
+ },
+ {
+  "index": 169,
+  "hindi_name": "गुणग्राहिणे"
+ },
+ {
+  "index": 170,
+  "hindi_name": "गणनाय"
+ },
+ {
+  "index": 171,
+  "hindi_name": "गुणराशिमते"
+ },
+ {
+  "index": 172,
+  "hindi_name": "अग्रगामिने"
+ },
+ {
+  "index": 173,
+  "hindi_name": "ईश्वराय"
+ },
+ {
+  "index": 174,
+  "hindi_name": "अरोगिणे"
+ },
+ {
+  "index": 175,
+  "hindi_name": "खट्वांगिने"
+ },
+ {
+  "index": 176,
+  "hindi_name": "गगनालयेय"
+ },
+ {
+  "index": 177,
+  "hindi_name": "अमोघाय"
+ },
+ {
+  "index": 178,
+  "hindi_name": "अमोघ फलदाय"
+ },
+ {
+  "index": 179,
+  "hindi_name": "घण्टाराय"
+ },
+ {
+  "index": 180,
+  "hindi_name": "घटकप्रियाय"
+ },
+ {
+  "index": 181,
+  "hindi_name": "चन्द्रापीडाय"
+ },
+ {
+  "index": 182,
+  "hindi_name": "चंद्रमौलये"
+ },
+ {
+  "index": 183,
+  "hindi_name": "चित्रवेशाय"
+ },
+ {
+  "index": 184,
+  "hindi_name": "चिरंतनाय"
+ },
+ {
+  "index": 185,
+  "hindi_name": "चित्तेशाय"
+ },
+ {
+  "index": 186,
+  "hindi_name": "चित्रबाहवे"
+ },
+ {
+  "index": 187,
+  "hindi_name": "अचलाय"
+ },
+ {
+  "index": 188,
+  "hindi_name": "छिन्नसंशयाय"
+ },
+ {
+  "index": 189,
+  "hindi_name": "चतुर्वेदाय"
+ },
+ {
+  "index": 190,
+  "hindi_name": "चतुर्बाहवे"
+ },
+ {
+  "index": 191,
+  "hindi_name": "चतुराय"
+ },
+ {
+  "index": 192,
+  "hindi_name": "चतुरप्रियाय"
+ },
+ {
+  "index": 193,
+  "hindi_name": "चामुण्डाजनकाय"
+ },
+ {
+  "index": 194,
+  "hindi_name": "चण्डाय"
+ },
+ {
+  "index": 195,
+  "hindi_name": "चलाय"
+ },
+ {
+  "index": 196,
+  "hindi_name": "क्षणसञ्चलाय"
+ },
+ {
+  "index": 197,
+  "hindi_name": "अचिन्त्यमहिम्ने"
+ },
+ {
+  "index": 198,
+  "hindi_name": "अचिंत्याय"
+ },
+ {
+  "index": 199,
+  "hindi_name": "चराचरचरित्रगाय"
+ },
+ {
+  "index": 200,
+  "hindi_name": "चंद्रसंजीवनाय"
+ },
+ {
+  "index": 201,
+  "hindi_name": "चित्राय"
+ },
+ {
+  "index": 202,
+  "hindi_name": "उमाचार्याय"
+ },
+ {
+  "index": 203,
+  "hindi_name": "चतुर्मुखाय"
+ },
+ {
+  "index": 204,
+  "hindi_name": "ओजस्तेजोद्युतिधराय"
+ },
+ {
+  "index": 205,
+  "hindi_name": "जितकामाय"
+ },
+ {
+  "index": 206,
+  "hindi_name": "जनप्रियाय"
+ },
+ {
+  "index": 207,
+  "hindi_name": "अजातशत्रवे"
+ },
+ {
+  "index": 208,
+  "hindi_name": "ओजस्विने"
+ },
+ {
+  "index": 209,
+  "hindi_name": "जितकालय"
+ },
+ {
+  "index": 210,
+  "hindi_name": "जगद्धिताय"
+ },
+ {
+  "index": 211,
+  "hindi_name": "जमदग्नये"
+ },
+ {
+  "index": 212,
+  "hindi_name": "जलनिधये"
+ },
+ {
+  "index": 213,
+  "hindi_name": "जटिलाय"
+ },
+ {
+  "index": 214,
+  "hindi_name": "जीवितेश्वराय"
+ },
+ {
+  "index": 215,
+  "hindi_name": "जननाय"
+ },
+ {
+  "index": 216,
+  "hindi_name": "जनजन्माद्ये"
+ },
+ {
+  "index": 217,
+  "hindi_name": "अर्जुनय"
+ },
+ {
+  "index": 218,
+  "hindi_name": "जन्मविज्ञाप्याय"
+ },
+ {
+  "index": 219,
+  "hindi_name": "जन्माधिपाय"
+ },
+ {
+  "index": 220,
+  "hindi_name": "जटिने"
+ },
+ {
+  "index": 221,
+  "hindi_name": "जन्मजरामृत्युभयापहाय"
+ },
+ {
+  "index": 222,
+  "hindi_name": "जीवितांतकराय"
+ },
+ {
+  "index": 223,
+  "hindi_name": "ज्येष्ठाय"
+ },
+ {
+  "index": 224,
+  "hindi_name": "जगन्नाथाय"
+ },
+ {
+  "index": 225,
+  "hindi_name": "जनेश्वर आय"
+ },
+ {
+  "index": 226,
+  "hindi_name": "त्रिवर्गसाधनाय"
+ },
+ {
+  "index": 227,
+  "hindi_name": "तार्क्ष्यय"
+ },
+ {
+  "index": 228,
+  "hindi_name": "तद्गुणाय"
+ },
+ {
+  "index": 229,
+  "hindi_name": "तन्तुवर्धनय"
+ },
+ {
+  "index": 230,
+  "hindi_name": "तपस्विने"
+ },
+ {
+  "index": 231,
+  "hindi_name": "तारकाय"
+ },
+ {
+  "index": 232,
+  "hindi_name": "ताराय"
+ },
+ {
+  "index": 233,
+  "hindi_name": "तीव्राय"
+ },
+ {
+  "index": 234,
+  "hindi_name": "स्वात्मानिसंस्थिताय"
+ },
+ {
+  "index": 235,
+  "hindi_name": "तपनाय"
+ },
+ {
+  "index": 236,
+  "hindi_name": "तापनाय"
+ },
+ {
+  "index": 237,
+  "hindi_name": "तुष्टाय"
+ },
+ {
+  "index": 238,
+  "hindi_name": "श्वानयोनये"
+ },
+ {
+  "index": 239,
+  "hindi_name": "अतन्द्रिताय"
+ },
+ {
+  "index": 240,
+  "hindi_name": "उत्तरांगाय"
+ },
+ {
+  "index": 241,
+  "hindi_name": "तिमिरघ्ने"
+ },
+ {
+  "index": 242,
+  "hindi_name": "व्रतिने"
+ },
+ {
+  "index": 243,
+  "hindi_name": "वेदाय"
+ },
+ {
+  "index": 244,
+  "hindi_name": "तनूनपाते"
+ },
+ {
+  "index": 245,
+  "hindi_name": "अन्तर्हिताय"
+ },
+ {
+  "index": 246,
+  "hindi_name": "तमिस्राय"
+ },
+ {
+  "index": 247,
+  "hindi_name": "तेजसे"
+ },
+ {
+  "index": 248,
+  "hindi_name": "तेजोमयाय"
+ },
+ {
+  "index": 249,
+  "hindi_name": "स्तन्ये"
+ },
+ {
+  "index": 250,
+  "hindi_name": "तरुणाय"
+ },
+ {
+  "index": 251,
+  "hindi_name": "अर्धकाराय"
+ },
+ {
+  "index": 252,
+  "hindi_name": "तीग्माय"
+ },
+ {
+  "index": 253,
+  "hindi_name": "तत्त्वाय"
+ },
+ {
+  "index": 254,
+  "hindi_name": "तत्त्वगृहेचराय"
+ },
+ {
+  "index": 255,
+  "hindi_name": "तेजोराशये"
+ },
+ {
+  "index": 256,
+  "hindi_name": "शत्रुबाणाय"
+ },
+ {
+  "index": 257,
+  "hindi_name": "अतिथये"
+ },
+ {
+  "index": 258,
+  "hindi_name": "अतिथिप्रियाय"
+ },
+ {
+  "index": 259,
+  "hindi_name": "आत्मयोगशाय"
+ },
+ {
+  "index": 260,
+  "hindi_name": "व्यानाय"
+ },
+ {
+  "index": 261,
+  "hindi_name": "तीर्थदेवमयाय"
+ },
+ {
+  "index": 262,
+  "hindi_name": "शिवाय"
+ },
+ {
+  "index": 263,
+  "hindi_name": "स्थानदाय"
+ },
+ {
+  "index": 264,
+  "hindi_name": "तपनाय"
+ },
+ {
+  "index": 265,
+  "hindi_name": "स्थाणवे"
+ },
+ {
+  "index": 266,
+  "hindi_name": "स्थविष्ठाय"
+ },
+ {
+  "index": 267,
+  "hindi_name": "स्थविराय"
+ },
+ {
+  "index": 268,
+  "hindi_name": "त्रिलोकेशाय"
+ },
+ {
+  "index": 269,
+  "hindi_name": "त्रिलोकात्मने"
+ },
+ {
+  "index": 270,
+  "hindi_name": "त्रिशूलिने"
+ },
+ {
+  "index": 271,
+  "hindi_name": "त्रिदिशाधिपाय"
+ },
+ {
+  "index": 272,
+  "hindi_name": "त्रिलोचनाय"
+ },
+ {
+  "index": 273,
+  "hindi_name": "त्रयीवेद्याय"
+ },
+ {
+  "index": 274,
+  "hindi_name": "त्रिरवचः स्थाय"
+ },
+ {
+  "index": 275,
+  "hindi_name": "त्रिवर्गदाय"
+ },
+ {
+  "index": 276,
+  "hindi_name": "दूराय"
+ },
+ {
+  "index": 277,
+  "hindi_name": "वादस्थानघ्नाय"
+ },
+ {
+  "index": 278,
+  "hindi_name": "दुर्दशाय"
+ },
+ {
+  "index": 279,
+  "hindi_name": "दुस्सहॊदयाय"
+ },
+ {
+  "index": 280,
+  "hindi_name": "पराय"
+ },
+ {
+  "index": 281,
+  "hindi_name": "देवाय"
+ },
+ {
+  "index": 282,
+  "hindi_name": "देवदेवाय"
+ },
+ {
+  "index": 283,
+  "hindi_name": "दुंदुभये"
+ },
+ {
+  "index": 284,
+  "hindi_name": "दुन्दुभिप्रियाय"
+ },
+ {
+  "index": 285,
+  "hindi_name": "दृढायुधधारिणे"
+ },
+ {
+  "index": 286,
+  "hindi_name": "धनदाय"
+ },
+ {
+  "index": 287,
+  "hindi_name": "दक्षाय"
+ },
+ {
+  "index": 288,
+  "hindi_name": "दुःस्वप्ननाशनाय"
+ },
+ {
+  "index": 289,
+  "hindi_name": "दुर्ज्ञेयाय"
+ },
+ {
+  "index": 290,
+  "hindi_name": "दुर्गमाय"
+ },
+ {
+  "index": 291,
+  "hindi_name": "दुर्गाय"
+ },
+ {
+  "index": 292,
+  "hindi_name": "दुरावासाय"
+ },
+ {
+  "index": 293,
+  "hindi_name": "दुरासदाय"
+ },
+ {
+  "index": 294,
+  "hindi_name": "दमाय"
+ },
+ {
+  "index": 295,
+  "hindi_name": "दमयित्रे"
+ },
+ {
+  "index": 296,
+  "hindi_name": "दान्ताय"
+ },
+ {
+  "index": 297,
+  "hindi_name": "दात्रे"
+ },
+ {
+  "index": 298,
+  "hindi_name": "दानाय"
+ },
+ {
+  "index": 299,
+  "hindi_name": "दयाकराय"
+ },
+ {
+  "index": 300,
+  "hindi_name": "दुर्वाससे"
+ },
+ {
+  "index": 301,
+  "hindi_name": "द्विजाय"
+ },
+ {
+  "index": 302,
+  "hindi_name": "देवकायाय"
+ },
+ {
+  "index": 303,
+  "hindi_name": "दुर्नीक्ताय"
+ },
+ {
+  "index": 304,
+  "hindi_name": "दुर्भागोदयाय"
+ },
+ {
+  "index": 305,
+  "hindi_name": "देहिने"
+ },
+ {
+  "index": 306,
+  "hindi_name": "दाहाय"
+ },
+ {
+  "index": 307,
+  "hindi_name": "दानवारये"
+ },
+ {
+  "index": 308,
+  "hindi_name": "देवेन्द्राय"
+ },
+ {
+  "index": 309,
+  "hindi_name": "अरिमर्दनाय"
+ },
+ {
+  "index": 310,
+  "hindi_name": "देवासुरगुरवे"
+ },
+ {
+  "index": 311,
+  "hindi_name": "देवाय"
+ },
+ {
+  "index": 312,
+  "hindi_name": "देवासुरनमस्कृताय"
+ },
+ {
+  "index": 313,
+  "hindi_name": "देवासुरेश्वराय"
+ },
+ {
+  "index": 314,
+  "hindi_name": "दिव्याय"
+ },
+ {
+  "index": 315,
+  "hindi_name": "देवासुर महेश्वराय"
+ },
+ {
+  "index": 316,
+  "hindi_name": "सर्वदेवमयाय"
+ },
+ {
+  "index": 317,
+  "hindi_name": "दण्डाय"
+ },
+ {
+  "index": 318,
+  "hindi_name": "नक्षत्राय"
+ },
+ {
+  "index": 319,
+  "hindi_name": "अक्षराय"
+ },
+ {
+  "index": 320,
+  "hindi_name": "नक्षत्रमालिकाकेशाय"
+ },
+ {
+  "index": 321,
+  "hindi_name": "नागहाराय"
+ },
+ {
+  "index": 322,
+  "hindi_name": "पिनाकधृते"
+ },
+ {
+  "index": 323,
+  "hindi_name": "व्ययननिर्वाहणाय"
+ },
+ {
+  "index": 324,
+  "hindi_name": "न्यायिने"
+ },
+ {
+  "index": 325,
+  "hindi_name": "नभसे"
+ },
+ {
+  "index": 326,
+  "hindi_name": "न्यायाय"
+ },
+ {
+  "index": 327,
+  "hindi_name": "निरंजनाय"
+ },
+ {
+  "index": 328,
+  "hindi_name": "नीरावनाय"
+ },
+ {
+  "index": 329,
+  "hindi_name": "अतिविज्ञानाय"
+ },
+ {
+  "index": 330,
+  "hindi_name": "नरसिंहनिपातनाय"
+ },
+ {
+  "index": 331,
+  "hindi_name": "नन्दिने"
+ },
+ {
+  "index": 332,
+  "hindi_name": "नन्दीश्वराय"
+ },
+ {
+  "index": 333,
+  "hindi_name": "नग्नाय"
+ },
+ {
+  "index": 334,
+  "hindi_name": "नग्नव्रतधाराय"
+ },
+ {
+  "index": 335,
+  "hindi_name": "नराय"
+ },
+ {
+  "index": 336,
+  "hindi_name": "निर्ममाय"
+ },
+ {
+  "index": 337,
+  "hindi_name": "निरहंकाराय"
+ },
+ {
+  "index": 338,
+  "hindi_name": "निर्मोहाय"
+ },
+ {
+  "index": 339,
+  "hindi_name": "निरुपद्रवाय"
+ },
+ {
+  "index": 340,
+  "hindi_name": "निष्कण्टकाय"
+ },
+ {
+  "index": 341,
+  "hindi_name": "कृतानंदाय"
+ },
+ {
+  "index": 342,
+  "hindi_name": "निर्ध्यायाय"
+ },
+ {
+  "index": 343,
+  "hindi_name": "जनार्दनाय"
+ },
+ {
+  "index": 344,
+  "hindi_name": "अनघाय"
+ },
+ {
+  "index": 345,
+  "hindi_name": "निष्कलाय"
+ },
+ {
+  "index": 346,
+  "hindi_name": "निष्ठाय"
+ },
+ {
+  "index": 347,
+  "hindi_name": "नीलकायाय"
+ },
+ {
+  "index": 348,
+  "hindi_name": "निरामयाय"
+ },
+ {
+  "index": 349,
+  "hindi_name": "अनिरुद्धाय"
+ },
+ {
+  "index": 350,
+  "hindi_name": "अनाद्यंताय"
+ },
+ {
+  "index": 351,
+  "hindi_name": "नैकात्मने"
+ },
+ {
+  "index": 352,
+  "hindi_name": "नैकाकर्मकृते"
+ },
+ {
+  "index": 353,
+  "hindi_name": "नागरेतसे"
+ },
+ {
+  "index": 354,
+  "hindi_name": "नखिने"
+ },
+ {
+  "index": 355,
+  "hindi_name": "नन्दीने"
+ },
+ {
+  "index": 356,
+  "hindi_name": "आनंदवनवर्धनाय"
+ },
+ {
+  "index": 357,
+  "hindi_name": "योगाय"
+ },
+ {
+  "index": 358,
+  "hindi_name": "विरागीने"
+ },
+ {
+  "index": 359,
+  "hindi_name": "वैरागिने"
+ },
+ {
+  "index": 360,
+  "hindi_name": "त्यागिने"
+ },
+ {
+  "index": 361,
+  "hindi_name": "गौरीवरंगणाय"
+ },
+ {
+  "index": 362,
+  "hindi_name": "कम्बुकण्ठाय"
+ },
+ {
+  "index": 363,
+  "hindi_name": "गृहस्थाय"
+ },
+ {
+  "index": 364,
+  "hindi_name": "उग्राय"
+ },
+ {
+  "index": 365,
+  "hindi_name": "चण्डाय"
+ },
+ {
+  "index": 366,
+  "hindi_name": "अखण्डभृते"
+ },
+ {
+  "index": 367,
+  "hindi_name": "अन्तकाय"
+ },
+ {
+  "index": 368,
+  "hindi_name": "ताण्डवाडम्बररुचये"
+ },
+ {
+  "index": 369,
+  "hindi_name": "रुरुमण्डलमण्डिताय"
+ },
+ {
+  "index": 370,
+  "hindi_name": "परमेश्वराय"
+ },
+ {
+  "index": 371,
+  "hindi_name": "पशुपतये"
+ },
+ {
+  "index": 372,
+  "hindi_name": "पिनाकिने"
+ },
+ {
+  "index": 373,
+  "hindi_name": "पुरशासनाय"
+ },
+ {
+  "index": 374,
+  "hindi_name": "पुरास्तुताय"
+ },
+ {
+  "index": 375,
+  "hindi_name": "देवकीराय"
+ },
+ {
+  "index": 376,
+  "hindi_name": "परमेष्ठिने"
+ },
+ {
+  "index": 377,
+  "hindi_name": "परायणाय"
+ },
+ {
+  "index": 378,
+  "hindi_name": "पञ्चविंशतितत्त्वस्थाय"
+ },
+ {
+  "index": 379,
+  "hindi_name": "पञ्चजन्तवे"
+ },
+ {
+  "index": 380,
+  "hindi_name": "प्रभंजनाय"
+ },
+ {
+  "index": 381,
+  "hindi_name": "मस्करिणे"
+ },
+ {
+  "index": 382,
+  "hindi_name": "परब्रह्मणे"
+ },
+ {
+  "index": 383,
+  "hindi_name": "पारिजाताय"
+ },
+ {
+  "index": 384,
+  "hindi_name": "परात्पराय"
+ },
+ {
+  "index": 385,
+  "hindi_name": "प्रतिष्ठिताय"
+ },
+ {
+  "index": 386,
+  "hindi_name": "प्रमाणज्ञाय"
+ },
+ {
+  "index": 387,
+  "hindi_name": "प्रमाणाय"
+ },
+ {
+  "index": 388,
+  "hindi_name": "परमार्थदाय"
+ },
+ {
+  "index": 389,
+  "hindi_name": "पञ्चब्रह्मणे"
+ },
+ {
+  "index": 390,
+  "hindi_name": "सत्पतये"
+ },
+ {
+  "index": 391,
+  "hindi_name": "परमात्मने"
+ },
+ {
+  "index": 392,
+  "hindi_name": "परायणाय"
+ },
+ {
+  "index": 393,
+  "hindi_name": "पिनाकपाणये"
+ },
+ {
+  "index": 394,
+  "hindi_name": "प्राम्शवे"
+ },
+ {
+  "index": 395,
+  "hindi_name": "प्रत्ययाय"
+ },
+ {
+  "index": 396,
+  "hindi_name": "परवीरघ्ने"
+ },
+ {
+  "index": 397,
+  "hindi_name": "प्रभाकराय"
+ },
+ {
+  "index": 398,
+  "hindi_name": "प्रत्यक्षाय"
+ },
+ {
+  "index": 399,
+  "hindi_name": "प्रणवाय"
+ },
+ {
+  "index": 400,
+  "hindi_name": "पुरंजयाय"
+ },
+ {
+  "index": 401,
+  "hindi_name": "पवित्रपाणये"
+ },
+ {
+  "index": 402,
+  "hindi_name": "पापाराये"
+ },
+ {
+  "index": 403,
+  "hindi_name": "प्रत्यायाचिरशे"
+ },
+ {
+  "index": 404,
+  "hindi_name": "अपाम निधये"
+ },
+ {
+  "index": 405,
+  "hindi_name": "पुलस्त्याय"
+ },
+ {
+  "index": 406,
+  "hindi_name": "पुलहाय"
+ },
+ {
+  "index": 407,
+  "hindi_name": "अगस्त्याय"
+ },
+ {
+  "index": 408,
+  "hindi_name": "पुरुषूताय"
+ },
+ {
+  "index": 409,
+  "hindi_name": "पुरुषस्तुताय"
+ },
+ {
+  "index": 410,
+  "hindi_name": "पद्माकराया"
+ },
+ {
+  "index": 411,
+  "hindi_name": "परस्मैज्योतिषे"
+ },
+ {
+  "index": 412,
+  "hindi_name": "परापरफलप्रदाय"
+ },
+ {
+  "index": 413,
+  "hindi_name": "परावरज्ञाय"
+ },
+ {
+  "index": 414,
+  "hindi_name": "परदाय"
+ },
+ {
+  "index": 415,
+  "hindi_name": "परशत्रवे"
+ },
+ {
+  "index": 416,
+  "hindi_name": "परस्मैपदाय"
+ },
+ {
+  "index": 417,
+  "hindi_name": "पूर्णाय"
+ },
+ {
+  "index": 418,
+  "hindi_name": "पूरयित्रे"
+ },
+ {
+  "index": 419,
+  "hindi_name": "पुण्याय"
+ },
+ {
+  "index": 420,
+  "hindi_name": "पुण्यश्रवणकीर्तनाय"
+ },
+ {
+  "index": 421,
+  "hindi_name": "पुरंदराय"
+ },
+ {
+  "index": 422,
+  "hindi_name": "पुण्यकीर्तये"
+ },
+ {
+  "index": 423,
+  "hindi_name": "प्रमादिने"
+ },
+ {
+  "index": 424,
+  "hindi_name": "पापनाशनाय"
+ },
+ {
+  "index": 425,
+  "hindi_name": "परशीलाय"
+ },
+ {
+  "index": 426,
+  "hindi_name": "परगुणाया"
+ },
+ {
+  "index": 427,
+  "hindi_name": "प्रादुरागाय"
+ },
+ {
+  "index": 428,
+  "hindi_name": "पुरन्दराय"
+ },
+ {
+  "index": 429,
+  "hindi_name": "परार्थव्यक्तये"
+ },
+ {
+  "index": 430,
+  "hindi_name": "प्रभवाय"
+ },
+ {
+  "index": 431,
+  "hindi_name": "पुरुषाय"
+ },
+ {
+  "index": 432,
+  "hindi_name": "पुरुजाय"
+ },
+ {
+  "index": 433,
+  "hindi_name": "पित्रै"
+ },
+ {
+  "index": 434,
+  "hindi_name": "पिंगलाय"
+ },
+ {
+  "index": 435,
+  "hindi_name": "पावनाय"
+ },
+ {
+  "index": 436,
+  "hindi_name": "प्लक्षाय"
+ },
+ {
+  "index": 437,
+  "hindi_name": "अतलाय"
+ },
+ {
+  "index": 438,
+  "hindi_name": "पूषदन्तघ्ने"
+ },
+ {
+  "index": 439,
+  "hindi_name": "परमार्थगुरवे"
+ },
+ {
+  "index": 440,
+  "hindi_name": "प्रीतये"
+ },
+ {
+  "index": 441,
+  "hindi_name": "प्रीतमते"
+ },
+ {
+  "index": 442,
+  "hindi_name": "पुरातनाय"
+ },
+ {
+  "index": 443,
+  "hindi_name": "पराशराय"
+ },
+ {
+  "index": 444,
+  "hindi_name": "पद्मगर्भाय"
+ },
+ {
+  "index": 445,
+  "hindi_name": "पराय"
+ },
+ {
+  "index": 446,
+  "hindi_name": "परपुरंजयाय"
+ },
+ {
+  "index": 447,
+  "hindi_name": "उपप्लवाय"
+ },
+ {
+  "index": 448,
+  "hindi_name": "उभयाकराय"
+ },
+ {
+  "index": 449,
+  "hindi_name": "परमार्थैकपण्डिताय"
+ },
+ {
+  "index": 450,
+  "hindi_name": "महेश्वराय"
+ },
+ {
+  "index": 451,
+  "hindi_name": "महादेवाय"
+ },
+ {
+  "index": 452,
+  "hindi_name": "मुद्गलाय"
+ },
+ {
+  "index": 453,
+  "hindi_name": "मधुराय"
+ },
+ {
+  "index": 454,
+  "hindi_name": "मृडवे"
+ },
+ {
+  "index": 455,
+  "hindi_name": "मत्ताशयाय"
+ },
+ {
+  "index": 456,
+  "hindi_name": "महायोगिने"
+ },
+ {
+  "index": 457,
+  "hindi_name": "महाकर्मणे"
+ },
+ {
+  "index": 458,
+  "hindi_name": "महाऔषधाय"
+ },
+ {
+  "index": 459,
+  "hindi_name": "महर्षये"
+ },
+ {
+  "index": 460,
+  "hindi_name": "कपिलाचार्याय"
+ },
+ {
+  "index": 461,
+  "hindi_name": "मृगधाम्ने"
+ },
+ {
+  "index": 462,
+  "hindi_name": "महालय"
+ },
+ {
+  "index": 463,
+  "hindi_name": "महानिधये"
+ },
+ {
+  "index": 464,
+  "hindi_name": "महाभूतये"
+ },
+ {
+  "index": 465,
+  "hindi_name": "महानितये"
+ },
+ {
+  "index": 466,
+  "hindi_name": "महामतये"
+ },
+ {
+  "index": 467,
+  "hindi_name": "महाग्रहाय"
+ },
+ {
+  "index": 468,
+  "hindi_name": "महागन्त्रे"
+ },
+ {
+  "index": 469,
+  "hindi_name": "महाभूताय"
+ },
+ {
+  "index": 470,
+  "hindi_name": "अमृताय"
+ },
+ {
+  "index": 471,
+  "hindi_name": "यमाय"
+ },
+ {
+  "index": 472,
+  "hindi_name": "अमृतांशवे"
+ },
+ {
+  "index": 473,
+  "hindi_name": "अमृतवपुषे"
+ },
+ {
+  "index": 474,
+  "hindi_name": "मरीचये"
+ },
+ {
+  "index": 475,
+  "hindi_name": "मोहजालघ्ने"
+ },
+ {
+  "index": 476,
+  "hindi_name": "महातपसे"
+ },
+ {
+  "index": 477,
+  "hindi_name": "महाकायाय"
+ },
+ {
+  "index": 478,
+  "hindi_name": "मृगबाणार्पणाय"
+ },
+ {
+  "index": 479,
+  "hindi_name": "खलाय"
+ },
+ {
+  "index": 480,
+  "hindi_name": "महाबलाय"
+ },
+ {
+  "index": 481,
+  "hindi_name": "महीपाताय"
+ },
+ {
+  "index": 482,
+  "hindi_name": "महायोगिने"
+ },
+ {
+  "index": 483,
+  "hindi_name": "महामनसे"
+ },
+ {
+  "index": 484,
+  "hindi_name": "महामायाय"
+ },
+ {
+  "index": 485,
+  "hindi_name": "महाशान्ताय"
+ },
+ {
+  "index": 486,
+  "hindi_name": "मताय"
+ },
+ {
+  "index": 487,
+  "hindi_name": "नादाय"
+ },
+ {
+  "index": 488,
+  "hindi_name": "महोत्सवाय"
+ },
+ {
+  "index": 489,
+  "hindi_name": "मात्सर्यविदे"
+ },
+ {
+  "index": 490,
+  "hindi_name": "महावीर्याय"
+ },
+ {
+  "index": 491,
+  "hindi_name": "महाशक्तये"
+ },
+ {
+  "index": 492,
+  "hindi_name": "महाद्युतये"
+ },
+ {
+  "index": 493,
+  "hindi_name": "उन्मत्तकीर्तिकृते"
+ },
+ {
+  "index": 494,
+  "hindi_name": "मत्ताय"
+ },
+ {
+  "index": 495,
+  "hindi_name": "मघवते"
+ },
+ {
+  "index": 496,
+  "hindi_name": "अमिताय"
+ },
+ {
+  "index": 497,
+  "hindi_name": "मताय"
+ },
+ {
+  "index": 498,
+  "hindi_name": "महाभोगाय"
+ },
+ {
+  "index": 499,
+  "hindi_name": "अमृताय"
+ },
+ {
+  "index": 500,
+  "hindi_name": "मन्त्राय"
+ },
+ {
+  "index": 501,
+  "hindi_name": "मङ्गलाय"
+ },
+ {
+  "index": 502,
+  "hindi_name": "मङ्गलप्रियाय"
+ },
+ {
+  "index": 503,
+  "hindi_name": "अमोघदण्डाय"
+ },
+ {
+  "index": 504,
+  "hindi_name": "मध्यस्थाय"
+ },
+ {
+  "index": 505,
+  "hindi_name": "महेशाय"
+ },
+ {
+  "index": 506,
+  "hindi_name": "अमोघविक्रमाय"
+ },
+ {
+  "index": 507,
+  "hindi_name": "अमेयाय"
+ },
+ {
+  "index": 508,
+  "hindi_name": "अरिष्टमथनाय"
+ },
+ {
+  "index": 509,
+  "hindi_name": "मुकुंदाय"
+ },
+ {
+  "index": 510,
+  "hindi_name": "सर्वपापघ्ने"
+ },
+ {
+  "index": 511,
+  "hindi_name": "मातामहाया"
+ },
+ {
+  "index": 512,
+  "hindi_name": "मातरिश्वने"
+ },
+ {
+  "index": 513,
+  "hindi_name": "मणिपूराय"
+ },
+ {
+  "index": 514,
+  "hindi_name": "महाशयाय"
+ },
+ {
+  "index": 515,
+  "hindi_name": "मदघ्ने"
+ },
+ {
+  "index": 516,
+  "hindi_name": "महागर्भाय"
+ },
+ {
+  "index": 517,
+  "hindi_name": "महाकल्पाय"
+ },
+ {
+  "index": 518,
+  "hindi_name": "महाधनुषे"
+ },
+ {
+  "index": 519,
+  "hindi_name": "मनसे"
+ },
+ {
+  "index": 520,
+  "hindi_name": "मनोमायाय"
+ },
+ {
+  "index": 521,
+  "hindi_name": "मानिने"
+ },
+ {
+  "index": 522,
+  "hindi_name": "मेरुपद्याय"
+ },
+ {
+  "index": 523,
+  "hindi_name": "मृडाय"
+ },
+ {
+  "index": 524,
+  "hindi_name": "मानवे"
+ },
+ {
+  "index": 525,
+  "hindi_name": "महाशोभाय"
+ },
+ {
+  "index": 526,
+  "hindi_name": "महाज्ञानिने"
+ },
+ {
+  "index": 527,
+  "hindi_name": "महाकालाय"
+ },
+ {
+  "index": 528,
+  "hindi_name": "कलिप्रियाय"
+ },
+ {
+  "index": 529,
+  "hindi_name": "महावटवे"
+ },
+ {
+  "index": 530,
+  "hindi_name": "महात्यागिने"
+ },
+ {
+  "index": 531,
+  "hindi_name": "महाकोषाय"
+ },
+ {
+  "index": 532,
+  "hindi_name": "महागतये"
+ },
+ {
+  "index": 533,
+  "hindi_name": "शिखण्डिने"
+ },
+ {
+  "index": 534,
+  "hindi_name": "कवचिने"
+ },
+ {
+  "index": 535,
+  "hindi_name": "शूलिने"
+ },
+ {
+  "index": 536,
+  "hindi_name": "जटिने"
+ },
+ {
+  "index": 537,
+  "hindi_name": "मुंडिने"
+ },
+ {
+  "index": 538,
+  "hindi_name": "कुण्डलिने"
+ },
+ {
+  "index": 539,
+  "hindi_name": "मेघमालिने"
+ },
+ {
+  "index": 540,
+  "hindi_name": "चक्रखड्गिने"
+ },
+ {
+  "index": 541,
+  "hindi_name": "मालिने"
+ },
+ {
+  "index": 542,
+  "hindi_name": "मायाय"
+ },
+ {
+  "index": 543,
+  "hindi_name": "महामनये"
+ },
+ {
+  "index": 544,
+  "hindi_name": "महेश्वसाय"
+ },
+ {
+  "index": 545,
+  "hindi_name": "महानन्दाय"
+ },
+ {
+  "index": 546,
+  "hindi_name": "महाचार्याय"
+ },
+ {
+  "index": 547,
+  "hindi_name": "महाभुजाय"
+ },
+ {
+  "index": 548,
+  "hindi_name": "मखकर्त्रे"
+ },
+ {
+  "index": 549,
+  "hindi_name": "मखध्वंसिने"
+ },
+ {
+  "index": 550,
+  "hindi_name": "मधुराय"
+ },
+ {
+  "index": 551,
+  "hindi_name": "मघवतप्रियाय"
+ },
+ {
+  "index": 552,
+  "hindi_name": "ब्रह्मसृष्टये"
+ },
+ {
+  "index": 553,
+  "hindi_name": "ब्रह्मवीर्याय"
+ },
+ {
+  "index": 554,
+  "hindi_name": "बाणहस्ताय"
+ },
+ {
+  "index": 555,
+  "hindi_name": "अचलाय"
+ },
+ {
+  "index": 556,
+  "hindi_name": "बलिने"
+ },
+ {
+  "index": 557,
+  "hindi_name": "कीररूपाय"
+ },
+ {
+  "index": 558,
+  "hindi_name": "चलाय"
+ },
+ {
+  "index": 559,
+  "hindi_name": "उन्मादिने"
+ },
+ {
+  "index": 560,
+  "hindi_name": "ब्रह्मन्याय"
+ },
+ {
+  "index": 561,
+  "hindi_name": "ब्रह्मवर्चसाय"
+ },
+ {
+  "index": 562,
+  "hindi_name": "बहुरूपाया"
+ },
+ {
+  "index": 563,
+  "hindi_name": "बहुमायाय"
+ },
+ {
+  "index": 564,
+  "hindi_name": "ब्रह्मविष्णुशिवात्मकाय"
+ },
+ {
+  "index": 565,
+  "hindi_name": "ब्रह्मगर्भाय"
+ },
+ {
+  "index": 566,
+  "hindi_name": "अक्षराय"
+ },
+ {
+  "index": 567,
+  "hindi_name": "दम्भाय"
+ },
+ {
+  "index": 568,
+  "hindi_name": "ब्रह्मज्योतिषे"
+ },
+ {
+  "index": 569,
+  "hindi_name": "बृहस्पतये"
+ },
+ {
+  "index": 570,
+  "hindi_name": "बीजबुद्धये"
+ },
+ {
+  "index": 571,
+  "hindi_name": "ब्रह्मचारिणे"
+ },
+ {
+  "index": 572,
+  "hindi_name": "ब्राह्मणाय"
+ },
+ {
+  "index": 573,
+  "hindi_name": "ब्राह्मणप्रियाय"
+ },
+ {
+  "index": 574,
+  "hindi_name": "युगादिकृते"
+ },
+ {
+  "index": 575,
+  "hindi_name": "युगावर्ताय"
+ },
+ {
+  "index": 576,
+  "hindi_name": "युगाध्यक्षाय"
+ },
+ {
+  "index": 577,
+  "hindi_name": "युगापघ्ने"
+ },
+ {
+  "index": 578,
+  "hindi_name": "यज्ञाय"
+ },
+ {
+  "index": 579,
+  "hindi_name": "यज्ञपतये"
+ },
+ {
+  "index": 580,
+  "hindi_name": "यज्वने"
+ },
+ {
+  "index": 581,
+  "hindi_name": "यज्ञांगाय"
+ },
+ {
+  "index": 582,
+  "hindi_name": "यज्ञवाहनाय"
+ },
+ {
+  "index": 583,
+  "hindi_name": "योगाचार्याय"
+ },
+ {
+  "index": 584,
+  "hindi_name": "योगिगम्याय"
+ },
+ {
+  "index": 585,
+  "hindi_name": "योगिने"
+ },
+ {
+  "index": 586,
+  "hindi_name": "योग्याय"
+ },
+ {
+  "index": 587,
+  "hindi_name": "योगविदे"
+ },
+ {
+  "index": 588,
+  "hindi_name": "योगांगाय"
+ },
+ {
+  "index": 589,
+  "hindi_name": "योगहाराङ्गाय"
+ },
+ {
+  "index": 590,
+  "hindi_name": "यक्षाय"
+ },
+ {
+  "index": 591,
+  "hindi_name": "युक्तिमयाय"
+ },
+ {
+  "index": 592,
+  "hindi_name": "यमाय"
+ },
+ {
+  "index": 593,
+  "hindi_name": "रौद्राय"
+ },
+ {
+  "index": 594,
+  "hindi_name": "रौद्रऋषये"
+ },
+ {
+  "index": 595,
+  "hindi_name": "राहवे"
+ },
+ {
+  "index": 596,
+  "hindi_name": "रति रत्नाय"
+ },
+ {
+  "index": 597,
+  "hindi_name": "रणप्रियाय"
+ },
+ {
+  "index": 598,
+  "hindi_name": "लोकबन्धवे"
+ },
+ {
+  "index": 599,
+  "hindi_name": "लोकनाथाय"
+ },
+ {
+  "index": 600,
+  "hindi_name": "लक्षयज्ञाय"
+ },
+ {
+  "index": 601,
+  "hindi_name": "लक्षणाय"
+ },
+ {
+  "index": 602,
+  "hindi_name": "लोलमायाय"
+ },
+ {
+  "index": 603,
+  "hindi_name": "लोककर्त्रे"
+ },
+ {
+  "index": 604,
+  "hindi_name": "लोक्याय"
+ },
+ {
+  "index": 605,
+  "hindi_name": "लोलाय"
+ },
+ {
+  "index": 606,
+  "hindi_name": "ललिताय"
+ },
+ {
+  "index": 607,
+  "hindi_name": "शरभाय"
+ },
+ {
+  "index": 608,
+  "hindi_name": "वरदाय"
+ },
+ {
+  "index": 609,
+  "hindi_name": "वन्याय"
+ },
+ {
+  "index": 610,
+  "hindi_name": "विदुषे"
+ },
+ {
+  "index": 611,
+  "hindi_name": "विश्वास्मै"
+ },
+ {
+  "index": 612,
+  "hindi_name": "महेश्वराय"
+ },
+ {
+  "index": 613,
+  "hindi_name": "वेदान्तसारसन्दोहाय"
+ },
+ {
+  "index": 614,
+  "hindi_name": "वितताङ्गाय"
+ },
+ {
+  "index": 615,
+  "hindi_name": "विशारदाय"
+ },
+ {
+  "index": 616,
+  "hindi_name": "विश्वमूर्तये"
+ },
+ {
+  "index": 617,
+  "hindi_name": "वेदवेद्याय"
+ },
+ {
+  "index": 618,
+  "hindi_name": "वामदेवाय"
+ },
+ {
+  "index": 619,
+  "hindi_name": "विमोचकाय"
+ },
+ {
+  "index": 620,
+  "hindi_name": "विश्व रूपाय"
+ },
+ {
+  "index": 621,
+  "hindi_name": "विरूपाक्षाय"
+ },
+ {
+  "index": 622,
+  "hindi_name": "वाणीशाय"
+ },
+ {
+  "index": 623,
+  "hindi_name": "हव्यवाहनाय"
+ },
+ {
+  "index": 624,
+  "hindi_name": "वृषांगाय"
+ },
+ {
+  "index": 625,
+  "hindi_name": "विशालाक्षाय"
+ },
+ {
+  "index": 626,
+  "hindi_name": "विश्वदर्शिने"
+ },
+ {
+  "index": 627,
+  "hindi_name": "विलोचनाय"
+ },
+ {
+  "index": 628,
+  "hindi_name": "विशाखाय"
+ },
+ {
+  "index": 629,
+  "hindi_name": "विश्वस्रिजे"
+ },
+ {
+  "index": 630,
+  "hindi_name": "विश्वस्मै"
+ },
+ {
+  "index": 631,
+  "hindi_name": "विजितात्मने"
+ },
+ {
+  "index": 632,
+  "hindi_name": "अव्ययाय"
+ },
+ {
+  "index": 633,
+  "hindi_name": "पुम्से"
+ },
+ {
+  "index": 634,
+  "hindi_name": "व्याघ्रचर्मधृतये"
+ },
+ {
+  "index": 635,
+  "hindi_name": "व्यापिने"
+ },
+ {
+  "index": 636,
+  "hindi_name": "वांग्मयीकनिधये"
+ },
+ {
+  "index": 637,
+  "hindi_name": "विभवे"
+ },
+ {
+  "index": 638,
+  "hindi_name": "वर्णाश्रमगुरवे"
+ },
+ {
+  "index": 639,
+  "hindi_name": "वर्णाय"
+ },
+ {
+  "index": 640,
+  "hindi_name": "वरदाय"
+ },
+ {
+  "index": 641,
+  "hindi_name": "वायुवाहनाय"
+ },
+ {
+  "index": 642,
+  "hindi_name": "विश्वकर्मणे"
+ },
+ {
+  "index": 643,
+  "hindi_name": "विनीतात्मने"
+ },
+ {
+  "index": 644,
+  "hindi_name": "वेदशास्त्रार्थतत्वविदे"
+ },
+ {
+  "index": 645,
+  "hindi_name": "वासवे"
+ },
+ {
+  "index": 646,
+  "hindi_name": "वसुमनसे"
+ },
+ {
+  "index": 647,
+  "hindi_name": "पालाय"
+ },
+ {
+  "index": 648,
+  "hindi_name": "विरामाय"
+ },
+ {
+  "index": 649,
+  "hindi_name": "विद्रुमच्छवये"
+ },
+ {
+  "index": 650,
+  "hindi_name": "विमोकाय"
+ },
+ {
+  "index": 651,
+  "hindi_name": "विजयाय"
+ },
+ {
+  "index": 652,
+  "hindi_name": "विशिष्ठाय"
+ },
+ {
+  "index": 653,
+  "hindi_name": "वृषवाहनाय"
+ },
+ {
+  "index": 654,
+  "hindi_name": "विश्वेशाय"
+ },
+ {
+  "index": 655,
+  "hindi_name": "विविधाय"
+ },
+ {
+  "index": 656,
+  "hindi_name": "वादिन"
+ },
+ {
+  "index": 657,
+  "hindi_name": "वेदांगाय"
+ },
+ {
+  "index": 658,
+  "hindi_name": "वेदविदे"
+ },
+ {
+  "index": 659,
+  "hindi_name": "मायाय"
+ },
+ {
+  "index": 660,
+  "hindi_name": "विश्वेश्वराय"
+ },
+ {
+  "index": 661,
+  "hindi_name": "वीरभद्राय"
+ },
+ {
+  "index": 662,
+  "hindi_name": "वीरासीनाय"
+ },
+ {
+  "index": 663,
+  "hindi_name": "विधये"
+ },
+ {
+  "index": 664,
+  "hindi_name": "विराजे"
+ },
+ {
+  "index": 665,
+  "hindi_name": "व्यवसायाय"
+ },
+ {
+  "index": 666,
+  "hindi_name": "व्यवस्थानाय"
+ },
+ {
+  "index": 667,
+  "hindi_name": "वीरचूडामणये"
+ },
+ {
+  "index": 668,
+  "hindi_name": "विराजे"
+ },
+ {
+  "index": 669,
+  "hindi_name": "वालखिल्य"
+ },
+ {
+  "index": 670,
+  "hindi_name": "विश्वदेहाय"
+ },
+ {
+  "index": 671,
+  "hindi_name": "विरामाय"
+ },
+ {
+  "index": 672,
+  "hindi_name": "वसुदाय"
+ },
+ {
+  "index": 673,
+  "hindi_name": "वासवे"
+ },
+ {
+  "index": 674,
+  "hindi_name": "विषेचनाय"
+ },
+ {
+  "index": 675,
+  "hindi_name": "वेदवेद्याय"
+ },
+ {
+  "index": 676,
+  "hindi_name": "वेदाय"
+ },
+ {
+  "index": 677,
+  "hindi_name": "वाचस्पतये"
+ },
+ {
+  "index": 678,
+  "hindi_name": "वशिन"
+ },
+ {
+  "index": 679,
+  "hindi_name": "विद्वत्तमाय"
+ },
+ {
+  "index": 680,
+  "hindi_name": "वित्तमयाय"
+ },
+ {
+  "index": 681,
+  "hindi_name": "विश्रुतये"
+ },
+ {
+  "index": 682,
+  "hindi_name": "विमलोदयाय"
+ },
+ {
+  "index": 683,
+  "hindi_name": "वैवस्वताय"
+ },
+ {
+  "index": 684,
+  "hindi_name": "वसिष्ठाय"
+ },
+ {
+  "index": 685,
+  "hindi_name": "विगतज्वराय"
+ },
+ {
+  "index": 686,
+  "hindi_name": "विश्वहर्त्रे"
+ },
+ {
+  "index": 687,
+  "hindi_name": "विश्वमोदिने"
+ },
+ {
+  "index": 688,
+  "hindi_name": "विश्वामित्राय"
+ },
+ {
+  "index": 689,
+  "hindi_name": "द्विजेश्वराय"
+ },
+ {
+  "index": 690,
+  "hindi_name": "वीरोत्पत्तये"
+ },
+ {
+  "index": 691,
+  "hindi_name": "विश्वसाहाय"
+ },
+ {
+  "index": 692,
+  "hindi_name": "विश्वावासाय"
+ },
+ {
+  "index": 693,
+  "hindi_name": "वसुश्रवसे"
+ },
+ {
+  "index": 694,
+  "hindi_name": "वज्रहस्ताय"
+ },
+ {
+  "index": 695,
+  "hindi_name": "वजररूपाय"
+ },
+ {
+  "index": 696,
+  "hindi_name": "विपाकाय"
+ },
+ {
+  "index": 697,
+  "hindi_name": "विश्वकारकाय"
+ },
+ {
+  "index": 698,
+  "hindi_name": "बृहदश्वाय"
+ },
+ {
+  "index": 699,
+  "hindi_name": "व्यालकल्पाय"
+ },
+ {
+  "index": 700,
+  "hindi_name": "विशल्याय"
+ },
+ {
+  "index": 701,
+  "hindi_name": "लोकशल्यकृते"
+ },
+ {
+  "index": 702,
+  "hindi_name": "विरूपाय"
+ },
+ {
+  "index": 703,
+  "hindi_name": "विकृताय"
+ },
+ {
+  "index": 704,
+  "hindi_name": "वेगिने"
+ },
+ {
+  "index": 705,
+  "hindi_name": "विरिञ्चये"
+ },
+ {
+  "index": 706,
+  "hindi_name": "विष्टरश्रवसे"
+ },
+ {
+  "index": 707,
+  "hindi_name": "अव्यक्तलक्षणाय"
+ },
+ {
+  "index": 708,
+  "hindi_name": "अव्यक्ताय"
+ },
+ {
+  "index": 709,
+  "hindi_name": "व्यक्ताय"
+ },
+ {
+  "index": 710,
+  "hindi_name": "वैश्याय"
+ },
+ {
+  "index": 711,
+  "hindi_name": "विशांपतये"
+ },
+ {
+  "index": 712,
+  "hindi_name": "विबुधाग्रेसराय"
+ },
+ {
+  "index": 713,
+  "hindi_name": "वेदाय"
+ },
+ {
+  "index": 714,
+  "hindi_name": "विश्वगर्भाय"
+ },
+ {
+  "index": 715,
+  "hindi_name": "विचक्षणाय"
+ },
+ {
+  "index": 716,
+  "hindi_name": "विषमाक्षाय"
+ },
+ {
+  "index": 717,
+  "hindi_name": "विलोमाक्षाय"
+ },
+ {
+  "index": 718,
+  "hindi_name": "वृषदाय"
+ },
+ {
+  "index": 719,
+  "hindi_name": "वृषवर्धनाय"
+ },
+ {
+  "index": 720,
+  "hindi_name": "विविक्तदाय"
+ },
+ {
+  "index": 721,
+  "hindi_name": "वसन्ताय"
+ },
+ {
+  "index": 722,
+  "hindi_name": "विवस्वते"
+ },
+ {
+  "index": 723,
+  "hindi_name": "वितामसे"
+ },
+ {
+  "index": 724,
+  "hindi_name": "तमसे"
+ },
+ {
+  "index": 725,
+  "hindi_name": "वेदवेद्याय"
+ },
+ {
+  "index": 726,
+  "hindi_name": "विश्व रूपाय"
+ },
+ {
+  "index": 727,
+  "hindi_name": "विविक्ताय"
+ },
+ {
+  "index": 728,
+  "hindi_name": "विश्वभाजनाय"
+ },
+ {
+  "index": 729,
+  "hindi_name": "विषयस्थाय"
+ },
+ {
+  "index": 730,
+  "hindi_name": "विविक्तस्थाय"
+ },
+ {
+  "index": 731,
+  "hindi_name": "विद्याराशये"
+ },
+ {
+  "index": 732,
+  "hindi_name": "पतिप्रियाय"
+ },
+ {
+  "index": 733,
+  "hindi_name": "शिवाय"
+ },
+ {
+  "index": 734,
+  "hindi_name": "शर्वाय"
+ },
+ {
+  "index": 735,
+  "hindi_name": "सदाचाराय"
+ },
+ {
+  "index": 736,
+  "hindi_name": "शम्भवे"
+ },
+ {
+  "index": 737,
+  "hindi_name": "ईशानाय"
+ },
+ {
+  "index": 738,
+  "hindi_name": "ईश्वराय"
+ },
+ {
+  "index": 739,
+  "hindi_name": "श्रुतिधर्मोक्तसंवादिने"
+ },
+ {
+  "index": 740,
+  "hindi_name": "सहस्राक्षाय"
+ },
+ {
+  "index": 741,
+  "hindi_name": "सहस्रपादे"
+ },
+ {
+  "index": 742,
+  "hindi_name": "सर्वज्ञाय"
+ },
+ {
+  "index": 743,
+  "hindi_name": "सर्वदेवाय"
+ },
+ {
+  "index": 744,
+  "hindi_name": "शङ्कराय"
+ },
+ {
+  "index": 745,
+  "hindi_name": "शूलधारकाय"
+ },
+ {
+  "index": 746,
+  "hindi_name": "शुचये"
+ },
+ {
+  "index": 747,
+  "hindi_name": "राशिभ्यो"
+ },
+ {
+  "index": 748,
+  "hindi_name": "स्कंदगुरवे"
+ },
+ {
+  "index": 749,
+  "hindi_name": "श्रीकण्ठाय"
+ },
+ {
+  "index": 750,
+  "hindi_name": "सूर्यतापनाय"
+ },
+ {
+  "index": 751,
+  "hindi_name": "ईशानानिलयाय"
+ },
+ {
+  "index": 752,
+  "hindi_name": "स्वस्ति"
+ },
+ {
+  "index": 753,
+  "hindi_name": "सामवेदस्वरूपविदे"
+ },
+ {
+  "index": 754,
+  "hindi_name": "मानिने"
+ },
+ {
+  "index": 755,
+  "hindi_name": "सुनीति"
+ },
+ {
+  "index": 756,
+  "hindi_name": "शुद्धात्मने"
+ },
+ {
+  "index": 757,
+  "hindi_name": "सोमाय"
+ },
+ {
+  "index": 758,
+  "hindi_name": "सोमताराय"
+ },
+ {
+  "index": 759,
+  "hindi_name": "सुखिने"
+ },
+ {
+  "index": 760,
+  "hindi_name": "सदाशिवाय"
+ },
+ {
+  "index": 761,
+  "hindi_name": "समावृत्ताय"
+ },
+ {
+  "index": 762,
+  "hindi_name": "सुक्रीतये"
+ },
+ {
+  "index": 763,
+  "hindi_name": "छिन्नसंशयाय"
+ },
+ {
+  "index": 764,
+  "hindi_name": "सर्वकामिने"
+ },
+ {
+  "index": 765,
+  "hindi_name": "सदावासाय"
+ },
+ {
+  "index": 766,
+  "hindi_name": "सर्वायुधविशारदाय"
+ },
+ {
+  "index": 767,
+  "hindi_name": "सुलभाय"
+ },
+ {
+  "index": 768,
+  "hindi_name": "सूदनाय"
+ },
+ {
+  "index": 769,
+  "hindi_name": "शुद्धाय"
+ },
+ {
+  "index": 770,
+  "hindi_name": "शुभांशवे"
+ },
+ {
+  "index": 771,
+  "hindi_name": "शुद्धविग्रहाय"
+ },
+ {
+  "index": 772,
+  "hindi_name": "सुवर्णाय"
+ },
+ {
+  "index": 773,
+  "hindi_name": "स्वाश्रयाय"
+ },
+ {
+  "index": 774,
+  "hindi_name": "शत्रवे"
+ },
+ {
+  "index": 775,
+  "hindi_name": "शत्रुजिते"
+ },
+ {
+  "index": 776,
+  "hindi_name": "शत्रुतापनाय"
+ },
+ {
+  "index": 777,
+  "hindi_name": "शनये"
+ },
+ {
+  "index": 778,
+  "hindi_name": "सूर्याय"
+ },
+ {
+  "index": 779,
+  "hindi_name": "सर्वकर्मणे"
+ },
+ {
+  "index": 780,
+  "hindi_name": "सर्वलोकप्रजापतये"
+ },
+ {
+  "index": 781,
+  "hindi_name": "सिद्धाय"
+ },
+ {
+  "index": 782,
+  "hindi_name": "सर्वेश्वराय"
+ },
+ {
+  "index": 783,
+  "hindi_name": "स्वस्तये"
+ },
+ {
+  "index": 784,
+  "hindi_name": "स्वस्तिकृते"
+ },
+ {
+  "index": 785,
+  "hindi_name": "स्वस्तिभुजे"
+ },
+ {
+  "index": 786,
+  "hindi_name": "स्वधायै"
+ },
+ {
+  "index": 787,
+  "hindi_name": "वासवे"
+ },
+ {
+  "index": 788,
+  "hindi_name": "वसुमनसे"
+ },
+ {
+  "index": 789,
+  "hindi_name": "सत्याय"
+ },
+ {
+  "index": 790,
+  "hindi_name": "सर्वपापहराय"
+ },
+ {
+  "index": 791,
+  "hindi_name": "हराय"
+ },
+ {
+  "index": 792,
+  "hindi_name": "सर्वादि"
+ },
+ {
+  "index": 793,
+  "hindi_name": "सिद्धिदाय"
+ },
+ {
+  "index": 794,
+  "hindi_name": "सिद्धये"
+ },
+ {
+  "index": 795,
+  "hindi_name": "सर्वावासाय"
+ },
+ {
+  "index": 796,
+  "hindi_name": "चतुष्पथाय"
+ },
+ {
+  "index": 797,
+  "hindi_name": "संवत्सरकराय"
+ },
+ {
+  "index": 798,
+  "hindi_name": "श्रीमते"
+ },
+ {
+  "index": 799,
+  "hindi_name": "शान्ताय"
+ },
+ {
+  "index": 800,
+  "hindi_name": "संवत्सराय"
+ },
+ {
+  "index": 801,
+  "hindi_name": "शिशवे"
+ },
+ {
+  "index": 802,
+  "hindi_name": "स्पष्टाक्षराय"
+ },
+ {
+  "index": 803,
+  "hindi_name": "सर्वहारिणे"
+ },
+ {
+  "index": 804,
+  "hindi_name": "संग्रामय"
+ },
+ {
+  "index": 805,
+  "hindi_name": "संग्गमाय"
+ },
+ {
+  "index": 806,
+  "hindi_name": "प्लवाय"
+ },
+ {
+  "index": 807,
+  "hindi_name": "इष्टाय"
+ },
+ {
+  "index": 808,
+  "hindi_name": "विशिष्टाय"
+ },
+ {
+  "index": 809,
+  "hindi_name": "शिष्टेष्टाय"
+ },
+ {
+  "index": 810,
+  "hindi_name": "सुलभाय"
+ },
+ {
+  "index": 811,
+  "hindi_name": "सुलभायनाय"
+ },
+ {
+  "index": 812,
+  "hindi_name": "सुब्रह्मण्याय"
+ },
+ {
+  "index": 813,
+  "hindi_name": "सुरगणाय"
+ },
+ {
+  "index": 814,
+  "hindi_name": "सुशरण्याय"
+ },
+ {
+  "index": 815,
+  "hindi_name": "सुधापतये"
+ },
+ {
+  "index": 816,
+  "hindi_name": "शरण्याय"
+ },
+ {
+  "index": 817,
+  "hindi_name": "शाश्वताय"
+ },
+ {
+  "index": 818,
+  "hindi_name": "स्कंदाय"
+ },
+ {
+  "index": 819,
+  "hindi_name": "शिपिविष्टाय"
+ },
+ {
+  "index": 820,
+  "hindi_name": "शिवाश्रयाय"
+ },
+ {
+  "index": 821,
+  "hindi_name": "संसारचक्रभृते"
+ },
+ {
+  "index": 822,
+  "hindi_name": "साराय"
+ },
+ {
+  "index": 823,
+  "hindi_name": "शंकराय"
+ },
+ {
+  "index": 824,
+  "hindi_name": "सर्वसाधकाय"
+ },
+ {
+  "index": 825,
+  "hindi_name": "अस्त्राय"
+ },
+ {
+  "index": 826,
+  "hindi_name": "शस्त्राय"
+ },
+ {
+  "index": 827,
+  "hindi_name": "सप्तगनाय"
+ },
+ {
+  "index": 828,
+  "hindi_name": "सवित्रे"
+ },
+ {
+  "index": 829,
+  "hindi_name": "सकलागमाय"
+ },
+ {
+  "index": 830,
+  "hindi_name": "सुचीराय"
+ },
+ {
+  "index": 831,
+  "hindi_name": "सप्तदोर्वीराय"
+ },
+ {
+  "index": 832,
+  "hindi_name": "षड्विंशायाय"
+ },
+ {
+  "index": 833,
+  "hindi_name": "सर्वदृशे"
+ },
+ {
+  "index": 834,
+  "hindi_name": "स्वाराजे"
+ },
+ {
+  "index": 835,
+  "hindi_name": "सम्राजे"
+ },
+ {
+  "index": 836,
+  "hindi_name": "सुषेणाय"
+ },
+ {
+  "index": 837,
+  "hindi_name": "शत्रुघ्नाय"
+ },
+ {
+  "index": 838,
+  "hindi_name": "शूरशत्रवे"
+ },
+ {
+  "index": 839,
+  "hindi_name": "शुभोट्यावाय"
+ },
+ {
+  "index": 840,
+  "hindi_name": "समर्थाय"
+ },
+ {
+  "index": 841,
+  "hindi_name": "सुगमाय"
+ },
+ {
+  "index": 842,
+  "hindi_name": "शुक्राय"
+ },
+ {
+  "index": 843,
+  "hindi_name": "सद्योगिने"
+ },
+ {
+  "index": 844,
+  "hindi_name": "सदासन्मयाय"
+ },
+ {
+  "index": 845,
+  "hindi_name": "शास्रनेतृाय"
+ },
+ {
+  "index": 846,
+  "hindi_name": "सुखश्मश्रवे"
+ },
+ {
+  "index": 847,
+  "hindi_name": "स्वाधिष्ठानषडाश्रयाय"
+ },
+ {
+  "index": 848,
+  "hindi_name": "प्रांशवे"
+ },
+ {
+  "index": 849,
+  "hindi_name": "सप्तपतये"
+ },
+ {
+  "index": 850,
+  "hindi_name": "वृद्धाय"
+ },
+ {
+  "index": 851,
+  "hindi_name": "शमनाय"
+ },
+ {
+  "index": 852,
+  "hindi_name": "शिखिसारथये"
+ },
+ {
+  "index": 853,
+  "hindi_name": "सुप्रतीकाय"
+ },
+ {
+  "index": 854,
+  "hindi_name": "सुवृद्धात्मने"
+ },
+ {
+  "index": 855,
+  "hindi_name": "संसृष्टाय"
+ },
+ {
+  "index": 856,
+  "hindi_name": "सुखवांग्निधये"
+ },
+ {
+  "index": 857,
+  "hindi_name": "सुखानिळाया"
+ },
+ {
+  "index": 858,
+  "hindi_name": "सुसंपन्नाय"
+ },
+ {
+  "index": 859,
+  "hindi_name": "सुरभये"
+ },
+ {
+  "index": 860,
+  "hindi_name": "शिशिरआत्मकाय"
+ },
+ {
+  "index": 861,
+  "hindi_name": "सर्वदेवमयाय"
+ },
+ {
+  "index": 862,
+  "hindi_name": "शैलाय"
+ },
+ {
+  "index": 863,
+  "hindi_name": "सर्वशास्त्रप्रभंजनाय"
+ },
+ {
+  "index": 864,
+  "hindi_name": "शिवालयया"
+ },
+ {
+  "index": 865,
+  "hindi_name": "सूर्यरूपाय"
+ },
+ {
+  "index": 866,
+  "hindi_name": "सहस्रमुखनाशकाय"
+ },
+ {
+  "index": 867,
+  "hindi_name": "सहस्रबाहवे"
+ },
+ {
+  "index": 868,
+  "hindi_name": "सर्वेशाय"
+ },
+ {
+  "index": 869,
+  "hindi_name": "सारमाय"
+ },
+ {
+  "index": 870,
+  "hindi_name": "सर्वलोकधृते"
+ },
+ {
+  "index": 871,
+  "hindi_name": "दूत्यांशाय"
+ },
+ {
+  "index": 872,
+  "hindi_name": "सुरसेव्यमंशाय"
+ },
+ {
+  "index": 873,
+  "hindi_name": "सर्वदेवोत्तमत्तमाय"
+ },
+ {
+  "index": 874,
+  "hindi_name": "शिवाध्यानरताय"
+ },
+ {
+  "index": 875,
+  "hindi_name": "श्रीमते"
+ },
+ {
+  "index": 876,
+  "hindi_name": "शिखिने"
+ },
+ {
+  "index": 877,
+  "hindi_name": "श्रीचण्डिकाधिपाय"
+ },
+ {
+  "index": 878,
+  "hindi_name": "श्मशाननिलायाय"
+ },
+ {
+  "index": 879,
+  "hindi_name": "सेतवे"
+ },
+ {
+  "index": 880,
+  "hindi_name": "सर्वदेवाय"
+ },
+ {
+  "index": 881,
+  "hindi_name": "महेश्वराय"
+ },
+ {
+  "index": 882,
+  "hindi_name": "सुविष्ठपिने"
+ },
+ {
+  "index": 883,
+  "hindi_name": "सुराराध्याय"
+ },
+ {
+  "index": 884,
+  "hindi_name": "सुकुमाराय"
+ },
+ {
+  "index": 885,
+  "hindi_name": "सुलोचनाय"
+ },
+ {
+  "index": 886,
+  "hindi_name": "सकलाय"
+ },
+ {
+  "index": 887,
+  "hindi_name": "सुमताय"
+ },
+ {
+  "index": 888,
+  "hindi_name": "स्वर्णाय"
+ },
+ {
+  "index": 889,
+  "hindi_name": "स्वर्मिणे"
+ },
+ {
+  "index": 890,
+  "hindi_name": "स्वरमथनाय"
+ },
+ {
+  "index": 891,
+  "hindi_name": "स्वनाय"
+ },
+ {
+  "index": 892,
+  "hindi_name": "सामगाय"
+ },
+ {
+  "index": 893,
+  "hindi_name": "सकलाधाराय"
+ },
+ {
+  "index": 894,
+  "hindi_name": "सामगानप्रियाय"
+ },
+ {
+  "index": 895,
+  "hindi_name": "शुचये"
+ },
+ {
+  "index": 896,
+  "hindi_name": "तस्मै"
+ },
+ {
+  "index": 897,
+  "hindi_name": "ईतिषे"
+ },
+ {
+  "index": 898,
+  "hindi_name": "सत्कृताय"
+ },
+ {
+  "index": 899,
+  "hindi_name": "शान्ताय"
+ },
+ {
+  "index": 900,
+  "hindi_name": "सुभूमये"
+ },
+ {
+  "index": 901,
+  "hindi_name": "सत्परायणाय"
+ },
+ {
+  "index": 902,
+  "hindi_name": "श्रीवल्लभाय"
+ },
+ {
+  "index": 903,
+  "hindi_name": "शिवायंभ्याय"
+ },
+ {
+  "index": 904,
+  "hindi_name": "शान्तभद्राय"
+ },
+ {
+  "index": 905,
+  "hindi_name": "समंजसाय"
+ },
+ {
+  "index": 906,
+  "hindi_name": "सत्यवाचे"
+ },
+ {
+  "index": 907,
+  "hindi_name": "सात्विकाय"
+ },
+ {
+  "index": 908,
+  "hindi_name": "सत्याय"
+ },
+ {
+  "index": 909,
+  "hindi_name": "सर्वजिते"
+ },
+ {
+  "index": 910,
+  "hindi_name": "श्रुतिसागराय"
+ },
+ {
+  "index": 911,
+  "hindi_name": "सहस्रार्चिषे"
+ },
+ {
+  "index": 912,
+  "hindi_name": "सदाजिष्णवे"
+ },
+ {
+  "index": 913,
+  "hindi_name": "सप्ताये"
+ },
+ {
+  "index": 914,
+  "hindi_name": "सप्तजनेश्वराय"
+ },
+ {
+  "index": 915,
+  "hindi_name": "संहारककारणाय"
+ },
+ {
+  "index": 916,
+  "hindi_name": "शुद्धाय"
+ },
+ {
+  "index": 917,
+  "hindi_name": "शत्रुघ्नाय"
+ },
+ {
+  "index": 918,
+  "hindi_name": "स्वर्णदायकाय"
+ },
+ {
+  "index": 919,
+  "hindi_name": "सुरेशाय"
+ },
+ {
+  "index": 920,
+  "hindi_name": "शरणाय"
+ },
+ {
+  "index": 921,
+  "hindi_name": "शर्मणे"
+ },
+ {
+  "index": 922,
+  "hindi_name": "सर्वस्मै"
+ },
+ {
+  "index": 923,
+  "hindi_name": "वेदाय"
+ },
+ {
+  "index": 924,
+  "hindi_name": "सताङ्गतये"
+ },
+ {
+  "index": 925,
+  "hindi_name": "संवृताय"
+ },
+ {
+  "index": 926,
+  "hindi_name": "असंवृताय"
+ },
+ {
+  "index": 927,
+  "hindi_name": "शिल्पिने"
+ },
+ {
+  "index": 928,
+  "hindi_name": "सिद्धिदाय"
+ },
+ {
+  "index": 929,
+  "hindi_name": "स्वर्णसिद्धिदाय"
+ },
+ {
+  "index": 930,
+  "hindi_name": "शांतबुद्धये"
+ },
+ {
+  "index": 931,
+  "hindi_name": "शुद्धबुद्धये"
+ },
+ {
+  "index": 932,
+  "hindi_name": "स्त्यवाय"
+ },
+ {
+  "index": 933,
+  "hindi_name": "स्तोत्रे"
+ },
+ {
+  "index": 934,
+  "hindi_name": "स्तवप्रियाय"
+ },
+ {
+  "index": 935,
+  "hindi_name": "रसज्ञाय"
+ },
+ {
+  "index": 936,
+  "hindi_name": "स्वर्णरूपाय"
+ },
+ {
+  "index": 937,
+  "hindi_name": "शुद्धाय"
+ },
+ {
+  "index": 938,
+  "hindi_name": "राज्ने"
+ },
+ {
+  "index": 939,
+  "hindi_name": "वषट"
+ },
+ {
+  "index": 940,
+  "hindi_name": "नमो"
+ },
+ {
+  "index": 941,
+  "hindi_name": "स्थूलाय"
+ },
+ {
+  "index": 942,
+  "hindi_name": "सूक्ष्माय"
+ },
+ {
+  "index": 943,
+  "hindi_name": "सहस्रार्कप्रकाशाय"
+ },
+ {
+  "index": 944,
+  "hindi_name": "सर्वतोमुखाय"
+ },
+ {
+  "index": 945,
+  "hindi_name": "सारमेयानुगाय"
+ },
+ {
+  "index": 946,
+  "hindi_name": "शंभवे"
+ },
+ {
+  "index": 947,
+  "hindi_name": "प्रेतवाहाय"
+ },
+ {
+  "index": 948,
+  "hindi_name": "सहस्रकृते"
+ },
+ {
+  "index": 949,
+  "hindi_name": "ग्रहात्मकाय"
+ },
+ {
+  "index": 950,
+  "hindi_name": "रुद्ररूपाय"
+ },
+ {
+  "index": 951,
+  "hindi_name": "वसवष्टस्वर्णकृते"
+ },
+ {
+  "index": 952,
+  "hindi_name": "वशिने"
+ },
+ {
+  "index": 953,
+  "hindi_name": "आदित्याय"
+ },
+ {
+  "index": 954,
+  "hindi_name": "सर्वकर्त्रे"
+ },
+ {
+  "index": 955,
+  "hindi_name": "सर्वगाय"
+ },
+ {
+  "index": 956,
+  "hindi_name": "स्वर्णसिद्धिदाय"
+ },
+ {
+  "index": 957,
+  "hindi_name": "सदारुष्टाय"
+ },
+ {
+  "index": 958,
+  "hindi_name": "स्वर्णदात्रे"
+ },
+ {
+  "index": 959,
+  "hindi_name": "घुर्घुराय"
+ },
+ {
+  "index": 960,
+  "hindi_name": "रक्तलोचनाय"
+ },
+ {
+  "index": 961,
+  "hindi_name": "पादुकासिद्धिदयाय"
+ },
+ {
+  "index": 962,
+  "hindi_name": "पाताय"
+ },
+ {
+  "index": 963,
+  "hindi_name": "पारुष्यविनिषूदनाय"
+ },
+ {
+  "index": 964,
+  "hindi_name": "अष्टसिद्धये"
+ },
+ {
+  "index": 965,
+  "hindi_name": "महासद्धये"
+ },
+ {
+  "index": 966,
+  "hindi_name": "सुप्रसिद्धये"
+ },
+ {
+  "index": 967,
+  "hindi_name": "स्वर्णदाय"
+ },
+ {
+  "index": 968,
+  "hindi_name": "भूतवेतालघातिने"
+ },
+ {
+  "index": 969,
+  "hindi_name": "वेतालानुचराय"
+ },
+ {
+  "index": 970,
+  "hindi_name": "रवये"
+ },
+ {
+  "index": 971,
+  "hindi_name": "कालाय"
+ },
+ {
+  "index": 972,
+  "hindi_name": "कालाग्निरुद्रश्रियै"
+ },
+ {
+  "index": 973,
+  "hindi_name": "स्वर्णाकर्षणभैरवाय"
+ },
+ {
+  "index": 974,
+  "hindi_name": "कालमालय"
+ },
+ {
+  "index": 975,
+  "hindi_name": "कलामालाय"
+ },
+ {
+  "index": 976,
+  "hindi_name": "त्र्यम्बकाय"
+ },
+ {
+  "index": 977,
+  "hindi_name": "त्रिपुरांतकाय"
+ },
+ {
+  "index": 978,
+  "hindi_name": "सर्वाभिचारहन्त्रे"
+ },
+ {
+  "index": 979,
+  "hindi_name": "परकृत्यनिषूदनाय"
+ },
+ {
+  "index": 980,
+  "hindi_name": "मंत्रमालिने"
+ },
+ {
+  "index": 981,
+  "hindi_name": "सर्पमालिने"
+ },
+ {
+  "index": 982,
+  "hindi_name": "स्वर्णाकर्षण भैरवाय"
+ },
+ {
+  "index": 983,
+  "hindi_name": "श्रीधराय"
+ },
+ {
+  "index": 984,
+  "hindi_name": "श्रीकराय"
+ },
+ {
+  "index": 985,
+  "hindi_name": "श्रीलाय"
+ },
+ {
+  "index": 986,
+  "hindi_name": "श्रीनिवासाय"
+ },
+ {
+  "index": 987,
+  "hindi_name": "सदाशिवाय"
+ },
+ {
+  "index": 988,
+  "hindi_name": "श्रीस्वरूपकृतये"
+ },
+ {
+  "index": 989,
+  "hindi_name": "श्रीमते"
+ },
+ {
+  "index": 990,
+  "hindi_name": "श्रीहाराय"
+ },
+ {
+  "index": 991,
+  "hindi_name": "श्रीमूखाय"
+ },
+ {
+  "index": 992,
+  "hindi_name": "शिवाय"
+ },
+ {
+  "index": 993,
+  "hindi_name": "श्रीशान्ताय"
+ },
+ {
+  "index": 994,
+  "hindi_name": "श्रीवराहाय"
+ },
+ {
+  "index": 995,
+  "hindi_name": "श्रीनिवासय"
+ },
+ {
+  "index": 996,
+  "hindi_name": "श्रियाम् वराय"
+ },
+ {
+  "index": 997,
+  "hindi_name": "स्वर्णदाय"
+ },
+ {
+  "index": 998,
+  "hindi_name": "सिद्धिदाय"
+ },
+ {
+  "index": 999,
+  "hindi_name": "सिद्धाय"
+ },
+ {
+  "index": 1000,
+  "hindi_name": "भक्तानां स्वर्णदायकाय"
+ }
+]

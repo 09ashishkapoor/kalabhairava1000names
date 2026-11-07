@@ -1,1 +1,22 @@
-./increment_version.sh
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+staged_files=$(git diff --cached --name-only --diff-filter=ACM)
+
+case "$staged_files" in
+  "")
+    exit 0
+    ;;
+esac
+
+case "$staged_files" in
+  *"public/version.json"*)
+    bump_only=$(printf '%s\n' "$staged_files" | grep -v '^public/version.json$' || true)
+    if [ -z "$bump_only" ]; then
+      exit 0
+    fi
+    ;;
+esac
+
+BUMP_VERSION_COMMIT=false npm run bump-version
+git add public/version.json
