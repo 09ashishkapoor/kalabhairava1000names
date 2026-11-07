@@ -1,0 +1,89 @@
+---
+import ReferenceLayout from '../../layouts/ReferenceLayout.astro';
+
+const siteUrl = 'https://bhairavakalikenamosthute.com';
+const canonical = `${siteUrl}/contact/`;
+const title = 'Contact & Corrections | Kalabhairava 1000 Names';
+const description =
+	'How to contact the Kalabhairava 1000 Names project and report spelling, meaning, attribution or source corrections.';
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'ContactPage',
+			'@id': `${canonical}#webpage`,
+			name: title,
+			description,
+			url: canonical,
+			inLanguage: 'en',
+			isPartOf: { '@id': `${siteUrl}/#website` },
+			mainEntity: { '@id': `${siteUrl}/#publisher` },
+		},
+		{
+			'@type': 'BreadcrumbList',
+			'@id': `${canonical}#breadcrumb`,
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+				{ '@type': 'ListItem', position: 2, name: 'Contact', item: canonical },
+			],
+		},
+	],
+};
+---
+
+<ReferenceLayout title={title} description={description} canonical={canonical} schema={schema}>
+	<nav class="breadcrumbs" aria-label="Breadcrumb">
+		<ol>
+			<li><a href="/">Home</a></li>
+			<li><span aria-current="page">Contact</span></li>
+		</ol>
+	</nav>
+
+	<p class="page-kicker">Contact and corrections</p>
+	<h1>Contact &amp; Corrections</h1>
+
+	<section class="hero-panel">
+		<p class="intro">
+			Corrections and questions about the Kalabhairava 1000 Names project are welcome. The most reliable route is
+			the public repository, where a correction can be reviewed and tracked in the open. Email and Instagram are
+			also available.
+		</p>
+		<nav class="page-nav" aria-label="Contact options">
+			<ul>
+				<li><a href="https://github.com/09ashishkapoor/kalabhairava1000names/issues" rel="noopener noreferrer">Open a GitHub issue</a></li>
+				<li><a href="mailto:kaliputraashish@gmail.com">Email the maintainer</a></li>
+				<li><a href="https://www.instagram.com/ashishkaliputra" rel="noopener noreferrer">Message on Instagram</a></li>
+				<li><a href="/about/">About the author</a></li>
+			</ul>
+		</nav>
+	</section>
+
+	<section class="source-notes">
+		<h2>Reporting a correction</h2>
+		<p>Please include as much of the following as you can:</p>
+		<ul>
+			<li>The name number or page URL, for example <code>/names/bhairavaya/</code>.</li>
+			<li>The current text and what you believe it should be.</li>
+			<li>Any source, edition or manuscript reference that supports the correction.</li>
+			<li>Whether the issue is spelling, transliteration, meaning, attribution or a broken link.</li>
+		</ul>
+		<p>
+			Corrections that include a source are easiest to verify. Devotional spelling and transliteration vary
+			between traditions, so the project aims to note differences rather than flatten them.
+		</p>
+	</section>
+
+	<section class="source-notes">
+		<h2>What to expect</h2>
+		<p>
+			This is a personal devotional project maintained in spare time. There is no formal support desk or
+			response-time guarantee. Reviewable GitHub issues are preferred because they keep the correction history
+			public.
+		</p>
+		<p>
+			For source and citation questions, see the <a href="/sources/">sources and editorial notes</a> page. For
+			privacy questions, see the <a href="/privacy/">privacy policy</a>.
+		</p>
+	</section>
+</ReferenceLayout>

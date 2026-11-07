@@ -5,8 +5,8 @@
 const translations = {
   english: {
     seo: {
-      title: 'Adya Mahakali 1000 Names - Complete Sahasranama with Meanings in English',
-      description: 'Complete Adya Mahakali 1000 Names (Sahasranama) with detailed meanings in English. Explore all 1000+ sacred names of Maa Adya Mahakali with translations, elaborations, and spiritual insights for devotion and chanting.'
+      title: 'Kalabhairava 1000 Names - Complete Sahasranama with Meanings in English',
+      description: 'Complete Kalabhairava 1000 Names (Sahasranama) with detailed meanings in English. Explore all 1000 names of Kalabhairava with translations, elaborations, and spiritual insights for devotion and chanting.'
     },
     navigation: {
       backToTop: 'Back to top',

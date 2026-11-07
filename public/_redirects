@@ -1,0 +1,9 @@
+﻿# Redirect www to the canonical non-www domain
+https://www.bhairavakalikenamosthute.com/* https://bhairavakalikenamosthute.com/:splat 301
+
+# Old PDF page replaced by the keyword landing page
+/pdf/ /kalabhairava-sahasranama-pdf/ 301
+/pdf /kalabhairava-sahasranama-pdf/ 301
+
+# Old info redirect page replaced by the About page
+/info.html /about/ 301

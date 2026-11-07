@@ -1,0 +1,5 @@
+﻿User-agent: *
+Disallow:
+
+# Point crawlers to the sitemap
+Sitemap: https://bhairavakalikenamosthute.com/sitemap.xml

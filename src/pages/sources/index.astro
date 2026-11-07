@@ -1,0 +1,123 @@
+---
+import ReferenceLayout from '../../layouts/ReferenceLayout.astro';
+
+const siteUrl = 'https://bhairavakalikenamosthute.com';
+const canonical = `${siteUrl}/sources/`;
+const title = 'Sources and Editorial Notes | Kalabhairava 1000 Names';
+const description =
+	'Source notes, editorial approach, transliteration method and correction path for the Kalabhairava 1000 Names devotional reference.';
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebPage',
+			'@id': `${canonical}#webpage`,
+			name: title,
+			description,
+			url: canonical,
+			inLanguage: 'en',
+			isPartOf: { '@id': `${siteUrl}/#website` },
+		},
+		{
+			'@type': 'BreadcrumbList',
+			'@id': `${canonical}#breadcrumb`,
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+				{ '@type': 'ListItem', position: 2, name: 'Sources and Editorial Notes', item: canonical },
+			],
+		},
+	],
+};
+---
+
+<ReferenceLayout title={title} description={description} canonical={canonical} schema={schema}>
+	<nav class="breadcrumbs" aria-label="Breadcrumb">
+		<ol>
+			<li><a href="/">Home</a></li>
+			<li><span aria-current="page">Sources and editorial notes</span></li>
+		</ol>
+	</nav>
+
+	<p class="page-kicker">Project notes</p>
+	<h1>Sources and Editorial Notes</h1>
+
+	<section class="hero-panel">
+		<p class="intro">
+			This page explains how the Kalabhairava 1000 Names reference is presented, what public source material is
+			acknowledged, and how corrections can be reported.
+		</p>
+		<nav class="page-nav" aria-label="Source notes navigation">
+			<ul>
+				<li><a href="/">Open the interactive reader</a></li>
+				<li><a href="/names/">Browse the static names hub</a></li>
+				<li><a href="/kalabhairava-sahasranama-pdf/">Download the free PDF editions</a></li>
+			</ul>
+		</nav>
+	</section>
+
+	<section class="source-notes">
+		<h2>Source basis</h2>
+		<p>
+			This project compiles devotional source material and explanatory meaning notes for spiritual study, chanting
+			support and reference use. Primary public references used during compilation include:
+		</p>
+		<ul>
+			<li><a href="https://sanskritdocuments.org/" rel="noopener noreferrer">SanskritDocuments.org</a> — public Sanskrit text archives.</li>
+			<li><a href="https://archive.org/details/Kalabhairava-sahasranama-kaliputraashish" rel="noopener noreferrer">Kalabhairava Sahasranama — English edition on archive.org</a>.</li>
+			<li><a href="https://archive.org/details/Kalabhairava-sahasranama-in-Hindi-kaliputraashish" rel="noopener noreferrer">Kalabhairava Sahasranama — Hindi edition on archive.org</a>.</li>
+			<li><a href="https://archive.org/details/kalabhairavaBaba_1000names_ebook_Final_SecondDigitalEdition" rel="noopener noreferrer">Kalabhairava 1000 Names — second digital edition</a>.</li>
+		</ul>
+		<p>
+			The site presents a reader-friendly English reference and does not claim to replace traditional instruction,
+			lineage guidance or primary manuscript study.
+		</p>
+	</section>
+
+	<section class="source-notes">
+		<h2>Editorial approach</h2>
+		<ul>
+			<li>The names are organized into a searchable homepage reader and crawlable static range pages.</li>
+			<li>Each entry includes a short English meaning and a longer explanatory note where available.</li>
+			<li>Static range pages and individual name pages are intended for citation because their content is visible without JavaScript.</li>
+			<li>Spelling and transliteration choices are kept consistent within the project where possible.</li>
+			<li>The English notes are interpretive and devotional in tone; where Sanskrit terms carry several meanings, the notes give the interpretation used on this site rather than claiming a single exclusive translation.</li>
+		</ul>
+	</section>
+
+	<section class="source-notes">
+		<h2>Transliteration and name mapping</h2>
+		<p>
+			Every name is published with a common English spelling, an IAST transliteration, the Devanagari form and the
+			source transliteration used by this project. The names are dative salutations; the “also spelled” block lists
+			the stem form and alternate romanizations so the same name can be found under the forms readers use.
+		</p>
+		<p>
+			The spelling mapping is generated from the project data rather than hand-maintained per page. Repeated names
+			share one canonical page that lists every occurrence. The generation method and quality checks are documented
+			in the repository under <code>seo/name-mapping-report.md</code> and <code>src/data/name-mapping.json</code>.
+		</p>
+	</section>
+
+	<section class="source-notes">
+		<h2>Artwork and attribution</h2>
+		<p>
+			The Kalabhairava devotional image used on this site and in the printable PDF is the project's own devotional
+			artwork. The photo credit visible in the image (“Tryst With Kaali — Praveen Radhakrishnan”) is retained.
+		</p>
+	</section>
+
+	<section class="source-notes">
+		<h2>Corrections and citation</h2>
+		<p>
+			If you notice a spelling, meaning, formatting, attribution or source issue, please report it through the
+			open-source repository so the correction can be reviewed clearly.
+		</p>
+		<p>
+			When citing this site, please attribute the material to <strong>Kalabhairava 1000 Names</strong> and link to
+			the relevant canonical page, such as the <a href="/names/">static names hub</a> or a specific range/name
+			page.
+		</p>
+		<p><a href="https://github.com/09ashishkapoor/kalabhairava1000names" rel="noopener noreferrer">View the open-source repository</a></p>
+	</section>
+</ReferenceLayout>

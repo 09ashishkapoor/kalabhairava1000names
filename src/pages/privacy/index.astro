@@ -1,0 +1,100 @@
+---
+import ReferenceLayout from '../../layouts/ReferenceLayout.astro';
+
+const siteUrl = 'https://bhairavakalikenamosthute.com';
+const canonical = `${siteUrl}/privacy/`;
+const title = 'Privacy Policy | Kalabhairava 1000 Names';
+const description =
+	'Privacy policy for bhairavakalikenamosthute.com: what analytics data is collected, which third parties are involved, and how to ask privacy questions.';
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebPage',
+			'@id': `${canonical}#webpage`,
+			name: title,
+			description,
+			url: canonical,
+			inLanguage: 'en',
+			isPartOf: { '@id': `${siteUrl}/#website` },
+		},
+		{
+			'@type': 'BreadcrumbList',
+			'@id': `${canonical}#breadcrumb`,
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+				{ '@type': 'ListItem', position: 2, name: 'Privacy', item: canonical },
+			],
+		},
+	],
+};
+---
+
+<ReferenceLayout title={title} description={description} canonical={canonical} schema={schema}>
+	<nav class="breadcrumbs" aria-label="Breadcrumb">
+		<ol>
+			<li><a href="/">Home</a></li>
+			<li><span aria-current="page">Privacy</span></li>
+		</ol>
+	</nav>
+
+	<p class="page-kicker">Site policy</p>
+	<h1>Privacy Policy</h1>
+
+	<section class="hero-panel">
+		<p class="intro">
+			This is a static devotional reference site. There are no accounts, no comments, no newsletter and no
+			payments. The information below explains the limited data processing that does happen when you visit.
+		</p>
+		<p class="intro">Last updated: 2026-11-07.</p>
+	</section>
+
+	<section class="source-notes">
+		<h2>Analytics</h2>
+		<p>
+			The interactive homepage loads Google Analytics (Google tag) to understand aggregate usage: which pages are
+			visited, approximate location at country level, device type and referring source. Google may set cookies for
+			this purpose. No advertising profiles are built by this site.
+		</p>
+		<p>
+			Static reference pages, including the names hub, name pages and PDF pages, do not include separate tracking
+			code.
+		</p>
+	</section>
+
+	<section class="source-notes">
+		<h2>Server logs and hosting</h2>
+		<p>
+			The site is hosted on Cloudflare Pages. Cloudflare processes standard request data (IP address, user agent,
+			requested URL, timestamps) to serve and protect the site. See Cloudflare's privacy documentation for details
+			of its processing.
+		</p>
+	</section>
+
+	<section class="source-notes">
+		<h2>Third-party links</h2>
+		<p>
+			Some pages link to external services, including GitHub, archive.org, Instagram and the parampara's websites.
+			Those services have their own privacy policies once you leave this site.
+		</p>
+	</section>
+
+	<section class="source-notes">
+		<h2>PDF downloads and local data</h2>
+		<p>
+			The PDF downloads are served as ordinary files. Downloads are not gated, and the site does not store any
+			information about who downloads them. Browser-local features such as caching and the service worker keep site
+			files on your device for offline use; clearing site data removes them.
+		</p>
+	</section>
+
+	<section class="source-notes">
+		<h2>Questions</h2>
+		<p>
+			Privacy questions can be raised through the <a href="/contact/">contact page</a>, preferably via a reviewable
+			GitHub issue or email. If you are in a region with specific data-protection rights and need a more detailed
+			response, include that in your message.
+		</p>
+	</section>
+</ReferenceLayout>

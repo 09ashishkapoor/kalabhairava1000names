@@ -28,7 +28,7 @@
 
 	const COPY = {
 		statsDefault:
-			"📿 Showing all <strong>1072</strong> names of <strong>Maa Adya Mahakali</strong>",
+			"📿 Showing all <strong>1000</strong> names of <strong>Kalabhairava</strong>",
 		statsSearching:
 			'🔍 Found <strong>{count}</strong> names matching "{query}"',
 		pageStatus:

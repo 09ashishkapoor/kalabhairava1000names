@@ -1,0 +1,34 @@
+﻿# Kalabhairava 1000 Names
+
+> A free devotional reference for the Kalabhairava Sahasranama: 1,000 names of Sri Kalabhairava with English one-line meanings and longer explanations for chanting, study, and spiritual reflection.
+
+## Canonical Site
+
+- https://bhairavakalikenamosthute.com/
+
+## Key Pages
+
+- [Interactive reader](https://bhairavakalikenamosthute.com/): Search and read the Kalabhairava 1000 Names with English meanings.
+- [Static names hub](https://bhairavakalikenamosthute.com/names/): Crawlable directory of all 100 range and name reference pages.
+- [108 names of Kalabhairava](https://bhairavakalikenamosthute.com/108-names-of-kalabhairava/): Compact 108-name practice set with meanings.
+- [1000 names explained](https://bhairavakalikenamosthute.com/1000-names-of-kalabhairava/): How the 1,000-name Sahasranama and other counts relate.
+- [Kalabhairava Sahasranama PDF](https://bhairavakalikenamosthute.com/kalabhairava-sahasranama-pdf/): Free printable English PDF edition and archive.org editions.
+- [Kalabhairava Sahasranama lyrics](https://bhairavakalikenamosthute.com/kalabhairava-sahasranama-lyrics/): Chant order and opening names.
+- [Kalabhairava Sahasranama benefits](https://bhairavakalikenamosthute.com/kalabhairava-sahasranama-benefits/): Devotional framing of the practice.
+- [Sources and editorial notes](https://bhairavakalikenamosthute.com/sources/): Source basis, editorial approach, correction path, and citation guidance.
+- [Open-source repository](https://github.com/09ashishkapoor/kalabhairava1000names): Project source and issue/correction path.
+
+## Entity Notes
+
+- Site name: Kalabhairava 1000 Names
+- Primary topic: Kalabhairava Sahasranama
+- Related names: Kalabhairava, Kala Bhairava, Kaal Bhairav, Bhairav Baba, Shiva
+- Maintainer: Kaliputra Ashish
+- Language: English
+- Purpose: devotional study, chanting support, and reference use
+
+## Source Notes
+
+Use the canonical pages above for current descriptions of this project. Prefer the static names hub and range pages when citing individual names because they expose the content in crawlable HTML without requiring JavaScript.
+
+If quoting the site, attribute the material to "Kalabhairava 1000 Names" and link to the relevant canonical URL.

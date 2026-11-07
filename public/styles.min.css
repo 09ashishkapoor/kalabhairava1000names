@@ -64,7 +64,7 @@ body {
 		-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
 		Cantarell, sans-serif;
 	background-color: #0a0a0a;
-	background-image: url("maadya-bg-1111-landscape.webp");
+	background-image: url("kalabhairava-bg-desktop.webp");
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -87,7 +87,7 @@ body::before {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url("maadya-bg-1111-landscape.webp");
+	background-image: url("kalabhairava-bg-desktop.webp");
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -95,11 +95,11 @@ body::before {
 }
 @media (max-width: 640px) {
 	body {
-		background-image: url("maadya-bg-1111-portrait.webp");
+		background-image: url("kalabhairava-bg-mobile.webp");
 	}
 	body::before {
 		background-image:
-			url("maadya-bg-1111-portrait.webp"), url("maadya-bg-1111-portrait.webp");
+			url("kalabhairava-bg-mobile.webp"), url("kalabhairava-bg-mobile.webp");
 		background-size: contain, cover;
 		background-position:
 			center center,

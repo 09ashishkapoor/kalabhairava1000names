@@ -4,9 +4,9 @@ const CACHE_NAME = `${CACHE_PREFIX}${CACHE_VERSION}`;
 const CORE_ASSETS = [
 	"/",
 	"/names/",
-	"/MaaAdyaKali_5.webp",
-	"/maadya-bg-1111-landscape.webp",
-	"/maadya-bg-1111-portrait.webp",
+	"/kalabhairava-bg-desktop.webp",
+	"/kalabhairava-bg-desktop.webp",
+	"/kalabhairava-bg-mobile.webp",
 	"/styles.min.css",
 	"/navigation.js",
 	"/translations.js",

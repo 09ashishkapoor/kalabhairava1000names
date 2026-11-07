@@ -1,0 +1,153 @@
+---
+import ReferenceLayout from '../../layouts/ReferenceLayout.astro';
+
+const siteUrl = 'https://bhairavakalikenamosthute.com';
+const canonical = `${siteUrl}/about/`;
+const title = 'About the Project & Author | Kalabhairava 1000 Names';
+const description =
+	'About the Kalabhairava 1000 Names project: the author, the Kalabhairava Sahasranama, the source basis, the transliteration approach, and how corrections are handled.';
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'ProfilePage',
+			'@id': `${canonical}#webpage`,
+			name: title,
+			description,
+			url: canonical,
+			inLanguage: 'en',
+			isPartOf: { '@id': `${siteUrl}/#website` },
+			mainEntity: { '@id': `${siteUrl}/#publisher` },
+		},
+		{
+			'@type': 'Person',
+			'@id': `${siteUrl}/#publisher`,
+			name: 'Kaliputra Ashish',
+			description:
+				'Author and maintainer of the Kalabhairava 1000 Names project, a free devotional reference for the Kalabhairava Sahasranama.',
+			url: canonical,
+			sameAs: [
+				'https://github.com/09ashishkapoor',
+				'https://www.instagram.com/ashishkaliputra',
+				'https://archive.org/details/Kalabhairava-sahasranama-kaliputraashish',
+			],
+			knowsAbout: ['Kalabhairava Sahasranama', 'Bhairava', 'Kashi tradition', 'Shakta and Shaiva devotional literature'],
+		},
+		{
+			'@type': 'BreadcrumbList',
+			'@id': `${canonical}#breadcrumb`,
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+				{ '@type': 'ListItem', position: 2, name: 'About', item: canonical },
+			],
+		},
+	],
+};
+---
+
+<ReferenceLayout title={title} description={description} canonical={canonical} schema={schema}>
+	<nav class="breadcrumbs" aria-label="Breadcrumb">
+		<ol>
+			<li><a href="/">Home</a></li>
+			<li><span aria-current="page">About</span></li>
+		</ol>
+	</nav>
+
+	<p class="page-kicker">About the project</p>
+	<h1>About Kalabhairava 1000 Names</h1>
+
+	<figure class="page-figure">
+		<img
+			src="/kalabhairava-bg-desktop.webp"
+			alt="Statue of Kalabhairava holding a trident and sword, with a dog beside him"
+			width="1920"
+			height="1080"
+			loading="lazy"
+			decoding="async"
+		/>
+		<figcaption>Kalabhairava — devotional image used on this site.</figcaption>
+	</figure>
+
+	<section class="hero-panel">
+		<p class="intro">
+			<strong>Kalabhairava 1000 Names</strong> is a free devotional reference for the Kalabhairava Sahasranama:
+			1,000 names of Sri Kalabhairava with English meanings, Devanagari spellings, and transliteration. It is
+			maintained by <strong>Kaliputra Ashish</strong> and offered in the spirit of the Khyapa Parampara.
+		</p>
+		<nav class="page-nav" aria-label="About navigation">
+			<ul>
+				<li><a href="/names/">Browse all names</a></li>
+				<li><a href="/kalabhairava-sahasranama-pdf/">Free PDF editions</a></li>
+				<li><a href="/sources/">Sources and editorial method</a></li>
+				<li><a href="/contact/">Contact and corrections</a></li>
+			</ul>
+		</nav>
+	</section>
+
+	<section class="source-notes">
+		<h2>What this site is</h2>
+		<p>
+			The project exists to support devotional reading and study of the Kalabhairava Sahasranama. It presents the
+			full 1,000-name text with one-line meanings and longer explanatory notes, a searchable reader, a static names
+			hub, individual pages for every name, and printable PDF editions. Everything is offered free, without
+			registration.
+		</p>
+		<p>
+			The site is intentionally simple and open: it is a static website with no accounts and no paywall, and its
+			source code is public.
+		</p>
+	</section>
+
+	<section class="source-notes">
+		<h2>Who is Kalabhairava?</h2>
+		<p>
+			Kalabhairava (Kālabhairava) is a fierce and protective form of Lord Shiva, associated with time (kāla),
+			dharma, and the guardianship of sacred space — most famously as the Kotwal of Kashi. For devotees he is both
+			terrifying in form and compassionate in nature: he destroys fear, ego and adharma, and protects those who
+			take refuge in him.
+		</p>
+		<p>
+			The names in this text are dative salutations (“... namaḥ”), the traditional form for a namavali. Reciting
+			them in sequence is a practice of remembrance and surrender.
+		</p>
+	</section>
+
+	<section class="source-notes">
+		<h2>How the text was compiled</h2>
+		<p>
+			The names follow the Kalabhairava Sahasranama as compiled for this project. Public reference material and the
+			broader Shaiva devotional tradition informed the explanatory notes. The English meanings and elaborations are
+			interpretive study notes, not a translation of a single critical edition.
+		</p>
+		<p>
+			The source basis, editorial approach and citation guidance are documented on the
+			<a href="/sources/">sources page</a>.
+		</p>
+	</section>
+
+	<section class="source-notes">
+		<h2>Transliteration approach</h2>
+		<p>
+			Sanskrit names reach English readers in several romanizations. Each name page shows a common English
+			spelling, the IAST form, the Devanagari form and the source transliteration used by this project. The mapping
+			is generated from the site's data, so corrections are made once and applied across every page.
+		</p>
+		<p>
+			If a spelling matters for your practice or citation, use the IAST or Devanagari form on the individual name
+			page as the reference.
+		</p>
+	</section>
+
+	<section class="source-notes">
+		<h2>Open source and corrections</h2>
+		<p>
+			The site is open source. Spelling, meaning, formatting, attribution and source issues can be reported through
+			the public repository, which keeps the correction reviewable. See the
+			<a href="/contact/">contact page</a> for the best ways to reach the maintainer.
+		</p>
+		<p>
+			<a href="https://github.com/09ashishkapoor/kalabhairava1000names" rel="noopener noreferrer">View the project repository</a>
+		</p>
+	</section>
+</ReferenceLayout>
