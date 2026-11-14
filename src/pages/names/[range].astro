@@ -1,131 +1,244 @@
 ---
-import ReferenceLayout from '../../layouts/ReferenceLayout.astro';
-
-import { getStaticNamesData } from '../../lib/staticNames.js';
+import PothiLayout from "../../layouts/PothiLayout.astro";
+import { getStaticNamesData } from "../../lib/staticNames.js";
+import { toDevanagariRange } from "../../lib/pothi.js";
 
 export function getStaticPaths() {
-  const { ranges, totalCount } = getStaticNamesData();
+	const { ranges } = getStaticNamesData();
 
-  return ranges.map((range, index) => ({
-    params: { range: range.slug },
-    props: {
-      range,
-      previousRange: ranges[index - 1] ?? null,
-      nextRange: ranges[index + 1] ?? null,
-      totalCount
-    }
-  }));
+	return ranges.map((range, index) => ({
+		params: { range: range.slug },
+		props: {
+			range,
+			previousRange: ranges[index - 1] ?? null,
+			nextRange: ranges[index + 1] ?? null,
+		},
+	}));
 }
 
-const { range, previousRange, nextRange, totalCount } = Astro.props;
+const { range, previousRange, nextRange } = Astro.props;
+const { ranges, totalCount } = getStaticNamesData();
+
+const first = range.entries[0];
+const last = range.entries[range.entries.length - 1];
+const devRange = toDevanagariRange(range.start, range.end);
 
 const itemListSchema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'CollectionPage',
-      '@id': `${range.canonical}#webpage`,
-      name: range.heading,
-      description: range.description,
-      url: range.canonical,
-      inLanguage: 'en',
-      isPartOf: {
-        '@id': 'https://bhairavakalikenamosthute.com/#website'
-      },
-      mainEntity: {
-        '@id': `${range.canonical}#itemlist`
-      }
-    },
-    {
-      '@type': 'BreadcrumbList',
-      '@id': `${range.canonical}#breadcrumb`,
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Home',
-          item: 'https://bhairavakalikenamosthute.com/'
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Names Hub',
-          item: 'https://bhairavakalikenamosthute.com/names/'
-        },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          name: range.heading,
-          item: range.canonical
-        }
-      ]
-    },
-    {
-      '@type': 'ItemList',
-      '@id': `${range.canonical}#itemlist`,
-      name: range.heading,
-      itemListOrder: 'https://schema.org/ItemListOrderAscending',
-      numberOfItems: range.entries.length,
-      url: range.canonical,
-      inLanguage: 'en',
-      itemListElement: range.entries.map((entry, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        url: `${range.canonical}#name-${entry.index}`,
-        name: entry.english_name,
-        description: entry.english_one_line
-      }))
-    }
-  ]
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "CollectionPage",
+			"@id": `${range.canonical}#webpage`,
+			name: range.heading,
+			description: range.description,
+			url: range.canonical,
+			inLanguage: "en",
+			isPartOf: {
+				"@id": "https://bhairavakalikenamosthute.com/#website",
+			},
+			mainEntity: {
+				"@id": `${range.canonical}#itemlist`,
+			},
+		},
+		{
+			"@type": "BreadcrumbList",
+			"@id": `${range.canonical}#breadcrumb`,
+			itemListElement: [
+				{
+					"@type": "ListItem",
+					position: 1,
+					name: "Home",
+					item: "https://bhairavakalikenamosthute.com/",
+				},
+				{
+					"@type": "ListItem",
+					position: 2,
+					name: "Names Hub",
+					item: "https://bhairavakalikenamosthute.com/names/",
+				},
+				{
+					"@type": "ListItem",
+					position: 3,
+					name: range.heading,
+					item: range.canonical,
+				},
+			],
+		},
+		{
+			"@type": "ItemList",
+			"@id": `${range.canonical}#itemlist`,
+			name: range.heading,
+			itemListOrder: "https://schema.org/ItemListOrderAscending",
+			numberOfItems: range.entries.length,
+			url: range.canonical,
+			inLanguage: "en",
+			itemListElement: range.entries.map((entry, index) => ({
+				"@type": "ListItem",
+				position: index + 1,
+				url: `${range.canonical}#name-${entry.index}`,
+				name: entry.english_name,
+				description: entry.english_one_line,
+			})),
+		},
+	],
 };
 ---
 
-<ReferenceLayout
+<PothiLayout
 	title={range.title}
 	description={range.description}
 	canonical={range.canonical}
 	schema={itemListSchema}
+	fore={{ count: ranges.length, current: range.rangeNumber - 1 }}
 >
-<p class="page-kicker">Static devotional reference</p>
-      <h1>{range.heading}</h1>
+	<nav class="crumbs" aria-label="Breadcrumb">
+		<ol>
+			<li><a href="/">Home</a></li>
+			<li><a href="/names/">Names hub</a></li>
+			<li><span aria-current="page">{range.displayLabel}</span></li>
+		</ol>
+	</nav>
 
-      <section class="hero-panel">
-        <p class="intro">This page is a static collection of Kalabhairava names {range.label} with English meanings. It begins with <strong>{range.firstName.english}</strong> and ends with <strong>{range.lastName.english}</strong>, giving search engines and readers a crawlable reference for this part of the Sahasranama without JavaScript.</p>
-        <nav class="page-nav" aria-label="Page navigation">
-          <ul>
-            <li><a href="/">Open the interactive homepage reader</a></li>
-            <li><a href="/names/">Browse all ranges</a></li>
-            <li><a href="/kalabhairava-sahasranama-pdf/">Download the PDF edition</a></li>
-            <li><a href="/108-names-of-kalabhairava/">108 names of Kalabhairava</a></li>
-            <li><a href="/1000-names-of-kalabhairava/">1,008 vs 1,000 names</a></li>
-            {previousRange && <li><a href={previousRange.path}>← Previous range ({previousRange.label})</a></li>}
-            {nextRange && <li><a href={nextRange.path}>Next range ({nextRange.label}) →</a></li>}
-          </ul>
-        </nav>
-      </section>
+	<p class="kicker">Range {range.rangeNumber} of {range.totalRanges} · {range.count} of the {totalCount} names</p>
+	<h1 class="num-title" lang="sa">{devRange}</h1>
+	<p class="iast-title">Names {range.displayLabel}</p>
+	<p class="common-title">{first.spelling_common} → {last.spelling_common}</p>
 
-      <section class="range-summary" aria-label="Range summary">
-        <p>This section covers names <strong>{range.start}</strong> through <strong>{range.end}</strong> from the full set of <strong>{totalCount}</strong> names. Each name below links to its own reference page with Devanagari, transliteration, alternate spellings, and the full meaning.</p>
-        <p>Use the entries below as direct references for meanings in this range, or move through the previous and next range links to continue the full Kalabhairava Sahasranama sequence.</p>
-      </section>
+	<nav class="rtabs" aria-label="Name ranges">
+		{
+			ranges.map((item) => (
+				<a
+					href={item.path}
+					aria-current={item.slug === range.slug ? "page" : undefined}
+				>
+					{item.displayLabel}
+				</a>
+			))
+		}
+	</nav>
 
-      <div class="entries-stack">
-        {range.entries.map((entry) => (
-          <article class="entry" id={`name-${entry.index}`}>
-            <h2>
-              {entry.index}.{' '}
-              {entry.page_slug ? (
-                <a href={`/names/${entry.page_slug}/`}>{entry.english_name}</a>
-              ) : (
-                entry.english_name
-              )}
-            </h2>
-            <p><strong>Meaning:</strong> {entry.english_one_line}</p>
-            <h3>Elaboration</h3>
-            {entry.english_elaboration_paragraphs.map((paragraph) => (
-              <p>{paragraph}</p>
-            ))}
-          </article>
-        ))}
-      </div>
-</ReferenceLayout>
+	<div class="sechead" style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:22px 0 6px;flex-wrap:wrap">
+		<h2 class="sec" style="border:0;margin:0;flex:1"><span class="n">पाठ</span>Names {range.displayLabel}</h2>
+		<span class="meta" style="font-family:var(--serif);font-size:12.5px;font-variant:all-small-caps;letter-spacing:.12em;color:var(--ash)">Devanagari · IAST · meaning</span>
+	</div>
+
+	<div class="index-cols" id="idx">
+		{
+			range.entries.map((entry) => (
+				<a class="nrow" id={`name-${entry.index}`} href={`/names/${entry.page_slug}/`}>
+					<span class="no">{String(entry.index).padStart(2, "0")}</span>
+					<span>
+						<span class="dev" lang="sa">{entry.devanagari}</span>
+						<span class="iast">{entry.iast}</span>
+						<span class="one">{entry.english_one_line}</span>
+					</span>
+				</a>
+			))
+		}
+	</div>
+
+	<nav class="pager" aria-label="Range navigation" style="margin-top:clamp(26px,3vw,40px)">
+		{
+			previousRange ? (
+				<a class="prev" href={previousRange.path}>
+					<span class="lab">← Previous range · {previousRange.displayLabel}</span>
+					<span class="dev" lang="sa">
+						{toDevanagariRange(previousRange.start, previousRange.end)}
+					</span>
+					<span class="iast">
+						{previousRange.entries[0].spelling_common} → {previousRange.entries[
+							previousRange.entries.length - 1
+						].spelling_common}
+					</span>
+				</a>
+			) : (
+				<span class="pager-empty" aria-hidden="true"></span>
+			)
+		}
+		{
+			nextRange ? (
+				<a class="next" href={nextRange.path}>
+					<span class="lab">Next range · {nextRange.displayLabel} →</span>
+					<span class="dev" lang="sa">
+						{toDevanagariRange(nextRange.start, nextRange.end)}
+					</span>
+					<span class="iast">
+						{nextRange.entries[0].spelling_common} → {nextRange.entries[
+							nextRange.entries.length - 1
+						].spelling_common}
+					</span>
+				</a>
+			) : (
+				<span class="pager-empty" aria-hidden="true"></span>
+			)
+		}
+	</nav>
+
+	<section style="margin-top:clamp(28px,3.4vw,44px)">
+		<div class="seealso">
+			<a class="tl" href="/"
+				><span class="t">The reader</span><span class="d"></span><span class="p"
+					>sets of eleven</span
+				></a
+			>
+			<a class="tl" href="/names/"
+				><span class="t">Browse all ranges</span><span class="d"></span><span class="p"
+					>hub</span
+				></a
+			>
+			<a class="tl" href="/kalabhairava-sahasranama-pdf/"
+				><span class="t">Download the PDF edition</span><span class="d"></span><span class="p"
+					>download</span
+				></a
+			>
+			<a class="tl" href="/108-names-of-kalabhairava/"
+				><span class="t">108 names of Kalabhairava</span><span class="d"></span><span class="p"
+					>practice set</span
+				></a
+			>
+			<a class="tl" href="/1000-names-of-kalabhairava/"
+				><span class="t">1,008 vs 1,000 names</span><span class="d"></span><span class="p"
+					>counts</span
+				></a
+			>
+			<a class="tl" href="/sources/"
+				><span class="t">Sources &amp; corrections</span><span class="d"></span><span class="p"
+					>editorial</span
+				></a
+			>
+		</div>
+	</section>
+
+	<section class="panel" style="margin-top:clamp(26px,3vw,40px)" aria-labelledby="note">
+		<h2 class="sec" id="note"><span class="n">स्रोत</span>About these pages</h2>
+		<div class="prose">
+			<p style="font-size:16px;margin:0 0 10px">
+				This page is a static collection of Kalabhairava names {range.displayLabel} with English
+				meanings. It begins with <strong>{range.firstName.english}</strong> and ends with
+				<strong>{range.lastName.english}</strong>, giving search engines and readers a
+				crawlable reference for this part of the Sahasranama without JavaScript.
+			</p>
+			<p style="font-size:16px;margin:0 0 10px">
+				This section covers names <strong>{range.start}</strong> through <strong
+					>{range.end}</strong
+				> from the full set of <strong>{totalCount}</strong> names. Each name below links to
+				its own reference page with Devanagari, transliteration, alternate spellings, and the
+				full meaning.
+			</p>
+			<p style="font-size:16px;margin:0 0 10px">
+				Use the entries above as direct references for meanings in this range, or move through
+				the previous and next range links to continue the full Kalabhairava Sahasranama
+				sequence.
+			</p>
+			<p style="font-size:16px;margin:0 0 10px">
+				Ten ranges of one hundred names. Each name has its own page with the Sanskrit in
+				Devanagari, the IAST transliteration, the meaning and the longer note.
+			</p>
+			<p style="font-size:15px;color:var(--ash);margin:0">
+				<a class="u" href="/sources/">Editorial method</a> ·
+				<a class="u" href="/kalabhairava-sahasranama-pdf/">PDF edition</a> ·
+				<a class="u" href="/108-names-of-kalabhairava/">108 names guide</a>
+			</p>
+		</div>
+	</section>
+</PothiLayout>

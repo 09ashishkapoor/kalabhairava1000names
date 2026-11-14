@@ -1,5 +1,5 @@
 const { test, expect } = require("@playwright/test");
-const { gotoHome, openNamesExplorer } = require("./helpers/site");
+const { gotoHome, gotoName, gotoRange } = require("./helpers/site");
 
 const screenshotOptions = {
 	animations: "disabled",
@@ -8,27 +8,35 @@ const screenshotOptions = {
 	scale: "css",
 };
 
-test("landing hero content stays visually stable", async ({ page }) => {
+test("the cover stays visually stable", async ({ page }) => {
 	await gotoHome(page);
-	await expect(page.locator(".landing-content")).toHaveScreenshot(
-		"landing-content.png",
+	await expect(page.locator(".cover")).toHaveScreenshot(
+		"home-cover.png",
 		screenshotOptions,
 	);
 });
 
-test("names explorer controls stay visually stable", async ({ page }) => {
-	await openNamesExplorer(page);
-	await expect(page.locator(".controls-panel")).toHaveScreenshot(
-		"names-controls-panel.png",
+test("the reader spread stays visually stable", async ({ page }) => {
+	await gotoHome(page);
+	await page.locator("#read").scrollIntoViewIfNeeded();
+	await expect(page.locator(".spread")).toHaveScreenshot(
+		"home-reader-spread.png",
 		screenshotOptions,
 	);
 });
 
-test("first visible name card stays visually stable", async ({ page }) => {
-	await openNamesExplorer(page);
-	const firstCard = page.locator("#names-grid .name-card.visible").first();
-	await expect(firstCard).toHaveScreenshot(
-		"first-visible-name-card.png",
+test("the name-page panel stays visually stable", async ({ page }) => {
+	await gotoName(page);
+	await expect(page.locator(".sheet .panel")).toHaveScreenshot(
+		"name-panel.png",
+		screenshotOptions,
+	);
+});
+
+test("the range tabs stay visually stable", async ({ page }) => {
+	await gotoRange(page);
+	await expect(page.locator(".rtabs")).toHaveScreenshot(
+		"range-tabs.png",
 		screenshotOptions,
 	);
 });

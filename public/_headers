@@ -1,25 +1,19 @@
-﻿/*
+/*
   Cache-Control: public, max-age=0, must-revalidate
 
-/reference.css
+/pothi-system.css
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
-/styles.min.css
+/pothi-reader.css
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
-/navigation.min.css
+/theme-kalabhairava.css
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
-/app.js
+/pothi-theme.js
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
-/navigation.js
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
-
-/translations.js
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
-
-/search.js
+/pothi-reader.js
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
 /version.json

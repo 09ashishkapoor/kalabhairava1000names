@@ -1,5 +1,5 @@
 ---
-import ReferenceLayout from '../../layouts/ReferenceLayout.astro';
+import PothiLayout from '../../layouts/PothiLayout.astro';
 import { getStaticNamesData } from '../../lib/staticNames.js';
 
 const { namePages, ranges, totalCount, siteUrl } = getStaticNamesData();
@@ -65,109 +65,128 @@ const schema = {
 };
 ---
 
-<ReferenceLayout title={title} description={description} canonical={canonical} schema={schema}>
-	<nav class="breadcrumbs" aria-label="Breadcrumb">
+<PothiLayout title={title} description={description} canonical={canonical} schema={schema}>
+	<nav class="crumbs" aria-label="Breadcrumb">
 		<ol>
 			<li><a href="/">Home</a></li>
 			<li><span aria-current="page">1000 Names of Kalabhairava</span></li>
 		</ol>
 	</nav>
 
-	<p class="page-kicker">Counts explained</p>
+	<p class="kicker">Counts explained</p>
 	<h1>1000 Names of Kalabhairava</h1>
 
-	<section class="hero-panel landing-intro">
-		<p class="intro">
+	<div class="prose lede" style="margin-top:clamp(22px,3vw,32px)">
+		<p>
 			Search results mix “1,000 names of Kalabhairava”, “108 names of Bhairava”, and “1,008 names” lists. They are
 			not a contradiction: different stotras, namavali traditions and recensions preserve different counts. This
 			site's edition of the <strong>Kalabhairava Sahasranama contains 1,000 names</strong> with English meanings,
 			Devanagari and transliteration — and every one of them is readable here.
 		</p>
-		<nav class="page-nav" aria-label="Page navigation">
-			<ul>
-				<li><a href="/names/">Read all {totalCount} names</a></li>
-				<li><a href="/108-names-of-kalabhairava/">Start with 108 names</a></li>
-				<li><a href="/kalabhairava-sahasranama-pdf/">Download the PDF</a></li>
-			</ul>
-		</nav>
-	</section>
+	</div>
 
-	<section class="landing-section">
-		<h2>The counts, side by side</h2>
-		<ul>
-			<li><strong>1,000 names:</strong> “Sahasranama” literally means a thousand names. This site's text has exactly 1,000 positions, chanted as salutations to Kalabhairava.</li>
-			<li><strong>108 names:</strong> a traditional short count for daily practice. The <a href="/108-names-of-kalabhairava/">108-name page</a> takes names 1–108 from this Sahasranama.</li>
-			<li><strong>1,008 names:</strong> an auspicious count used in some stotra and namavali traditions. A 1,008-name list is a different devotional text/recension — not a correction to the 1,000-name list.</li>
-		</ul>
-		<p class="callout">
-			The point of comparison is the names themselves, not only the headline number. Different lists overlap
-			heavily because the same Lord is invoked through many epithets.
-		</p>
-	</section>
-
-	<section class="landing-section">
-		<h2>Where the 1,000 names sit</h2>
-		<p>
-			The full Sahasranama is organized into {ranges.length} ranges of one hundred names each for practical reading
-			and citation:
-		</p>
-		<table class="names-table">
-			<caption>Kalabhairava Sahasranama ranges</caption>
-			<thead>
-				<tr><th scope="col">#</th><th scope="col">Names</th><th scope="col">Start → end</th><th scope="col">Read</th></tr>
-			</thead>
-			<tbody>
-				{ranges.map((range) => (
-					<tr>
-						<td>{range.rangeNumber}</td>
-						<td>{range.start}–{range.end}</td>
-						<td>{range.firstName.english} → {range.lastName.english}</td>
-						<td><a href={range.path}>Read range</a></td>
-					</tr>
-				))}
-			</tbody>
-		</table>
-		<p>
-			Prefer one page per name? The <a href="/names/">names hub</a> links every range, and each entry links to its
-			own page with the Devanagari spelling, IAST form, alternate romanizations, and longer meaning note. There
-			are {namePages.length} unique name pages covering the repeated names in the text.
-		</p>
-	</section>
-
-	<section class="landing-section">
-		<h2>Why the counts differ</h2>
-		<p>
-			A Sahasranama is a living devotional text, not a single fixed file. Manuscripts, regional editions and modern
-			compilations include different numbers of names, and devotional publishers sometimes round the count. The
-			important thing is the identity of the Lord invoked and the sincerity of the recitation, not the headline
-			number on a cover.
-		</p>
-		<p>
-			This site is explicit about its own text: <strong>{totalCount} names</strong>, each with a meaning and
-			explanation, presented in the traditional dative salutation form.
-		</p>
-	</section>
-
-	<section class="landing-section">
-		<h2>Questions about the count</h2>
-		<div class="faq-list">
-			{faqs.map((faq) => (
-				<div class="faq-item">
-					<h3>{faq.question}</h3>
-					<p>{faq.answer}</p>
-				</div>
-			))}
+	<section class="guide-section">
+		<div class="seealso">
+			<a class="tl" href="/names/">
+				<span class="t">Read all {totalCount} names</span>
+				<span class="d"></span>
+				<span class="p">names hub</span>
+			</a>
+			<a class="tl" href="/108-names-of-kalabhairava/">
+				<span class="t">Start with 108 names</span>
+				<span class="d"></span>
+				<span class="p">practice set</span>
+			</a>
+			<a class="tl" href="/kalabhairava-sahasranama-pdf/">
+				<span class="t">Download the PDF</span>
+				<span class="d"></span>
+				<span class="p">download</span>
+			</a>
 		</div>
 	</section>
 
-	<section class="landing-section">
-		<h2>Continue reading</h2>
-		<ul>
-			<li><a href="/108-names-of-kalabhairava/">108 names of Kalabhairava with meanings</a></li>
-			<li><a href="/kalabhairava-sahasranama-lyrics/">Kalabhairava Sahasranama lyrics and chant order</a></li>
-			<li><a href="/kalabhairava-sahasranama-benefits/">Benefits in the devotional tradition</a></li>
-			<li><a href="/kalabhairava-sahasranama-pdf/">Free PDF downloads</a></li>
-			<li><a href="/names/">All {totalCount} names by range</a></li>
-		</ul>
+	<section class="guide-section">
+		<h2 class="sec">The counts, side by side</h2>
+		<div class="prose">
+			<ul>
+				<li><strong>1,000 names:</strong> “Sahasranama” literally means a thousand names. This site's text has exactly 1,000 positions, chanted as salutations to Kalabhairava.</li>
+				<li><strong>108 names:</strong> a traditional short count for daily practice. The <a href="/108-names-of-kalabhairava/">108-name page</a> takes names 1–108 from this Sahasranama.</li>
+				<li><strong>1,008 names:</strong> an auspicious count used in some stotra and namavali traditions. A 1,008-name list is a different devotional text/recension — not a correction to the 1,000-name list.</li>
+			</ul>
+			<p class="callout">
+				The point of comparison is the names themselves, not only the headline number. Different lists overlap
+				heavily because the same Lord is invoked through many epithets.
+			</p>
+		</div>
 	</section>
-</ReferenceLayout>
+
+	<section class="guide-section">
+		<h2 class="sec">Where the 1,000 names sit</h2>
+		<div class="prose">
+			<p>
+				The full Sahasranama is organized into {ranges.length} ranges of one hundred names each for practical reading
+				and citation:
+			</p>
+		</div>
+		<p class="panel-note" style="margin-top:18px">Kalabhairava Sahasranama ranges</p>
+		<div class="seealso" style="margin-top:12px">
+			{ranges.map((range) => (
+				<a class="tl" href={range.path}>
+					<span class="t">Names {range.start}–{range.end}</span>
+					<span class="d"></span>
+					<span class="p">Read range</span>
+				</a>
+			))}
+		</div>
+		<div class="prose" style="margin-top:18px">
+			<p>
+				Prefer one page per name? The <a href="/names/">names hub</a> links every range, and each entry links to its
+				own page with the Devanagari spelling, IAST form, alternate romanizations, and longer meaning note. There
+				are {namePages.length} unique name pages covering the repeated names in the text.
+			</p>
+		</div>
+	</section>
+
+	<section class="guide-section">
+		<h2 class="sec">Why the counts differ</h2>
+		<div class="prose">
+			<p>
+				A Sahasranama is a living devotional text, not a single fixed file. Manuscripts, regional editions and modern
+				compilations include different numbers of names, and devotional publishers sometimes round the count. The
+				important thing is the identity of the Lord invoked and the sincerity of the recitation, not the headline
+				number on a cover.
+			</p>
+			<p>
+				This site is explicit about its own text: <strong>{totalCount} names</strong>, each with a meaning and
+				explanation, presented in the traditional dative salutation form.
+			</p>
+		</div>
+	</section>
+
+	<section class="guide-section">
+		<h2 class="sec">Questions about the count</h2>
+		<div class="prose">
+			<div class="faq-list">
+				{faqs.map((faq) => (
+					<article class="faq-item">
+						<h3>{faq.question}</h3>
+						<p>{faq.answer}</p>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="guide-section">
+		<h2 class="sec">Continue reading</h2>
+		<div class="prose">
+			<ul>
+				<li><a href="/108-names-of-kalabhairava/">108 names of Kalabhairava with meanings</a></li>
+				<li><a href="/kalabhairava-sahasranama-lyrics/">Kalabhairava Sahasranama lyrics and chant order</a></li>
+				<li><a href="/kalabhairava-sahasranama-benefits/">Benefits in the devotional tradition</a></li>
+				<li><a href="/kalabhairava-sahasranama-pdf/">Free PDF downloads</a></li>
+				<li><a href="/names/">All {totalCount} names by range</a></li>
+			</ul>
+		</div>
+	</section>
+</PothiLayout>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>कालभैरव सहस्रनाम — theme demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme-kalabhairava.css">
+<link rel="stylesheet" href="pothi-reader.css">
+<meta name="color-scheme" content="light dark">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('pothi-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
+      if (t === 'night') document.documentElement.dataset.theme = 'night';
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<div class="fore" id="fore" aria-hidden="true"></div>
+
+<header class="bar">
+  <a class="brand" href="https://bhairavakalikenamosthute.com/">
+    <span class="dev">कालभैरव सहस्रनाम</span>
+    <span class="lat">Kalabhairava</span>
+  </a>
+  <nav aria-label="Site">
+    <a href="https://bhairavakalikenamosthute.com/names/">Names</a>
+    <a href="https://bhairavakalikenamosthute.com/sources/">Sources</a>
+    <a href="https://bhairavakalikenamosthute.com/">The site</a>
+  </nav>
+  <button class="theme" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to night reading">
+    <span class="sw" aria-hidden="true"></span><span class="lbl">Night</span>
+  </button>
+</header>
+
+<section class="cover">
+  <div class="frontis">
+    <img src="assets/kalabhairava-bg-desktop.webp" alt="Sri Kalabhairava">
+    <span class="plate">Frontispiece · Sri Kalabhairava</span>
+  </div>
+  <div class="cover-copy">
+    <p class="kicker">1,000 names · Kalabhairava Sahasranama</p>
+    <h1><span class="lt">कालभैरव</span><span class="lt">सहस्रनाम</span></h1>
+    <p class="lat-title">Kālabhairava Sahasranāma</p>
+    <div class="colophon">
+      <div><b>1,000</b>names</div>
+      <div><b>91</b>sets of eleven</div>
+      <div><b>10</b>ranges</div>
+    </div>
+    <p class="lede">A free devotional reference for the Kalabhairava Sahasranama: 1,000 names of Sri Kalabhairava with English one-line meanings and longer explanations for <em>chanting, study, and spiritual reflection</em>.</p>
+    <a class="open" href="#read">Open the book <span class="ar" aria-hidden="true">→</span></a>
+    <p class="small">Theme demo — the first set of eleven, with the site's own names and meanings.</p>
+  </div>
+</section>
+
+<section class="reader" id="read">
+  <div class="spread-head">
+    <span>कालभैरव सहस्रनाम</span>
+    <span>Set <b id="headSet">01</b> of 91 · names <b id="headRange">1–11</b> of 1,000</span>
+  </div>
+
+  <div class="spread">
+    <div class="mindex" id="mindex">
+      <div class="mfind">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input id="mq" type="search" placeholder="find a name or meaning" autocomplete="off" aria-label="Search this set">
+        <span class="mc" id="mcount" role="status" aria-live="polite">11 names</span>
+      </div>
+      <ol class="mlist" id="mlist"></ol>
+    </div>
+
+    <div class="leaf-left">
+      <div class="leaf-head">
+        <h2>पाठ · this set</h2>
+        <span id="listCount">11 names</span>
+      </div>
+      <div class="find">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input id="q" type="search" placeholder="find a name or meaning" autocomplete="off" aria-label="Search this set">
+        <span class="count" id="findCount" role="status" aria-live="polite"></span>
+      </div>
+      <ul class="toc" id="toc"></ul>
+      <div class="foot"><span>Page <b id="footPage">1</b> of the set</span><span>91 sets</span></div>
+    </div>
+
+    <div class="leaf-right" id="page" aria-live="polite"></div>
+  </div>
+
+  <div class="turn">
+    <button id="prev" type="button" disabled>← previous set</button>
+    <span class="mid">set <b id="setNo">01</b> / 91</span>
+    <button id="next" type="button" disabled>next set →</button>
+  </div>
+</section>
+
+<section class="essay" id="about">
+  <div class="essay-inner">
+    <div>
+      <h2>टिप्पणी</h2>
+      <p class="h-sub">About this demo</p>
+    </div>
+    <div class="essay-body" style="column-count:1">
+      <p><strong>What is real here:</strong> the eleven names, their Devanagari, IAST, meanings and elaborations come from bhairavakalikenamosthute.com, and every name links back to its page there.</p>
+      <p><strong>What is a demo:</strong> the page is the approved Pothi system with the Kalabhairava theme file. Only the first set of eleven is loaded; the site has 1,000 names in 91 sets, and its own pages do not yet have a PDF edition or guide pages.</p>
+      <p><strong>Why it looks like this:</strong> paper on a desk, one accent, the Devanagari as the object — the same system as the parent site, with only the theme tokens changed.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="colophon">
+  <div class="om">ॐ</div>
+  <p class="ded">Kalabhairava 1000 Names · <a class="u" href="https://bhairavakalikenamosthute.com/">bhairavakalikenamosthute.com</a></p>
+  <div class="links">
+    <a href="https://bhairavakalikenamosthute.com/names/">Names hub</a>
+    <a href="https://bhairavakalikenamosthute.com/names/1-100/">Names 1–100</a>
+    <a href="https://bhairavakalikenamosthute.com/sources/">Sources</a>
+  </div>
+  <p class="fine">The Pothi, theme demo · not the live site</p>
+</footer>
+
+<script>
+const NAMES=[[1,"भैरवाय","Bhairavāya","Bhairavaya","Salutations To The one who is terrifying and destroys fear.","<p>The name Bhairava (Bhairavā) embodies a paradoxical and fierce form of the Divine, an avatar or fierce manifestation of Lord Shiva.</p><h3>Terrifying and Formidable (The Fierce Aspect)</h3><p>The literal meaning of Bhairava is \"frightful,\" \"terrible,\" or \"formidable.\" This is his manifestation as Kāla Bhairava, the Supreme Lord of Time. This terrifying form is one of absolute, relentless, and unchangeable cosmic law. He is associated with annihilation and the ultimate power of destruction that concludes every cycle of existence, ensuring that all things perish in the end. His frightful nature serves as a reminder of the impermanence of the material world.</p><h3>Destroying Fear (The Benevolent Aspect)</h3><p>Despite his fearful appearance, his primary spiritual role is to destroy inner and outer fear for his devotees. He grants courage and spiritual…</p>","bhairavaya"],[2,"भूतनाथाय","Bhūtanāthāya","Bhutanathaya","Salutations To The lord and master of all beings, including ghosts and spirits.","<p>The term Bhūtanātha is a compound of Bhūta and Nātha.</p><p>Bhūta: This is a multi-layered term meaning 1. All living beings (creatures, people, animals). 2. Elemental forces (the five Pañcha Bhūtas: earth, water, fire, air, and space). 3. Spirits (ghosts, elementals, attendants, and disembodied souls).</p><p>Nātha: Lord, Master, Protector, or Patron.</p><h3>Lord of the Elements</h3><p>As the \"Lord of the Pañcha Bhūtas,\" he is the master and source of the fundamental elements that constitute the entire material universe. This makes him the absolute master of all matter and its manifestation in the cosmos.</p><h3>Master of Beings and Spirits</h3><p>As the \"Lord of all living beings,\" he is the ultimate patron and protector of all life, much like Pashupati (Lord of Creatures). He is the supreme commander of all subtle entities, including…</p>","bhutanathaya"],[3,"भूतात्मने","Bhūtātmane","Bhutatmane","Salutations To The one who is the very soul and essence of all living beings.","<p>The term Bhūtātmā is a powerful philosophical name that combines Bhūta (beings/elements) and Ātman (Soul or Self).</p><h3>The Universal Soul</h3><p>Bhūtātmā is defined as \"the essence of all beings\" and \"the one soul or essence that exists in all beings.\" This is a direct reference to the Upanishadic concept that the ultimate reality (Brahman) is the innermost essence of everything. He is the single, animating life force present in every single creature and elemental particle—the underlying Ātman that connects every individual life to the universal spirit.</p><h3>The Self of the Elements</h3><p>The phrase also translates as \"the self consisting of the elements\" (the physical body). In the highest sense, he is the \"proper soul\" or the \"Supreme Being\" that is completely free from material identification.</p><h3>Inner Reality</h3><p>Saluting Bhūtātmā is…</p>","bhutatmane"],[4,"भूतभावनाय","Bhūtabhāvanāya","Bhutabhavanaya","Salutations To The creator and nurturer of all beings in the universe.","<p>The name Bhūtabhāvanāya is a profound Sanskrit term combining Bhūta and Bhāvana.</p><h3>Bhūta: As previously elaborated, this multifaceted term refers to:</h3><p>1. All living beings (creatures, people, animals). 2. The five elemental forces (Pañcha Bhūtas: earth, water, fire, air, and space) that constitute the universe. 3. Spirits, attendants, and disembodied souls.</p><p>Bhāvana: This term means \"creator,\" \"nurturer,\" \"sustainer,\" \"producer,\" and \"one who causes to be\" or \"one who brings into existence.\" It carries the sense of thoughtful, deliberate creation and continuous care.</p><h3>Creator of All Beings</h3><p>As the \"Creator of all Bhūtas,\" Lord Kalabhairava is the ultimate instigator behind the manifestation of all life forms. His creative energy is what brings forth the myriad species and individual beings into existence. This encompasses not only the physical…</p>","bhutabhavanaya"],[5,"भूतवासाय","Bhūtavāsāya","Bhutavasaya","Salutations To The one who resides within all of existence and in whom all beings dwell.","<p>The name Bhūtavāsa (Bhūtavāsāya in the dative case) is a profound Sanskrit term combining \"Bhūta\" and \"Vāsa,\" signifying a deep philosophical truth about the omnipresence of Lord Shiva, specifically in his formidable aspect as Bhairava.</p><p>Etymological Breakdown:</p><p>> Bhūta: This multifaceted term can mean \"being,\" \"creature,\" \"element\" (referring to the five primordial elements: earth, water, fire, air, and space), or \"that which has come into existence.\" It encompasses the entirety of creation. > Vāsa: This term signifies \"dwelling,\" \"abiding,\" \"residence,\" or \"being present in.\"</p><p>Omnipresent Dweller:</p><p>The primary meaning of Bhūtavāsa is \"one who dwells in all beings\" or \"one in whom all beings dwell.\" This emphasizes an intimate, all-encompassing presence.…</p>","bhutavasaya"],[6,"भूतदूताय","Bhūtadūtāya","Bhutadutaya","Salutations To The one who has ghosts and spirits as his messengers.","<p>The name Bhūtadūtāya is a powerful compound formed from Bhūta and Dūta.</p><p>Bhūta: As previously elaborated, this term encompasses a broad range of entities: 1. All living creatures, beings, and life forms. 2. The fundamental elements (earth, water, fire, air, and ether) that constitute the material world. 3. Disembodied spirits, ghosts, elementals, and various subtle entities, often considered as Shiva's attendants (gaṇas).</p><p>Dūta: This Sanskrit word translates to \"messenger,\" \"emissary,\" \"envoy,\" or \"one who conveys a message or performs an errand.\"</p><h3>Master of the Spirit World</h3><p>When combined, Bhūtadūtāya signifies \"one for whom Bhūtas (ghosts, spirits, subtle entities) are messengers.\" This name powerfully asserts Kalabhairava's supreme authority and dominion over the unseen realms…</p>","bhutadutaya"],[7,"भूरिशाय","Bhūriśāya","Bhurishaya","Salutations To The one who possesses great wealth and abundance.","<p>The name Bhūṛiśāya is derived from the Sanskrit words \"Bhūri\" and \"Īśa.\"</p><p>Bhūri: This term signifies \"abundant,\" \"much,\" \"plentiful,\" \"great,\" or \"numerous.\" It refers to an extensive quantity or magnitude. In a spiritual context, it implies an immense and inexhaustible quality.</p><p>Īśa: This word means \"Lord,\" \"Master,\" or \"Ruler.\" It indicates supreme control, dominion, and ownership.</p><h3>Lord of Abundance and Multitude</h3><p>Combining these terms, Bhūṛiśāya translates to \"the Lord of abundance,\" \"the Master of plentitude,\" or \"the Ruler over numerous things.\" This name highlights Kalabhairava's aspect as the ultimate source and possessor of immense wealth, not merely in a material sense but in a much broader, cosmic context.</p><h3>Cosmic Prosperity</h3><p>The \"wealth\" and \"abundance\" here are multifaceted: 1. Material…</p>","bhurishaya"],[8,"भूरिदक्षिणाय","Bhūridakṣiṇāya","Bhuridakshinaya","Salutations To The one who is extremely generous and gives great rewards.","<p>The name Bhūridakṣiṇāya is a profound epithet for Kalabhairava, highlighting his boundless generosity and magnanimous nature. It is a compound of two Sanskrit words:</p><p>Bhūri: This word signifies \"much,\" \"many,\" \"abundant,\" \"ample,\" \"great,\" or \"numerous.\" It denotes a vast, immense quantity or degree.</p><p>Dakṣiṇā: This term has rich meanings related to generosity and spiritual offerings. It typically refers to the \"fee,\" \"gift,\" or \"donation\" given to a priest, guru, or preceptor for services rendered or spiritual guidance. More broadly, it implies an act of giving, generosity, or spiritual reward. When applied to the Divine, it signifies the rewards or boons conferred upon devotees.</p><h3>Boundless Giver of Rewards</h3><p>Thus, Bhūridakṣiṇāya translates to \"the one who bestows abundant dakṣiṇā\"…</p>","bhuridakshinaya"],[9,"भूताध्यक्षाय","Bhūtādhyakṣāya","Bhutadhyakshaya","Salutations To The supreme overseer and presides over all beings.","<p>The term Bhūtādhyakshāya (Bhūtādhyakṣa) is a compound of Bhūta and Adhyakṣa, signifying a profound aspect of Shiva's administrative and cosmic role.</p><h3>Bhūta: This term carries multiple layers of meaning:</h3><p>1. All living beings: Every creature, from the smallest insect to humans. 2. Elements: The five fundamental elements (Pañcamahābhūtas) that constitute the material universe (earth, water, fire, air, and ether). 3. Spirits/Ghosts: Subtle entities, attendants (gaṇas), and disembodied beings.</p><p>Adhyakṣa: This refers to an \"overseer,\" \"superintendent,\" \"presiding deity,\" \"director,\" or \"ruler.\" It denotes one who has supreme authority and governance over a domain.</p><h3>Supreme Overseer of All Beings</h3><p>As the \"Adhyakṣa of Bhūtas,\" Lord Shiva, in his fierce form of Kalabhairava, is the ultimate authority, supervisor, and controller of all living…</p>","bhutadhyakshaya"],[10,"भूतपतये","Bhūtapataye","Bhutapataye","Salutations To The commander and protector of all beings.","<p>The name Bhūtapati is a compound of Bhūta and Pati, meaning the \"Lord\" or \"Commander\" of all beings.</p><h3>The term Bhūta is rich in meaning and can refer to:</h3><p>1. All sentient beings: All creatures, human beings, animals, and flora. 2. The fundamental elements: The Pañcha Bhūtas (earth, water, fire, air, and space), which constitute the entire material universe. 3. Spirits and supernatural entities: Ghosts, spirits, elementals, and various disembodied subtle beings, often considered the attendants (Pramatha-gaṇas) of Shiva.</p><p>Pati means \"master,\" \"lord,\" \"commander,\" or \"protector.\"</p><h3>Commander of All Realms</h3><p>As Bhūtapati, Kalabhairava is the supreme commander over all these categories. He is the master of all living creatures, guiding their destinies and overseeing their existence. He controls the elemental forces, demonstrating his…</p>","bhutapataye"],[11,"भूधराय","Bhūdharāya","Bhudharaya","Salutations To The one who supports the Earth.","<p>The name Bhūdhara (Bhūdhāra) is a compound of two Sanskrit words: Bhū (or Bhūmi), meaning \"Earth,\" and Dhara, meaning \"bearer,\" \"supporter,\" or \"one who holds.\"</p><h3>Supporter of the Earth</h3><p>In a cosmic sense, Bhūdhara refers to the primordial power that sustains the entire planet Earth. This isn't merely a physical act but a metaphysical one, implying the divine force responsible for the order, gravity, and stability of the terrestrial realm.</p><h3>Lord of Stability and Foundation</h3><p>As the one who supports the Earth, Kalabhairava embodies the principle of firm foundation, steadfastness, and grounding. He is the ultimate anchor in the universe, ensuring that creation does not unravel. This stability extends beyond physical sustenance, representing the moral and cosmic laws that uphold existence.</p><h3>Embodiment of Firmness</h3><p>This name emphasizes…</p>","bhudharaya"]];
+</script>
+<script>
+(function(){
+  var TOTAL_SETS = 91, TOTAL = 1000;
+  var setIndex = 0, current = 0;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var toc = $('#toc'), pageEl = $('#page'), fore = $('#fore'), mlist = $('#mlist');
+  var rows = NAMES;
+
+  function norm(s){ return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+
+  function buildFore(){
+    fore.innerHTML = '';
+    for (var i = 0; i < TOTAL_SETS; i++){
+      var b = document.createElement('i');
+      if (i === setIndex) b.className = 'now';
+      fore.appendChild(b);
+    }
+  }
+
+  function renderList(){
+    toc.innerHTML = rows.map(function (r, i) {
+      return '<li data-search="' + norm(r[1] + ' ' + r[2] + ' ' + r[3] + ' ' + r[4]) + '">' +
+        '<button type="button" data-i="' + i + '" aria-current="' + (i === current) + '">' +
+          '<span class="n">' + String(r[0]).padStart(2, '0') + '</span>' +
+          '<span><span class="w" lang="sa">' + r[1] + '</span><span class="i">' + r[2] + '</span></span>' +
+        '</button></li>';
+    }).join('');
+    toc.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () { current = +b.dataset.i; renderList(); renderPage(); });
+    });
+    mlist.innerHTML = rows.map(function (r, i) {
+      return '<li data-search="' + norm(r[1] + ' ' + r[2] + ' ' + r[3] + ' ' + r[4]) + '"><button type="button" data-i="' + i + '" aria-current="' + (i === current) + '" aria-label="Name ' + r[0] + ': ' + r[3] + '">' +
+        '<span class="n">' + String(r[0]).padStart(2, '0') + '</span>' +
+        '<span><span class="w" lang="sa">' + r[1] + '</span><span class="i">' + r[2] + '</span></span>' +
+      '</button></li>';
+    }).join('') + '<li class="none" id="mNone">No name in this set matches that search.</li>';
+    mlist.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        current = +b.dataset.i; renderList(); renderPage();
+        if (window.matchMedia('(max-width:1080px)').matches) pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+    $('#listCount').textContent = rows.length + ' names';
+  }
+
+  function renderPage(){
+    var r = rows[current] || rows[0];
+    pageEl.innerHTML =
+      '<div class="page-eyebrow"><span>Name ' + String(r[0]).padStart(2, '0') + ' of 1,000</span><span>अर्थ · meaning</span></div>' +
+      '<h2 class="page-name" lang="sa">' + r[1] + '</h2>' +
+      '<p class="page-iast">' + r[2] + '</p>' +
+      '<p class="page-one">' + r[4] + '</p>' +
+      '<div class="page-rule"></div>' +
+      '<div class="page-elab">' + r[5] + '</div>' +
+      '<div class="page-foot">' +
+        '<a class="u src" href="https://bhairavakalikenamosthute.com/names/' + r[6] + '/">Read the full note on the site</a>' +
+        '<span class="folio">' + String(r[0]).padStart(2, '0') + '</span>' +
+      '</div>';
+    $('#footPage').textContent = current + 1;
+    $('#headSet').textContent = '01';
+    $('#setNo').textContent = '01';
+    $('#headRange').textContent = rows[0][0] + '–' + rows[rows.length - 1][0];
+    buildFore();
+  }
+
+  function filter(){
+    var q = norm(($('#q').value || '').trim());
+    toc.querySelectorAll('li').forEach(function (li) {
+      li.classList.toggle('is-hidden', !!q && li.getAttribute('data-search').indexOf(q) === -1);
+    });
+    var shown = [...toc.querySelectorAll('li:not(.is-hidden)')].length;
+    $('#findCount').textContent = q ? shown + '/' + rows.length : '';
+    $('#listCount').textContent = q ? shown + ' of ' + rows.length + ' names' : rows.length + ' names';
+  }
+
+  function mfilter(){
+    var q = norm(($('#mq').value || '').trim());
+    var shown = 0;
+    mlist.querySelectorAll('li[data-search]').forEach(function (li) {
+      var hit = !q || li.getAttribute('data-search').indexOf(q) !== -1;
+      li.classList.toggle('is-hidden', !hit);
+      if (hit) shown++;
+    });
+    $('#mcount').textContent = q ? shown + '/11' : '11 names';
+    var none = $('#mNone');
+    if (none) none.classList.toggle('on', !!q && shown === 0);
+  }
+
+  $('#q').addEventListener('input', filter);
+  $('#mq').addEventListener('input', mfilter);
+  renderList(); renderPage(); filter(); mfilter();
+})();
+</script>
+<script src="pothi-theme.js" defer></script>
+</body>
+</html>

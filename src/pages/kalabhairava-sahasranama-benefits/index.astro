@@ -1,5 +1,5 @@
 ---
-import ReferenceLayout from '../../layouts/ReferenceLayout.astro';
+import PothiLayout from '../../layouts/PothiLayout.astro';
 
 const siteUrl = 'https://bhairavakalikenamosthute.com';
 const canonical = `${siteUrl}/kalabhairava-sahasranama-benefits/`;
@@ -63,92 +63,115 @@ const schema = {
 };
 ---
 
-<ReferenceLayout title={title} description={description} canonical={canonical} schema={schema}>
-	<nav class="breadcrumbs" aria-label="Breadcrumb">
+<PothiLayout title={title} description={description} canonical={canonical} schema={schema}>
+	<nav class="crumbs" aria-label="Breadcrumb">
 		<ol>
 			<li><a href="/">Home</a></li>
 			<li><span aria-current="page">Kalabhairava Sahasranama Benefits</span></li>
 		</ol>
 	</nav>
 
-	<p class="page-kicker">Devotional practice</p>
+	<p class="kicker">Devotional practice</p>
 	<h1>Kalabhairava Sahasranama Benefits</h1>
 
-	<section class="hero-panel landing-intro">
-		<p class="intro">
+	<div class="prose lede" style="margin-top:clamp(22px,3vw,32px)">
+		<p>
 			The Kalabhairava Sahasranama is recited as a practice of remembrance, surrender and steadiness. Devotees
 			describe its benefits in devotional rather than medical terms: courage in difficulty, a sense of protection,
 			discipline over time and impulse, freedom from fear, and a deepening relationship with the Lord. This page
 			explains the traditional framing and how the practice is done.
 		</p>
-		<nav class="page-nav" aria-label="Page navigation">
-			<ul>
-				<li><a href="/names/">Read all 1,000 names</a></li>
-				<li><a href="/108-names-of-kalabhairava/">Start with 108 names</a></li>
-				<li><a href="/kalabhairava-sahasranama-pdf/">Download the PDF</a></li>
-			</ul>
-		</nav>
-	</section>
+	</div>
 
-	<section class="landing-section">
-		<h2>Benefits described in the tradition</h2>
-		<ul>
-			<li><strong>Remembrance and devotion (smriti and bhakti):</strong> the names keep the Lord present in the mind through the day, which is the heart of devotional practice.</li>
-			<li><strong>Courage and fearlessness:</strong> Kalabhairava is remembered as the fierce protector who destroys fear and lends strength in danger. The names are traditionally recited for courage.</li>
-			<li><strong>Protection (raksha):</strong> devotees recite the Sahasranama as a protective practice, asking the Lord to guard the home, the family and the mind.</li>
-			<li><strong>Discipline and time:</strong> Bhairava is lord of time (kāla). The practice is traditionally used to build regularity and steadiness against distraction and impulse.</li>
-			<li><strong>Destruction of the inner enemies:</strong> ego, anger, greed, fear and ignorance are the foes the practice is said to grind down first.</li>
-			<li><strong>Justice and truth:</strong> Kalabhairava is the keeper of dharma and the guardian of Kashi; devotees turn to him for clarity where truth and fairness are at stake.</li>
-			<li><strong>Loyalty and companionship:</strong> his dog is remembered as a symbol of faithfulness; the practice is a reminder of steady loyalty to the path.</li>
-		</ul>
-		<p class="callout">
-			These are religious and devotional claims, not promises of material, health or legal outcomes. The site
-			presents the text for study and practice; individual results and interpretations vary.
-		</p>
-	</section>
-
-	<section class="landing-section">
-		<h2>How the practice is usually done</h2>
-		<ol>
-			<li><strong>Choose a set:</strong> a short daily 108-name set, one 100-name range, or the full 1,000 names.</li>
-			<li><strong>Keep the order:</strong> the Sahasranama is recited as a sequence. The range pages and PDF preserve the order.</li>
-			<li><strong>Set a time:</strong> morning or evening, ideally the same time each day.</li>
-			<li><strong>Recite with attention:</strong> pronunciation matters less than consistency and presence; the IAST transliteration on each name page helps with unfamiliar words.</li>
-			<li><strong>Finish with dedication:</strong> many devotees close the recitation with a prayer or dedication of the merit.</li>
-		</ol>
-	</section>
-
-	<section class="landing-section">
-		<h2>How this site helps</h2>
-		<ul>
-			<li>All 1,000 names are readable in order, by range, with a meaning for each.</li>
-			<li>Every name has its own page with Devanagari, IAST, alternate spellings and a longer note.</li>
-			<li>The <a href="/108-names-of-kalabhairava/">108-name page</a> gives a compact daily set.</li>
-			<li>The <a href="/kalabhairava-sahasranama-lyrics/">lyrics page</a> explains the chant order and opening names.</li>
-			<li>The <a href="/kalabhairava-sahasranama-pdf/">PDF page</a> offers a printable edition for offline practice.</li>
-		</ul>
-	</section>
-
-	<section class="landing-section">
-		<h2>Questions about the benefits</h2>
-		<div class="faq-list">
-			{faqs.map((faq) => (
-				<div class="faq-item">
-					<h3>{faq.question}</h3>
-					<p>{faq.answer}</p>
-				</div>
-			))}
+	<section class="guide-section">
+		<div class="seealso">
+			<a class="tl" href="/names/"
+				><span class="t">Read all 1,000 names</span><span class="d"></span><span class="p"
+					>names hub</span
+				></a
+			>
+			<a class="tl" href="/108-names-of-kalabhairava/"
+				><span class="t">Start with 108 names</span><span class="d"></span><span class="p"
+					>practice set</span
+				></a
+			>
+			<a class="tl" href="/kalabhairava-sahasranama-pdf/"
+				><span class="t">Download the PDF</span><span class="d"></span><span class="p"
+					>download</span
+				></a
+			>
 		</div>
 	</section>
 
-	<section class="landing-section">
-		<h2>Continue reading</h2>
-		<ul>
-			<li><a href="/108-names-of-kalabhairava/">108 names of Kalabhairava with meanings</a></li>
-			<li><a href="/1000-names-of-kalabhairava/">How the 1,000-name count works</a></li>
-			<li><a href="/kalabhairava-sahasranama-lyrics/">Kalabhairava Sahasranama lyrics and chant order</a></li>
-			<li><a href="/kalabhairava-sahasranama-pdf/">Free PDF downloads</a></li>
-			<li><a href="/sources/">Sources and editorial notes</a></li>
-		</ul>
+	<section class="guide-section">
+		<h2 class="sec">Benefits described in the tradition</h2>
+		<div class="prose">
+			<ul>
+				<li><strong>Remembrance and devotion (smriti and bhakti):</strong> the names keep the Lord present in the mind through the day, which is the heart of devotional practice.</li>
+				<li><strong>Courage and fearlessness:</strong> Kalabhairava is remembered as the fierce protector who destroys fear and lends strength in danger. The names are traditionally recited for courage.</li>
+				<li><strong>Protection (raksha):</strong> devotees recite the Sahasranama as a protective practice, asking the Lord to guard the home, the family and the mind.</li>
+				<li><strong>Discipline and time:</strong> Bhairava is lord of time (kāla). The practice is traditionally used to build regularity and steadiness against distraction and impulse.</li>
+				<li><strong>Destruction of the inner enemies:</strong> ego, anger, greed, fear and ignorance are the foes the practice is said to grind down first.</li>
+				<li><strong>Justice and truth:</strong> Kalabhairava is the keeper of dharma and the guardian of Kashi; devotees turn to him for clarity where truth and fairness are at stake.</li>
+				<li><strong>Loyalty and companionship:</strong> his dog is remembered as a symbol of faithfulness; the practice is a reminder of steady loyalty to the path.</li>
+			</ul>
+			<p class="callout">
+				These are religious and devotional claims, not promises of material, health or legal outcomes. The site
+				presents the text for study and practice; individual results and interpretations vary.
+			</p>
+		</div>
 	</section>
-</ReferenceLayout>
+
+	<section class="guide-section">
+		<h2 class="sec">How the practice is usually done</h2>
+		<div class="prose">
+			<ol>
+				<li><strong>Choose a set:</strong> a short daily 108-name set, one 100-name range, or the full 1,000 names.</li>
+				<li><strong>Keep the order:</strong> the Sahasranama is recited as a sequence. The range pages and PDF preserve the order.</li>
+				<li><strong>Set a time:</strong> morning or evening, ideally the same time each day.</li>
+				<li><strong>Recite with attention:</strong> pronunciation matters less than consistency and presence; the IAST transliteration on each name page helps with unfamiliar words.</li>
+				<li><strong>Finish with dedication:</strong> many devotees close the recitation with a prayer or dedication of the merit.</li>
+			</ol>
+		</div>
+	</section>
+
+	<section class="guide-section">
+		<h2 class="sec">How this site helps</h2>
+		<div class="prose">
+			<ul>
+				<li>All 1,000 names are readable in order, by range, with a meaning for each.</li>
+				<li>Every name has its own page with Devanagari, IAST, alternate spellings and a longer note.</li>
+				<li>The <a href="/108-names-of-kalabhairava/">108-name page</a> gives a compact daily set.</li>
+				<li>The <a href="/kalabhairava-sahasranama-lyrics/">lyrics page</a> explains the chant order and opening names.</li>
+				<li>The <a href="/kalabhairava-sahasranama-pdf/">PDF page</a> offers a printable edition for offline practice.</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="guide-section">
+		<h2 class="sec">Questions about the benefits</h2>
+		<div class="prose">
+			<div class="faq-list">
+				{faqs.map((faq) => (
+					<div class="faq-item">
+						<h3>{faq.question}</h3>
+						<p>{faq.answer}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="guide-section">
+		<h2 class="sec">Continue reading</h2>
+		<div class="prose">
+			<ul>
+				<li><a href="/108-names-of-kalabhairava/">108 names of Kalabhairava with meanings</a></li>
+				<li><a href="/1000-names-of-kalabhairava/">How the 1,000-name count works</a></li>
+				<li><a href="/kalabhairava-sahasranama-lyrics/">Kalabhairava Sahasranama lyrics and chant order</a></li>
+				<li><a href="/kalabhairava-sahasranama-pdf/">Free PDF downloads</a></li>
+				<li><a href="/sources/">Sources and editorial notes</a></li>
+			</ul>
+		</div>
+	</section>
+</PothiLayout>

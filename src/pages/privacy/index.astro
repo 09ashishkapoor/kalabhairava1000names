@@ -1,5 +1,5 @@
 ---
-import ReferenceLayout from '../../layouts/ReferenceLayout.astro';
+import PothiLayout from '../../layouts/PothiLayout.astro';
 
 const siteUrl = 'https://bhairavakalikenamosthute.com';
 const canonical = `${siteUrl}/privacy/`;
@@ -31,70 +31,81 @@ const schema = {
 };
 ---
 
-<ReferenceLayout title={title} description={description} canonical={canonical} schema={schema}>
-	<nav class="breadcrumbs" aria-label="Breadcrumb">
+<PothiLayout title={title} description={description} canonical={canonical} schema={schema}>
+	<nav class="crumbs" aria-label="Breadcrumb">
 		<ol>
 			<li><a href="/">Home</a></li>
 			<li><span aria-current="page">Privacy</span></li>
 		</ol>
 	</nav>
 
-	<p class="page-kicker">Site policy</p>
+	<p class="kicker">Site policy</p>
 	<h1>Privacy Policy</h1>
 
-	<section class="hero-panel">
-		<p class="intro">
+	<div class="prose lede" style="margin-top:clamp(22px,3vw,32px)">
+		<p>
 			This is a static devotional reference site. There are no accounts, no comments, no newsletter and no
 			payments. The information below explains the limited data processing that does happen when you visit.
 		</p>
-		<p class="intro">Last updated: 2026-11-07.</p>
+	</div>
+
+	<p class="panel-note">Last updated: 2026-11-07.</p>
+
+	<section class="guide-section">
+		<h2 class="sec">Analytics</h2>
+		<div class="prose">
+			<p>
+				The interactive homepage loads Google Analytics (Google tag) to understand aggregate usage: which pages are
+				visited, approximate location at country level, device type and referring source. Google may set cookies for
+				this purpose. No advertising profiles are built by this site.
+			</p>
+			<p>
+				Static reference pages, including the names hub, name pages and PDF pages, do not include separate tracking
+				code.
+			</p>
+		</div>
 	</section>
 
-	<section class="source-notes">
-		<h2>Analytics</h2>
-		<p>
-			The interactive homepage loads Google Analytics (Google tag) to understand aggregate usage: which pages are
-			visited, approximate location at country level, device type and referring source. Google may set cookies for
-			this purpose. No advertising profiles are built by this site.
-		</p>
-		<p>
-			Static reference pages, including the names hub, name pages and PDF pages, do not include separate tracking
-			code.
-		</p>
+	<section class="guide-section">
+		<h2 class="sec">Server logs and hosting</h2>
+		<div class="prose">
+			<p>
+				The site is hosted on Cloudflare Pages. Cloudflare processes standard request data (IP address, user agent,
+				requested URL, timestamps) to serve and protect the site. See Cloudflare's privacy documentation for details
+				of its processing.
+			</p>
+		</div>
 	</section>
 
-	<section class="source-notes">
-		<h2>Server logs and hosting</h2>
-		<p>
-			The site is hosted on Cloudflare Pages. Cloudflare processes standard request data (IP address, user agent,
-			requested URL, timestamps) to serve and protect the site. See Cloudflare's privacy documentation for details
-			of its processing.
-		</p>
+	<section class="guide-section">
+		<h2 class="sec">Third-party links</h2>
+		<div class="prose">
+			<p>
+				Some pages link to external services, including GitHub, archive.org, Instagram and the parampara's websites.
+				Those services have their own privacy policies once you leave this site.
+			</p>
+		</div>
 	</section>
 
-	<section class="source-notes">
-		<h2>Third-party links</h2>
-		<p>
-			Some pages link to external services, including GitHub, archive.org, Instagram and the parampara's websites.
-			Those services have their own privacy policies once you leave this site.
-		</p>
+	<section class="guide-section">
+		<h2 class="sec">PDF downloads and local data</h2>
+		<div class="prose">
+			<p>
+				The PDF downloads are served as ordinary files. Downloads are not gated, and the site does not store any
+				information about who downloads them. Browser-local features such as caching and the service worker keep site
+				files on your device for offline use; clearing site data removes them.
+			</p>
+		</div>
 	</section>
 
-	<section class="source-notes">
-		<h2>PDF downloads and local data</h2>
-		<p>
-			The PDF downloads are served as ordinary files. Downloads are not gated, and the site does not store any
-			information about who downloads them. Browser-local features such as caching and the service worker keep site
-			files on your device for offline use; clearing site data removes them.
-		</p>
+	<section class="guide-section">
+		<h2 class="sec">Questions</h2>
+		<div class="prose">
+			<p>
+				Privacy questions can be raised through the <a href="/contact/">contact page</a>, preferably via a reviewable
+				GitHub issue or email. If you are in a region with specific data-protection rights and need a more detailed
+				response, include that in your message.
+			</p>
+		</div>
 	</section>
-
-	<section class="source-notes">
-		<h2>Questions</h2>
-		<p>
-			Privacy questions can be raised through the <a href="/contact/">contact page</a>, preferably via a reviewable
-			GitHub issue or email. If you are in a region with specific data-protection rights and need a more detailed
-			response, include that in your message.
-		</p>
-	</section>
-</ReferenceLayout>
+</PothiLayout>

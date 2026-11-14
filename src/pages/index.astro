@@ -1,663 +1,460 @@
 ---
-// Kalabhairava Sahasranama - Astro page
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { getStaticNamesData } from '../lib/staticNames.js';
+import PothiLayout from "../layouts/PothiLayout.astro";
+import { getStaticNamesData } from "../lib/staticNames.js";
+import { folio, parseElaboration } from "../lib/pothi.js";
 
-const { ranges } = getStaticNamesData();
+const {
+	entries,
+	sets,
+	totalSets,
+	totalCount,
+	ranges,
+	pothiIndex,
+	chunkSize,
+	chunkCount,
+} = getStaticNamesData();
 
-const packageJson = JSON.parse(
-    readFileSync(join(process.cwd(), 'package.json'), 'utf8')
-);
-const versionJson = JSON.parse(
-    readFileSync(join(process.cwd(), 'public', 'version.json'), 'utf8')
-);
-const siteVersion = versionJson.version || '1.0';
-const lastUpdatedDisplay = new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-}).format(new Date());
-const assetVersion = encodeURIComponent(packageJson.version || '1');
-function versionedAsset(path) {
-    return `${path}?v=${assetVersion}`;
+const firstSet = sets[0];
+const first = firstSet.entries[0];
+const firstBlocks = parseElaboration(first.english_elaboration);
+const canonical = "https://bhairavakalikenamosthute.com/";
+const title =
+	"1000 Names of Kalabhairava (Kalabhairava Sahasranama) with Meanings | Kalabhairava 1000 Names";
+const description =
+	"Read all 1,000 names of Kalabhairava with English meanings, Devanagari, and a free PDF — a searchable Kalabhairava Sahasranama index.";
+
+function searchText(entry) {
+	return `${entry.devanagari} ${entry.iast} ${entry.spelling_common} ${entry.spelling_site} ${entry.english_one_line}`
+		.normalize("NFD")
+		.replace(/\p{M}/gu, "")
+		.toLowerCase();
 }
 
-const firstChunkEntries = JSON.parse(
-    readFileSync(join(process.cwd(), 'public', 'data_chunk_1.json'), 'utf8')
-);
-const dataManifest = JSON.parse(
-    readFileSync(join(process.cwd(), 'public', 'data_manifest.json'), 'utf8')
-);
-const firstPageEntries = firstChunkEntries.slice(0, 11);
-const initialNamesPayload = {
-    entries: firstPageEntries,
-    totalEntries: dataManifest.total,
-    totalChunks: dataManifest.chunks,
-    chunkSize: dataManifest.chunk_size
-};
+// The compact index is the reader's whole-book data: Devanagari + IAST
+// (which the runtime chunks do not carry), the one-line meaning and the slug.
+// The elaboration stays in /data_chunk_*.json and is fetched per set.
+const indexJson = JSON.stringify(pothiIndex).replace(/</g, "\\u003c");
+const bootJson = JSON.stringify({
+	entries: firstSet.entries.map((entry) => ({
+		n: entry.index,
+		d: entry.devanagari,
+		i: entry.iast,
+		c: entry.spelling_common,
+		src: entry.spelling_site,
+		m: entry.english_one_line,
+		slug: entry.page_slug,
+		e: entry.english_elaboration,
+	})),
+	total: totalCount,
+	totalSets,
+	chunkSize,
+	chunkCount,
+}).replace(/</g, "\\u003c");
+
+const homeSchemas = [
+	{
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		"@id": "https://bhairavakalikenamosthute.com/#webpage",
+		name: "Kalabhairava 1000 Names - Complete Sahasranama",
+		alternateName: "Kālābhairava Sahasrānāma",
+		description:
+			"Complete Kalabhairava 1000 Names (Sahasranama) with detailed meanings in English. Discover all 1000+ sacred names of Kalabhairava with translations, elaborations, and devotional context. Searchable and reference-ready for chanting, study, or spiritual practice.",
+		url: "https://bhairavakalikenamosthute.com/",
+		hasPart: {
+			"@type": "CollectionPage",
+			"@id": "https://bhairavakalikenamosthute.com/names/#webpage",
+			name: "Kalabhairava Names Reference Hub",
+			url: "https://bhairavakalikenamosthute.com/names/",
+		},
+		inLanguage: "en",
+		isAccessibleForFree: true,
+		about: {
+			"@type": "Thing",
+			name: "Kalabhairava Sahasranama",
+			description: "The 1000 names of Lord Kalabhairava",
+		},
+		mainEntity: {
+			"@type": "CollectionPage",
+			"@id": "https://bhairavakalikenamosthute.com/#collection",
+			name: "Kalabhairava 1000 Names Collection",
+			description: "Complete collection of 1000+ names of Kalabhairava with meanings",
+		},
+		publisher: {
+			"@type": "Person",
+			"@id": "https://bhairavakalikenamosthute.com/#publisher",
+			name: "Kaliputra Ashish",
+			url: "https://bhairavakalikenamosthute.com/",
+			sameAs: [
+				"https://github.com/09ashishkapoor",
+				"https://www.instagram.com/ashishkaliputra",
+			],
+		},
+		image: {
+			"@type": "ImageObject",
+			url: "https://bhairavakalikenamosthute.com/kalabhairava-bg-desktop.webp",
+			width: 1200,
+			height: 630,
+			caption: "Kalabhairava — devotional artwork",
+		},
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"@id": "https://bhairavakalikenamosthute.com/#website",
+		name: "Kalabhairava 1000 Names",
+		alternateName: "Kālābhairava Sahasrānāma",
+		url: "https://bhairavakalikenamosthute.com/",
+		inLanguage: "en",
+		description: "Complete Kalabhairava 1000 Names (Sahasranama) with detailed meanings in English",
+		potentialAction: {
+			"@type": "SearchAction",
+			target: {
+				"@type": "EntryPoint",
+				urlTemplate: "https://bhairavakalikenamosthute.com/?q={search_term_string}",
+			},
+			"query-input": {
+				"@type": "PropertyValueSpecification",
+				valueRequired: true,
+				valueName: "search_term_string",
+			},
+		},
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "CollectionPage",
+		"@id": "https://bhairavakalikenamosthute.com/#collection",
+		name: "Kalabhairava 1000 Names Collection",
+		description:
+			"Complete collection of 1000+ sacred names of Kalabhairava with English translations and elaborations",
+		url: "https://bhairavakalikenamosthute.com/",
+		isPartOf: { "@id": "https://bhairavakalikenamosthute.com/#website" },
+		mainEntity: {
+			"@type": "ItemList",
+			name: "Kalabhairava Sahasranama Names",
+			description: "List of 1000+ names of Kalabhairava",
+			numberOfItems: 1000,
+		},
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"@id": "https://bhairavakalikenamosthute.com/#faq",
+		isPartOf: { "@id": "https://bhairavakalikenamosthute.com/#webpage" },
+		mainEntity: [
+			{
+				"@type": "Question",
+				name: "What is Kalabhairava 1000 Names?",
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: "Kalabhairava 1000 Names, also called Kalabhairava Sahasranama, is a devotional collection of sacred names of Lord Kalabhairava with English meanings for chanting, study, and spiritual reflection.",
+				},
+			},
+			{
+				"@type": "Question",
+				name: "How many names are in Kalabhairava Sahasranama?",
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: "This site presents 1,000 names of Kalabhairava. Each entry includes a one-line English meaning and a longer explanatory note.",
+				},
+			},
+			{
+				"@type": "Question",
+				name: "Where can I find Kalabhairava 1000 names with meanings?",
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: "You can read the interactive homepage reader or use the static names reference hub at https://bhairavakalikenamosthute.com/names/, which links to crawlable range pages for the full collection.",
+				},
+			},
+			{
+				"@type": "Question",
+				name: "What is the meaning of Kalabhairava Sahasranama?",
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: "Sahasranama means 'thousand names.' In this context it refers to devotional names that describe the forms, qualities, and spiritual attributes of Kalabhairava.",
+				},
+			},
+		],
+	},
+];
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <!-- Google tag (gtag.js) - Deferred to avoid blocking FCP/LCP -->
-        <script is:inline>
-            // Minimal inline config to defer gtag loading
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('consent', 'default', {'analytics_storage': 'granted'});
-        </script>
-        <!-- Load gtag asynchronously after page interactive (not render-blocking) -->
-        <script is:inline>
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', function() {
-                    loadGoogleAnalytics();
-                });
-            } else {
-                loadGoogleAnalytics();
-            }
 
-            function loadGoogleAnalytics() {
-                const script = document.createElement('script');
-                script.async = true;
-                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-7MXEHWVXYL';
-                document.head.appendChild(script);
+<PothiLayout
+	title={title}
+	description={description}
+	canonical={canonical}
+	schemas={homeSchemas}
+	ogType="website"
+	ogLocale="en_IN"
+	reader
+	wide
+>
+	<Fragment slot="head">
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-title" content="Kalabhairava Sahasranama" />
+		<meta name="application-name" content="Kalabhairava Sahasranama" />
+		<meta name="geo.region" content="IN" />
+		<meta name="geo.placename" content="India" />
+		<meta name="language" content="English" />
+		<meta name="coverage" content="Worldwide" />
+		<meta name="distribution" content="Global" />
+		<meta name="rating" content="General" />
+		<meta name="revisit-after" content="7 days" />
+		<link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs text summary" />
+		<link
+			rel="preload"
+			href="/kalabhairava-bg-desktop.webp"
+			as="image"
+			fetchpriority="high"
+		/>
 
-                // Config gtag after script loads
-                script.onload = function() {
-                    gtag('config', 'G-7MXEHWVXYL', {'send_page_view': true});
-                };
-            }
-        </script>
-    <script is:inline>
-        document.documentElement.lang = 'en';
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Google tag, deferred exactly as before the redesign. -->
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("consent", "default", { analytics_storage: "granted" });
+		</script>
+		<script is:inline>
+			if (document.readyState === "loading") {
+				document.addEventListener("DOMContentLoaded", function () {
+					loadGoogleAnalytics();
+				});
+			} else {
+				loadGoogleAnalytics();
+			}
 
-    <!-- SEO Description (Optimized for "1000 names of Kalabhairava" / Kalabhairava Sahasranama queries) -->
-    <meta name="description" content="Read all 1,000 names of Kalabhairava with English meanings, Devanagari, and a free PDF — a searchable Kalabhairava Sahasranama index.">
+			function loadGoogleAnalytics() {
+				const script = document.createElement("script");
+				script.async = true;
+				script.src = "https://www.googletagmanager.com/gtag/js?id=G-7MXEHWVXYL";
+				document.head.appendChild(script);
+				script.onload = function () {
+					gtag("config", "G-7MXEHWVXYL", { send_page_view: true });
+				};
+			}
+		</script>
+	</Fragment>
 
+	<section class="cover">
+		<div class="frontis">
+			<img
+				src="/kalabhairava-bg-desktop.webp"
+				alt="Sri Kalabhairava"
+				width="1920"
+				height="1080"
+				loading="eager"
+				fetchpriority="high"
+				decoding="async"
+			/>
+			<span class="plate">Frontispiece · Sri Kalabhairava</span>
+		</div>
+		<div class="cover-copy">
+			<p class="kicker">1,000 names · Kalabhairava Sahasranama</p>
+			<h1 lang="sa"><span class="lt">कालभैरव</span><span class="lt">सहस्रनाम</span></h1>
+			<p class="lat-title">Kālabhairava Sahasranāma</p>
+			<div class="colophon">
+				<div><b>{totalCount.toLocaleString("en-US")}</b>names</div>
+				<div><b>{totalSets}</b>sets of eleven</div>
+				<div><b>{ranges.length}</b>ranges</div>
+			</div>
+			<p class="lede">
+				A free devotional reference for the Kalabhairava Sahasranama: 1,000 names of Sri
+				Kalabhairava with English one-line meanings and longer explanations for
+				<em>chanting, study, and spiritual reflection</em>.
+			</p>
+			<a class="open" href="#read">Open the book <span class="ar" aria-hidden="true">→</span></a>
+			<p class="small">
+				The first set of eleven is ready, with Devanagari, IAST and the meaning. Every
+				name links to its own page.
+			</p>
+		</div>
+	</section>
 
-    <!-- Canonical URL (Crucial for SEO ranking) -->
-    <link rel="canonical" href="https://bhairavakalikenamosthute.com/">
+	<section class="reader" id="read">
+		<div class="spread-head">
+			<span>कालभैरव सहस्रनाम</span>
+			<span>Set <b id="headSet">{folio(firstSet.number)}</b> of {totalSets} · names <b id="headRange">{firstSet.label}</b> of {totalCount.toLocaleString("en-US")}</span>
+		</div>
 
-    <!-- Mobile App Settings -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Kalabhairava Sahasranama">
-    <meta name="author" content="Kaliputra Ashish">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+		<div class="spread">
+			<div class="mindex" id="mindex">
+				<div class="mfind">
+					<svg viewBox="0 0 24 24" aria-hidden="true"
+						><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg
+					>
+					<input
+						id="mq"
+						type="search"
+						placeholder="find a name or meaning"
+						autocomplete="off"
+						aria-label="Search this set"
+					/>
+					<span class="mc" id="mcount" role="status" aria-live="polite">{firstSet.entries.length} names</span>
+				</div>
+				<ol class="mlist" id="mlist">
+					{firstSet.entries.map((entry, index) => (
+						<li data-search={searchText(entry)}>
+							<button
+								type="button"
+								data-i={index}
+								aria-current={index === 0 ? "true" : undefined}
+								aria-label={`Name ${entry.index}: ${entry.spelling_common}`}
+							>
+								<span class="n">{folio(entry.index)}</span>
+								<span>
+									<span class="w" lang="sa">{entry.devanagari}</span>
+									<span class="i">{entry.iast}</span>
+								</span>
+							</button>
+						</li>
+					))}
+					<li class="none" id="mNone">No name in this set matches that search.</li>
+				</ol>
+			</div>
 
-    <!-- Open Graph / Social Media (Optimized for search) -->
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_IN">
+			<div class="leaf-left">
+				<div class="leaf-head">
+					<h2>पाठ · this set</h2>
+					<span id="listCount">{firstSet.entries.length} names</span>
+				</div>
+				<div class="find">
+					<svg viewBox="0 0 24 24" aria-hidden="true"
+						><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg
+					>
+					<input
+						id="q"
+						type="search"
+						placeholder="find a name or meaning"
+						autocomplete="off"
+						aria-label="Search this set"
+					/>
+					<span class="count" id="findCount" role="status" aria-live="polite"></span>
+				</div>
+				<ul class="toc" id="toc">
+					{firstSet.entries.map((entry, index) => (
+						<li data-search={searchText(entry)}>
+							<button
+								type="button"
+								data-i={index}
+								aria-current={index === 0 ? "true" : undefined}
+							>
+								<span class="n">{folio(entry.index)}</span>
+								<span>
+									<span class="w" lang="sa">{entry.devanagari}</span>
+									<span class="i">{entry.iast}</span>
+								</span>
+							</button>
+						</li>
+					))}
+				</ul>
+				<div class="foot">
+					<span>Page <b id="footPage">1</b> of the set</span><span>{totalSets} sets</span>
+				</div>
+			</div>
 
-    <meta property="og:title" content="1000 Names of Kalabhairava (Kalabhairava Sahasranama) with Meanings | Kalabhairava">
-    <meta property="og:description" content="Read all 1,000 names of Kalabhairava with English meanings, Devanagari, and a free PDF — a searchable Kalabhairava Sahasranama index.">
-    <meta property="og:image" content="https://bhairavakalikenamosthute.com/kalabhairava-bg-desktop.webp">
-    <meta property="og:image:alt" content="Kalabhairava — devotional artwork">
-    <meta property="og:url" content="https://bhairavakalikenamosthute.com/">
-    <meta property="og:site_name" content="Kalabhairava 1000 Names">
+			<div class="leaf-right" id="page" aria-live="polite">
+				<div class="page-eyebrow">
+					<span>Name {folio(first.index)} of {totalCount.toLocaleString("en-US")}</span>
+					<span>अर्थ · meaning</span>
+				</div>
+				<h2 class="page-name" lang="sa">{first.devanagari}</h2>
+				<p class="page-iast">{first.iast}</p>
+				<p class="page-one">{first.english_one_line}</p>
+				<div class="page-rule"></div>
+				<div class="page-elab">
+					{firstBlocks.map((block) =>
+						block.type === "h3" ? <h3>{block.text}</h3> : <p>{block.text}</p>,
+					)}
+				</div>
+				<div class="page-foot">
+					<a class="u src" href={`/names/${first.page_slug}/`}
+						>Read the full note on the site</a
+					>
+					<span class="folio">{folio(first.index)}</span>
+				</div>
+			</div>
+		</div>
 
-    <!-- Twitter Card (Optimized) -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="1000 Names of Kalabhairava (Kalabhairava Sahasranama) with Meanings | Kalabhairava">
-    <meta name="twitter:description" content="Read all 1,000 names of Kalabhairava with English meanings, Devanagari, and a free PDF.">
-    <meta name="twitter:image" content="https://bhairavakalikenamosthute.com/kalabhairava-bg-desktop.webp">
-    <meta name="twitter:image:alt" content="Kalabhairava — devotional artwork">
+		<div class="turn">
+			<button id="prev" type="button" disabled>← previous set</button>
+			<span class="mid">set <b id="setNo">{folio(firstSet.number)}</b> / {totalSets}</span>
+			<button id="next" type="button" disabled={totalSets <= 1}>next set →</button>
+		</div>
+		<p class="reader-status" id="readerStatus" role="status" aria-live="polite"></p>
+	</section>
 
-    <!-- Structured Data (JSON-LD) - Enhanced for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "@id": "https://bhairavakalikenamosthute.com/#webpage",
-      "name": "Kalabhairava 1000 Names - Complete Sahasranama",
-      "alternateName": "Kālābhairava Sahasrānāma",
-      "description": "Complete Kalabhairava 1000 Names (Sahasranama) with detailed meanings in English. Discover all 1000+ sacred names of Kalabhairava with translations, elaborations, and devotional context. Searchable and reference-ready for chanting, study, or spiritual practice.",
-      "url": "https://bhairavakalikenamosthute.com/",
-      "hasPart": {
-        "@type": "CollectionPage",
-        "@id": "https://bhairavakalikenamosthute.com/names/#webpage",
-        "name": "Kalabhairava Names Reference Hub",
-        "url": "https://bhairavakalikenamosthute.com/names/"
-      },
-      "inLanguage": "en",
-      "isAccessibleForFree": true,
-      "about": {
-        "@type": "Thing",
-        "name": "Kalabhairava Sahasranama",
-        "description": "The 1000 names of Lord Kalabhairava"
-      },
-      "mainEntity": {
-        "@type": "CollectionPage",
-        "@id": "https://bhairavakalikenamosthute.com/#collection",
-        "name": "Kalabhairava 1000 Names Collection",
-        "description": "Complete collection of 1000+ names of Kalabhairava with meanings"
-      },
-      "publisher": {
-        "@type": "Person",
-        "@id": "https://bhairavakalikenamosthute.com/#publisher",
-        "name": "Kaliputra Ashish",
-        "url": "https://bhairavakalikenamosthute.com/",
-        "sameAs": [
-          "https://github.com/09ashishkapoor",
-          "https://www.instagram.com/ashishkaliputra"
-        ]
-      },
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://bhairavakalikenamosthute.com/kalabhairava-bg-desktop.webp",
-        "width": 1200,
-        "height": 630,
-        "caption": "Kalabhairava — devotional artwork"
-      }
-    }
-    </script>
+	<section class="essay" id="about">
+		<div class="essay-inner">
+			<div>
+				<h2>टिप्पणी</h2>
+				<p class="h-sub">About this book</p>
+			</div>
+			<div class="essay-body">
+				<p>
+					<strong>What this is:</strong> a free devotional reference for the Kalabhairava
+					Sahasranama, with 1,000 names of Sri Kalabhairava, their Devanagari and IAST
+					forms, a one-line meaning and a longer note for each. There are no accounts and no
+					paywall.
+				</p>
+				<p>
+					<strong>How it is arranged:</strong> the text is read in {totalSets} sets of eleven
+					names — the last set holds ten — and in {ranges.length} ranges of one hundred.
+					Every name has its own page with alternate spellings and the full note.
+				</p>
+				<p>
+					<strong>Where the text comes from:</strong> the name list follows the Kalabhairava
+					Sahasranama as compiled for this project. The English notes are devotional and
+					interpretive, not a translation of a single critical edition. Read the
+					<a class="u" href="/sources/">sources and editorial notes</a> for the method and
+					the correction path. The same text is available as a
+					<a class="u" href="/downloads/kalabhairava-sahasranama-names.pdf">free printable PDF</a>.
+				</p>
 
-    <!-- Website structured data including SearchAction to help Google show site search results -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": "https://bhairavakalikenamosthute.com/#website",
-        "name": "Kalabhairava 1000 Names",
-        "alternateName": "Kālābhairava Sahasrānāma",
-        "url": "https://bhairavakalikenamosthute.com/",
-        "inLanguage": "en",
-        "description": "Complete Kalabhairava 1000 Names (Sahasranama) with detailed meanings in English",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://bhairavakalikenamosthute.com/?q={search_term_string}"
-            },
-            "query-input": {
-                "@type": "PropertyValueSpecification",
-                "valueRequired": true,
-                "valueName": "search_term_string"
-            }
-        }
-    }
-    </script>
+				<details class="note-disclosure">
+					<summary>Questions about the text</summary>
+					<div class="faq-list">
+						<article class="faq-item">
+							<h3>What is Kalabhairava 1000 Names?</h3>
+							<p>
+								Kalabhairava 1000 Names, also called Kalabhairava Sahasranama, is a
+								devotional collection of sacred names of Lord Kalabhairava with English
+								meanings for chanting, study, and spiritual reflection.
+							</p>
+						</article>
+						<article class="faq-item">
+							<h3>How many names are in this Kalabhairava Sahasranama?</h3>
+							<p>
+								This site presents 1,000 names of Kalabhairava. Each entry includes a
+								one-line English meaning and a longer explanatory note.
+							</p>
+						</article>
+						<article class="faq-item">
+							<h3>Where can I browse all names with meanings?</h3>
+							<p>
+								You can read the interactive homepage reader or use the
+								<a class="u" href="/names/">static names reference hub</a>, which links
+								to crawlable range pages for the full collection.
+							</p>
+						</article>
+						<article class="faq-item">
+							<h3>What does Sahasranama mean?</h3>
+							<p>
+								Sahasranama means “thousand names.” In this context it refers to
+								devotional names that describe the forms, qualities, and spiritual
+								attributes of Kalabhairava.
+							</p>
+						</article>
+					</div>
+				</details>
+			</div>
+		</div>
+	</section>
 
-    <!-- CollectionPage Schema for the names collection -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "@id": "https://bhairavakalikenamosthute.com/#collection",
-      "name": "Kalabhairava 1000 Names Collection",
-      "description": "Complete collection of 1000+ sacred names of Kalabhairava with English translations and elaborations",
-      "url": "https://bhairavakalikenamosthute.com/",
-      "isPartOf": {
-        "@id": "https://bhairavakalikenamosthute.com/#website"
-      },
-      "mainEntity": {
-        "@type": "ItemList",
-        "name": "Kalabhairava Sahasranama Names",
-        "description": "List of 1000+ names of Kalabhairava",
-        "numberOfItems": 1000
-      }
-    }
-    </script>
-
-    <!-- FAQ Schema to help with featured snippets (Bilingual) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "@id": "https://bhairavakalikenamosthute.com/#faq",
-      "isPartOf": {
-        "@id": "https://bhairavakalikenamosthute.com/#webpage"
-      },
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What is Kalabhairava 1000 Names?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Kalabhairava 1000 Names, also called Kalabhairava Sahasranama, is a devotional collection of sacred names of Lord Kalabhairava with English meanings for chanting, study, and spiritual reflection."
-        }
-      }, {
-        "@type": "Question",
-        "name": "How many names are in Kalabhairava Sahasranama?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "This site presents 1,000 names of Kalabhairava. Each entry includes a one-line English meaning and a longer explanatory note."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Where can I find Kalabhairava 1000 names with meanings?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can read the interactive homepage reader or use the static names reference hub at https://bhairavakalikenamosthute.com/names/, which links to crawlable range pages for the full collection."
-        }
-      }, {
-        "@type": "Question",
-        "name": "What is the meaning of Kalabhairava Sahasranama?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sahasranama means 'thousand names.' In this context it refers to devotional names that describe the forms, qualities, and spiritual attributes of Kalabhairava."
-        }
-      }]
-    }
-    </script>
-
-
-    <link rel="icon" type="image/webp" href="/kalabhairava-bg-desktop.webp">
-    <link rel="apple-touch-icon" href="/kalabhairava-bg-desktop.webp">
-    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs text summary">
-
-    <!-- Site Name near Favicon -->
-    <meta name="application-name" content="Kalabhairava Sahasranama">
-    <meta name="apple-mobile-web-app-title" content="Kalabhairava Sahasranama">
-
-    <!-- Additional SEO Meta Tags -->
-    <meta name="geo.region" content="IN">
-    <meta name="geo.placename" content="India">
-    <meta name="language" content="English">
-    <meta name="coverage" content="Worldwide">
-    <meta name="distribution" content="Global">
-    <meta name="rating" content="General">
-    <meta name="revisit-after" content="7 days">
-
-    <!-- Page Title: Optimized for "1000 names of Kalabhairava" / Kalabhairava Sahasranama queries -->
-    <title>1000 Names of Kalabhairava (Kalabhairava Sahasranama) with Meanings | Kalabhairava 1000 Names</title>
-
-    <!-- Preload critical resources (only small manifest, not full 13MB file) -->
-    <link rel="preload" href={versionedAsset('/data_manifest.json')} as="fetch" crossorigin="anonymous">
-    <!-- Preload hero image to improve LCP (background image used in critical area) -->
-    <link rel="preload" href="/kalabhairava-bg-desktop.webp" as="image" media="(min-width: 641px)">
-    <link rel="preload" href="/kalabhairava-bg-mobile.webp" as="image" media="(max-width: 640px)">
-
-    <!-- Load stylesheet non-blocking: preload + onload pattern with noscript fallback -->
-    <link rel="preload" href={versionedAsset('/styles.min.css')} as="style" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href={versionedAsset('/styles.min.css')}></noscript>
-
-    <!-- Inline critical CSS for above-the-fold content -->
-    <style is:global>
-    /* Critical CSS - with font fallbacks to prevent FOIT (Flash of Invisible Text) */
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background-color:#0a0a0a;background-image:url('/kalabhairava-bg-desktop.webp');background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed;color:#f5f5f5;line-height:1.6;margin:0;padding:0;min-height:100vh;position:relative}
-    body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-image:url('/kalabhairava-bg-desktop.webp');background-size:cover;background-position:center;background-repeat:no-repeat;z-index:-2}
-    @media (max-width:640px){body{background-image:url('/kalabhairava-bg-mobile.webp')}body::before{background-image:url('/kalabhairava-bg-mobile.webp'),url('/kalabhairava-bg-mobile.webp');background-size:contain,cover;background-position:center,center;background-repeat:no-repeat,no-repeat}}
-    body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.28);z-index:-1}
-    .landing-section{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;background:transparent}
-    .landing-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.58);pointer-events:none;z-index:1}
-    .landing-content{position:relative;z-index:10;text-align:center;max-width:min(92vw,900px);margin:0 auto}
-    .main-title{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:clamp(2rem,7vw,4.5rem);font-weight:700;margin-bottom:1rem;display:flex;flex-direction:column;align-items:center;gap:0.3rem;animation:titleFadeIn 1.2s ease-out}
-    .title-line-main{display:block;font-size:1em;font-weight:760;color:#f5f5f5;letter-spacing:.01em;position:relative;text-shadow:0 2px 14px rgba(25,5,8,.86),0 0 18px rgba(220,20,60,.22);will-change:auto}
-    .title-line-sub{display:block;font-size:.75em;font-weight:600;font-style:italic;letter-spacing:.1em;color:#ffd700;filter:drop-shadow(0 2px 8px rgba(38,24,5,.7));margin-top:.3rem;position:relative;text-shadow:0 1px 10px rgba(255,215,0,.24);will-change:auto}
-    @media (prefers-reduced-motion: reduce) {
-      .title-line-main, .title-line-sub { animation: none; }
-    }
-    @keyframes titleFadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-
-    /* Vanilla JS Navigation Buttons */
-    .hero-reference-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 .15rem;margin-top:1rem;color:#ffd700;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(214,172,71,0.48);text-shadow:0 1px 8px rgba(20,10,0,0.72)}
-    .nav-button{position:fixed;bottom:24px;right:24px;width:56px;height:56px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:200;box-shadow:0 4px 20px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.2);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),opacity 0.3s cubic-bezier(0.4,0,0.2,1),box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);color:#f5f5f5;opacity:1;transform:scale(1);will-change:transform,opacity;-webkit-backface-visibility:hidden;backface-visibility:hidden}
-    .nav-button.nav-up{background:linear-gradient(135deg,#dc143c 0%,#8b0000 100%);box-shadow:0 4px 18px rgba(80,10,24,0.46),0 0 24px rgba(150,18,45,0.18)}
-    .nav-button.nav-down{background:linear-gradient(135deg,#ffd700 0%,#8b0000 100%);box-shadow:0 4px 18px rgba(83,44,8,0.42),0 0 24px rgba(191,115,31,0.18)}
-    .nav-button:hover{transform:scale(1.04);box-shadow:0 6px 24px rgba(0,0,0,0.36),0 0 28px rgba(0,0,0,0.2)}
-    .nav-button.nav-up:hover{box-shadow:0 6px 24px rgba(80,10,24,0.55),0 0 30px rgba(150,18,45,0.24)}
-    .nav-button.nav-down:hover{box-shadow:0 6px 24px rgba(83,44,8,0.52),0 0 30px rgba(191,115,31,0.24)}
-    .nav-button:active{transform:scale(0.95)}
-    .nav-button.hidden{opacity:0;transform:scale(0);pointer-events:none}
-    .nav-button svg{width:24px;height:24px;stroke-width:2.5}
-    @media(max-width:640px){.nav-button{width:52px;height:52px;bottom:20px;right:20px}.nav-button svg{width:22px;height:22px}}
-    @media(min-width:641px) and (max-width:1024px){.nav-button{width:54px;height:54px}}
-    .nav-button{-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;touch-action:manipulation;animation:fadeScaleIn 0.3s cubic-bezier(0.4,0,0.2,1)}
-    @keyframes fadeScaleIn{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
-    </style>
-</head>
-<body>
-
-    <!-- Landing Page Section -->
-    <main>
-    <section id="landing-page" class="landing-section" itemscope itemtype="https://schema.org/WebPage">
-        <div class="landing-overlay"></div>
-
-        <!-- Landing Content -->
-        <div class="landing-content">
-            <h1 class="main-title">
-                <span class="title-line-main">Kalabhairava 1000 Names</span>
-                <span class="title-line-sub">Sahasranāma</span>
-            </h1>
-
-            <p class="title-description">
-                Kalabhairava 1000 Names is a searchable reading with English meanings
-            </p>
-
-            <div class="landing-hero-actions">
-                <button id="explore-btn" class="explore-button">
-                    <span>Start Reading</span>
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <polyline points="19 12 12 19 5 12"></polyline>
-                    </svg>
-                </button>
-                <button id="learn-btn" class="learn-button">
-                    <span>About the Sahasranama</span>
-                </button>
-            </div>
-            <p class="hero-reference-note">
-                <a href="/names/" class="hero-reference-link">Browse static names reference pages</a>
-            </p>
-        </div>
-    </section>
-
-    <!-- Names Explorer Section -->
-    <section id="names-section" class="names-section">
-        <div class="names-overlay"></div>
-
-        <div class="container">
-            <header class="names-header">
-                <h2 class="section-title">Read, Search, and Sit with Each Name</h2>
-                <p class="section-subtitle">
-                    Move through the names at your own pace, search by word or meaning, and open any entry for a fuller explanation.
-                </p>
-            </header>
-
-            <div class="reading-mode-intro">
-                <h3 class="reading-mode-title">Begin the Sahasranama</h3>
-                <p class="reading-mode-text">The text is arranged in sets of 11 so it is easier to read slowly. Open any card when you want the short meaning and the longer note.</p>
-            </div>
-
-            <!-- Controls -->
-            <div class="controls-panel">
-                <div class="controls-top-row">
-                    <button id="search-toggle-btn" class="btn-secondary search-toggle-btn" type="button" aria-expanded="false" aria-controls="search-panel">Open Search</button>
-
-                </div>
-
-                <div id="search-panel" class="search-panel mobile-collapsed">
-                    <div class="search-box">
-                        <svg class="search-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="text" id="search-input" placeholder="Search by name or meaning..." autocomplete="off" aria-label="Search sacred names">
-                    </div>
-
-                    <div class="filters-row">
-                        <button id="clear-btn" class="btn-secondary" disabled>Clear</button>
-                    </div>
-
-                    <div class="stats-display" id="stats-display" role="status">
-                        📿 Showing all <strong>1000</strong> names of <strong>Kalabhairava</strong>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Loading State -->
-            <div id="loading-state" class="loading-state hidden">
-                <div class="loader"></div>
-                <p id="loading-message">Loading names...</p>
-            </div>
-
-            <!-- Error State -->
-            <div id="error-state" class="error-state hidden" role="alert">
-                <div class="error-icon">⚠️</div>
-                <h3>Could not load the names</h3>
-                <p id="error-message"></p>
-                <button id="retry-btn" class="btn-secondary" type="button">Try loading again</button>
-            </div>
-
-            <!-- Names Grid -->
-            <div id="names-grid" class="names-grid" data-prerendered="true">
-                {firstPageEntries.map((entry, index) => (
-                    <div
-                        class="name-card visible"
-                        data-prerendered="true"
-                        style={`animation-delay: ${(index % 11) * 0.05}s`}
-                    >
-                        <div class="card-header">
-                            <span class="card-index">#{entry.index}</span>
-                        </div>
-
-                        <p class="card-name">{entry.english_name}</p>
-
-                        <button
-                            class="toggle-btn"
-                            data-index={entry.index}
-                            data-prerendered="true"
-                            type="button"
-                            aria-expanded="false"
-                            aria-controls={`elaboration-${entry.index}`}
-                        >
-                            <span class="toggle-btn-label">Read More</span>
-                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-
-                        <div class="elaboration" data-index={entry.index} id={`elaboration-${entry.index}`} aria-hidden="true">
-                            <div class="elaboration-content" tabindex="-1">
-                                <p class="card-meaning">{entry.english_one_line}</p>
-                                <div class="elaboration-copy">{entry.english_elaboration}</div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <div class="load-more-container reading-pagination">
-                <button id="prev-page-btn" class="btn-secondary hidden" type="button">Previous 11</button>
-                <div id="reading-progress" class="reading-progress" aria-live="polite">Showing <strong>1</strong>-<strong>11</strong> of <strong>{dataManifest.total}</strong></div>
-                <button id="next-page-btn" class="btn-primary" type="button">Next 11</button>
-            </div>
-
-            <!-- eBook Download Promo Section -->
-            <section class="ebook-promo-section">
-                <div class="ebook-promo-container">
-                    <div class="ebook-promo-card">
-                        <div class="ebook-promo-header">
-                            <span class="ebook-promo-badge">📖 Digital Library</span>
-                            <h3 class="ebook-promo-title">Download the PDF Editions</h3>
-                        </div>
-                        <p class="ebook-promo-text">
-                            If you want an offline copy, the same text on this site is also available as a free printable PDF.
-                            They include the full set of names with English meanings and elaborations in a format that is easier to save, share, or print.
-                        </p>
-                        <ul class="ebook-features">
-                            <li>📥 <strong>Free to download</strong>: No registration required</li>
-                            <li>📄 <strong>Direct PDF download</strong>: <a href="/downloads/kalabhairava-sahasranama-names.pdf" target="_blank" rel="noopener noreferrer">English PDF</a></li>
-                            <li>🌐 <strong>Full set included</strong>: All 1000+ names with meanings</li>
-                            <li>🔖 <strong>Easy to keep offline</strong>: Read without a connection</li>
-                            <li>🖨️ <strong>Formatted for printing</strong>: Ready for home or temple use</li>
-                        </ul>
-                        <a href="/kalabhairava-sahasranama-pdf/" class="ebook-cta-btn">
-                            Open the free PDF download page
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
-                        </a>
-                        <p class="ebook-promo-footer">
-                            <em>Free printable edition for readers who want an offline copy</em>
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about-section" class="about-section">
-        <div class="container about-container">
-            <div class="landing-description about-intro-block">
-                <p class="description-text">
-                    Search the names, read the short meanings, and open the longer explanations when you want to stay with a name a little longer.
-                </p>
-
-                <div class="significance-box">
-                    <div class="significance-header">
-                        <svg class="significance-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                        </svg>
-                        <h2 class="significance-title">Why people recite it</h2>
-                    </div>
-                    <p class="significance-text">
-                        For many devotees, the Sahasranama is recited as prayer, remembrance and steady practice. The names are a way of drawing closer to Kalabhairava and returning the mind to devotion.
-                    </p>
-                </div>
-            </div>
-
-            <div class="dedication-section about-dedication">
-                <p class="dedication-text">
-                    Dedicated to <strong>Shri Praveen Radhakrishnan</strong> and <strong>Khyapa Parampara</strong>
-                </p>
-                <p class="dedication-mantra">
-                    Om Shri Gurubhyo Namaha, Jai Khyapa Parampara <span title="Namaste">🙏</span>
-                </p>
-            </div>
-
-            <header class="about-section-header">
-                <h2 class="about-section-title">Why Readers Return to the Sahasranama</h2>
-                <p class="about-section-subtitle">A short introduction to the text and to the reasons many people recite it.</p>
-            </header>
-
-            <div class="about-article-stack">
-                <article class="devotional-article devotional-article--crimson">
-                    <h3 class="devotional-article-title">Who is Kalabhairava?</h3>
-                    <p class="devotional-article-text">
-                        <strong>Kalabhairava</strong> is the fierce and protective form of Lord Shiva, associated with time (kāla), dharma, and the guardianship of sacred space — most famously as the Kotwal of Kashi. He is both terrifying in form and compassionate in nature: he destroys fear, ego and adharma, and protects those who take refuge in him.
-                    </p>
-                    <p class="devotional-article-text devotional-article-text--last">
-                        As Bhairava, he stands beyond ordinary limits and is remembered as the force that cuts through ignorance, ego and fear. For devotees, that makes him both fierce and intimate: a presence approached for truth, courage and surrender.
-                    </p>
-                </article>
-
-                <article class="devotional-article devotional-article--gold">
-                    <h3 class="devotional-article-title">Why People Chant</h3>
-                    <div class="benefit-list">
-                        <div class="benefit-item">
-                            <span class="benefit-icon">✨</span>
-                            <div>
-                                <h4 class="benefit-title">Protection</h4>
-                                <p class="benefit-text">Many devotees turn to the Sahasranama as a steadying practice that helps them feel held, guarded, and less shaken by inner or outer disturbance.</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">🔥</span>
-                            <div>
-                                <h4 class="benefit-title">Facing the Inner Obstacles</h4>
-                                <p class="benefit-text">The recitation is often understood as a way of meeting anger, greed, attachment, pride, and confusion with more honesty and discipline.</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">🕉️</span>
-                            <div>
-                                <h4 class="benefit-title">Less Fear, More Steadiness</h4>
-                                <p class="benefit-text">Returning to the names can calm the mind, soften fear, and make room for a more grounded kind of courage.</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">🌟</span>
-                            <div>
-                                <h4 class="benefit-title">Grace</h4>
-                                <p class="benefit-text">For many readers, regular practice is a way of opening themselves to grace, clarity, and a quieter sense of guidance.</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">💫</span>
-                            <div>
-                                <h4 class="benefit-title">Awakening</h4>
-                                <p class="benefit-text">Over time, the repetition can deepen attention and devotion, making spiritual practice feel more inward, alive, and continuous.</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <section class="faq-section" aria-labelledby="faq-heading">
-                <div class="about-section-header faq-section-header">
-                    <p class="section-kicker">Quick answers</p>
-                    <h2 id="faq-heading" class="about-section-title">Kalabhairava Sahasranama FAQ</h2>
-                    <p class="about-section-subtitle">Short answers for readers and search engines, with the same information visible on the page as the structured data.</p>
-                </div>
-                <div class="faq-list">
-                    <article class="faq-item">
-                        <h3>What is Kalabhairava 1000 Names?</h3>
-                        <p>Kalabhairava 1000 Names, also called Kalabhairava Sahasranama, is a devotional collection of sacred names of Lord Kalabhairava with English meanings for chanting, study, and spiritual reflection.</p>
-                    </article>
-                    <article class="faq-item">
-                        <h3>How many names are in this Kalabhairava Sahasranama?</h3>
-                        <p>This site presents 1,000 names of Kalabhairava. Each entry includes a one-line English meaning and a longer explanatory note.</p>
-                    </article>
-                    <article class="faq-item">
-                        <h3>Where can I browse all names with meanings?</h3>
-                        <p>You can read the interactive homepage reader or use the <a href="/names/">static names reference hub</a>, which links to crawlable range pages for the full collection.</p>
-                    </article>
-                    <article class="faq-item">
-                        <h3>What does Sahasranama mean?</h3>
-                        <p>Sahasranama means “thousand names.” In this context it refers to devotional names that describe the forms, qualities, and spiritual attributes of Kalabhairava.</p>
-                    </article>
-                </div>
-            </section>
-        </div>
-    </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="om-symbol-small">ॐ</div>
-        <div class="footer-text">
-            <a href="https://bhairavakalikenamosthute.com/" class="footer-link footer-home-link" aria-label="Kalabhairava 1000 Names, Home">Kalabhairava 1000 Names</a><br>
-            Built by <strong>Kaliputra Ashish</strong><br>
-            Dedicated to <strong>Shri Praveen Radhakrishnan</strong> and <strong>Khyapa Parampara</strong><br>
-            <span class="footer-mantra">
-                Jai Ma Krishna<br>
-                Jai Mā Ādya Mahākālī<br>
-                Jai Kālabhairava
-            </span>
-            <div class="footer-social footer-meta-line">
-                Instagram: <a href="https://www.instagram.com/ashishkaliputra" target="_blank" rel="noopener noreferrer" class="footer-link">@ashishkaliputra</a>
-            </div>
-            <div class="footer-repo footer-meta-line">
-                Reference pages: <a href="/names/" class="footer-link">Names hub</a> · <a href="/kalabhairava-sahasranama-pdf/" class="footer-link">Free PDFs</a> · <a href="/sources/" class="footer-link">Sources</a>
-            </div>
-            <div class="footer-repo footer-meta-line">
-                Guides: <a href="/108-names-of-kalabhairava/" class="footer-link">108 Names</a> · <a href="/1000-names-of-kalabhairava/" class="footer-link">1000 Names</a> · <a href="/kalabhairava-sahasranama-lyrics/" class="footer-link">Lyrics</a> · <a href="/kalabhairava-sahasranama-benefits/" class="footer-link">Benefits</a>
-            </div>
-            <div class="footer-repo footer-meta-line">
-                <a href="/about/" class="footer-link">About</a> · <a href="/contact/" class="footer-link">Contact</a> · <a href="/privacy/" class="footer-link">Privacy</a>
-            </div>
-            <div class="footer-repo footer-meta-line footer-range-links">
-                Browse names by range:
-                {ranges.map((range, index) => (
-                    <span>{index > 0 ? ' · ' : ' '}<a href={range.path} class="footer-link">Names {range.label}</a></span>
-                ))}
-            </div>
-            <div class="footer-repo footer-meta-line">
-                ⭐ Open source on GitHub: <a href="https://github.com/09ashishkapoor/kalabhairava1000names" target="_blank" rel="noopener noreferrer" class="footer-link">View repository</a>
-            </div>
-            <div class="footer-version">
-                Version <span id="version-number">V{siteVersion}</span> | Last Updated: <span id="last-updated">{lastUpdatedDisplay}</span>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts: Deferred to avoid render-blocking -->
-    <script is:inline define:vars={{ assetVersion, initialNamesPayload }}>
-        window.__ASSET_VERSION__ = assetVersion;
-        window.__INITIAL_NAMES_PAYLOAD__ = initialNamesPayload;
-    </script>
-    <script src={versionedAsset('/translations.js')} defer data-cfasync="false" is:inline></script>
-    <script src={versionedAsset('/navigation.js')} defer data-cfasync="false" is:inline></script>
-    <script type="module" src={versionedAsset('/app.js')} defer data-cfasync="false" is:inline></script>
-    <script is:inline>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js?v=' + encodeURIComponent(window.__ASSET_VERSION__ || ''))
-                .catch(error => {
-                    console.warn('Could not register service worker:', error);
-                });
-        });
-    }
-    </script>
-    </script>
-</body>
-</html>
+	<script type="application/json" id="pothi-index" set:html={indexJson} />
+	<script type="application/json" id="pothi-boot" set:html={bootJson} />
+	<script src="/pothi-reader.js" defer></script>
+</PothiLayout>

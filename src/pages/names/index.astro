@@ -1,115 +1,162 @@
 ---
-import ReferenceLayout from '../../layouts/ReferenceLayout.astro';
+import PothiLayout from "../../layouts/PothiLayout.astro";
+import { getStaticNamesData } from "../../lib/staticNames.js";
 
-import { getStaticNamesData } from '../../lib/staticNames.js';
-
-const { hub, totalCount, ranges } = getStaticNamesData();
+const { hub, totalCount, ranges, totalSets } = getStaticNamesData();
 
 const hubSchema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'CollectionPage',
-      '@id': `${hub.canonical}#webpage`,
-      name: 'Kalabhairava Names Hub',
-      description: hub.description,
-      url: hub.canonical,
-      inLanguage: 'en',
-      isPartOf: {
-        '@id': 'https://bhairavakalikenamosthute.com/#website'
-      },
-      hasPart: ranges.map((range) => ({
-        '@type': 'CollectionPage',
-        name: range.heading,
-        url: range.canonical
-      }))
-    },
-    {
-      '@type': 'BreadcrumbList',
-      '@id': `${hub.canonical}#breadcrumb`,
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Home',
-          item: 'https://bhairavakalikenamosthute.com/'
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Names Hub',
-          item: hub.canonical
-        }
-      ]
-    }
-  ]
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "CollectionPage",
+			"@id": `${hub.canonical}#webpage`,
+			name: "Kalabhairava Names Hub",
+			description: hub.description,
+			url: hub.canonical,
+			inLanguage: "en",
+			isPartOf: {
+				"@id": "https://bhairavakalikenamosthute.com/#website",
+			},
+			hasPart: ranges.map((range) => ({
+				"@type": "CollectionPage",
+				name: range.heading,
+				url: range.canonical,
+			})),
+		},
+		{
+			"@type": "BreadcrumbList",
+			"@id": `${hub.canonical}#breadcrumb`,
+			itemListElement: [
+				{
+					"@type": "ListItem",
+					position: 1,
+					name: "Home",
+					item: "https://bhairavakalikenamosthute.com/",
+				},
+				{
+					"@type": "ListItem",
+					position: 2,
+					name: "Names Hub",
+					item: hub.canonical,
+				},
+			],
+		},
+	],
 };
 ---
 
-<ReferenceLayout
+<PothiLayout
 	title={hub.title}
 	description={hub.description}
 	canonical={hub.canonical}
 	schema={hubSchema}
+	fore={{ count: ranges.length, current: 0 }}
 >
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-				<ol>
-					<li><a href="/">Home</a></li>
-					<li><span aria-current="page">Names hub</span></li>
-				</ol>
-			</nav>
-<p class="page-kicker">Static study hub</p>
-      <h1>Kalabhairava Names Hub</h1>
+	<nav class="crumbs" aria-label="Breadcrumb">
+		<ol>
+			<li><a href="/">Home</a></li>
+			<li><span aria-current="page">Names hub</span></li>
+		</ol>
+	</nav>
 
-      <figure class="page-figure">
-        <img
-          src="/kalabhairava-bg-desktop.webp"
-          alt="Statue of Kalabhairava with a trident, skull garland, and red hibiscus flowers"
-          width="1920"
-          height="1080"
-          loading="lazy"
-          decoding="async"
-        />
-        <figcaption>Kalabhairava — devotional image used on this site.</figcaption>
-      </figure>
+	<p class="kicker">नामावली · 1,000 names, ten ranges</p>
+	<h1>Kalabhairava Names Hub</h1>
+	<p class="iast-title">Nāmāvalī</p>
+	<p class="common-title">{totalCount} names · {ranges.length} ranges · {totalSets} sets of eleven</p>
 
-      <section class="hero-panel">
-        <p class="intro">Use this static hub to browse all <strong>{totalCount}</strong> Kalabhairava names by range. Each section page lists its entries with one-line and detailed English meanings, and every name links to its own reference page with Devanagari, transliteration, alternate spellings, and meaning.</p>
-        <nav class="page-nav" aria-label="Hub navigation">
-          <ul>
-            <li><a href="/">Open the interactive homepage reader</a></li>
-            <li><a href="/kalabhairava-sahasranama-pdf/">Download the free PDF editions</a></li>
-            <li><a href="/sources/">Read sources and editorial notes</a></li>
-            <li><a href="/108-names-of-kalabhairava/">108 names of Kalabhairava</a></li>
-            <li><a href="/1000-names-of-kalabhairava/">1,008 vs 1,000 names</a></li>
-            <li><a href="/kalabhairava-sahasranama-lyrics/">Kalabhairava Sahasranama lyrics</a></li>
-            <li><a href="/kalabhairava-sahasranama-benefits/">Kalabhairava Sahasranama benefits</a></li>
-          </ul>
-        </nav>
-      </section>
+	<div class="prose lede" style="margin-top:clamp(22px,3vw,32px)">
+		<p>
+			Use this static hub to browse all <strong>{totalCount}</strong> Kalabhairava names by
+			range. Each section page lists its entries with one-line and detailed English meanings,
+			and every name links to its own reference page with Devanagari, transliteration,
+			alternate spellings, and meaning.
+		</p>
+	</div>
 
-      <section class="ranges-panel" aria-labelledby="ranges-heading">
-        <div class="section-heading">
-          <p class="section-kicker">Directory</p>
-          <h2 id="ranges-heading">Browse by name ranges</h2>
-        </div>
-        <ol class="range-list">
-          {ranges.map((range) => (
-            <li>
-              <a href={range.path}>{range.heading}</a>
-              <div>Starts with {range.firstName.english} and ends with {range.lastName.english}.</div>
-            </li>
-          ))}
-        </ol>
-      </section>
+	<nav class="rtabs" aria-label="Name ranges" style="margin-top:clamp(22px,3vw,32px)">
+		{
+			ranges.map((range) => (
+				<a href={range.path}>{range.displayLabel}</a>
+			))
+		}
+	</nav>
 
-      <section class="source-notes" aria-labelledby="hub-source-notes-heading">
-        <h2 id="hub-source-notes-heading">Sources and notes</h2>
-        <p>This project compiles devotional source material and explanatory meaning notes for spiritual study and chanting support.</p>
-        <p>Primary public references used during compilation include:</p>
-        <ul>
-          <li><a href="https://sanskritdocuments.org/" rel="noopener noreferrer">SanskritDocuments.org</a></li>
-        </ul>
-        <p>If you notice an inaccuracy, please review the open-source repository or contact the maintainer through the links on the homepage.</p>
-      </section>
-</ReferenceLayout>
+	<section class="guide-section" aria-labelledby="ranges-heading">
+		<h2 class="sec" id="ranges-heading"><span class="n">पाठ</span>Browse by name ranges</h2>
+		<div class="seealso">
+			{
+				ranges.map((range) => (
+					<a class="tl" href={range.path}>
+						<span class="t">Names {range.displayLabel}</span>
+						<span class="d"></span>
+						<span class="p">{range.count} names</span>
+					</a>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="guide-section" aria-labelledby="reference-heading">
+		<h2 class="sec" id="reference-heading"><span class="n">सन्दर्भ</span>Reference</h2>
+		<div class="seealso">
+			<a class="tl" href="/"
+				><span class="t">Open the reader</span><span class="d"></span><span class="p"
+					>sets of eleven</span
+				></a
+			>
+			<a class="tl" href="/sources/"
+				><span class="t">Read sources and editorial notes</span><span class="d"></span
+				><span class="p">editorial</span></a
+			>
+			<a class="tl" href="/kalabhairava-sahasranama-pdf/"
+				><span class="t">Download the free PDF editions</span><span class="d"></span><span
+					class="p">download</span
+				></a
+			>
+			<a class="tl" href="/108-names-of-kalabhairava/"
+				><span class="t">108 names of Kalabhairava</span><span class="d"></span><span class="p"
+					>practice set</span
+				></a
+			>
+			<a class="tl" href="/1000-names-of-kalabhairava/"
+				><span class="t">1,008 vs 1,000 names</span><span class="d"></span><span class="p"
+					>counts</span
+				></a
+			>
+			<a class="tl" href="/kalabhairava-sahasranama-lyrics/"
+				><span class="t">Sahasranama lyrics</span><span class="d"></span><span class="p"
+					>chant order</span
+				></a
+			>
+			<a class="tl" href="/kalabhairava-sahasranama-benefits/"
+				><span class="t">Sahasranama benefits</span><span class="d"></span><span class="p"
+					>practice</span
+				></a
+			>
+		</div>
+	</section>
+
+	<section class="panel" style="margin-top:clamp(30px,4vw,48px)" aria-labelledby="hub-source-notes-heading">
+		<h2 class="sec" id="hub-source-notes-heading"><span class="n">स्रोत</span>Sources and notes</h2>
+		<div class="prose">
+			<p style="font-size:16px;margin:0 0 10px">
+				This project compiles devotional source material and explanatory meaning notes for
+				spiritual study and chanting support.
+			</p>
+			<p style="font-size:16px;margin:0 0 10px">
+				Primary public references used during compilation include:
+			</p>
+			<ul>
+				<li>
+					<a href="https://sanskritdocuments.org/" rel="noopener noreferrer"
+						>SanskritDocuments.org</a
+					>
+				</li>
+			</ul>
+			<p style="font-size:16px;margin:0">
+				If you notice an inaccuracy, please review the open-source repository or contact the
+				maintainer through the links on the homepage.
+			</p>
+		</div>
+	</section>
+</PothiLayout>

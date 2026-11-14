@@ -1,5 +1,5 @@
 ---
-import ReferenceLayout from '../../layouts/ReferenceLayout.astro';
+import PothiLayout from '../../layouts/PothiLayout.astro';
 import { getStaticNamesData, getNameMapping } from '../../lib/staticNames.js';
 
 const { namePages, siteUrl } = getStaticNamesData();
@@ -67,101 +67,126 @@ const schema = {
 };
 ---
 
-<ReferenceLayout title={title} description={description} canonical={canonical} schema={schema}>
-	<nav class="breadcrumbs" aria-label="Breadcrumb">
+<PothiLayout title={title} description={description} canonical={canonical} schema={schema}>
+	<nav class="crumbs" aria-label="Breadcrumb">
 		<ol>
 			<li><a href="/">Home</a></li>
 			<li><span aria-current="page">Kalabhairava Sahasranama Lyrics</span></li>
 		</ol>
 	</nav>
 
-	<p class="page-kicker">Chant text</p>
+	<p class="kicker">Chant text</p>
 	<h1>Kalabhairava Sahasranama Lyrics — 1,000-Name Chant Text</h1>
 
-	<section class="hero-panel landing-intro">
-		<p class="intro">
+	<div class="prose lede" style="margin-top:clamp(22px,3vw,32px)">
+		<p>
 			The “lyrics” of the Kalabhairava Sahasranama are the <strong>names of the Lord recited in sequence</strong>.
 			This page gives the chant order, the opening names, and links to the complete 1,000-name text in English,
 			Devanagari and transliteration — plus a free printable PDF for practice and offline recitation.
 		</p>
-		<nav class="page-nav" aria-label="Page navigation">
-			<ul>
-				<li><a href="#opening-lyrics">Read the opening names</a></li>
-				<li><a href="/downloads/kalabhairava-sahasranama-names.pdf">Download the chant PDF</a></li>
-				<li><a href="/names/">Open the full 1,000-name text</a></li>
-			</ul>
-		</nav>
-	</section>
+	</div>
 
-	<section class="landing-section">
-		<h2>How the Kalabhairava Sahasranama is structured</h2>
-		<p>
-			The Kalabhairava Sahasranama on this site contains 1,000 names in a fixed sequence. The names are dative
-			salutations — each name ends in a form meaning “to that one” and is traditionally followed by <em>namaḥ</em>
-			— so the list is a continuous stream of homage rather than a set of isolated titles.
-		</p>
-		<p>
-			The names are traditionally recited in order from beginning to end. Because the list is long, it is organized
-			here into ten ranges of one hundred names so a reader can start anywhere and still follow the same order.
-			For daily practice, many devotees use a shorter set such as the
-			<a href="/108-names-of-kalabhairava/">108 names</a> drawn from the opening of the Sahasranama.
-		</p>
-	</section>
-
-	<section class="landing-section" id="opening-lyrics" aria-labelledby="opening-lyrics-heading">
-		<h2 id="opening-lyrics-heading">Opening 27 names (chant sample)</h2>
-		<p>
-			The following names open the Sahasranama. Each is shown in common English spelling and Devanagari; the full
-			page for each name includes the IAST transliteration and meaning. In recitation the names are usually spoken
-			as one continuous stream rather than as a bulleted list.
-		</p>
-		<p class="chanted-names">
-			{openingNames.map((row, index) => (
-				<span class="chant-name">
-					{index > 0 ? ' · ' : ''}
-					<span>{row.spelling_common}</span>{' '}
-					<span class="dev" lang="sa">{row.devanagari}</span>
-				</span>
-			))}
-		</p>
-		<p>
-			Continue with the <a href="/names/">complete list by range</a>, or open the
-			<a href="/downloads/kalabhairava-sahasranama-names.pdf">printable PDF</a> for the full sequence with meanings.
-		</p>
-		<p>{namePages.length} individual name pages cover the full text.</p>
-	</section>
-
-	<section class="landing-section">
-		<h2>Tips for chanting the names</h2>
-		<ul>
-			<li><strong>Take the sequence as it comes.</strong> Keep the given order rather than rearranging names into a personal list.</li>
-			<li><strong>Choose a realistic pace.</strong> A slow, steady recitation of a shorter set is a better daily practice than an irregular full recitation.</li>
-			<li><strong>Use the transliteration.</strong> If the Devanagari is unfamiliar, follow the IAST form on each name page.</li>
-			<li><strong>Keep a printed copy.</strong> The printable PDF is A4-sized and designed to be marked, folded, and carried.</li>
-			<li><strong>Follow your tradition.</strong> Lineage instruction and local custom take precedence over any general guide, including this page.</li>
-		</ul>
-	</section>
-
-	<section class="landing-section">
-		<h2>Questions about the lyrics</h2>
-		<div class="faq-list">
-			{faqs.map((faq) => (
-				<div class="faq-item">
-					<h3>{faq.question}</h3>
-					<p>{faq.answer}</p>
-				</div>
-			))}
+	<section class="guide-section">
+		<div class="seealso">
+			<a class="tl" href="#opening-lyrics">
+				<span class="t">Read the opening names</span>
+				<span class="d"></span>
+				<span class="p">on this page</span>
+			</a>
+			<a class="tl" href="/downloads/kalabhairava-sahasranama-names.pdf">
+				<span class="t">Download the chant PDF</span>
+				<span class="d"></span>
+				<span class="p">download</span>
+			</a>
+			<a class="tl" href="/names/">
+				<span class="t">Open the full 1,000-name text</span>
+				<span class="d"></span>
+				<span class="p">names hub</span>
+			</a>
 		</div>
 	</section>
 
-	<section class="landing-section">
-		<h2>Continue reading</h2>
-		<ul>
-			<li><a href="/108-names-of-kalabhairava/">108 names of Kalabhairava with meanings</a></li>
-			<li><a href="/1000-names-of-kalabhairava/">How the 1,000-name count works</a></li>
-			<li><a href="/kalabhairava-sahasranama-pdf/">Kalabhairava Sahasranama PDF downloads</a></li>
-			<li><a href="/kalabhairava-sahasranama-benefits/">Benefits in the devotional tradition</a></li>
-			<li><a href="/names/">Full names hub by range</a></li>
-		</ul>
+	<section class="guide-section">
+		<h2 class="sec">How the Kalabhairava Sahasranama is structured</h2>
+		<div class="prose">
+			<p>
+				The Kalabhairava Sahasranama on this site contains 1,000 names in a fixed sequence. The names are dative
+				salutations — each name ends in a form meaning “to that one” and is traditionally followed by <em>namaḥ</em>
+				— so the list is a continuous stream of homage rather than a set of isolated titles.
+			</p>
+			<p>
+				The names are traditionally recited in order from beginning to end. Because the list is long, it is organized
+				here into ten ranges of one hundred names so a reader can start anywhere and still follow the same order.
+				For daily practice, many devotees use a shorter set such as the
+				<a href="/108-names-of-kalabhairava/">108 names</a> drawn from the opening of the Sahasranama.
+			</p>
+		</div>
 	</section>
-</ReferenceLayout>
+
+	<section class="guide-section" id="opening-lyrics" aria-labelledby="opening-lyrics-heading">
+		<h2 class="sec" id="opening-lyrics-heading">Opening 27 names (chant sample)</h2>
+		<div class="prose">
+			<p>
+				The following names open the Sahasranama. Each is shown in common English spelling and Devanagari; the full
+				page for each name includes the IAST transliteration and meaning. In recitation the names are usually spoken
+				as one continuous stream rather than as a bulleted list.
+			</p>
+			<p class="chanting">
+				{openingNames.map((row, index) => (
+					<>
+						{index > 0 && ' · '}
+						<span class="chant-name">
+							<span class="dev" lang="sa">{row.devanagari}</span>{' '}
+							<span>{row.spelling_common}</span>
+						</span>
+					</>
+				))}
+			</p>
+			<p>
+				Continue with the <a href="/names/">complete list by range</a>, or open the
+				<a href="/downloads/kalabhairava-sahasranama-names.pdf">printable PDF</a> for the full sequence with meanings.
+			</p>
+			<p>{namePages.length} individual name pages cover the full text.</p>
+		</div>
+	</section>
+
+	<section class="guide-section">
+		<h2 class="sec">Tips for chanting the names</h2>
+		<div class="prose">
+			<ul>
+				<li><strong>Take the sequence as it comes.</strong> Keep the given order rather than rearranging names into a personal list.</li>
+				<li><strong>Choose a realistic pace.</strong> A slow, steady recitation of a shorter set is a better daily practice than an irregular full recitation.</li>
+				<li><strong>Use the transliteration.</strong> If the Devanagari is unfamiliar, follow the IAST form on each name page.</li>
+				<li><strong>Keep a printed copy.</strong> The printable PDF is A4-sized and designed to be marked, folded, and carried.</li>
+				<li><strong>Follow your tradition.</strong> Lineage instruction and local custom take precedence over any general guide, including this page.</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="guide-section">
+		<h2 class="sec">Questions about the lyrics</h2>
+		<div class="prose">
+			<div class="faq-list">
+				{faqs.map((faq) => (
+					<article class="faq-item">
+						<h3>{faq.question}</h3>
+						<p>{faq.answer}</p>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="guide-section">
+		<h2 class="sec">Continue reading</h2>
+		<div class="prose">
+			<ul>
+				<li><a href="/108-names-of-kalabhairava/">108 names of Kalabhairava with meanings</a></li>
+				<li><a href="/1000-names-of-kalabhairava/">How the 1,000-name count works</a></li>
+				<li><a href="/kalabhairava-sahasranama-pdf/">Kalabhairava Sahasranama PDF downloads</a></li>
+				<li><a href="/kalabhairava-sahasranama-benefits/">Benefits in the devotional tradition</a></li>
+				<li><a href="/names/">Full names hub by range</a></li>
+			</ul>
+		</div>
+	</section>
+</PothiLayout>

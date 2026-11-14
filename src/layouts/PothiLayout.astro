@@ -1,0 +1,222 @@
+---
+// The Pothi — one shell for every page: running head, night control,
+// colophon, and the shared stylesheet order. Page templates only supply
+// content and the head metadata they already owned.
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { getStaticNamesData } from "../lib/staticNames.js";
+
+const versionJson = JSON.parse(
+	readFileSync(join(process.cwd(), "public", "version.json"), "utf8"),
+);
+const siteVersion = versionJson.version || "1.0";
+const lastUpdatedDisplay = new Intl.DateTimeFormat("en-US", {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+}).format(new Date());
+
+const {
+	title,
+	description = "",
+	canonical = null,
+	schema = null,
+	schemas = null,
+	robots = "index,follow,max-image-preview:large,max-snippet:-1",
+	ogType = "article",
+	ogLocale = "en_US",
+	prevUrl = null,
+	nextUrl = null,
+	reader = false,
+	wide = false,
+	fore = null,
+	active = null,
+} = Astro.props;
+
+const path = Astro.url.pathname;
+const siteUrl = "https://bhairavakalikenamosthute.com";
+const siteName = "Kalabhairava 1000 Names";
+const ogImage = `${siteUrl}/kalabhairava-bg-desktop.webp`;
+
+const navItems = [
+	{ label: "Reader", href: "/" },
+	{ label: "Names", href: "/names/" },
+	{ label: "Sources", href: "/sources/" },
+];
+
+function isCurrent(href) {
+	if (active) return active === href;
+	if (href === "/") return path === "/";
+	if (href === "/names/") return path === "/names/" || path.startsWith("/names/");
+	return path === href || path.startsWith(href);
+}
+
+const schemaBlocks = schemas ?? (schema ? [schema] : []);
+const foreCount = fore?.count ?? 0;
+const foreCurrent = Number.isInteger(fore?.current) ? fore.current : -1;
+
+const { ranges, totalCount } = getStaticNamesData();
+
+const footerPages = [
+	{ label: "The reader", href: "/" },
+	{ label: "Names hub", href: "/names/" },
+	{ label: "Sources", href: "/sources/" },
+	{ label: "108 names", href: "/108-names-of-kalabhairava/" },
+	{ label: "1000 names", href: "/1000-names-of-kalabhairava/" },
+	{ label: "PDF", href: "/kalabhairava-sahasranama-pdf/" },
+	{ label: "Lyrics", href: "/kalabhairava-sahasranama-lyrics/" },
+	{ label: "Benefits", href: "/kalabhairava-sahasranama-benefits/" },
+	{ label: "About", href: "/about/" },
+	{ label: "Contact", href: "/contact/" },
+	{ label: "Privacy", href: "/privacy/" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		{description && <meta name="description" content={description} />}
+		<meta name="robots" content={robots} />
+		<meta name="author" content="KaliPutra-Ashish" />
+		<meta name="google" content="notranslate" />
+		<meta name="theme-color" content="#faf3e3" />
+		<meta name="color-scheme" content="light dark" />
+		{canonical && <link rel="canonical" href={canonical} />}
+		{prevUrl && <link rel="prev" href={prevUrl} />}
+		{nextUrl && <link rel="next" href={nextUrl} />}
+
+		<meta property="og:type" content={ogType} />
+		<meta property="og:title" content={title} />
+		{description && <meta property="og:description" content={description} />}
+		{canonical && <meta property="og:url" content={canonical} />}
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:alt" content="Kalabhairava — devotional artwork" />
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:locale" content={ogLocale} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		{description && <meta name="twitter:description" content={description} />}
+		<meta name="twitter:image" content={ogImage} />
+		<meta name="twitter:image:alt" content="Kalabhairava — devotional artwork" />
+
+		<link rel="icon" type="image/webp" href="/kalabhairava-bg-desktop.webp" />
+		<link rel="apple-touch-icon" href="/kalabhairava-bg-desktop.webp" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Noto+Serif+Devanagari:wght@400;600&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="stylesheet" href="/pothi-system.css" />
+		<link rel="stylesheet" href="/theme-kalabhairava.css" />
+		{reader && <link rel="stylesheet" href="/pothi-reader.css" />}
+
+		<script is:inline>
+			(function () {
+				try {
+					var t = localStorage.getItem("pothi-theme");
+					if (!t) {
+						t = window.matchMedia("(prefers-color-scheme: dark)").matches
+							? "night"
+							: "day";
+					}
+					if (t === "night") document.documentElement.dataset.theme = "night";
+				} catch (e) {}
+			})();
+		</script>
+
+		{
+			schemaBlocks.map((block) => (
+				<script
+					type="application/ld+json"
+					set:html={JSON.stringify(block).replace(/</g, "\\u003c")}
+				/>
+			))
+		}
+
+		<slot name="head" />
+	</head>
+	<body>
+		<a class="skip-link" href="#main">Skip to content</a>
+
+		{
+			foreCount > 0 && (
+				<div class="fore" aria-hidden="true">
+					{Array.from({ length: foreCount }, (_, index) => (
+						<i class={index === foreCurrent ? "now" : undefined} />
+					))}
+				</div>
+			)
+		}
+
+		<header class="bar">
+			<a class="brand" href="/" translate="no">
+				<span class="dev" lang="sa">कालभैरव सहस्रनाम</span>
+				<span class="lat">Kalabhairava</span>
+			</a>
+			<nav aria-label="Site">
+				{navItems.map((item) => (
+					<a
+						href={item.href}
+						aria-current={isCurrent(item.href) ? "page" : undefined}
+					>
+						{item.label}
+					</a>
+				))}
+			</nav>
+			<button
+				class="theme"
+				type="button"
+				data-theme-toggle
+				aria-pressed="false"
+				aria-label="Switch to night reading"
+			>
+				<span class="sw" aria-hidden="true"></span><span class="lbl">Night</span>
+			</button>
+		</header>
+
+		<main id="main" class={wide ? "home-main" : "page"} tabindex="-1">
+			{wide ? <slot /> : <div class="narrow"><slot /></div>}
+		</main>
+
+		<footer class="colophon">
+			<div class="om">ॐ</div>
+			<p class="ded">
+				Dedicated to <strong>Shri Praveen Radhakrishnan</strong> and <strong
+					>Khyapa Parampara</strong
+				>
+			</p>
+			<p class="mantra">Jai Ma Krishna<br />Jai Mā Ādya Mahākālī<br />Jai Kālabhairava</p>
+			<div class="links">
+				{footerPages.map((item) => <a href={item.href}>{item.label}</a>)}
+			</div>
+			<p class="fine">
+				Ranges:
+				{
+					ranges.map((range, index) => (
+						<Fragment>
+							{index > 0 && " · "}
+							<a href={range.path}>{range.displayLabel}</a>
+						</Fragment>
+					))
+				}
+			</p>
+			<p class="fine">
+				Kalabhairava Sahasranāma · {totalCount.toLocaleString("en-US")} names · The Pothi
+			</p>
+			<p class="fine">
+				Version V{siteVersion} · Last updated {lastUpdatedDisplay} ·
+				<a href="https://github.com/09ashishkapoor/kalabhairava1000names" rel="noopener noreferrer"
+					>Open source on GitHub</a
+				>
+			</p>
+		</footer>
+
+		<script src="/pothi-theme.js" defer></script>
+	</body>
+</html>

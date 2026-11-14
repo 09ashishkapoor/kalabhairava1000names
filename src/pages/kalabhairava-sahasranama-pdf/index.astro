@@ -1,5 +1,5 @@
 ---
-import ReferenceLayout from '../../layouts/ReferenceLayout.astro';
+import PothiLayout from '../../layouts/PothiLayout.astro';
 
 const siteUrl = 'https://bhairavakalikenamosthute.com';
 const canonical = `${siteUrl}/kalabhairava-sahasranama-pdf/`;
@@ -85,128 +85,136 @@ const schema = {
 };
 ---
 
-<ReferenceLayout title={title} description={description} canonical={canonical} schema={schema}>
-	<nav class="breadcrumbs" aria-label="Breadcrumb">
+<PothiLayout title={title} description={description} canonical={canonical} schema={schema}>
+	<nav class="crumbs" aria-label="Breadcrumb">
 		<ol>
 			<li><a href="/">Home</a></li>
 			<li><span aria-current="page">Kalabhairava Sahasranama PDF</span></li>
 		</ol>
 	</nav>
 
-	<p class="page-kicker">Free downloads</p>
+	<p class="kicker">Free downloads</p>
 	<h1>Kalabhairava Sahasranama PDF</h1>
 
-	<section class="hero-panel landing-intro">
-		<p class="intro">
+	<div class="prose lede" style="margin-top:clamp(22px,3vw,32px)">
+		<p>
 			Download the Kalabhairava Sahasranama in English as a free PDF. The printable edition contains the
 			<strong>1,000 names</strong> of Kalabhairava with Devanagari, common English spellings, IAST
 			transliteration and short meanings — 66 A4 pages, about 2.4 MB, made for offline reading and printing. Archive.org editions,
 			including a Hindi edition, are also linked below.
 		</p>
-		<nav class="page-nav" aria-label="Page navigation">
+	</div>
+
+	<section class="guide-section">
+		<div class="seealso">
+			<a class="tl" href={printablePdf}>
+				<span class="t">Download printable PDF (2.4 MB)</span>
+				<span class="d"></span>
+				<span class="p">pdf</span>
+			</a>
+			<a class="tl" href={archiveEnglish}>
+				<span class="t">English on archive.org</span>
+				<span class="d"></span>
+				<span class="p">archive.org</span>
+			</a>
+			<a class="tl" href="/names/">
+				<span class="t">Read the names online</span>
+				<span class="d"></span>
+				<span class="p">names hub</span>
+			</a>
+		</div>
+	</section>
+
+	<section class="guide-section">
+		<h2 class="sec">Which download should I use?</h2>
+		<div class="prose">
+			<h3>Printable web edition</h3>
+			<p>
+				Text-based, searchable PDF generated from this site's data: 66 pages, A4, about 2.4 MB. Includes every name with Devanagari,
+				Devanagari-to-English spellings and the short English meaning. Best for printing, quick reference and
+				offline lookup.
+			</p>
+			<p><a href={printablePdf}>Download PDF</a></p>
+
+			<h3>Archive.org English edition</h3>
+			<p>
+				Long-term public copies of the Kalabhairava Sahasranama published by the author. Useful as a mirror
+				and for citation.
+			</p>
+			<p><a href={archiveEnglish}>English on archive.org</a></p>
+
+			<h3>Second digital edition</h3>
+			<p>
+				The revised digital edition of the Kalabhairava 1000 Names ebook, also archived on archive.org.
+			</p>
+			<p><a href={archiveSecondEdition}>Open second digital edition</a></p>
+
+			<h3>Hindi edition</h3>
+			<p>
+				A separate Hindi edition is published by the same author on archive.org. It is not hosted or
+				maintained on this English site.
+			</p>
+			<p><a href={archiveHindi}>Hindi on archive.org</a></p>
+		</div>
+	</section>
+
+	<section class="guide-section">
+		<h2 class="sec">What is inside the printable edition</h2>
+		<div class="prose">
 			<ul>
-				<li><a href={printablePdf}>Download printable PDF (2.4 MB)</a></li>
-				<li><a href={archiveEnglish}>English on archive.org</a></li>
-				<li><a href="/names/">Read the names online</a></li>
+				<li>A cover with the Kalabhairava devotional image.</li>
+				<li>A short introduction on the text and its transliteration choices.</li>
+				<li>The full name sequence in Sahasranama order, numbered.</li>
+				<li>Devanagari, common English spelling and IAST transliteration for every name.</li>
+				<li>A short English meaning for every name.</li>
+				<li>Sources, citation links and a correction path.</li>
 			</ul>
-		</nav>
+			<p class="callout">
+				Looking for the complete meaning notes rather than the short list? Use the online
+				<a href="/names/">names hub</a>: every name links to a page with its longer explanation.
+			</p>
+		</div>
 	</section>
 
-	<section class="landing-section">
-		<h2>Which download should I use?</h2>
-		<div class="download-grid">
-			<div class="download-card">
-				<h3>Printable web edition</h3>
-				<p>
-					Text-based, searchable PDF generated from this site's data: 66 pages, A4, about 2.4 MB. Includes every name with Devanagari,
-					Devanagari-to-English spellings and the short English meaning. Best for printing, quick reference and
-					offline lookup.
-				</p>
-				<nav class="page-nav" aria-label="Printable edition download">
-					<ul><li><a href={printablePdf}>Download PDF</a></li></ul>
-				</nav>
-			</div>
-			<div class="download-card">
-				<h3>Archive.org English edition</h3>
-				<p>
-					Long-term public copies of the Kalabhairava Sahasranama published by the author. Useful as a mirror
-					and for citation.
-				</p>
-				<nav class="page-nav" aria-label="Archive.org English edition">
-					<ul><li><a href={archiveEnglish}>English on archive.org</a></li></ul>
-				</nav>
-			</div>
-			<div class="download-card">
-				<h3>Second digital edition</h3>
-				<p>
-					The revised digital edition of the Kalabhairava 1000 Names ebook, also archived on archive.org.
-				</p>
-				<nav class="page-nav" aria-label="Second digital edition">
-					<ul><li><a href={archiveSecondEdition}>Open second digital edition</a></li></ul>
-				</nav>
-			</div>
-			<div class="download-card">
-				<h3>Hindi edition</h3>
-				<p>
-					A separate Hindi edition is published by the same author on archive.org. It is not hosted or
-					maintained on this English site.
-				</p>
-				<nav class="page-nav" aria-label="Hindi edition">
-					<ul><li><a href={archiveHindi}>Hindi on archive.org</a></li></ul>
-				</nav>
+	<section class="guide-section">
+		<h2 class="sec">Using and sharing the PDF</h2>
+		<div class="prose">
+			<p>
+				The printable edition is free for personal and devotional use. When sharing, link to this page rather than
+				redistributing modified copies, so readers always get the current version. For formal citation, link to the
+				specific name page or range page on the website; those HTML pages are the crawlable reference versions.
+			</p>
+			<p>
+				To print, open the PDF in any standard viewer and choose actual size (100%) on A4 paper. Black-and-white
+				printing is fine; the Devanagari column remains legible.
+			</p>
+		</div>
+	</section>
+
+	<section class="guide-section">
+		<h2 class="sec">Questions about the Kalabhairava Sahasranama PDF</h2>
+		<div class="prose">
+			<div class="faq-list">
+				{faqs.map((faq) => (
+					<article class="faq-item">
+						<h3>{faq.question}</h3>
+						<p>{faq.answer}</p>
+					</article>
+				))}
 			</div>
 		</div>
 	</section>
 
-	<section class="landing-section">
-		<h2>What is inside the printable edition</h2>
-		<ul>
-			<li>A cover with the Kalabhairava devotional image.</li>
-			<li>A short introduction on the text and its transliteration choices.</li>
-			<li>The full name sequence in Sahasranama order, numbered.</li>
-			<li>Devanagari, common English spelling and IAST transliteration for every name.</li>
-			<li>A short English meaning for every name.</li>
-			<li>Sources, citation links and a correction path.</li>
-		</ul>
-		<p class="callout">
-			Looking for the complete meaning notes rather than the short list? Use the online
-			<a href="/names/">names hub</a>: every name links to a page with its longer explanation.
-		</p>
-	</section>
-
-	<section class="landing-section">
-		<h2>Using and sharing the PDF</h2>
-		<p>
-			The printable edition is free for personal and devotional use. When sharing, link to this page rather than
-			redistributing modified copies, so readers always get the current version. For formal citation, link to the
-			specific name page or range page on the website; those HTML pages are the crawlable reference versions.
-		</p>
-		<p>
-			To print, open the PDF in any standard viewer and choose actual size (100%) on A4 paper. Black-and-white
-			printing is fine; the Devanagari column remains legible.
-		</p>
-	</section>
-
-	<section class="landing-section">
-		<h2>Questions about the Kalabhairava Sahasranama PDF</h2>
-		<div class="faq-list">
-			{faqs.map((faq) => (
-				<div class="faq-item">
-					<h3>{faq.question}</h3>
-					<p>{faq.answer}</p>
-				</div>
-			))}
+	<section class="guide-section">
+		<h2 class="sec">Continue reading</h2>
+		<div class="prose">
+			<ul>
+				<li><a href="/108-names-of-kalabhairava/">108 names of Kalabhairava with meanings</a></li>
+				<li><a href="/1000-names-of-kalabhairava/">How the 1,000-name count works</a></li>
+				<li><a href="/kalabhairava-sahasranama-lyrics/">Kalabhairava Sahasranama lyrics and chant order</a></li>
+				<li><a href="/kalabhairava-sahasranama-benefits/">Kalabhairava Sahasranama benefits</a></li>
+				<li><a href="/sources/">Sources and editorial notes</a></li>
+			</ul>
 		</div>
 	</section>
-
-	<section class="landing-section">
-		<h2>Continue reading</h2>
-		<ul>
-			<li><a href="/108-names-of-kalabhairava/">108 names of Kalabhairava with meanings</a></li>
-			<li><a href="/1000-names-of-kalabhairava/">How the 1,000-name count works</a></li>
-			<li><a href="/kalabhairava-sahasranama-lyrics/">Kalabhairava Sahasranama lyrics and chant order</a></li>
-			<li><a href="/kalabhairava-sahasranama-benefits/">Kalabhairava Sahasranama benefits</a></li>
-			<li><a href="/sources/">Sources and editorial notes</a></li>
-		</ul>
-	</section>
-</ReferenceLayout>
+</PothiLayout>

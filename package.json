@@ -17,7 +17,7 @@
     "build:sitemap": "node seo/build-sitemap.mjs",
     "preview": "astro preview",
     "test": "npm run test:unit",
-    "test:unit": "node tests/app.test.js && node tests/navigation.test.js && node tests/search.test.js && node tests/ux-structure.test.js",
+    "test:unit": "node --test tests/pothi.test.mjs",
     "check:syntax": "node --check playwright.config.js && node --check playwright-tests/helpers/site.js && node --check playwright-tests/smoke.spec.js && node --check playwright-tests/accessibility.spec.js && node --check playwright-tests/visual.spec.js && node --check playwright-tests/performance.spec.js",
     "test:browser": "npm run build && playwright test",
     "test:browser:update": "npm run build && playwright test --update-snapshots",

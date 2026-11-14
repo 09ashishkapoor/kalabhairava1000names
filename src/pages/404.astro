@@ -1,0 +1,59 @@
+---
+import PothiLayout from "../layouts/PothiLayout.astro";
+
+const title = "Page not found (404) | Kalabhairava 1000 Names";
+const description =
+	"The page you asked for is not part of Kalabhairava 1000 Names. Return to the reader, the names hub, or the sources and editorial notes.";
+---
+
+<PothiLayout
+	title={title}
+	description={description}
+	robots="noindex,follow"
+	ogType="website"
+	active="/404"
+>
+	<nav class="crumbs" aria-label="Breadcrumb">
+		<ol>
+			<li><a href="/">Home</a></li>
+			<li><span aria-current="page">Page not found</span></li>
+		</ol>
+	</nav>
+
+	<p class="kicker">404 · Not in this book</p>
+	<h1 class="dev-title" lang="sa">न लब्धम्</h1>
+	<p class="iast-title">Na labdham</p>
+	<p class="common-title">This address is not part of the Sahasranama</p>
+
+	<div class="prose lede" style="margin-top:clamp(22px,3vw,32px)">
+		<p>
+			The page you asked for does not exist here. The address may have been mistyped, or the
+			page may have moved. All 1,000 names are still in the reader and in the names hub.
+		</p>
+	</div>
+
+	<section class="guide-section">
+		<div class="seealso">
+			<a class="tl" href="/"
+				><span class="t">Open the reader</span><span class="d"></span><span class="p"
+					>1,000 names</span
+				></a
+			>
+			<a class="tl" href="/names/"
+				><span class="t">Browse the names hub</span><span class="d"></span><span class="p"
+					>ten ranges</span
+				></a
+			>
+			<a class="tl" href="/sources/"
+				><span class="t">Sources and editorial notes</span><span class="d"></span><span
+					class="p">editorial</span
+				></a
+			>
+			<a class="tl" href="/108-names-of-kalabhairava/"
+				><span class="t">108 names</span><span class="d"></span><span class="p"
+					>practice set</span
+				></a
+			>
+		</div>
+	</section>
+</PothiLayout>

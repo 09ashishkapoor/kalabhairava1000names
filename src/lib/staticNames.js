@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { SET_SIZE } from "./pothi.js";
 
 const SITE_URL = "https://bhairavakalikenamosthute.com";
 const MANIFEST_PATH = join(process.cwd(), "public", "data_manifest.json");
@@ -84,6 +85,7 @@ function buildRangeMetadata(entries, rangeNumber, totalRanges) {
 		end,
 		count: entries.length,
 		label: `${start}-${end}`,
+		displayLabel: `${start}–${end}`,
 		title: `Kalabhairava Names ${start}-${end} | 1000 Names of Kalabhairava`,
 		description: `Read Kalabhairava Sahasranama names ${start}-${end}, from ${first.english_name} to ${last.english_name}, with English meanings and elaborations.`,
 		heading: `Kalabhairava Names ${start}-${end}`,
@@ -107,15 +109,23 @@ export function getStaticNamesData() {
 
 	const manifest = loadDataManifest();
 	const mapping = loadNameMapping();
-	const pageSlugByNumber = new Map(
-		mapping.rows.map((row) => [Number(row.number), row.page_slug ?? null]),
+	const mappingRowByNumber = new Map(
+		mapping.rows.map((row) => [Number(row.number), row]),
 	);
 	const allEntries = manifest.files
 		.flatMap((fileName) => loadChunkFile(fileName))
-		.map((entry) => ({
-			...enrichEntry(entry),
-			page_slug: pageSlugByNumber.get(Number(entry.index)) ?? null,
-		}))
+		.map((entry) => {
+			const row = mappingRowByNumber.get(Number(entry.index)) ?? {};
+			return {
+				...enrichEntry(entry),
+				page_slug: row.page_slug ?? null,
+				devanagari: row.devanagari ?? "",
+				iast: row.iast ?? "",
+				spelling_common: row.spelling_common ?? entry.english_name,
+				spelling_site: row.spelling_site ?? entry.english_name,
+				variants: Array.isArray(row.variants) ? row.variants : [],
+			};
+		})
 		.sort((a, b) => a.index - b.index);
 
 	const rangeSize = 100;
@@ -136,10 +146,41 @@ export function getStaticNamesData() {
 		};
 	});
 
+	// The reader is bound by the text, not by a hard-coded set count:
+	// 1,000 positions in sets of eleven -> 91 sets, the last one short.
+	const sets = [];
+	for (let offset = 0; offset < allEntries.length; offset += SET_SIZE) {
+		const entries = allEntries.slice(offset, offset + SET_SIZE);
+		sets.push({
+			index: sets.length,
+			number: sets.length + 1,
+			entries,
+			start: entries[0].index,
+			end: entries[entries.length - 1].index,
+			label: `${entries[0].index}–${entries[entries.length - 1].index}`,
+		});
+	}
+
+	const pothiIndex = allEntries.map((entry) => [
+		entry.index,
+		entry.devanagari,
+		entry.iast,
+		entry.spelling_common,
+		entry.spelling_site,
+		entry.english_one_line,
+		entry.page_slug,
+	]);
+
 	cachedStaticNamesData = {
 		siteUrl: SITE_URL,
 		totalCount: allEntries.length,
 		namePages: mapping.pageGroups,
+		entries: allEntries,
+		sets,
+		totalSets: sets.length,
+		pothiIndex,
+		chunkSize: Number(manifest.chunk_size) || 200,
+		chunkCount: manifest.files.length,
 		hub: {
 			path: "/names/",
 			canonical: `${SITE_URL}/names/`,
@@ -170,6 +211,14 @@ export function getRangeNavigation(slug) {
 		previous: ranges[currentIndex - 1] ?? null,
 		next: ranges[currentIndex + 1] ?? null,
 	};
+}
+
+export function getPothiSets() {
+	return getStaticNamesData().sets;
+}
+
+export function getPothiIndex() {
+	return getStaticNamesData().pothiIndex;
 }
 
 export { splitIntoParagraphs };

@@ -37,19 +37,35 @@ async function gotoHome(page) {
 	await blockExternalTelemetry(page);
 	await page.goto("/", { waitUntil: "load" });
 	await disableMotionForStableTests(page);
-	await expect(page.locator("#names-grid .name-card").first()).toBeVisible();
+	await expect(page.locator(".reader .leaf-right .page-name")).toBeVisible();
 	await waitForFonts(page);
 }
 
 async function openNamesExplorer(page) {
 	await gotoHome(page);
-	await page.locator("#explore-btn").click();
-	await expect(page.locator("#names-section")).toBeInViewport();
+	await page.locator("#read").scrollIntoViewIfNeeded();
+	await expect(page.locator(".reader .spread")).toBeVisible();
+}
+
+async function gotoName(page, slug = "bhairavaya") {
+	await blockExternalTelemetry(page);
+	await page.goto(`/names/${slug}/`, { waitUntil: "load" });
+	await disableMotionForStableTests(page);
+	await waitForFonts(page);
+}
+
+async function gotoRange(page, slug = "1-100") {
+	await blockExternalTelemetry(page);
+	await page.goto(`/names/${slug}/`, { waitUntil: "load" });
+	await disableMotionForStableTests(page);
+	await waitForFonts(page);
 }
 
 module.exports = {
 	blockExternalTelemetry,
 	gotoHome,
+	gotoName,
+	gotoRange,
 	openNamesExplorer,
 	waitForFonts,
 };

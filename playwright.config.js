@@ -11,7 +11,7 @@ module.exports = defineConfig({
     timeout: 20_000
   },
   use: {
-    baseURL: 'http://127.0.0.1:4321',
+    baseURL: 'http://127.0.0.1:4326',
     headless: true,
     viewport: { width: 1280, height: 1800 },
     trace: 'on-first-retry',
@@ -19,8 +19,8 @@ module.exports = defineConfig({
     video: 'retain-on-failure'
   },
   webServer: {
-    command: 'npm run preview -- --host 127.0.0.1 --port 4321',
-    url: 'http://127.0.0.1:4321',
+    command: 'npm run preview -- --host 127.0.0.1 --port 4326',
+    url: 'http://127.0.0.1:4326',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000
   },
