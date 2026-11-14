@@ -96,15 +96,11 @@ PLAN-remove-hindi-mode.md
 .pi-lens/cache/session-start-guidance.meta.json
 .pi-lens/cache/todo-baseline.json
 .pi-lens/cache/todo-baseline.meta.json
-playwright-tests/smoke.spec.js
 playwright-tests/visual.spec.js-snapshots/first-visible-name-card-chromium-linux.png
 playwright-tests/visual.spec.js-snapshots/landing-content-chromium-linux.png
 playwright-tests/visual.spec.js-snapshots/names-controls-panel-chromium-linux.png
 tests/ux-structure.test.js
 tests/app.test.js
-tests/app.test.js
-tests/ux-structure.test.js
-playwright-tests/smoke.spec.js
 .pi-lens/cache/turn-end-findings-last.json
 .pi-lens/cache/turn-end-findings-last.meta.json
 .pi-lens/cache/turn-end-findings.json
