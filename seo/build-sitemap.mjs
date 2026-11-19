@@ -17,8 +17,9 @@ function staticEntries() {
 	const manifest = JSON.parse(readFileSync(MANIFEST_PATH, "utf8"));
 	const total = Number(manifest.total);
 
+	const today = new Date().toISOString().slice(0, 10);
 	const entries = [
-		{ loc: `${SITE_URL}/`, lastmod: "2026-04-21", changefreq: "weekly", priority: "1.0" },
+		{ loc: `${SITE_URL}/`, lastmod: today, changefreq: "weekly", priority: "1.0" },
 		{ loc: `${SITE_URL}/names/`, lastmod: "2026-04-26", changefreq: "weekly", priority: "0.9" },
 		{ loc: `${SITE_URL}/sources/`, lastmod: "2026-04-30", changefreq: "monthly", priority: "0.7" },
 	];
