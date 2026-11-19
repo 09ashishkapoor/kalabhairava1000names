@@ -14,14 +14,8 @@
 :root[data-theme="night"] body{
     background-image:repeating-linear-gradient(90deg,rgba(211,171,90,.035) 0 1px,transparent 1px 3px);
   }
-  :root[data-theme="night"] .frontis{background:#0e0b09}
-  :root[data-theme="night"] .frontis img{filter:grayscale(1) sepia(.3) contrast(1.04) brightness(.6)}
-  :root[data-theme="night"] .frontis::after{
-    background:linear-gradient(180deg,rgba(14,11,9,.10),rgba(14,11,9,.6) 78%,var(--paper-2));
-  }
-  :root[data-theme="night"] .frontis .plate{
-    background:linear-gradient(180deg,transparent,rgba(6,4,3,.88));
-  }
+  /* The frontispiece is deliberately theme-locked: the deity image keeps the
+     same dark treatment in both day and night modes. Only print resets it. */
 
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -56,14 +50,14 @@
 
   /* cover */
   .cover{display:grid;grid-template-columns:.9fr 1.1fr;min-height:calc(100vh - 59px);position:relative}
-  .frontis{position:relative;overflow:hidden;background:var(--paper-3)}
+  .frontis{position:relative;overflow:hidden;background:#0e0b09}
   .frontis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;
-               filter:grayscale(1) sepia(.34) contrast(1.06) brightness(.94)}
+               filter:grayscale(1) sepia(.3) contrast(1.04) brightness(.6)}
   .frontis::after{content:"";position:absolute;inset:0;
-               background:linear-gradient(180deg,rgba(246,239,221,.10),rgba(228,216,191,.55) 82%,var(--paper-2))}
+               background:linear-gradient(180deg,rgba(14,11,9,.10),rgba(14,11,9,.6) 78%,#120e0b)}
   .frontis .plate{position:absolute;left:0;right:0;bottom:0;z-index:2;font-family:var(--serif);font-size:12px;
                font-variant:all-small-caps;letter-spacing:.16em;color:#f8f2e2;padding:14px 26px 16px;
-               background:linear-gradient(180deg,transparent,rgba(28,20,10,.78))}
+               background:linear-gradient(180deg,transparent,rgba(6,4,3,.88))}
   .cover-copy{padding:clamp(30px,5vw,66px) var(--edge) clamp(30px,5vw,56px) clamp(24px,4vw,56px);
               display:flex;flex-direction:column;justify-content:center;position:relative}
   .cover-copy .kicker{font-family:var(--serif);font-size:15px;font-variant:all-small-caps;letter-spacing:.18em;color:var(--cinnabar);margin:0 0 18px}
