@@ -4,7 +4,7 @@ A free devotional reference for the **Kalabhairava Sahasranama**: 1,000 names
 of Sri Kalabhairava with English one-line meanings, longer explanations,
 Devanagari, IAST transliteration and a printable PDF.
 
-Live site: <https://bhairavakalikenamosthute.com> — deployed on Cloudflare Pages on 2026-11-07.
+Live site: <https://bhairavakalikenamosthute.com> — built with Astro and deployed on Cloudflare Pages (Astro deployment since 2026-11-07).
 
 ## Stack
 
@@ -18,8 +18,9 @@ Live site: <https://bhairavakalikenamosthute.com> — deployed on Cloudflare Pag
 - Night reading on every page: pre-paint script in `<head>`, `pothi-theme.js`, and
   the control in the running head. Print always uses the day tokens.
 - Playwright browser tests + Node unit tests, run by GitHub Actions.
-- Python scripts are only used for the printable PDF build (Chrome headless via
-  the PDF generator); the live site itself is pure static HTML/CSS/JS.
+- The Python scripts left at the repository root are legacy. The printable PDF
+  is built with `seo/build-print-pdf.mjs` (Node + Chrome headless); the live site
+  itself is pure static HTML/CSS/JS.
 
 ## Project layout
 
@@ -71,7 +72,7 @@ The site has 1,000 names in 91 sets of eleven (the last set holds ten), ten
 ranges of one hundred, 925 unique name pages, and 946 sitemap URLs (925 name
 pages + 10 ranges + the hub, reader and sources pages + 8 existing guide/trust
 pages). The legacy framework-free files remain at the repository root for
-rollback until the Astro deployment is confirmed and are not part of `dist/`.
+reference and are not part of `dist/`.
 
 
 ## Commands
@@ -114,6 +115,7 @@ Cloudflare Pages (detailed checklist in [`DEPLOYMENT.md`](DEPLOYMENT.md)):
 - Build command: `npm run build`
 - Build output directory: `dist`
 - Node version: 22 (`HUSKY=0` so the version-bump hook is skipped in CI)
+- Custom domain: `bhairavakalikenamosthute.com` — the only domain attached to the project.
 
 Owner-specific external steps (search console, archive links, cache rules) are
 tracked in [`seo/owner-actions.md`](seo/owner-actions.md).
