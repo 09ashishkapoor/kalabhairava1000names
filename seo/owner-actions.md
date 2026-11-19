@@ -34,13 +34,9 @@ Nothing here requires touching the Astro code.
    - Environment: `HUSKY=0`, `NODE_VERSION=22`
 2. Production deploy verified after the switch (new homepage, name pages,
    946-URL sitemap, PDF, `/pdf/` and `/info.html` redirects).
-3. Two custom domains are attached to the project:
-   - `bhairavakalikenamosthute.com` (canonical)
-   - `bhairavakaalikenamosthute.com` (extra "aa" domain; currently also serves
-     the site)
-   Decide whether to keep the second domain. If kept, make it 301 to the
-   canonical domain in Cloudflare; otherwise remove it from the Pages project so
-   Google does not see duplicate content.
+3. One custom domain is attached to the project:
+   - `bhairavakalikenamosthute.com` (canonical). The extra "aa" variant was
+     retired; only this domain is used going forward.
 4. Optional after deploy: purge cache for `/`, `/names/*`, `/sw.js`,
    `/version.json`; add a Cloudflare cache rule so HTML is revalidated while
    `/downloads/*.pdf`, images and `/reference.css` are cached for longer.
