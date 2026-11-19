@@ -114,3 +114,6 @@ PLAN-update-prose-from-text.md
 
 # Local SERP/visibility audit tooling (reads local API keys; not part of the site)
 search-quality/
+
+# Local review/visual-check artifacts (screenshots and generated reports)
+artifacts/
