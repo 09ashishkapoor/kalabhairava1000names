@@ -50,6 +50,7 @@
 
   var setIndex = 0;
   var current = 0;
+  var searchMode = false;
   var loading = false;
   var reduceMotion =
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -198,6 +199,17 @@
         buttons[i].removeAttribute("aria-current");
       }
     }
+    var resultButtons = document.querySelectorAll(
+      "#toc button[data-pos], #mlist button[data-pos]"
+    );
+    var globalCurrent = setIndex * SET_SIZE + current;
+    for (var j = 0; j < resultButtons.length; j++) {
+      if (Number(resultButtons[j].getAttribute("data-pos")) === globalCurrent) {
+        resultButtons[j].setAttribute("aria-current", "true");
+      } else {
+        resultButtons[j].removeAttribute("aria-current");
+      }
+    }
   }
 
   function updateTurn() {
@@ -304,7 +316,7 @@
     var none = document.createElement("li");
     none.className = "none";
     none.id = "mNone";
-    none.textContent = "No name in this set matches that search.";
+    none.textContent = "No name in the book matches that search.";
     fragmentMobile.appendChild(none);
 
     tocEl.appendChild(fragmentToc);
@@ -317,10 +329,9 @@
     if (findCount) findCount.textContent = "";
     if (qInput) qInput.value = "";
     if (mqInput) mqInput.value = "";
+    searchMode = false;
 
     updateAriaCurrent();
-    filter();
-    mfilter();
   }
 
   function renderChrome() {
@@ -350,38 +361,113 @@
     }
   }
 
-  function filter() {
-    if (!qInput) return;
-    var query = norm(qInput.value.trim());
-    var items = tocEl.querySelectorAll("li[data-search]");
-    var shown = 0;
-    for (var i = 0; i < items.length; i++) {
-      var hit = !query || items[i].getAttribute("data-search").indexOf(query) !== -1;
-      items[i].classList.toggle("is-hidden", !hit);
-      if (hit) shown++;
-    }
-    var total = setCache.get(setIndex) ? setCache.get(setIndex).length : SET_SIZE;
-    if (findCount) findCount.textContent = query ? shown + "/" + total : "";
-    if (listCount) {
-      listCount.textContent = query
-        ? shown + " of " + total + " names"
-        : total + " names";
-    }
+  // The embedded index carries all 1,000 names with their one-line meanings,
+  // so search does not need the network or the heavy elaboration chunks.
+  function indexEntry(row) {
+    return {
+      n: Number(row[0]),
+      d: row[1],
+      i: row[2],
+      c: row[3],
+      src: row[4],
+      m: row[5],
+      slug: row[6],
+      e: "",
+    };
   }
 
-  function mfilter() {
-    if (!mqInput) return;
-    var query = norm(mqInput.value.trim());
-    var items = mlistEl.querySelectorAll("li[data-search]");
-    var shown = 0;
-    for (var i = 0; i < items.length; i++) {
-      var hit = !query || items[i].getAttribute("data-search").indexOf(query) !== -1;
-      items[i].classList.toggle("is-hidden", !hit);
-      if (hit) shown++;
+  function indexSearchText(row) {
+    return norm(row[1] + " " + row[2] + " " + row[3] + " " + row[4] + " " + row[5]);
+  }
+
+  function globalMatches(query) {
+    var needle = norm(query.trim());
+    var matches = [];
+    if (!needle) return matches;
+    for (var i = 0; i < index.length; i++) {
+      if (indexSearchText(index[i]).indexOf(needle) !== -1) {
+        matches.push({ position: i, entry: indexEntry(index[i]) });
+      }
     }
-    var total = setCache.get(setIndex) ? setCache.get(setIndex).length : SET_SIZE;
-    if (mcount) mcount.textContent = query ? shown + "/" + total : total + " names";
-    if (mNone) mNone.classList.toggle("on", !!query && shown === 0);
+    return matches;
+  }
+
+  function resultItem(entry, position, mobile) {
+    var li = document.createElement("li");
+    li.setAttribute("data-search", entrySearch(entry));
+    var button = document.createElement("button");
+    button.type = "button";
+    button.setAttribute("data-pos", String(position));
+    if (mobile) button.setAttribute("aria-label", "Name " + entry.n + ": " + entry.c);
+    button.appendChild(el("span", "n", pad(entry.n)));
+    var names = el("span");
+    var word = el("span", "w", entry.d);
+    word.setAttribute("lang", "sa");
+    names.appendChild(word);
+    names.appendChild(el("span", "i", entry.i));
+    button.appendChild(names);
+    li.appendChild(button);
+    return li;
+  }
+
+  function renderResults(matches, query) {
+    searchMode = true;
+    tocEl.textContent = "";
+    mlistEl.textContent = "";
+
+    var fragmentToc = document.createDocumentFragment();
+    var fragmentMobile = document.createDocumentFragment();
+    matches.forEach(function (match) {
+      fragmentToc.appendChild(resultItem(match.entry, match.position, false));
+      fragmentMobile.appendChild(resultItem(match.entry, match.position, true));
+    });
+
+    var none = document.createElement("li");
+    none.className = "none";
+    none.id = "mNone";
+    none.textContent = "No name in the book matches that search.";
+    fragmentMobile.appendChild(none);
+    tocEl.appendChild(fragmentToc);
+    mlistEl.appendChild(fragmentMobile);
+    mNone = none;
+    mNone.classList.toggle("on", matches.length === 0);
+
+    var count = query ? matches.length + "/" + TOTAL : matches.length + " names";
+    if (findCount) findCount.textContent = count;
+    if (mcount) mcount.textContent = count;
+    if (listCount) {
+      listCount.textContent = query
+        ? matches.length + " of " + TOTAL.toLocaleString("en-US") + " names"
+        : matches.length + " names";
+    }
+    updateAriaCurrent();
+  }
+
+  function applySearch(source) {
+    var input = source === "mobile" ? mqInput : qInput;
+    var other = source === "mobile" ? qInput : mqInput;
+    if (!input) return;
+    var query = input.value;
+    if (other) other.value = query;
+    if (!norm(query.trim())) {
+      if (searchMode) renderLists(setCache.get(setIndex) || []);
+      return;
+    }
+    renderResults(globalMatches(query), query);
+  }
+
+  function openPosition(position, scroll) {
+    var targetSet = Math.floor(position / SET_SIZE);
+    var local = position % SET_SIZE;
+    if (qInput) qInput.value = "";
+    if (mqInput) mqInput.value = "";
+    var after =
+      targetSet === setIndex
+        ? Promise.resolve(renderLists(setCache.get(setIndex) || []))
+        : goSet(targetSet);
+    after.then(function () {
+      selectName(local, scroll);
+    });
   }
 
   function writeUrl() {
@@ -456,19 +542,31 @@
   }
 
   tocEl.addEventListener("click", function (event) {
-    var button = event.target.closest && event.target.closest("button[data-i]");
+    var button =
+      event.target.closest && event.target.closest("button[data-i], button[data-pos]");
     if (!button) return;
+    var position = button.getAttribute("data-pos");
+    if (position !== null) {
+      openPosition(Number(position), false);
+      return;
+    }
     selectName(Number(button.getAttribute("data-i")), false);
   });
 
   mlistEl.addEventListener("click", function (event) {
-    var button = event.target.closest && event.target.closest("button[data-i]");
+    var button =
+      event.target.closest && event.target.closest("button[data-i], button[data-pos]");
     if (!button) return;
+    var position = button.getAttribute("data-pos");
+    if (position !== null) {
+      openPosition(Number(position), true);
+      return;
+    }
     selectName(Number(button.getAttribute("data-i")), true);
   });
 
-  if (qInput) qInput.addEventListener("input", filter);
-  if (mqInput) mqInput.addEventListener("input", mfilter);
+  if (qInput) qInput.addEventListener("input", function () { applySearch("desktop"); });
+  if (mqInput) mqInput.addEventListener("input", function () { applySearch("mobile"); });
 
   renderChrome();
 
@@ -499,8 +597,7 @@
         selectName(local, false);
         if (qInput) qInput.value = requestedQuery;
         if (mqInput) mqInput.value = requestedQuery;
-        filter();
-        mfilter();
+        applySearch("desktop");
       });
     }
   } else if (requestedSet >= 2 && requestedSet <= TOTAL_SETS) {
