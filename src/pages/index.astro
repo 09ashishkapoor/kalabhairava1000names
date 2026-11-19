@@ -19,9 +19,9 @@ const first = firstSet.entries[0];
 const firstBlocks = parseElaboration(first.english_elaboration);
 const canonical = "https://bhairavakalikenamosthute.com/";
 const title =
-	"1000 Names of Kalabhairava (Kalabhairava Sahasranama) with Meanings | Kalabhairava 1000 Names";
+	"Bhairava Kalike Namosthute — 1000 Names of Kalabhairava (Sahasranama) with Meanings";
 const description =
-	"Read all 1,000 names of Kalabhairava with English meanings, Devanagari, and a free PDF — a searchable Kalabhairava Sahasranama index.";
+	"Bhairava Kalike Namosthute — read all 1,000 names of Kalabhairava with English meanings, Devanagari, and a free PDF. A searchable Kalabhairava Sahasranama index.";
 
 function searchText(entry) {
 	return `${entry.devanagari} ${entry.iast} ${entry.spelling_common} ${entry.spelling_site} ${entry.english_one_line}`
@@ -57,7 +57,7 @@ const homeSchemas = [
 		"@type": "WebPage",
 		"@id": "https://bhairavakalikenamosthute.com/#webpage",
 		name: "Kalabhairava 1000 Names - Complete Sahasranama",
-		alternateName: "Kālābhairava Sahasrānāma",
+		alternateName: ["Kālābhairava Sahasrānāma", "Bhairava Kalike Namosthute"],
 		description:
 			"Complete Kalabhairava 1000 Names (Sahasranama) with detailed meanings in English. Discover all 1000+ sacred names of Kalabhairava with translations, elaborations, and devotional context. Searchable and reference-ready for chanting, study, or spiritual practice.",
 		url: "https://bhairavakalikenamosthute.com/",
@@ -103,7 +103,7 @@ const homeSchemas = [
 		"@type": "WebSite",
 		"@id": "https://bhairavakalikenamosthute.com/#website",
 		name: "Kalabhairava 1000 Names",
-		alternateName: "Kālābhairava Sahasrānāma",
+		alternateName: ["Kālābhairava Sahasrānāma", "Bhairava Kalike Namosthute"],
 		url: "https://bhairavakalikenamosthute.com/",
 		inLanguage: "en",
 		description: "Complete Kalabhairava 1000 Names (Sahasranama) with detailed meanings in English",
@@ -256,6 +256,7 @@ const homeSchemas = [
 			<p class="kicker">1,000 names · Kalabhairava Sahasranama</p>
 			<h1 lang="sa"><span class="lt">कालभैरव</span><span class="lt">सहस्रनाम</span></h1>
 			<p class="lat-title">Kālabhairava Sahasranāma</p>
+			<p class="kicker">Bhairava Kalike Namosthute · through Bhairava we attain Maa Kali</p>
 			<div class="colophon">
 				<div><b>{totalCount.toLocaleString("en-US")}</b>names</div>
 				<div><b>{totalSets}</b>sets of eleven</div>
